@@ -1,0 +1,204 @@
+<resources>
+    <string name="app_name">FMCG Retail App</string>
+
+    <string name="intro">Welcome</string>
+
+    <string name="hint1">Mobile Number</string>
+
+    <string name="hint2">Password</string>
+
+    <string name="login">Login</string>
+
+    <string name="registration"><u>Register</u></string>
+
+    <string name="registration2">Click Here to </string>
+
+    <string name="save">Save</string>
+
+    <string name="amount">Enter Your Amount</string>
+
+    <string name="amounthint">exe. 5000</string>
+
+    <string name="customerName">Customer Name</string>
+
+    <string name="duedate">Duedate</string>
+
+    <string name="opening">Opening Amount</string>
+
+    <string name="shopname">Shop Name</string>
+
+    <string name="saddress">Address</string>
+
+    <string name="sownername">Shopkeeper Name</string>
+
+    <string name="shopnamehint"> Enter Your Shop Name</string>
+
+    <string name="saddresshint">Enter Your Shop Address</string>
+
+    <string name="scontacthint">Enter Your Mobile Number</string>
+
+    <string name="sownernamehint">Enter Your Shopkeeper Name</string>
+
+    <string name="openinghint">Opening Amount exe. 5000</string>
+
+    <string name="ra">Receivable Amount</string>
+
+    <string name="rahint">Receivable Amount exe. 3000 </string>
+
+    <string name="pa">Payable Amount</string>
+
+    <string name="pahint">Payable Amount exe. 1000</string>
+
+    <string name="note">Note</string>
+
+    <string name="dayend">Dayend Cash</string>
+
+    <string name="totalcash">Total Cash</string>
+
+    <string name="totalcashhint">0.00</string>
+
+    <string name="receivable">Receivable</string>
+
+    <string name="cashsales">Cash Sales</string>
+
+    <string name="totalsales">Total Sales</string>
+
+    <string name="spe">Sells / Purchase / Expense</string>
+
+    <string name="search">Search</string>
+
+    <string name="sar">Show all receivable</string>
+
+    <string name="showall">Show All</string>
+
+    <string name="sap">Show all payable</string>
+
+    <string name="rp"> Receivable/ Payable</string>
+
+    <string name="location">Location</string>
+
+    <string name="currentlocation">Current Location</string>
+
+    <string name="expense">Expense</string>
+
+    <string name="payable">Payable</string>
+
+    <string name="purchase">Purchase</string>
+
+    <string name="cashBox">CashBox</string>
+
+    <string name="newtransaction">New Transaction</string>
+
+    <string name="showtransaction">Show Transaction</string>
+
+    <string name="order">Order</string>
+
+    <string name="selector">Language Selector</string>
+
+    <string name="country">Country</string>
+
+    <string name="address">Address</string>
+
+    <string name="postalcode">Postal code</string>
+
+    <string name="city">City</string>
+
+    <string name="state">State</string>
+
+    <string name="account">Account Types</string>
+
+    <string name="dwd">Dayend/Withdrawal/Deposit</string>
+
+    <string name="trans">Transaction Types</string>
+
+    <string name="customernamehint">Enter Customer Name</string>
+
+    <string name="customernumberhint">Customer Mobile Number</string>
+
+    <string name="amounts">Amount</string>
+
+    <string name="date">exe:27-9-2020</string>
+
+    <string name="adjust">Outgoing Balance / Incoming Balance</string>
+
+
+    <string name="message_box_title">You get the Money </string>
+
+    <string name="message_timesheet_not_up_to_date">You get the money</string>
+
+    <string-array name="date">
+
+        <item> Enter DueDate / PayDate</item>
+
+        <item>Duedate</item>
+
+        <item>Paydate</item>
+
+    </string-array>
+
+    <string-array name="adjustbalance">
+
+        <item>Select Types of Balance</item>
+
+        <item>Incoming</item>
+
+        <item>Outgoing</item>
+
+    </string-array>
+
+    <string-array name="trans">
+
+        <item> Select Transaction Type</item>
+
+        <item>Cash</item>
+
+        <item>Credit</item>
+
+        <item>Adjust</item>
+
+    </string-array>
+
+    <string-array name="dayend">
+
+        <item>Select One Item</item>
+
+        <item>Dayend Balance</item>
+
+        <item>Withdrawal Balance</item>
+
+        <item>Deposit Balance</item>
+
+    </string-array>
+
+    <string-array name="transactiontype">
+
+        <item>Select Transaction Type</item>
+
+        <item>Cash</item>
+
+        <item>Credit</item>
+
+    </string-array>
+
+
+    <string-array name="accountType">
+
+        <item>Select Account Type</item>
+
+        <item>Sales</item>
+
+        <item>Purchase</item>
+
+
+    </string-array>
+
+    <string name="alerm_time_hour">3</string>
+
+    <string name="alerm_time_second">8</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+</resources>
