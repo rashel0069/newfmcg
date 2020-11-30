@@ -8,7 +8,7 @@
 
 
    <include
-       layout="@layout/fragment_cashbox_fragment"
+       layout="@layout/loginpage"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent" />

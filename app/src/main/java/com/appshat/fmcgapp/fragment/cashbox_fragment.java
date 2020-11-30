@@ -1,4 +1,4 @@
-package com.appshat.myapplication.fragment;
+package com.appshat.fmcgapp.fragment;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.appshat.myapplication.R;
+import com.appshat.fmcgapp.R;
 
 /**
  * A simple {@link Fragment} subclass.

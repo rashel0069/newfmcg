@@ -1,4 +1,4 @@
-package com.appshat.myapplication;
+package com.appshat.fmcgapp;
 
 import org.junit.Test;
 

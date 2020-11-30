@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">FMCG Retail App</string>
 
     <string name="intro">Welcome</string>
@@ -8,7 +8,7 @@
     <string name="hint2">Password</string>
 
     <string name="login">Login</string>
-
+    <string name="creditsales">Credit Sales</string>
     <string name="registration"><u>Register</u></string>
 
     <string name="registration2">Click Here to </string>
@@ -51,7 +51,9 @@
 
     <string name="note">Note</string>
 
-    <string name="dayend">Dayend Cash</string>
+    <string name="dayendcash">DayEnd Cash</string>
+
+    <string name="dayend">exe: 2000</string>
 
     <string name="totalcash">Total Cash</string>
 
@@ -79,7 +81,15 @@
 
     <string name="currentlocation">Current Location</string>
 
+    <string name="withdrawalhint">exe: 500</string>
+
+    <string name="withdrawal"> Withdrawal Cash</string>
+
     <string name="expense">Expense</string>
+
+    <string name="depositcash"> Deposit Cash</string>
+
+    <string name="deposithint">exe: 1000</string>
 
     <string name="payable">Payable</string>
 
@@ -117,10 +127,10 @@
 
     <string name="amounts">Amount</string>
 
-    <string name="date">exe:27-9-2020</string>
+    <string name="date" tools:ignore="TypographyDashes">exe:27-9-2020</string>
 
     <string name="adjust">Outgoing Balance / Incoming Balance</string>
-
+    <string name="cashtransaction">Cash Transaction</string>
 
     <string name="message_box_title">You get the Money </string>
 
@@ -158,17 +168,6 @@
 
     </string-array>
 
-    <string-array name="dayend">
-
-        <item>Select One Item</item>
-
-        <item>Dayend Balance</item>
-
-        <item>Withdrawal Balance</item>
-
-        <item>Deposit Balance</item>
-
-    </string-array>
 
     <string-array name="transactiontype">
 

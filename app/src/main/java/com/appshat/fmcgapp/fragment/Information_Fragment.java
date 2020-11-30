@@ -1,4 +1,4 @@
-package com.appshat.myapplication.fragment;
+package com.appshat.fmcgapp.fragment;
 
 import android.os.Bundle;
 
@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.appshat.myapplication.R;
+import com.appshat.fmcgapp.R;
 public class Information_Fragment extends Fragment {
     Button saveBtn;
 

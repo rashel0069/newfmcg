@@ -58,6 +58,7 @@
                     app:startIconTint="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phoneNumber_id"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/edittext_background"
@@ -68,6 +69,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/f2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/f1"
@@ -82,6 +84,7 @@
                     app:startIconTint="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password_Id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
@@ -95,7 +98,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="208dp"
@@ -104,18 +107,19 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="@+id/cardView"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="HardcodedText,MissingConstraints" />
 
         <LinearLayout
+            android:id="@+id/linearLayout13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button5"
+            app:layout_constraintTop_toBottomOf="@+id/login_btn"
             tools:ignore="MissingConstraints">
 
             <TextView
@@ -127,35 +131,56 @@
                 tools:ignore="MissingConstraints" />
 
             <TextView
+                android:id="@+id/registrationTV_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/registration"
                 android:layout_marginLeft="3dp"
+                android:text="@string/registration"
                 android:textColor="@color/red_500"
-                android:textStyle="bold"
                 android:textSize="15sp"
-                tools:ignore="MissingConstraints" />
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints,RtlHardcoded" />
 
 
         </LinearLayout>
 
+
         <ImageButton
+            android:id="@+id/currentlocation_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_my_location"
+            android:layout_marginTop="60dp"
             android:background="@color/red_500"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="181dp"
-            tools:layout_editor_absoluteY="444dp" />
+            android:src="@drawable/ic_baseline_my_location"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout13"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout13"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout13"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/currentlocation"
+            android:textColor="@color/red_500"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/currentlocation_btn"
+            app:layout_constraintStart_toStartOf="@+id/currentlocation_btn"
+            app:layout_constraintTop_toBottomOf="@+id/currentlocation_btn" />
 
         <ImageView
-            android:layout_width="164dp"
-            android:layout_height="205dp"
+            android:layout_width="157dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="8dp"
             android:src="@drawable/logimg"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="231dp"
-            tools:layout_editor_absoluteY="510dp" />
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/currentlocation_btn"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            tools:ignore="ContentDescription,MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

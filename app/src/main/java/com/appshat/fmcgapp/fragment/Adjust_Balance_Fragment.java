@@ -1,4 +1,4 @@
-package com.appshat.myapplication.fragment;
+package com.appshat.fmcgapp.fragment;
 
 import android.os.Bundle;
 
@@ -8,14 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.appshat.myapplication.R;
+import com.appshat.fmcgapp.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link NewTransaction_Fragment#newInstance} factory method to
+ * Use the {@link Adjust_Balance_Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class NewTransaction_Fragment extends Fragment {
+public class Adjust_Balance_Fragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class NewTransaction_Fragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public NewTransaction_Fragment() {
+    public Adjust_Balance_Fragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class NewTransaction_Fragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment NewTransaction_Fragment.
+     * @return A new instance of fragment Adjust_Balance_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static NewTransaction_Fragment newInstance(String param1, String param2) {
-        NewTransaction_Fragment fragment = new NewTransaction_Fragment();
+    public static Adjust_Balance_Fragment newInstance(String param1, String param2) {
+        Adjust_Balance_Fragment fragment = new Adjust_Balance_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class NewTransaction_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_new_transaction_, container, false);
+        return inflater.inflate(R.layout.fragment_adjust__balance_, container, false);
     }
 }
