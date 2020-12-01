@@ -13,6 +13,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
     ImageButton locationbtn;
+    TextInputEditText userMobile, userPassword;
 
 
 
