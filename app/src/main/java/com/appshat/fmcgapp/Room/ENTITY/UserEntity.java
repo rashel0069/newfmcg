@@ -5,11 +5,14 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "users")
-public class UserEntity {
+public class UserEntity  {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "userId")
-    Integer id;
+    int id;
+
 
     @NonNull
     @ColumnInfo(name = "mobile")
@@ -19,11 +22,16 @@ public class UserEntity {
     @ColumnInfo(name = "password")
     String password;
 
-    public Integer getId() {
+    public UserEntity(@NonNull String mobile, @NonNull String password) {
+        this.mobile = mobile;
+        this.password = password;
+    }
+    @NonNull
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(@NonNull int id) {
         this.id = id;
     }
 
@@ -43,5 +51,14 @@ public class UserEntity {
 
     public void setPassword(@NonNull String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", mobile='" + mobile + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

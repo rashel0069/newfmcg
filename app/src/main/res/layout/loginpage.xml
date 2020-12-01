@@ -136,6 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 android:text="@string/registration"
+                android:clickable="true"
                 android:textColor="@color/red_500"
                 android:textSize="15sp"
                 android:textStyle="bold"
