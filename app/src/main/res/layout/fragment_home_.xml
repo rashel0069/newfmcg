@@ -21,37 +21,45 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dayend"
+                android:layout_marginTop="56dp"
+                android:text="@string/dayendcash"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="166dp"
-                tools:layout_editor_absoluteY="92dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="103dp"
                 android:layout_height="30dp"
+                android:layout_marginTop="8dp"
                 android:background="@drawable/edittext_background"
                 android:gravity="center"
                 android:hint="@string/totalcashhint"
                 android:textAlignment="center"
                 android:textSize="14sp"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="162dp"
-                tools:layout_editor_absoluteY="122dp" />
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:ignore="MissingConstraints" />
 
             <LinearLayout
                 android:id="@+id/linearLayout9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="168dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:ignore="MissingConstraints">
 
                 <TextView
                     android:id="@+id/textView3"
@@ -79,16 +87,20 @@
                 android:id="@+id/linearLayout10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="200dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout9"
+                tools:ignore="MissingConstraints">
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:text="@string/receivable"
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -107,8 +119,8 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
                     android:text="@string/payable"
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -129,16 +141,20 @@
                 android:id="@+id/linearLayout11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="246dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
+                tools:ignore="MissingConstraints">
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:text="@string/cashsales"
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -157,8 +173,8 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
                     android:text="@string/creditsales"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -179,16 +195,20 @@
                 android:id="@+id/linearLayout12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:gravity="center"
                 android:orientation="horizontal"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="292dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout11"
+                tools:ignore="MissingConstraints">
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:text="@string/purchase"
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -205,8 +225,8 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="20dp"
-                    android:gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
                     android:text="@string/expense"
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -225,12 +245,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayout20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
+                android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingLeft="8dp"
                 android:paddingEnd="8dp"
@@ -242,7 +263,7 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="30dp"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:text="@string/totalsales"
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -265,45 +286,53 @@
                 android:id="@+id/button2"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="14dp"
                 android:text="@string/cashBox"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="24dp"
-                tools:layout_editor_absoluteY="374dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout20"
+                tools:ignore="MissingConstraints" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/newtransaction"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="24dp"
-                tools:layout_editor_absoluteY="438dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button2"
+                tools:ignore="MissingConstraints" />
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/order"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="278dp"
-                tools:layout_editor_absoluteY="374dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout20"
+                tools:ignore="MissingConstraints" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/showtransaction"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="278dp"
-                tools:layout_editor_absoluteY="438dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button4"
+                tools:ignore="MissingConstraints" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

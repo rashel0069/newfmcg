@@ -14,7 +14,7 @@ public interface UserDao {
     @Query( "SELECT * FROM users WHERE mobile = :mobile and password = :password")
     UserEntity getUserEntity(String mobile, String password);
     @Insert
-    Void insert(UserEntity userEntity);
+    void insert(UserEntity userEntity);
 
     @Update
     void update(UserEntity userEntity);
