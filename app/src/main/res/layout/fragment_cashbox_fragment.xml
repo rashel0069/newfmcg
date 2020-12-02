@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".fragment.cashbox_fragment">
+    tools:context=".fragment.Cashbox_Fragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -59,6 +59,7 @@
                 app:startIconTint="@color/red_500">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dayendcashET_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="number"
@@ -102,6 +103,7 @@
                 app:startIconTint="@color/red_500">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/withdrawalET_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edittext_background"
@@ -145,6 +147,7 @@
                 app:startIconTint="@color/red_500">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/depositET_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/edittext_background"
@@ -158,6 +161,7 @@
 
 
         <Button
+            android:id="@+id/cashsaveBtn_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

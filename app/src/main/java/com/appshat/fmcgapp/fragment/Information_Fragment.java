@@ -43,7 +43,7 @@ public class Information_Fragment extends Fragment {
 
         //database
         informationDB = Room.databaseBuilder( getActivity(), Database.class,"informations" ).allowMainThreadQueries().build();
-        informationDBdao = informationDB.geInformationDao();
+        informationDBdao = informationDB.getInformationDao();
 
         shoppnameEt= view.findViewById(R.id.sname_ET);
         ownernameET= view.findViewById(R.id.sownername_ET);
@@ -52,9 +52,6 @@ public class Information_Fragment extends Fragment {
         openingET= view.findViewById(R.id.openingamount_ET);
         receivableET= view.findViewById(R.id.receivableamount_ET);
         payableET= view.findViewById(R.id.payableamount_ET);
-
-
-
 
         saveBtn = view.findViewById(R.id.saved_id);
 
@@ -94,4 +91,6 @@ public class Information_Fragment extends Fragment {
        return  view;
 
     }
+
+
 }

@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/edittext_background"
             android:entries="@array/accountType"
@@ -46,15 +46,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:orientation="horizontal"
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="144dp">
+            app:layout_constraintTop_toBottomOf="@+id/spinner3_id"
+            tools:ignore="MissingConstraints">
 
             <TextView
+                android:id="@+id/customernameTV_id"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -66,6 +68,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/customernameET_id"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -83,15 +86,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:orientation="horizontal"
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="200dp">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:ignore="MissingConstraints">
 
             <TextView
+                android:id="@+id/clientmobilenumberTV_id"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -103,12 +108,15 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/clientmobilenumberET_id"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_background"
                 android:gravity="center"
                 android:hint="@string/customernumberhint"
+                android:inputType="number"
+                android:maxLength="11"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -121,15 +129,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:orientation="horizontal"
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="256dp">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout14"
+            tools:ignore="MissingConstraints">
 
             <TextView
+                android:id="@+id/amountTV_id"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -141,12 +151,14 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/amountET_id"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_background"
                 android:gravity="center"
                 android:hint="@string/amounthint"
+                android:inputType="number"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -154,23 +166,25 @@
         </LinearLayout>
 
         <Spinner
+            android:id="@+id/datespinner_id"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/edittext_background"
             android:entries="@array/date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="312dp" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout15"
+            tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/dateTV_id"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/edittext_background"
             android:gravity="center"
@@ -178,24 +192,25 @@
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/_dynamic"
+            app:layout_constraintTop_toBottomOf="@+id/datespinner_id"
             tools:ignore="UnknownId" />
 
         <Button
-
-            android:layout_width="wrap_content"
+            android:id="@+id/newsave_id"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="181dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="142dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:gravity="center"
             android:text="@string/save"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.437"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/dateTV_id"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
