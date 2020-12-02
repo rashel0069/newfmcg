@@ -36,6 +36,10 @@ public class HomeActivity extends AppCompatActivity {
             ft1.replace(R.id.framelayout_container_id, fragment);
             ft1.commit();
 
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean( "firststart", true );
+            editor.apply();
+
         }
 
     }
