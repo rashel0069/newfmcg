@@ -3,64 +3,39 @@ package com.appshat.fmcgapp.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.appshat.fmcgapp.R;
+import com.appshat.fmcgapp.Room.DB.Database;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Adjust_Balance_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Adjust_Balance_Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    Spinner balancespinner,typespinner;
+    EditText adjustamountET;
+    Button adjustsaveBtn;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public Adjust_Balance_Fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Adjust_Balance_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Adjust_Balance_Fragment newInstance(String param1, String param2) {
-        Adjust_Balance_Fragment fragment = new Adjust_Balance_Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    String accountStatus, accountType, transactionStatus, transactionType, adjustamount, duedatepaydate;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_adjust__balance_, container, false);
+        View view = inflater.inflate(R.layout.fragment_adjust__balance_, container, false);
+
+        balancespinner = view.findViewById(R.id.balancetypespinner_id);
+        typespinner = view.findViewById(R.id.transitiontypespinner_id);
+        adjustamountET = view.findViewById(R.id.adjustamountET_id);
+        adjustsaveBtn = view.findViewById(R.id.adjustsaveBtn_id);
+
+       
+
+        return view;
     }
 }
