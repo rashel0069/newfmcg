@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
@@ -74,9 +75,10 @@ public class Information_Fragment extends Fragment {
                if (shopname != null && shopkeepername != null && shopaddress != null && usermobile != null && opening != null && receivable != null && payable != null  ){
                    InformationEntity informationEntity = new InformationEntity( usermobile,shopname,shopkeepername,shopaddress,opening,receivable,payable );
                    informationDBdao.insert( informationEntity );
-                   Information_Fragment fragment = new Information_Fragment();
-                   FragmentTransaction ft1 = getFragmentManager().beginTransaction();
-                   ft1.replace(R.id.framelayout_container_id, fragment);
+                   
+                   Home_Fragment fragment1 = new Home_Fragment();
+                   FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
+                   ft1.replace(R.id.framelayout_container_id, fragment1);
                    ft1.commit();
 
                    Toast.makeText( getContext(), "Registraton Done", Toast.LENGTH_SHORT ).show();
