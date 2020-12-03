@@ -3,6 +3,7 @@ package com.appshat.fmcgapp.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
 import android.view.LayoutInflater;
@@ -10,11 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.ExpenseDao;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
 import com.appshat.fmcgapp.Room.DB.Database;
+import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
+import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 
 public class Expense_Fragment extends Fragment {
     EditText rentET, salaryET, otherET;
@@ -40,17 +44,32 @@ public class Expense_Fragment extends Fragment {
         rentET = view.findViewById(R.id.rentET_id);
         salaryET = view.findViewById(R.id.salaryET_id);
         otherET = view.findViewById(R.id.othersET_id);
-        expensesaveBtn = view.findViewById(R.id.expenseBtn_id);
+        expensesaveBtn = view.findViewById(R.id.expensesaveBtn_id);
 
         expensesaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 rent = rentET.getText().toString();
-                salary=salaryET.getText().toString();
-                others=otherET.getText().toString();
+                salary = salaryET.getText().toString();
+                others = otherET.getText().toString();
+                if (rent != null && salary != null && others != null) {
+                    ExpenseEntity expenseEntity = new ExpenseEntity(rent, salary, others);
+                    expenseDBdao.insert(expenseEntity);
+
+                    Home_Fragment fragment1 = new Home_Fragment();
+                    FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
+                    ft1.replace(R.id.framelayout_container_id, fragment1);
+                    ft1.commit();
+
+                    Toast.makeText( getContext(), "successfully insert", Toast.LENGTH_SHORT ).show();
+                }else {
+                    Toast.makeText( getContext(), "please fill up the fields", Toast.LENGTH_SHORT ).show();
+                }
 
             }
+
         });
+
         return view;
     }
 }
