@@ -30,7 +30,7 @@
             tools:ignore="MissingConstraints" />
 
         <Spinner
-            android:id="@+id/spinner4"
+            android:id="@+id/balancetypespinner_id"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
@@ -46,7 +46,7 @@
             tools:ignore="MissingConstraints" />
 
         <Spinner
-            android:id="@+id/transition_current_scene"
+            android:id="@+id/transitiontypespinner_id"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
@@ -58,7 +58,7 @@
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner4"
+            app:layout_constraintTop_toBottomOf="@+id/balancetypespinner_id"
             tools:ignore="MissingConstraints" />
 
         <LinearLayout
@@ -73,10 +73,11 @@
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/transition_current_scene"
+            app:layout_constraintTop_toBottomOf="@+id/transitiontypespinner_id"
             tools:ignore="MissingConstraints">
 
             <TextView
+                android:id="@+id/amountsTV_id"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -87,11 +88,12 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/adjustamountET_id"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
                 android:hint="@string/amounthint"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -100,6 +102,7 @@
         </LinearLayout>
 
         <Spinner
+            android:id="@+id/datepicker_id"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
@@ -113,7 +116,7 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/currentdateET_id"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
@@ -126,10 +129,11 @@
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/_dynamic"
+            app:layout_constraintTop_toBottomOf="@+id/datepicker_id"
             tools:ignore="MissingConstraints,UnknownId,UnknownIdInLayout" />
 
         <Button
+            android:id="@+id/adjustsaveBtn_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -137,7 +141,7 @@
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/currentdateET_id"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -334,7 +334,33 @@
                 app:layout_constraintTop_toBottomOf="@+id/orderBtn_id"
                 tools:ignore="MissingConstraints" />
 
+            <Button
+                android:id="@+id/expenseBtn_id"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/expense"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/newtransactionBtn_id"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/adjustBtn_id"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/adjust"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/showtransactionBtn_id"
+                tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+
 </FrameLayout>

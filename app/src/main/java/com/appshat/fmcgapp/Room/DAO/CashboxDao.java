@@ -8,8 +8,6 @@ import androidx.room.Update;
 
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
 
-
-
 @Dao
 public interface CashboxDao {
 

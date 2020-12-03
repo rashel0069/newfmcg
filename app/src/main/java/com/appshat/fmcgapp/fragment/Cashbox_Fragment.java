@@ -47,7 +47,7 @@ public class Cashbox_Fragment extends Fragment {
 
         //database
         cashboxDB = Room.databaseBuilder( getActivity(), Database.class,"cashbox" ).allowMainThreadQueries().build();
-        cashboxDBdao = cashboxDB.getCashbox();
+        cashboxDBdao = cashboxDB.getCashboxDao();
         //Date time
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
         String date = df.format(Calendar.getInstance().getTime());

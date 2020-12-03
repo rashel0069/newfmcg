@@ -15,7 +15,6 @@ public class InformationEntity {
     @NonNull
     @ColumnInfo(name = "shopname")
     String shopname;
-
     @NonNull
     @ColumnInfo(name = "shopkeepername")
     String shopkeepername;

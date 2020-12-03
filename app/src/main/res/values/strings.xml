@@ -8,7 +8,9 @@
     <string name="hint2">Password</string>
 
     <string name="login">Login</string>
+
     <string name="creditsales">Credit Sales</string>
+
     <string name="registration"><u>Register</u></string>
 
     <string name="registration2">Click Here to </string>
@@ -24,6 +26,18 @@
     <string name="duedate">Duedate</string>
 
     <string name="opening">Opening Amount</string>
+
+    <string name="rent">Rent Expense</string>
+
+    <string name="renthint"> exe. 10000</string>
+
+    <string name="salary">Salary Expense</string>
+
+    <string name="salaryhint"> exe. 1000</string>
+
+    <string name="others">Other Expense</string>
+
+    <string name="otherhint"> exe. 500</string>
 
     <string name="shopname">Shop Name</string>
 
@@ -87,6 +101,8 @@
 
     <string name="expense">Expense</string>
 
+    <string name="adjusttv">Adjust Balance</string>
+
     <string name="depositcash"> Deposit Cash</string>
 
     <string name="deposithint">exe: 1000</string>
@@ -130,7 +146,11 @@
     <string name="date" tools:ignore="TypographyDashes">exe:27-9-2020</string>
 
     <string name="adjust">Outgoing Balance / Incoming Balance</string>
+
     <string name="cashtransaction">Cash Transaction</string>
+
+    <string name="expensetransaction">Expense</string>
+
 
     <string name="message_box_title">You get the Money </string>
 

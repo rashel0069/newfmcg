@@ -18,7 +18,7 @@ public class CashboxEntity {
     String dayend;
     @ColumnInfo(name = "WithdrawCash")
     String withdrawl;
-    @ColumnInfo(name = "DepositCash")
+    @ColumnInfo(name = "Depositcash")
     String deposit;
 
     public CashboxEntity(@NonNull String time, String dayend, String withdrawl, String deposit) {

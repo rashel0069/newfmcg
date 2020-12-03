@@ -15,7 +15,7 @@ import com.appshat.fmcgapp.R;
 
 public class Home_Fragment extends Fragment {
 
-    Button cashbtn,transactionbtn,orderbtn,showtransbtn;
+    Button cashbtn,transactionbtn,orderbtn,showtransbtn,expensebtn,adjustbtn;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -26,6 +26,8 @@ public class Home_Fragment extends Fragment {
         transactionbtn = view.findViewById(R.id.newtransactionBtn_id);
         orderbtn = view.findViewById(R.id.orderBtn_id);
         showtransbtn = view.findViewById(R.id.showtransactionBtn_id);
+        expensebtn = view.findViewById(R.id.expenseBtn_id);
+        adjustbtn = view.findViewById(R.id.adjustBtn_id);
 
         cashbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +65,28 @@ public class Home_Fragment extends Fragment {
                 ShowTransaction_Fragment show_transaction_fragment = new ShowTransaction_Fragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.framelayout_container_id, show_transaction_fragment);
+                transaction.addToBackStack("null");
+                transaction.commit();
+            }
+        });
+
+        expensebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Expense_Fragment expense_fragment = new Expense_Fragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, expense_fragment);
+                transaction.addToBackStack("null");
+                transaction.commit();
+            }
+        });
+
+        adjustbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Adjust_Balance_Fragment adjust_balance_fragment = new Adjust_Balance_Fragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, adjust_balance_fragment);
                 transaction.addToBackStack("null");
                 transaction.commit();
             }
