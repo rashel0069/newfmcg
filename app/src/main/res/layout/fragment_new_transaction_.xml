@@ -13,7 +13,7 @@
         tools:ignore="ScrollViewSize">
 
         <Spinner
-            android:id="@+id/spinner2_id"
+            android:id="@+id/newaccountspinner_id"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
@@ -28,7 +28,7 @@
             tools:ignore="MissingConstraints" />
 
         <Spinner
-            android:id="@+id/spinner3_id"
+            android:id="@+id/newtransactionspinner_id"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
@@ -38,7 +38,7 @@
             android:entries="@array/transactiontype"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner2_id"
+            app:layout_constraintTop_toBottomOf="@+id/newaccountspinner_id"
             tools:ignore="MissingConstraints" />
 
         <LinearLayout
@@ -48,20 +48,20 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:weightSum="2"
+            android:background="@drawable/edittext_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner3_id"
+            app:layout_constraintTop_toBottomOf="@+id/newtransactionspinner_id"
             tools:ignore="MissingConstraints">
 
             <TextView
                 android:id="@+id/customernameTV_id"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_background"
-                android:gravity="center"
+                android:paddingLeft="8dp"
                 android:text="@string/customerName"
                 android:textColor="@color/black"
                 android:textSize="15sp"
@@ -72,8 +72,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_background"
-                android:gravity="center"
+                android:layout_margin="5dp"
+                android:paddingLeft="5dp"
+                android:background="@color/white"
                 android:hint="@string/customernamehint"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -88,8 +89,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:weightSum="2"
+            android:background="@drawable/edittext_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout"
@@ -98,10 +100,9 @@
             <TextView
                 android:id="@+id/clientmobilenumberTV_id"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_background"
-                android:gravity="center"
+                android:paddingLeft="8dp"
                 android:text="@string/hint1"
                 android:textColor="@color/black"
                 android:textSize="15sp"
@@ -112,8 +113,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_background"
-                android:gravity="center"
+                android:background="@color/white"
+                android:paddingLeft="5dp"
+                android:layout_margin="5dp"
                 android:hint="@string/customernumberhint"
                 android:inputType="number"
                 android:maxLength="11"
@@ -165,20 +167,6 @@
 
         </LinearLayout>
 
-        <Spinner
-            android:id="@+id/datespinner_id"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/edittext_background"
-            android:entries="@array/date"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout15"
-            tools:ignore="MissingConstraints" />
-
         <TextView
             android:id="@+id/dateTV_id"
             android:layout_width="match_parent"
@@ -194,15 +182,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/datespinner_id"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout15"
             tools:ignore="UnknownId" />
 
         <Button
-            android:id="@+id/newsave_id"
+            android:id="@+id/newtranssave_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
             android:text="@string/save"

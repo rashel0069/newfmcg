@@ -130,6 +130,8 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:layout_margin="5dp"
+                android:inputType="number"
+                android:maxLength="11"
                 android:background="@color/white"
                 android:hint="@string/customernumberhint"
                 android:textColor="@color/black"
@@ -171,6 +173,7 @@
                 android:background="@drawable/edittext_background"
                 android:gravity="center"
                 android:hint="@string/amounthint"
+                android:inputType="numberDecimal"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 

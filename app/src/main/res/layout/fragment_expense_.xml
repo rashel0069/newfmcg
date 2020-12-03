@@ -57,6 +57,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/edittext_background"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:hint="@string/renthint"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -97,7 +98,7 @@
                 android:background="@drawable/edittext_background"
                 android:gravity="center"
                 android:hint="@string/salaryhint"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:maxLength="11"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -138,7 +139,7 @@
                 android:background="@drawable/edittext_background"
                 android:gravity="center"
                 android:hint="@string/otherhint"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:maxLength="11"
                 android:textColor="@color/black"
                 android:textSize="15sp" />

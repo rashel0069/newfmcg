@@ -145,7 +145,7 @@
 
     <string name="date" tools:ignore="TypographyDashes">Pick a date exe:27-9-2020</string>
 
-    <string name="adjust">Outgoing Balance / Incoming Balance</string>
+    <string name="adjust">Due payable/ Due Receivable</string>
 
     <string name="cashtransaction">Cash Transaction</string>
 

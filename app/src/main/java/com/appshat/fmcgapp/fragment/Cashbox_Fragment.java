@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,26 +28,27 @@ import java.util.Date;
 
 
 public class Cashbox_Fragment extends Fragment {
-    EditText dayendET,withdrawalET,depositET;
+    EditText dayendET, withdrawalET, depositET;
     Button cashbtn;
-    String dayend,withdrawal,deposit,datetime;
+    String dayend, withdrawal, deposit, datetime;
     CashboxDao cashboxDBdao;
     Database cashboxDB;
+    int d1,d2,d3;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_cashbox_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_cashbox_fragment, container, false);
 
         cashbtn = view.findViewById(R.id.cashsaveBtn_id);
         dayendET = view.findViewById(R.id.dayendcashET_id);
         withdrawalET = view.findViewById(R.id.withdrawalET_id);
-        depositET=view.findViewById(R.id.depositET_id);
+        depositET = view.findViewById(R.id.depositET_id);
 
         //database
-        cashboxDB = Room.databaseBuilder( getActivity(), Database.class,"cashbox" ).allowMainThreadQueries().build();
+        cashboxDB = Room.databaseBuilder(getActivity(), Database.class, "cashbox").allowMainThreadQueries().build();
         cashboxDBdao = cashboxDB.getCashboxDao();
         //Date time
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
@@ -61,12 +63,30 @@ public class Cashbox_Fragment extends Fragment {
                 deposit = depositET.getText().toString();
                 datetime = date;
 
-                if (dayend != null && withdrawal != null && deposit != null){
-                    CashboxEntity cashboxEntity = new CashboxEntity(datetime,dayend,withdrawal,deposit);
-                    cashboxDBdao.insert(cashboxEntity);
-                    Toast.makeText(getContext(), "Insert Successfully", Toast.LENGTH_SHORT).show();
+                if (!TextUtils.isEmpty(dayendET.getText())) {
+                    d1 = Integer.parseInt(dayend);
+                    withdrawal = "0";
+                    deposit = "0";
+                    calculation();
 
-                }else {
+                    if (!TextUtils.isEmpty(withdrawalET.getText())) {
+
+                        d1 = Integer.parseInt(dayend);
+                        d2 = Integer.parseInt(withdrawal);
+                        deposit = "0";
+                        calculation();
+
+                        if (!TextUtils.isEmpty(depositET.getText())) {
+
+                            calculation();
+                        }else {
+                            Toast.makeText(getContext(), "Error!", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+//
+
+                } else {
                     Toast.makeText(getContext(), "Error please fill up the fields ", Toast.LENGTH_SHORT).show();
                 }
 
@@ -75,9 +95,31 @@ public class Cashbox_Fragment extends Fragment {
         });
 
 
-
         return view;
 
 
     }
+
+    private void calculation() {
+
+        //calculation
+        d1 = Integer.parseInt(dayend);
+        d2 =Integer.parseInt(withdrawal);
+        d3 = Integer.parseInt(deposit);
+
+        CashboxEntity cashboxEntity = new CashboxEntity(datetime, dayend, withdrawal, deposit);
+        cashboxDBdao.insert(cashboxEntity);
+        Toast.makeText(getContext(), "Insert Successfully", Toast.LENGTH_SHORT).show();
+
+        Home_Fragment fragment1 = new Home_Fragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt("Dayendbalance",d1);
+        bundle.putInt("Withdrawalbalance",d2);
+        bundle.putInt("Depositbalance",d3);
+        fragment1.setArguments(bundle);
+        FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
+        ft1.replace(R.id.framelayout_container_id, fragment1);
+        ft1.commit();
+    }
+
 }

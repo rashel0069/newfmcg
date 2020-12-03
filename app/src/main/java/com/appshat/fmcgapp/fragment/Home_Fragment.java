@@ -9,13 +9,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appshat.fmcgapp.R;
+import com.appshat.fmcgapp.Room.DAO.AdjustDao;
+import com.appshat.fmcgapp.Room.DAO.CashboxDao;
+import com.appshat.fmcgapp.Room.DAO.ExpenseDao;
+import com.appshat.fmcgapp.Room.DAO.InformationDao;
+import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
+import com.appshat.fmcgapp.Room.DAO.UserDao;
+import com.appshat.fmcgapp.Room.DB.Database;
+
+import static java.lang.String.valueOf;
 
 public class Home_Fragment extends Fragment {
 
-    Button cashbtn,transactionbtn,orderbtn,showtransbtn,expensebtn,adjustbtn;
+    Button cashbtn, transactionbtn, orderbtn, showtransbtn, expensebtn, adjustbtn;
+    TextView textDaybalabce,receivableamount,payableamount,cashsales,creditsales,purchase,expense,totalsales;
+    AdjustDao adjustDao;
+    CashboxDao cashboxDao;
+    ExpenseDao expenseDao;
+    InformationDao informationDao;
+    NewtransactionDao newtransactionDao;
+    UserDao userDao;
+    Database database;
+    int result;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,6 +48,40 @@ public class Home_Fragment extends Fragment {
         showtransbtn = view.findViewById(R.id.showtransactionBtn_id);
         expensebtn = view.findViewById(R.id.expenseBtn_id);
         adjustbtn = view.findViewById(R.id.adjustBtn_id);
+        textDaybalabce = view.findViewById(R.id.textdayend_id);
+        receivableamount=view.findViewById(R.id.receivableamountTV_id);
+        payableamount=view.findViewById(R.id.payableamountTV_id);
+        cashsales=view.findViewById(R.id.cashsalesamountTV_id);
+        creditsales=view.findViewById(R.id.creditsalesamountTV_id);
+        purchase=view.findViewById(R.id.purchaseamountTV_id);
+        expense=view.findViewById(R.id.expenseamountTV_id);
+        totalsales=view.findViewById(R.id.totalsalesamountTV_id);
+
+
+
+        //Data Receive
+
+        Bundle cashboxbundle = this.getArguments();
+        if (cashboxbundle != null) {
+            int dend = cashboxbundle.getInt("Dayendbalance");
+            int wid = cashboxbundle.getInt("Withdrawalbalance");
+            int depo = cashboxbundle.getInt("Depositbalance");
+
+            Toast.makeText(getContext(), ""+dend+" "+wid+" "+depo, Toast.LENGTH_SHORT).show();
+
+            try {
+                if (!textDaybalabce.getText().toString().isEmpty()){
+                    int a1 = Integer.parseInt(textDaybalabce.getText().toString().trim());
+                    result = ((a1+ dend + depo)- wid);
+                    Toast.makeText(getContext(), ""+result, Toast.LENGTH_SHORT).show();
+                }
+
+            }catch (Exception e){
+                Toast.makeText(getContext(), ""+e, Toast.LENGTH_LONG).show();
+            }
+
+
+        }
 
         cashbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,5 +148,6 @@ public class Home_Fragment extends Fragment {
 
         return view;
     }
+
 
 }
