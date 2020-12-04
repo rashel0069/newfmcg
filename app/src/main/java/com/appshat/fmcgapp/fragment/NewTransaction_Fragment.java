@@ -24,7 +24,7 @@ import android.widget.Toast;
 import com.appshat.fmcgapp.R;
 
 import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
-import com.appshat.fmcgapp.Room.DB.Database;
+import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 
 import java.util.Calendar;
@@ -40,7 +40,7 @@ public class NewTransaction_Fragment extends Fragment {
     NewtransactionDao newtransactionDBdao;
     DatePickerDialog.OnDateSetListener mDateSetListener;
     Calendar cal;
-    Database newtransactionDB;
+    Databaseroom newtransactionDB;
     String accounttype, transactiontype, clientname, clientmobile,clientamount, date;
 
     @Override
@@ -58,7 +58,7 @@ public class NewTransaction_Fragment extends Fragment {
         cmblnumET=view.findViewById(R.id.clientmobilenumberET_id);
         cnameET=view.findViewById(R.id.customernameET_id);
         //database
-        newtransactionDB = Room.databaseBuilder(getActivity(), Database.class, "newtransaction").allowMainThreadQueries().build();
+        newtransactionDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "newtransaction").allowMainThreadQueries().build();
         newtransactionDBdao = newtransactionDB.getnewtransaction();
 
 //for spinner set position

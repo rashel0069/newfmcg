@@ -23,10 +23,8 @@ import android.widget.Toast;
 
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.AdjustDao;
-import com.appshat.fmcgapp.Room.DAO.InformationDao;
-import com.appshat.fmcgapp.Room.DB.Database;
+import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
-import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 
 import java.util.Calendar;
 
@@ -42,7 +40,7 @@ public class Adjust_Balance_Fragment extends Fragment {
     DatePickerDialog.OnDateSetListener mDateSetListener;
     Calendar cal;
     AdjustDao adjustDBdao;
-    Database adjustDB;
+    Databaseroom adjustDB;
     String accounttype, transactiontype, clientname, clientmobile, clientamount, date;
 
     @Override
@@ -60,7 +58,7 @@ public class Adjust_Balance_Fragment extends Fragment {
         adjustsaveBtn = view.findViewById(R.id.adjustsaveBtn_id);
 
         //database
-        adjustDB = Room.databaseBuilder(getActivity(), Database.class, "duepayandreceive").allowMainThreadQueries().build();
+        adjustDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "duepayandreceive").allowMainThreadQueries().build();
         adjustDBdao = adjustDB.getduepayandreceive();
 
 

@@ -16,15 +16,12 @@ import android.widget.Toast;
 
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.CashboxDao;
-import com.appshat.fmcgapp.Room.DAO.InformationDao;
-import com.appshat.fmcgapp.Room.DB.Database;
+import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
-import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 
 public class Cashbox_Fragment extends Fragment {
@@ -32,7 +29,7 @@ public class Cashbox_Fragment extends Fragment {
     Button cashbtn;
     String dayend, withdrawal, deposit, datetime;
     CashboxDao cashboxDBdao;
-    Database cashboxDB;
+    Databaseroom cashboxDB;
     int d1,d2,d3;
 
 
@@ -48,7 +45,7 @@ public class Cashbox_Fragment extends Fragment {
         depositET = view.findViewById(R.id.depositET_id);
 
         //database
-        cashboxDB = Room.databaseBuilder(getActivity(), Database.class, "cashbox").allowMainThreadQueries().build();
+        cashboxDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "cashbox").allowMainThreadQueries().build();
         cashboxDBdao = cashboxDB.getCashboxDao();
         //Date time
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
@@ -63,31 +60,33 @@ public class Cashbox_Fragment extends Fragment {
                 deposit = depositET.getText().toString();
                 datetime = date;
 
-                if (!TextUtils.isEmpty(dayendET.getText())) {
-                    d1 = Integer.parseInt(dayend);
+                if (!TextUtils.isEmpty(dayendET.getText()) && !TextUtils.isEmpty(depositET.getText()) && !TextUtils.isEmpty(withdrawalET.getText())) {
+                    calculation();
+
+                } else if (!TextUtils.isEmpty(dayendET.getText()) && !TextUtils.isEmpty(depositET.getText())){
+                    withdrawal = "0";
+                    calculation();
+
+                }else if (!TextUtils.isEmpty(dayendET.getText()) && !TextUtils.isEmpty(withdrawalET.getText())){
+                    deposit = "0";
+                    calculation();
+                }else if (!TextUtils.isEmpty(depositET.getText()) && !TextUtils.isEmpty(withdrawalET.getText())){
+                    dayend ="0";
+                    calculation();
+                }else if (!TextUtils.isEmpty(dayendET.getText())){
                     withdrawal = "0";
                     deposit = "0";
                     calculation();
-
-                    if (!TextUtils.isEmpty(withdrawalET.getText())) {
-
-                        d1 = Integer.parseInt(dayend);
-                        d2 = Integer.parseInt(withdrawal);
-                        deposit = "0";
-                        calculation();
-
-                        if (!TextUtils.isEmpty(depositET.getText())) {
-
-                            calculation();
-                        }else {
-                            Toast.makeText(getContext(), "Error!", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-//
-
-                } else {
-                    Toast.makeText(getContext(), "Error please fill up the fields ", Toast.LENGTH_SHORT).show();
+                }else if (!TextUtils.isEmpty(depositET.getText()) ){
+                    withdrawal = "0";
+                    dayend ="0";
+                    calculation();
+                }else if (!TextUtils.isEmpty(withdrawalET.getText())){
+                    dayend ="0";
+                    deposit = "0";
+                    calculation();
+                }else {
+                    Toast.makeText( getContext(), "Please Fill up one field", Toast.LENGTH_SHORT ).show();
                 }
 
             }

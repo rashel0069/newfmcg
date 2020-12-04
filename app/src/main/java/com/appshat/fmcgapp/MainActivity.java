@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appshat.fmcgapp.Room.DAO.UserDao;
-import com.appshat.fmcgapp.Room.DB.Database;
+import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.UserEntity;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Button loginButton;
 
     UserDao userDBdao;
-    Database userDB;
+    Databaseroom userDB;
 
     String mobile,password;
 
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         registration = findViewById( R.id.registrationTV_id );
 
         //database
-        userDB = Room.databaseBuilder( this, Database.class,"users" ).allowMainThreadQueries().build();
+        userDB = Room.databaseBuilder( this, Databaseroom.class,"users" ).allowMainThreadQueries().build();
         userDBdao = userDB.getUserDao();
 
 

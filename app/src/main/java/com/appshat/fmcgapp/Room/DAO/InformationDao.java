@@ -16,9 +16,8 @@ public interface InformationDao {
 
     @Query( "SELECT * FROM informations WHERE usermobile = :usermobile and shopname = :shopname and shopkeepername = :shopkeepername and shopaddress = :shopaddress ")
     InformationEntity getInfoProfile(String usermobile, String shopname,String shopkeepername, String shopaddress);
-
-    @Query("SELECT * FROM informations WHERE openingamount = :opening and receivableamount = :receivable and payableamount = :payable")
-    InformationEntity getInfoOpening(String opening, String receivable, String payable);
+    @Query( "SELECT * FROM informations WHERE openingamount = :opening " )
+    InformationEntity getOpening(String opening);
 
     @Insert
     void insert(InformationEntity informationEntity);

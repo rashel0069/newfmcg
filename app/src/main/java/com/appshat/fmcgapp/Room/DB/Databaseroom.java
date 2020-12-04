@@ -1,6 +1,10 @@
 package com.appshat.fmcgapp.Room.DB;
 
 
+import android.content.Context;
+
+import androidx.room.Database;
+import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.appshat.fmcgapp.Room.DAO.AdjustDao;
@@ -16,8 +20,20 @@ import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 import com.appshat.fmcgapp.Room.ENTITY.UserEntity;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 
-@androidx.room.Database( entities = {UserEntity.class, InformationEntity.class, CashboxEntity.class, ExpenseEntity.class, AdjustEntity.class, NewtransactionEntity.class},version = 6)
-public abstract class Database extends RoomDatabase {
+@Database( entities = {UserEntity.class, InformationEntity.class, CashboxEntity.class, ExpenseEntity.class, AdjustEntity.class, NewtransactionEntity.class},version = 6)
+public abstract class Databaseroom extends RoomDatabase {
+
+    private static Databaseroom databaseroomref;
+    public static Databaseroom getDatabaseroomref(Context context){
+        if (databaseroomref == null){
+            synchronized (Databaseroom.class){
+                if (databaseroomref == null ){
+                    databaseroomref = Room.databaseBuilder( context, Databaseroom.class,"Fmvg" ).fallbackToDestructiveMigration().build();
+                }
+            }
+        }
+        return databaseroomref;
+    }
 
     public abstract UserDao getUserDao();
 

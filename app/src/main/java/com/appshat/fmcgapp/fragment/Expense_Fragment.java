@@ -15,17 +15,15 @@ import android.widget.Toast;
 
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.ExpenseDao;
-import com.appshat.fmcgapp.Room.DAO.InformationDao;
-import com.appshat.fmcgapp.Room.DB.Database;
+import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
-import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 
 public class Expense_Fragment extends Fragment {
     EditText rentET, salaryET, otherET;
     Button expensesaveBtn;
 
     ExpenseDao expenseDBdao;
-    Database expenseDB;
+    Databaseroom expenseDB;
 
     String rent, salary, others;
 
@@ -37,7 +35,7 @@ public class Expense_Fragment extends Fragment {
 
 
         //database
-        expenseDB = Room.databaseBuilder( getActivity(), Database.class,"expense" ).allowMainThreadQueries().build();
+        expenseDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"expense" ).allowMainThreadQueries().build();
         expenseDBdao = expenseDB.getExpenseDao();
 
 

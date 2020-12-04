@@ -1,12 +1,11 @@
 package com.appshat.fmcgapp.fragment;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
@@ -17,22 +16,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.appshat.fmcgapp.HomeActivity;
-import com.appshat.fmcgapp.MainActivity;
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
-import com.appshat.fmcgapp.Room.DAO.UserDao;
-import com.appshat.fmcgapp.Room.DB.Database;
+import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
-import com.appshat.fmcgapp.Room.ENTITY.UserEntity;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class Information_Fragment extends Fragment {
     EditText shoppnameEt,ownernameET,addressET,phonenumberET,openingET,receivableET,payableET;
     Button saveBtn;
     String  usermobile,shopname,shopkeepername,shopaddress, opening, receivable,  payable;
 
+    public static final String MY_PREF_NAME = "myPrefFile";
+
     InformationDao informationDBdao;
-    Database informationDB;
+    Databaseroom informationDB;
 
     @Nullable
     @Override
@@ -42,7 +41,7 @@ public class Information_Fragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_information_, container, false);
 
         //database
-        informationDB = Room.databaseBuilder( getActivity(), Database.class,"informations" ).allowMainThreadQueries().build();
+        informationDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"informations" ).allowMainThreadQueries().build();
         informationDBdao = informationDB.getInformationDao();
 
         shoppnameEt= view.findViewById(R.id.sname_ET);
@@ -72,6 +71,14 @@ public class Information_Fragment extends Fragment {
                if (shopname != null && shopkeepername != null && shopaddress != null && usermobile != null && opening != null && receivable != null && payable != null  ){
                    InformationEntity informationEntity = new InformationEntity( usermobile,shopname,shopkeepername,shopaddress,opening,receivable,payable );
                    informationDBdao.insert( informationEntity );
+
+                   //save data
+
+                   SharedPreferences.Editor editor = getActivity().getSharedPreferences(MY_PREF_NAME, MODE_PRIVATE).edit();
+                   editor.putString("opencash", opening);
+                   editor.putString("receivablecash", receivable);
+                   editor.putString("payablecash", payable);
+                   editor.apply();
                    
                    Home_Fragment fragment1 = new Home_Fragment();
                    FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();

@@ -1,40 +1,45 @@
 package com.appshat.fmcgapp.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appshat.fmcgapp.R;
-import com.appshat.fmcgapp.Room.DAO.AdjustDao;
-import com.appshat.fmcgapp.Room.DAO.CashboxDao;
-import com.appshat.fmcgapp.Room.DAO.ExpenseDao;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
-import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
-import com.appshat.fmcgapp.Room.DAO.UserDao;
-import com.appshat.fmcgapp.Room.DB.Database;
+import com.appshat.fmcgapp.Room.DB.Databaseroom;
+import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
+
+import java.nio.file.OpenOption;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 
 import static java.lang.String.valueOf;
 
-public class Home_Fragment extends Fragment {
+public class Home_Fragment<Date> extends Fragment {
 
     Button cashbtn, transactionbtn, orderbtn, showtransbtn, expensebtn, adjustbtn;
-    TextView textDaybalabce,receivableamount,payableamount,cashsales,creditsales,purchase,expense,totalsales;
-    AdjustDao adjustDao;
-    CashboxDao cashboxDao;
-    ExpenseDao expenseDao;
-    InformationDao informationDao;
-    NewtransactionDao newtransactionDao;
-    UserDao userDao;
-    Database database;
-    int result;
+    TextView openingCash,dayendCash,receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash;
+    String opening,receviable,payable,dayend,sellcash,sellcredit,cashpurches,cashexpence,cashtotal;
+    InformationDao informationDbDao;
+    Databaseroom infoDatabase;
+    public static final String MY_PREF_NAME = "myPrefFile";
+    int result=0,dend=0,wid=0,depo=0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,20 +47,29 @@ public class Home_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_, container, false);
 
+        adjustbtn = view.findViewById( R.id.adjustBtn_id );
         cashbtn = view.findViewById(R.id.cashboxBtn_id);
         transactionbtn = view.findViewById(R.id.newtransactionBtn_id);
         orderbtn = view.findViewById(R.id.orderBtn_id);
         showtransbtn = view.findViewById(R.id.showtransactionBtn_id);
         expensebtn = view.findViewById(R.id.expenseBtn_id);
-        adjustbtn = view.findViewById(R.id.adjustBtn_id);
-        textDaybalabce = view.findViewById(R.id.textdayend_id);
-        receivableamount=view.findViewById(R.id.receivableamountTV_id);
-        payableamount=view.findViewById(R.id.payableamountTV_id);
-        cashsales=view.findViewById(R.id.cashsalesamountTV_id);
-        creditsales=view.findViewById(R.id.creditsalesamountTV_id);
-        purchase=view.findViewById(R.id.purchaseamountTV_id);
-        expense=view.findViewById(R.id.expenseamountTV_id);
-        totalsales=view.findViewById(R.id.totalsalesamountTV_id);
+        dayendCash = view.findViewById( R.id.textdayend_id );
+        openingCash = view.findViewById( R.id.openingamountTV_id );
+        receivablecash = view.findViewById( R.id.receivableamountTV_id );
+        payableCash = view.findViewById( R.id.payableamountTV_id );
+        cashSell = view.findViewById( R.id.cashsalesamountTV_id );
+        creditSell = view.findViewById( R.id.creditsalesamountTV_id );
+        purchaseCash = view.findViewById( R.id.purchaseamountTV_id );
+        expenseCash = view.findViewById( R.id.expenseamountTV_id );
+        totalCash = view.findViewById( R.id.totalsalesamountTV_id );
+
+        SharedPreferences prefs = getActivity().getSharedPreferences( MY_PREF_NAME, Context.MODE_PRIVATE );
+        openingCash.setText( prefs.getString( "opencash","0" ) );
+        receivablecash.setText( prefs.getString( "receivablecash","0"));
+        payableCash.setText( prefs.getString( "payablecash","0"));
+        dayendCash.setText( prefs.getString( "opencash","0" ) );
+
+
 
 
 
@@ -63,29 +77,22 @@ public class Home_Fragment extends Fragment {
 
         Bundle cashboxbundle = this.getArguments();
         if (cashboxbundle != null) {
-            int dend = cashboxbundle.getInt("Dayendbalance");
-            int wid = cashboxbundle.getInt("Withdrawalbalance");
-            int depo = cashboxbundle.getInt("Depositbalance");
+             dend = cashboxbundle.getInt("Dayendbalance");
+             wid = cashboxbundle.getInt("Withdrawalbalance");
+             depo = cashboxbundle.getInt("Depositbalance");
 
             Toast.makeText(getContext(), ""+dend+" "+wid+" "+depo, Toast.LENGTH_SHORT).show();
-
-            try {
-                if (!textDaybalabce.getText().toString().isEmpty()){
-                    int a1 = Integer.parseInt(textDaybalabce.getText().toString().trim());
-                    result = ((a1+ dend + depo)- wid);
-                    Toast.makeText(getContext(), ""+result, Toast.LENGTH_SHORT).show();
-                }
-
-            }catch (Exception e){
-                Toast.makeText(getContext(), ""+e, Toast.LENGTH_LONG).show();
-            }
+            result = (result + dend + depo) - wid;
+            dayendCash.setText( String.valueOf( result ) );
 
 
         }
 
+
         cashbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Cashbox_Fragment cash_box_fragment = new Cashbox_Fragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.framelayout_container_id, cash_box_fragment);
