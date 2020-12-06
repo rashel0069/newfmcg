@@ -18,7 +18,7 @@ public class AdjustViewModel extends AndroidViewModel {
         adjustDao = databaseroom.getduepayandreceive();
 
     }
-    public void insertAjust(AdjustEntity adjustEntity){
+    public void insertAdjust(AdjustEntity adjustEntity){
         new AdjustViewModel.InsertAsyncTask(adjustDao).execute(adjustEntity);
     }
     private class InsertAsyncTask extends AsyncTask<AdjustEntity, Void,Void>{

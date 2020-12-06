@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.ExpenseDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
+import com.appshat.fmcgapp.Room.model.ExpenseViewModel;
 
 public class Expense_Fragment extends Fragment {
     EditText rentET, salaryET, otherET;
@@ -24,7 +26,7 @@ public class Expense_Fragment extends Fragment {
 
     ExpenseDao expenseDBdao;
     Databaseroom expenseDB;
-
+    ExpenseViewModel expenseViewModel;
     String rent, salary, others;
 
     @Override
@@ -34,9 +36,10 @@ public class Expense_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_expense_, container, false);
 
 
-        //database
-        expenseDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"expense" ).allowMainThreadQueries().build();
-        expenseDBdao = expenseDB.getExpenseDao();
+//        //database
+//        expenseDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"expense" ).allowMainThreadQueries().build();
+//        expenseDBdao = expenseDB.getExpenseDao();
+        expenseViewModel = ViewModelProviders.of( getActivity() ).get( ExpenseViewModel.class );
 
 
         rentET = view.findViewById(R.id.rentET_id);
@@ -52,7 +55,7 @@ public class Expense_Fragment extends Fragment {
                 others = otherET.getText().toString();
                 if (rent != null && salary != null && others != null) {
                     ExpenseEntity expenseEntity = new ExpenseEntity(rent, salary, others);
-                    expenseDBdao.insert(expenseEntity);
+                    expenseViewModel.insertExpense(expenseEntity);
 
                     Home_Fragment fragment1 = new Home_Fragment();
                     FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();

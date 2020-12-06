@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.text.TextUtils;
@@ -18,6 +19,7 @@ import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.CashboxDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
+import com.appshat.fmcgapp.Room.model.CashBoxViewModel;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -30,6 +32,7 @@ public class Cashbox_Fragment extends Fragment {
     String dayend, withdrawal, deposit, datetime;
     CashboxDao cashboxDBdao;
     Databaseroom cashboxDB;
+    CashBoxViewModel cashBoxViewModel;
     int d1,d2,d3;
 
 
@@ -44,9 +47,10 @@ public class Cashbox_Fragment extends Fragment {
         withdrawalET = view.findViewById(R.id.withdrawalET_id);
         depositET = view.findViewById(R.id.depositET_id);
 
-        //database
-        cashboxDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "cashbox").allowMainThreadQueries().build();
-        cashboxDBdao = cashboxDB.getCashboxDao();
+//        //database
+//        cashboxDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "cashbox").allowMainThreadQueries().build();
+//        cashboxDBdao = cashboxDB.getCashboxDao();
+        cashBoxViewModel = ViewModelProviders.of( getActivity() ).get( CashBoxViewModel.class );
         //Date time
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
         String date = df.format(Calendar.getInstance().getTime());
@@ -107,7 +111,7 @@ public class Cashbox_Fragment extends Fragment {
         d3 = Integer.parseInt(deposit);
 
         CashboxEntity cashboxEntity = new CashboxEntity(datetime, dayend, withdrawal, deposit);
-        cashboxDBdao.insert(cashboxEntity);
+        cashBoxViewModel.insertCashbox(cashboxEntity);
         Toast.makeText(getContext(), "Insert Successfully", Toast.LENGTH_SHORT).show();
 
         Home_Fragment fragment1 = new Home_Fragment();

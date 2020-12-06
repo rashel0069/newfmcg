@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.util.Log;
@@ -26,6 +27,7 @@ import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
+import com.appshat.fmcgapp.Room.model.TransactionViewModel;
 
 import java.util.Calendar;
 import static android.content.ContentValues.TAG;
@@ -41,6 +43,7 @@ public class NewTransaction_Fragment extends Fragment {
     DatePickerDialog.OnDateSetListener mDateSetListener;
     Calendar cal;
     Databaseroom newtransactionDB;
+    TransactionViewModel transactionViewModel;
     String accounttype, transactiontype, clientname, clientmobile,clientamount, date;
 
     @Override
@@ -58,6 +61,7 @@ public class NewTransaction_Fragment extends Fragment {
         cmblnumET=view.findViewById(R.id.clientmobilenumberET_id);
         cnameET=view.findViewById(R.id.customernameET_id);
 
+        transactionViewModel = ViewModelProviders.of( getActivity() ).get( TransactionViewModel.class );
 
 //for spinner set position
         accspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -97,7 +101,7 @@ public class NewTransaction_Fragment extends Fragment {
 
                     NewtransactionEntity newtransactionEntity = new NewtransactionEntity(accounttype,transactiontype,clientname,clientmobile,clientamount,date);
 
-                    newtransactionDBdao.insert(newtransactionEntity);
+                    transactionViewModel.intertTrans(newtransactionEntity);
 
                     Home_Fragment fragment1 = new Home_Fragment();
                     FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();

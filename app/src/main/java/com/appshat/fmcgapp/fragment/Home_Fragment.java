@@ -46,8 +46,6 @@ public class Home_Fragment<Date> extends Fragment {
     InformationDao informationDbDao;
     Databaseroom infoDatabase;
     public static final String MY_PREF_NAME = "myPrefFile";
-
-    InformationViewModel informationViewModel;
     int result=0,dend=0,wid=0,depo=0,i=1;
 
     @Override
