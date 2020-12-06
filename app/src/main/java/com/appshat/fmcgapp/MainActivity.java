@@ -1,9 +1,13 @@
 package com.appshat.fmcgapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +18,10 @@ import android.widget.Toast;
 import com.appshat.fmcgapp.Room.DAO.UserDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.UserEntity;
+import com.appshat.fmcgapp.Room.model.UserViewModel;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ImageButton locationbtn;
@@ -27,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     String mobile,password;
 
+    UserViewModel userViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -37,8 +46,10 @@ public class MainActivity extends AppCompatActivity {
         userPassword = findViewById( R.id.password_Id );
         registration = findViewById( R.id.registrationTV_id );
 
-        //database
-        userDB = Room.databaseBuilder( this, Databaseroom.class,"users" ).allowMainThreadQueries().build();
+
+        userViewModel = ViewModelProviders.of( this).get( UserViewModel.class );
+
+        userDB = Databaseroom.getDatabaseroomref( getApplication() );
         userDBdao = userDB.getUserDao();
 
 
@@ -51,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (mobile != null && password != null){
                     UserEntity userEntity = new UserEntity( mobile,password );
-                    userDBdao.insert( userEntity );
+                    userViewModel.insertUser( userEntity );
                     Toast.makeText( MainActivity.this, "Registraton Done", Toast.LENGTH_SHORT ).show();
                 }else {
                     Toast.makeText( MainActivity.this, "Mobile and Password field is empty", Toast.LENGTH_SHORT ).show();
@@ -65,10 +76,19 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserEntity userEntity = new UserEntity("Mobile","Password");
                  mobile = userMobile.getText().toString().trim();
                  password = userPassword.getText().toString().trim();
 
-                UserEntity userEntity = userDBdao.getUserEntity( mobile,password );
+                 UserEntity userData = new UserEntity( mobile,password);
+
+                 try {
+                     userEntity = new GetToUser( userDBdao ).execute( userData ).get();
+                 }catch (Exception e){
+                     Toast.makeText( MainActivity.this, ""+e, Toast.LENGTH_SHORT ).show();
+                 }
+
+
                 if (userEntity != null){
                     // Fragment pass
                     Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
@@ -88,6 +108,19 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(),MapActivity.class);
             startActivity( intent );
         } );
+    }
+
+    public class GetToUser extends AsyncTask<UserEntity,Void,UserEntity>{
+        private final UserDao userDao;
+        public GetToUser(UserDao userDao){
+            this.userDao = userDao;
+        }
+
+        @Override
+        protected UserEntity doInBackground(UserEntity... userEntities) {
+            UserEntity userEntity = userDao.getUserEntity( userEntities[0].getMobile(), userEntities[0].getPassword() );
+            return userEntity;
+        }
     }
 
 }

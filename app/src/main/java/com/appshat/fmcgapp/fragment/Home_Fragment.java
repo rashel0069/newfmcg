@@ -8,8 +8,12 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,24 +26,29 @@ import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
+import com.appshat.fmcgapp.Room.model.InformationViewModel;
 
 import java.nio.file.OpenOption;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 
 import static java.lang.String.valueOf;
 
 public class Home_Fragment<Date> extends Fragment {
 
+    private static final String TAG = "Activity" ;
     Button cashbtn, transactionbtn, orderbtn, showtransbtn, expensebtn, adjustbtn;
     TextView openingCash,dayendCash,receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash;
     String opening,receviable,payable,dayend,sellcash,sellcredit,cashpurches,cashexpence,cashtotal;
     InformationDao informationDbDao;
     Databaseroom infoDatabase;
     public static final String MY_PREF_NAME = "myPrefFile";
-    int result=0,dend=0,wid=0,depo=0;
+
+    InformationViewModel informationViewModel;
+    int result=0,dend=0,wid=0,depo=0,i=1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,12 +72,21 @@ public class Home_Fragment<Date> extends Fragment {
         expenseCash = view.findViewById( R.id.expenseamountTV_id );
         totalCash = view.findViewById( R.id.totalsalesamountTV_id );
 
-        SharedPreferences prefs = getActivity().getSharedPreferences( MY_PREF_NAME, Context.MODE_PRIVATE );
-        openingCash.setText( prefs.getString( "opencash","0" ) );
-        receivablecash.setText( prefs.getString( "receivablecash","0"));
-        payableCash.setText( prefs.getString( "payablecash","0"));
-        dayendCash.setText( prefs.getString( "opencash","0" ) );
-
+//        SharedPreferences prefs = getActivity().getSharedPreferences( MY_PREF_NAME, Context.MODE_PRIVATE );
+//        openingCash.setText( prefs.getString( "opencash","0" ) );
+//        receivablecash.setText( prefs.getString( "receivablecash","0"));
+//        payableCash.setText( prefs.getString( "payablecash","0"));
+//        dayendCash.setText( prefs.getString( "opencash","0" ) );
+        
+//        informationViewModel = ViewModelProviders.of(this).get( InformationViewModel.class );
+//        informationViewModel.getAllinformation().observe( this, new Observer<List<InformationEntity>>() {
+//            @Override
+//            public void onChanged(List<InformationEntity> informationEntities) {
+//
+//                Log.d( TAG, "onChanged: " + informationEntities.toString());
+//
+//            }
+//        } );
 
 
 

@@ -57,9 +57,7 @@ public class NewTransaction_Fragment extends Fragment {
         camountET=view.findViewById(R.id.amountET_id);
         cmblnumET=view.findViewById(R.id.clientmobilenumberET_id);
         cnameET=view.findViewById(R.id.customernameET_id);
-        //database
-        newtransactionDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "newtransaction").allowMainThreadQueries().build();
-        newtransactionDBdao = newtransactionDB.getnewtransaction();
+
 
 //for spinner set position
         accspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

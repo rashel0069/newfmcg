@@ -23,12 +23,12 @@ import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 @Database( entities = {UserEntity.class, InformationEntity.class, CashboxEntity.class, ExpenseEntity.class, AdjustEntity.class, NewtransactionEntity.class},version = 6)
 public abstract class Databaseroom extends RoomDatabase {
 
-    private static Databaseroom databaseroomref;
+    private static volatile Databaseroom databaseroomref;
     public static Databaseroom getDatabaseroomref(Context context){
         if (databaseroomref == null){
             synchronized (Databaseroom.class){
                 if (databaseroomref == null ){
-                    databaseroomref = Room.databaseBuilder( context, Databaseroom.class,"Fmvg" ).fallbackToDestructiveMigration().build();
+                    databaseroomref = Room.databaseBuilder( context.getApplicationContext(), Databaseroom.class,"Fmvg_Database" ).fallbackToDestructiveMigration().build();
                 }
             }
         }
