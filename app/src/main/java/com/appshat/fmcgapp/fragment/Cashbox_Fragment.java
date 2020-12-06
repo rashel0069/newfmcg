@@ -18,6 +18,11 @@ import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.CashboxDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -31,7 +36,8 @@ public class Cashbox_Fragment extends Fragment {
     CashboxDao cashboxDBdao;
     Databaseroom cashboxDB;
     int d1,d2,d3;
-
+    AdView mCashboxAdview;
+    InterstitialAd interstitialAd;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,6 +49,7 @@ public class Cashbox_Fragment extends Fragment {
         dayendET = view.findViewById(R.id.dayendcashET_id);
         withdrawalET = view.findViewById(R.id.withdrawalET_id);
         depositET = view.findViewById(R.id.depositET_id);
+        mCashboxAdview = view.findViewById(R.id.cashboxadView_id);
 
         //database
         cashboxDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "cashbox").allowMainThreadQueries().build();
@@ -50,6 +57,24 @@ public class Cashbox_Fragment extends Fragment {
         //Date time
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
         String date = df.format(Calendar.getInstance().getTime());
+
+        //banner ad
+        MobileAds.initialize( getActivity(),"ca-app-pub-3940256099942544~3347511713" );
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mCashboxAdview.loadAd( adRequest );
+
+        //InterstitialAd
+        interstitialAd = new InterstitialAd( getActivity() );
+        //testing add key
+        interstitialAd.setAdUnitId( "ca-app-pub-3940256099942544/1033173712" );
+        interstitialAd.loadAd(new AdRequest.Builder().build());
+        interstitialAd.setAdListener( new AdListener(){
+            @Override
+            public void onAdClosed() {
+                interstitialAd.loadAd( new AdRequest.Builder().build() );
+            }
+        } );
+
 
 
         cashbtn.setOnClickListener(new View.OnClickListener() {
