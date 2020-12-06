@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "30327676170",
+    "project_id": "fmcgretailapp-2396f",
+    "storage_bucket": "fmcgretailapp-2396f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:30327676170:android:bd7ff264e647cd82466ef3",
+        "android_client_info": {
+          "package_name": "com.appshat.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "30327676170-q574mk89l0o0n96km7st4ltrmtib1dsj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByyjG9Tj_-cibIJNRvHSH9aSiCzvcMntk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "30327676170-q574mk89l0o0n96km7st4ltrmtib1dsj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
