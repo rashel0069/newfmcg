@@ -147,6 +147,7 @@
                     android:layout_marginTop="5dp"
                     android:textSize="16sp"
                     android:inputType="number"
+                    android:maxLength="11"
                     android:background="@drawable/edittext_background"
                     android:hint="@string/scontacthint"
                     android:padding="8dp" />
