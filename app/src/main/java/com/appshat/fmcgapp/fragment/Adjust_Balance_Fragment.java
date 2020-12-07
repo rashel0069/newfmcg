@@ -28,7 +28,9 @@ import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
 import com.appshat.fmcgapp.Room.model.AdjustViewModel;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import static android.content.ContentValues.TAG;
 import static java.lang.Integer.parseInt;
@@ -43,6 +45,7 @@ public class Adjust_Balance_Fragment extends Fragment {
     Calendar cal;
     AdjustDao adjustDBdao;
     Databaseroom adjustDB;
+    String currentdate;
     String accounttype, transactiontype, clientname, clientmobile, clientamount, date;
     AdjustViewModel adjustViewModel;
 
@@ -69,6 +72,9 @@ public class Adjust_Balance_Fragment extends Fragment {
 //        transactiontype = transactionspinner.getSelectedItem().toString();
 
         adjustViewModel = ViewModelProviders.of( getActivity() ).get( AdjustViewModel.class );
+        //Date time
+        currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+
 
 //for spinner set position
         accountspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -95,19 +101,20 @@ public class Adjust_Balance_Fragment extends Fragment {
                 Toast.makeText(getContext(), "Please choose an item", Toast.LENGTH_SHORT).show();
             }
         });
-        clientname = clientnameET.getText().toString();
-        clientmobile = clientmobileET.getText().toString();
-        date = duepaydateTV.getText().toString();
-        clientamount=adjustamountET.getText().toString();
+
 
         adjustsaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                clientname = clientnameET.getText().toString();
+                clientmobile = clientmobileET.getText().toString();
+                date = duepaydateTV.getText().toString();
+                clientamount=adjustamountET.getText().toString();
 
                 if (accounttype != null && transactiontype != null && clientname != null && clientmobile != null && clientamount != null && date != null) {
 
 
-                    AdjustEntity adjustEntity = new AdjustEntity(accounttype, transactiontype, clientname, clientmobile, clientamount, date);
+                    AdjustEntity adjustEntity = new AdjustEntity(accounttype, transactiontype, clientname, clientmobile, clientamount, date, currentdate);
                     adjustViewModel.insertAdjust(adjustEntity);
 
                     Home_Fragment fragment1 = new Home_Fragment();

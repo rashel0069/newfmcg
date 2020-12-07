@@ -26,11 +26,6 @@ import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.UserEntity;
 import com.appshat.fmcgapp.Room.model.UserViewModel;
 import com.google.android.material.textfield.TextInputEditText;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.MultiplePermissionsReport;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.util.List;
 
@@ -136,23 +131,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
-    }
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        Dexter.withContext(this)
-                .withPermissions(
-                        Manifest.permission.READ_CONTACTS,
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                ).withListener(new MultiplePermissionsListener() {
-            @Override
-            public void onPermissionsChecked(MultiplePermissionsReport report) {/* ... */}
-
-            @Override
-            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
-        }).check();
 
     }
         public class GetToUser extends AsyncTask<UserEntity, Void, UserEntity> {

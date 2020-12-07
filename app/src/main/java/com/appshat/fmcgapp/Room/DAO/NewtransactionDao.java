@@ -6,11 +6,13 @@ import androidx.room.Query;
 import androidx.room.Update;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 
+import java.util.List;
+
 @Dao
 public interface NewtransactionDao {
 
-    @Query( "SELECT * FROM newtransaction WHERE accoounttype = :accounttype and transactiontype = :transactiontype and clientname= :clientname and clientmobile = :clientmobile and clientamount = :clientamount and date = :date ")
-    NewtransactionEntity getNewtransactionEntity(String accounttype, String transactiontype, String clientname, String clientmobile, String clientamount, String date);
+//    @Query( "SELECT * FROM newtransaction WHERE accoounttype = :accounttype and transactiontype = :transactiontype and clientname= :clientname and clientmobile = :clientmobile and clientamount = :clientamount and date = :date ")
+//    NewtransactionEntity getNewtransactionEntity(String accounttype, String transactiontype, String clientname, String clientmobile, String clientamount, String date);
 
     @Insert
     void insert(NewtransactionEntity newtransactionEntity);
@@ -21,6 +23,11 @@ public interface NewtransactionDao {
     @Delete
     void delete(NewtransactionEntity newtransactionEntity);
 
+    @Query( "SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transactiontype AND currentdate LIKE :currentdate" )
+    List<NewtransactionEntity> getCerditSell(String accounttype, String transactiontype, String currentdate);
+
+    @Query( "SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND currentdate LIKE :currentdate" )
+    List<NewtransactionEntity> getAllSell(String accounttype, String currentdate);
 
 
 

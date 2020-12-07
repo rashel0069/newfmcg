@@ -20,6 +20,9 @@ import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
 import com.appshat.fmcgapp.Room.model.ExpenseViewModel;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class Expense_Fragment extends Fragment {
     EditText rentET, salaryET, otherET;
     Button expensesaveBtn;
@@ -40,6 +43,7 @@ public class Expense_Fragment extends Fragment {
 //        expenseDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"expense" ).allowMainThreadQueries().build();
 //        expenseDBdao = expenseDB.getExpenseDao();
         expenseViewModel = ViewModelProviders.of( getActivity() ).get( ExpenseViewModel.class );
+        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
 
 
         rentET = view.findViewById(R.id.rentET_id);
@@ -54,7 +58,7 @@ public class Expense_Fragment extends Fragment {
                 salary = salaryET.getText().toString();
                 others = otherET.getText().toString();
                 if (rent != null && salary != null && others != null) {
-                    ExpenseEntity expenseEntity = new ExpenseEntity(rent, salary, others);
+                    ExpenseEntity expenseEntity = new ExpenseEntity(rent, salary, others,currentdate);
                     expenseViewModel.insertExpense(expenseEntity);
 
                     Home_Fragment fragment1 = new Home_Fragment();

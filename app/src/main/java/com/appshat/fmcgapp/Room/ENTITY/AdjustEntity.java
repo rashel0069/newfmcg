@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "duepayandreceive")
 public class AdjustEntity {
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "userId")
+    @NonNull
     int id;
 
     @ColumnInfo(name = "accoounttype")
@@ -19,25 +19,31 @@ public class AdjustEntity {
     public
     String transactiontype;
 
+    @NonNull
     @ColumnInfo(name = "clientname")
     String clientname;
-
+    @NonNull
     @ColumnInfo(name = "clientmobile")
     String clientmobile;
 
+    @NonNull
     @ColumnInfo(name = "clientamount")
     String clientamount;
 
     @ColumnInfo(name = "date")
     String date;
 
-    public AdjustEntity(String accounttype, String transactiontype, String clientname, String clientmobile, String clientamount, String date) {
+    @ColumnInfo(name = "currentdate")
+    String currentdate;
+
+    public AdjustEntity(String accounttype, String transactiontype, @NonNull String clientname, @NonNull String clientmobile, @NonNull String clientamount, String date, String currentdate) {
         this.accounttype = accounttype;
         this.transactiontype = transactiontype;
         this.clientname = clientname;
         this.clientmobile = clientmobile;
         this.clientamount = clientamount;
         this.date = date;
+        this.currentdate = currentdate;
     }
 
     public int getId() {
@@ -48,43 +54,46 @@ public class AdjustEntity {
         this.id = id;
     }
 
-    public String getAccount() {
+    public String getAccounttype() {
         return accounttype;
     }
 
-    public void setAccount(String account) {
-        this.accounttype = account;
+    public void setAccounttype(String accounttype) {
+        this.accounttype = accounttype;
     }
 
-    public String getTransaction() {
+    public String getTransactiontype() {
         return transactiontype;
     }
 
-    public void setTransaction(String transaction) {
-        this.transactiontype = transaction;
+    public void setTransactiontype(String transactiontype) {
+        this.transactiontype = transactiontype;
     }
 
+    @NonNull
     public String getClientname() {
         return clientname;
     }
 
-    public void setClientname(String clientname) {
+    public void setClientname(@NonNull String clientname) {
         this.clientname = clientname;
     }
 
+    @NonNull
     public String getClientmobile() {
         return clientmobile;
     }
 
-    public void setClientmobile(String clientmobile) {
+    public void setClientmobile(@NonNull String clientmobile) {
         this.clientmobile = clientmobile;
     }
 
+    @NonNull
     public String getClientamount() {
         return clientamount;
     }
 
-    public void setClientamount(String clientamount) {
+    public void setClientamount(@NonNull String clientamount) {
         this.clientamount = clientamount;
     }
 
@@ -96,16 +105,25 @@ public class AdjustEntity {
         this.date = date;
     }
 
+    public String getCurrentdate() {
+        return currentdate;
+    }
+
+    public void setCurrentdate(String currentdate) {
+        this.currentdate = currentdate;
+    }
+
     @Override
     public String toString() {
         return "AdjustEntity{" +
                 "id=" + id +
-                ", account='" + accounttype + '\'' +
-                ", transaction='" + transactiontype + '\'' +
+                ", accounttype='" + accounttype + '\'' +
+                ", transactiontype='" + transactiontype + '\'' +
                 ", clientname='" + clientname + '\'' +
                 ", clientmobile='" + clientmobile + '\'' +
                 ", clientamount='" + clientamount + '\'' +
                 ", date='" + date + '\'' +
+                ", currentdate='" + currentdate + '\'' +
                 '}';
     }
 }
