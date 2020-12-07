@@ -1,6 +1,7 @@
 package com.appshat.fmcgapp.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appshat.fmcgapp.Kotlin.ui.ChatBot;
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
@@ -121,7 +123,8 @@ public class Home_Fragment<Date> extends Fragment {
         orderbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "connect to chatbot", Toast.LENGTH_SHORT).show();
+                Intent myIntent = new Intent(view.getContext(), ChatBot.class);
+                startActivityForResult(myIntent, 0);
             }
         });
 

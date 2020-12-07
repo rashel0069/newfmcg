@@ -108,7 +108,7 @@ public class Adjust_Balance_Fragment extends Fragment {
 
 
                     AdjustEntity adjustEntity = new AdjustEntity(accounttype, transactiontype, clientname, clientmobile, clientamount, date);
-                    adjustViewModel.insertAjust(adjustEntity);
+                    adjustViewModel.insertAdjust(adjustEntity);
 
                     Home_Fragment fragment1 = new Home_Fragment();
                     FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
