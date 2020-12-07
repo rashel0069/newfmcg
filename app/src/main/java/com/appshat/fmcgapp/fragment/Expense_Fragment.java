@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.view.LayoutInflater;
@@ -17,19 +18,15 @@ import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.ExpenseDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
+import com.appshat.fmcgapp.Room.model.ExpenseViewModel;
 
 public class Expense_Fragment extends Fragment {
     EditText rentET, salaryET, otherET;
     Button expensesaveBtn;
-    AdView mExpenseAdview;
-    InterstitialAd interstitialAd;
+
     ExpenseDao expenseDBdao;
     Databaseroom expenseDB;
+    ExpenseViewModel expenseViewModel;
     String rent, salary, others;
 
     @Override
@@ -38,33 +35,17 @@ public class Expense_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_expense_, container, false);
 
-        //database
-        expenseDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"expense" ).allowMainThreadQueries().build();
-        expenseDBdao = expenseDB.getExpenseDao();
+
+//        //database
+//        expenseDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"expense" ).allowMainThreadQueries().build();
+//        expenseDBdao = expenseDB.getExpenseDao();
+        expenseViewModel = ViewModelProviders.of( getActivity() ).get( ExpenseViewModel.class );
 
 
         rentET = view.findViewById(R.id.rentET_id);
         salaryET = view.findViewById(R.id.salaryET_id);
         otherET = view.findViewById(R.id.othersET_id);
-        mExpenseAdview=view.findViewById(R.id.expenseView_id);
         expensesaveBtn = view.findViewById(R.id.expensesaveBtn_id);
-
-        //banner ad
-        MobileAds.initialize( getActivity(),"ca-app-pub-3940256099942544~3347511713" );
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mExpenseAdview.loadAd( adRequest );
-
-        //InterstitialAd
-        interstitialAd = new InterstitialAd( getActivity() );
-        //testing add key
-        interstitialAd.setAdUnitId( "ca-app-pub-3940256099942544/1033173712" );
-        interstitialAd.loadAd(new AdRequest.Builder().build());
-        interstitialAd.setAdListener( new AdListener(){
-            @Override
-            public void onAdClosed() {
-                interstitialAd.loadAd( new AdRequest.Builder().build() );
-            }
-        } );
 
         expensesaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +55,7 @@ public class Expense_Fragment extends Fragment {
                 others = otherET.getText().toString();
                 if (rent != null && salary != null && others != null) {
                     ExpenseEntity expenseEntity = new ExpenseEntity(rent, salary, others);
-                    expenseDBdao.insert(expenseEntity);
+                    expenseViewModel.insertExpense(expenseEntity);
 
                     Home_Fragment fragment1 = new Home_Fragment();
                     FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();

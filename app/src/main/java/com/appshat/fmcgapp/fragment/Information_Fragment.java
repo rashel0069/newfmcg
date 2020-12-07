@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
+import com.appshat.fmcgapp.Room.model.InformationViewModel;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -30,8 +32,9 @@ public class Information_Fragment extends Fragment {
 
     public static final String MY_PREF_NAME = "myPrefFile";
 
-    InformationDao informationDBdao;
-    Databaseroom informationDB;
+//    InformationDao informationDBdao;
+//    Databaseroom informationDB;
+    InformationViewModel informationViewModel;
 
     @Nullable
     @Override
@@ -40,9 +43,10 @@ public class Information_Fragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_information_, container, false);
 
-        //database
-        informationDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"informations" ).allowMainThreadQueries().build();
-        informationDBdao = informationDB.getInformationDao();
+//        //database
+//        informationDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"informations" ).allowMainThreadQueries().build();
+//        informationDBdao =
+        informationViewModel = ViewModelProviders.of( getActivity()).get( InformationViewModel.class );
 
         shoppnameEt= view.findViewById(R.id.sname_ET);
         ownernameET= view.findViewById(R.id.sownername_ET);
@@ -70,7 +74,7 @@ public class Information_Fragment extends Fragment {
 
                if (shopname != null && shopkeepername != null && shopaddress != null && usermobile != null && opening != null && receivable != null && payable != null  ){
                    InformationEntity informationEntity = new InformationEntity( usermobile,shopname,shopkeepername,shopaddress,opening,receivable,payable );
-                   informationDBdao.insert( informationEntity );
+                   informationViewModel.insertInfo( informationEntity );
 
                    //save data
 

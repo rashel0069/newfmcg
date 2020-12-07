@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.util.Log;
@@ -25,6 +26,7 @@ import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.AdjustDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
+import com.appshat.fmcgapp.Room.model.AdjustViewModel;
 
 import java.util.Calendar;
 
@@ -42,6 +44,7 @@ public class Adjust_Balance_Fragment extends Fragment {
     AdjustDao adjustDBdao;
     Databaseroom adjustDB;
     String accounttype, transactiontype, clientname, clientmobile, clientamount, date;
+    AdjustViewModel adjustViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,14 +60,15 @@ public class Adjust_Balance_Fragment extends Fragment {
         duepaydateTV = view.findViewById(R.id.currentdateTV_id);
         adjustsaveBtn = view.findViewById(R.id.adjustsaveBtn_id);
 
-        //database
-        adjustDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "duepayandreceive").allowMainThreadQueries().build();
-        adjustDBdao = adjustDB.getduepayandreceive();
+//        //database
+//        adjustDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "duepayandreceive").allowMainThreadQueries().build();
+//        adjustDBdao = adjustDB.getduepayandreceive();
 
 
 //        accounttype = String.valueOf(accountspinner.getSelectedItemPosition());
 //        transactiontype = transactionspinner.getSelectedItem().toString();
 
+        adjustViewModel = ViewModelProviders.of( getActivity() ).get( AdjustViewModel.class );
 
 //for spinner set position
         accountspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -104,7 +108,7 @@ public class Adjust_Balance_Fragment extends Fragment {
 
 
                     AdjustEntity adjustEntity = new AdjustEntity(accounttype, transactiontype, clientname, clientmobile, clientamount, date);
-                    adjustDBdao.insert(adjustEntity);
+                    adjustViewModel.insertAjust(adjustEntity);
 
                     Home_Fragment fragment1 = new Home_Fragment();
                     FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
