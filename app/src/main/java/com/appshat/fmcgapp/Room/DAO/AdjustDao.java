@@ -7,13 +7,11 @@ import androidx.room.Query;
 import androidx.room.Update;
 import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
 
+import java.util.List;
 
 
 @Dao
 public interface AdjustDao {
-
-    @Query( "SELECT * FROM duepayandreceive WHERE accoounttype = :accounttype and transactiontype = :transactiontype and clientname= :clientname and clientmobile = :clientmobile and clientamount = :clientamount and date = :date ")
-    AdjustEntity geAdjustEntity(String accounttype, String transactiontype, String clientname, String clientmobile, String clientamount, String date);
 
     @Insert
     void insert(AdjustEntity adjustEntity);
@@ -23,6 +21,9 @@ public interface AdjustDao {
 
     @Delete
     void delete(AdjustEntity adjustEntity);
+
+    @Query( "SELECT * FROM duepayandreceive WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transactiontype AND currentdate LIKE :currentdate" )
+    List<AdjustEntity> getAdjust(String accounttype,String transactiontype, String currentdate);
 
 
 }
