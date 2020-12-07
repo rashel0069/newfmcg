@@ -24,6 +24,7 @@ import com.appshat.fmcgapp.Room.model.CashBoxViewModel;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 
 public class Cashbox_Fragment extends Fragment {
@@ -52,8 +53,7 @@ public class Cashbox_Fragment extends Fragment {
 //        cashboxDBdao = cashboxDB.getCashboxDao();
         cashBoxViewModel = ViewModelProviders.of( getActivity() ).get( CashBoxViewModel.class );
         //Date time
-        DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
-        String date = df.format(Calendar.getInstance().getTime());
+        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
 
 
         cashbtn.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +62,7 @@ public class Cashbox_Fragment extends Fragment {
                 dayend = dayendET.getText().toString();
                 withdrawal = withdrawalET.getText().toString();
                 deposit = depositET.getText().toString();
-                datetime = date;
+                datetime = currentdate;
 
                 if (!TextUtils.isEmpty(dayendET.getText()) && !TextUtils.isEmpty(depositET.getText()) && !TextUtils.isEmpty(withdrawalET.getText())) {
                     calculation();
@@ -115,11 +115,11 @@ public class Cashbox_Fragment extends Fragment {
         Toast.makeText(getContext(), "Insert Successfully", Toast.LENGTH_SHORT).show();
 
         Home_Fragment fragment1 = new Home_Fragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("Dayendbalance",d1);
-        bundle.putInt("Withdrawalbalance",d2);
-        bundle.putInt("Depositbalance",d3);
-        fragment1.setArguments(bundle);
+//        Bundle bundle = new Bundle();
+//        bundle.putInt("Dayendbalance",d1);
+//        bundle.putInt("Withdrawalbalance",d2);
+//        bundle.putInt("Depositbalance",d3);
+//        fragment1.setArguments(bundle);
         FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
         ft1.replace(R.id.framelayout_container_id, fragment1);
         ft1.commit();

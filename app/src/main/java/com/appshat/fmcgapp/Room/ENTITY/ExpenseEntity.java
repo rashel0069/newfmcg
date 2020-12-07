@@ -17,13 +17,17 @@ public class ExpenseEntity {
     @ColumnInfo(name = "salary")
     String salary;
 
-    @ColumnInfo
+    @ColumnInfo(name = "others")
     String others;
 
-    public ExpenseEntity(String rent, String salary, String others) {
+    @ColumnInfo(name = "currentdate")
+    String expenseDate;
+
+    public ExpenseEntity(String rent, String salary, String others, String expenseDate) {
         this.rent = rent;
         this.salary = salary;
         this.others = others;
+        this.expenseDate = expenseDate;
     }
 
     public int getId() {
@@ -58,6 +62,14 @@ public class ExpenseEntity {
         this.others = others;
     }
 
+    public String getExpenseDate() {
+        return expenseDate;
+    }
+
+    public void setExpenseDate(String expenseDate) {
+        this.expenseDate = expenseDate;
+    }
+
     @Override
     public String toString() {
         return "ExpenseEntity{" +
@@ -65,6 +77,7 @@ public class ExpenseEntity {
                 ", rent='" + rent + '\'' +
                 ", salary='" + salary + '\'' +
                 ", others='" + others + '\'' +
+                ", expenseDate='" + expenseDate + '\'' +
                 '}';
     }
 }

@@ -9,12 +9,10 @@ import androidx.room.Update;
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
 
+import java.util.List;
+
 @Dao
 public interface ExpenseDao {
-
-    @Query( "SELECT * FROM expense WHERE rent = :rent and salary= :salary and others = :others")
-    ExpenseEntity getExpense(String rent, String salary, String others);
-
 
     @Insert
     void insert(ExpenseEntity expenseEntity);
@@ -24,5 +22,8 @@ public interface ExpenseDao {
 
     @Delete
     void delete(ExpenseEntity expenseEntity);
+
+    @Query( "SELECT * FROM expense WHERE currentdate LIKE :expenseDate" )
+    List<ExpenseEntity> getExpense(String expenseDate);
 
 }

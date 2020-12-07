@@ -29,7 +29,11 @@ import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 import com.appshat.fmcgapp.Room.model.TransactionViewModel;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 import static android.content.ContentValues.TAG;
 import static java.lang.Integer.parseInt;
 
@@ -44,7 +48,8 @@ public class NewTransaction_Fragment extends Fragment {
     Calendar cal;
     Databaseroom newtransactionDB;
     TransactionViewModel transactionViewModel;
-    String accounttype, transactiontype, clientname, clientmobile,clientamount, date;
+    String accounttype, transactiontype, clientname, clientmobile,clientamount, duedate;
+    String currentdate;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,6 +67,9 @@ public class NewTransaction_Fragment extends Fragment {
         cnameET=view.findViewById(R.id.customernameET_id);
 
         transactionViewModel = ViewModelProviders.of( getActivity() ).get( TransactionViewModel.class );
+
+        //Current date
+        currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
 //for spinner set position
         accspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -94,12 +102,12 @@ public class NewTransaction_Fragment extends Fragment {
             public void onClick(View v) {
                 clientname = cnameET.getText().toString();
                 clientmobile = cmblnumET.getText().toString();
-                date = timedateTV.getText().toString();
+                duedate = timedateTV.getText().toString();
                 clientamount=camountET.getText().toString();
 
-                if (accounttype != null && transactiontype != null && clientname != null && clientmobile != null && clientamount != null && date != null) {
+                if (accounttype != null && transactiontype != null && clientname != null && clientmobile != null && clientamount != null && duedate != null) {
 
-                    NewtransactionEntity newtransactionEntity = new NewtransactionEntity(accounttype,transactiontype,clientname,clientmobile,clientamount,date);
+                    NewtransactionEntity newtransactionEntity = new NewtransactionEntity(accounttype,transactiontype,clientname,clientmobile,clientamount,duedate,currentdate);
 
                     transactionViewModel.intertTrans(newtransactionEntity);
 

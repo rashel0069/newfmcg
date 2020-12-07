@@ -29,16 +29,20 @@ public class NewtransactionEntity {
     @ColumnInfo(name = "clientamount")
     String clientamount;
 
-    @ColumnInfo(name = "date")
-    String date;
+    @ColumnInfo(name = "duedate")
+    String duedate;
 
-    public NewtransactionEntity(String accounttype, String transactiontype, String clientname, String clientmobile, String clientamount, String date) {
+    @ColumnInfo(name = "currentdate")
+    String currentdate;
+
+    public NewtransactionEntity(String accounttype, String transactiontype, String clientname, String clientmobile, String clientamount, String duedate, String currentdate) {
         this.accounttype = accounttype;
         this.transactiontype = transactiontype;
         this.clientname = clientname;
         this.clientmobile = clientmobile;
         this.clientamount = clientamount;
-        this.date = date;
+        this.duedate = duedate;
+        this.currentdate = currentdate;
     }
 
     public int getId() {
@@ -89,12 +93,20 @@ public class NewtransactionEntity {
         this.clientamount = clientamount;
     }
 
-    public String getDate() {
-        return date;
+    public String getDuedate() {
+        return duedate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDuedate(String duedate) {
+        this.duedate = duedate;
+    }
+
+    public String getCurrentdate() {
+        return currentdate;
+    }
+
+    public void setCurrentdate(String currentdate) {
+        this.currentdate = currentdate;
     }
 
     @Override
@@ -106,7 +118,8 @@ public class NewtransactionEntity {
                 ", clientname='" + clientname + '\'' +
                 ", clientmobile='" + clientmobile + '\'' +
                 ", clientamount='" + clientamount + '\'' +
-                ", date='" + date + '\'' +
+                ", duedate='" + duedate + '\'' +
+                ", currentdate='" + currentdate + '\'' +
                 '}';
     }
 }

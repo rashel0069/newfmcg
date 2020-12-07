@@ -23,16 +23,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appshat.fmcgapp.R;
+import com.appshat.fmcgapp.Room.DAO.CashboxDao;
+import com.appshat.fmcgapp.Room.DAO.ExpenseDao;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
+import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
+import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
+import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
 import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
+import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 import com.appshat.fmcgapp.Room.model.InformationViewModel;
 
 import java.nio.file.OpenOption;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 import static java.lang.String.valueOf;
@@ -42,11 +50,13 @@ public class Home_Fragment<Date> extends Fragment {
     private static final String TAG = "Activity" ;
     Button cashbtn, transactionbtn, orderbtn, showtransbtn, expensebtn, adjustbtn;
     TextView openingCash,dayendCash,receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash;
-    String opening,receviable,payable,dayend,sellcash,sellcredit,cashpurches,cashexpence,cashtotal;
+    String opening,receviable,payable,dayend,withdraw,deposit,sellcash,sellcredit,cashpurches,cashexpence,cashtotal;
     InformationDao informationDbDao;
-    Databaseroom infoDatabase;
+    NewtransactionDao newtransactionDao;
+    ExpenseDao expenseDao;
+    CashboxDao cashboxDao;
+    Databaseroom databaseroom;
     public static final String MY_PREF_NAME = "myPrefFile";
-    int result=0,dend=0,wid=0,depo=0,i=1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,39 +80,29 @@ public class Home_Fragment<Date> extends Fragment {
         expenseCash = view.findViewById( R.id.expenseamountTV_id );
         totalCash = view.findViewById( R.id.totalsalesamountTV_id );
 
-//        SharedPreferences prefs = getActivity().getSharedPreferences( MY_PREF_NAME, Context.MODE_PRIVATE );
-//        openingCash.setText( prefs.getString( "opencash","0" ) );
-//        receivablecash.setText( prefs.getString( "receivablecash","0"));
-//        payableCash.setText( prefs.getString( "payablecash","0"));
-//        dayendCash.setText( prefs.getString( "opencash","0" ) );
-        
-//        informationViewModel = ViewModelProviders.of(this).get( InformationViewModel.class );
-//        informationViewModel.getAllinformation().observe( this, new Observer<List<InformationEntity>>() {
-//            @Override
-//            public void onChanged(List<InformationEntity> informationEntities) {
-//
-//                Log.d( TAG, "onChanged: " + informationEntities.toString());
-//
-//            }
-//        } );
 
-
+        //creditsells Data
+        databaseroom = Databaseroom.getDatabaseroomref( getActivity() );
+        newtransactionDao = databaseroom.getnewtransaction();
+        expenseDao = databaseroom.getExpenseDao();
+        cashboxDao = databaseroom.getCashboxDao();
+        LoadDatafromRoom();
 
 
         //Data Receive
 
-        Bundle cashboxbundle = this.getArguments();
-        if (cashboxbundle != null) {
-             dend = cashboxbundle.getInt("Dayendbalance");
-             wid = cashboxbundle.getInt("Withdrawalbalance");
-             depo = cashboxbundle.getInt("Depositbalance");
-
-            Toast.makeText(getContext(), ""+dend+" "+wid+" "+depo, Toast.LENGTH_SHORT).show();
-            result = (result + dend + depo) - wid;
-            dayendCash.setText( String.valueOf( result ) );
-
-
-        }
+//        Bundle cashboxbundle = this.getArguments();
+//        if (cashboxbundle != null) {
+//             dend = cashboxbundle.getInt("Dayendbalance");
+//             wid = cashboxbundle.getInt("Withdrawalbalance");
+//             depo = cashboxbundle.getInt("Depositbalance");
+//
+//            Toast.makeText(getContext(), ""+dend+" "+wid+" "+depo, Toast.LENGTH_SHORT).show();
+//            result = (result + dend + depo) - wid;
+//            dayendCash.setText( String.valueOf( result ) );
+//
+//
+//        }
 
 
         cashbtn.setOnClickListener(new View.OnClickListener() {
@@ -171,6 +171,156 @@ public class Home_Fragment<Date> extends Fragment {
 
         return view;
     }
+
+    private void LoadDatafromRoom() {
+
+        try {
+            String crSells = new GetCreditSells().execute().get();
+            creditSell.setText( crSells );
+            receivablecash.setText( crSells );
+            String cashEX = new GetExpense().execute().get();
+            expenseCash.setText( cashEX );
+            String sellTotal = new GetAllSells().execute().get();
+            totalCash.setText( sellTotal );
+            String cashPurc = new GetCashpurches().execute().get();
+            purchaseCash.setText( cashPurc );
+            String creditPur = new GetPayable().execute().get();
+            payableCash.setText( creditPur );
+            String dayend = new Getdayendinfo().execute().get();
+            dayendCash.setText( dayend );
+            String withdraw = new Getwithdrawinfo().execute().get();
+            String deposit = new Getdepositinfo().execute().get();
+
+
+
+        }catch (Exception e){
+            Toast.makeText( getContext(), "Error:"+e, Toast.LENGTH_SHORT ).show();
+        }
+    }
+
+    public class GetCreditSells extends AsyncTask<Void,Void, String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            List<NewtransactionEntity> newtransactionEntities = newtransactionDao.getCerditSell( "Sales","Credit",currentdate );
+            Double total_credit = 0.0;
+            for (int i = 0; i < newtransactionEntities.size(); i++){
+                total_credit = Double.parseDouble( newtransactionEntities.get( i ).getClientamount() ) + total_credit ;
+            }
+
+            return total_credit.toString().trim();
+        }
+    }
+
+    public class GetCashpurches extends AsyncTask<Void,Void, String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            List<NewtransactionEntity> newtransactionEntities = newtransactionDao.getCerditSell( "Purchase","Cash",currentdate );
+            Double cash_purchaes = 0.0;
+            for (int i = 0; i < newtransactionEntities.size(); i++){
+                cash_purchaes = Double.parseDouble( newtransactionEntities.get( i ).getClientamount() ) + cash_purchaes ;
+            }
+
+            return cash_purchaes.toString().trim();
+        }
+    }
+
+    public class GetPayable extends AsyncTask<Void,Void, String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            List<NewtransactionEntity> newtransactionEntities = newtransactionDao.getCerditSell( "Purchase","Credit",currentdate );
+            Double credit_purchaes = 0.0;
+            for (int i = 0; i < newtransactionEntities.size(); i++){
+                credit_purchaes = Double.parseDouble( newtransactionEntities.get( i ).getClientamount() ) + credit_purchaes ;
+            }
+
+            return credit_purchaes.toString().trim();
+        }
+    }
+
+    public class GetAllSells extends AsyncTask<Void,Void, String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            List<NewtransactionEntity> newtransactionEntities = newtransactionDao.getAllSell( "Sales",currentdate );
+            Double total_sell = 0.0;
+            for (int i = 0; i < newtransactionEntities.size(); i++){
+                total_sell = Double.parseDouble( newtransactionEntities.get( i ).getClientamount() ) + total_sell ;
+            }
+
+            return total_sell.toString().trim();
+        }
+    }
+
+    public class GetExpense extends AsyncTask<Void,Void, String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            List<ExpenseEntity> expense = expenseDao.getExpense( currentdate );
+            Double total_expense = 0.0,b,a,c = 0.0;
+            for (int i = 0; i < expense.size(); i++){
+                a = Double.parseDouble( expense.get( i ).getRent()) ;
+                b = Double.parseDouble( expense.get( i ).getSalary());
+                c = Double.parseDouble( expense.get( i ).getOthers());
+                total_expense = a+b+c+ total_expense;
+            }
+            return total_expense.toString().trim();
+        }
+    }
+
+    // dayend withdraw and deposit
+    public class Getdayendinfo extends AsyncTask<Void,Void, String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            List<CashboxEntity> cashboxEntities = cashboxDao.getCashboxinfo( currentdate );
+            Double dayend = 0.0;
+            for (int i = 0; i < cashboxEntities.size(); i++){
+               dayend = Double.parseDouble( cashboxEntities.get( i ).getDayend() );
+            }
+
+            return dayend.toString();
+        }
+    }
+
+    public class Getwithdrawinfo extends AsyncTask<Void,Void, String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            List<CashboxEntity> cashboxEntities = cashboxDao.getCashboxinfo( currentdate );
+            Double withdraw = 0.0;
+            for (int i = 0; i < cashboxEntities.size(); i++){
+               withdraw = Double.parseDouble( cashboxEntities.get( i ).getWithdrawl() ) + withdraw;
+            }
+
+            return withdraw.toString();
+        }
+    }
+
+    public class Getdepositinfo extends AsyncTask<Void,Void, String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            List<CashboxEntity> cashboxEntities = cashboxDao.getCashboxinfo( currentdate );
+            Double deposit = 0.0;
+            for (int i = 0; i < cashboxEntities.size(); i++){
+               deposit = Double.parseDouble( cashboxEntities.get( i ).getDeposit() ) + deposit;
+            }
+
+            return deposit.toString();
+        }
+    }
+
 
 
 }

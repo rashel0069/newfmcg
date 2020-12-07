@@ -20,7 +20,7 @@ import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 import com.appshat.fmcgapp.Room.ENTITY.UserEntity;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 
-@Database( entities = {UserEntity.class, InformationEntity.class, CashboxEntity.class, ExpenseEntity.class, AdjustEntity.class, NewtransactionEntity.class},version = 6)
+@Database( entities = {UserEntity.class, InformationEntity.class, CashboxEntity.class, ExpenseEntity.class, AdjustEntity.class, NewtransactionEntity.class},version = 7)
 public abstract class Databaseroom extends RoomDatabase {
 
     private static volatile Databaseroom databaseroomref;
