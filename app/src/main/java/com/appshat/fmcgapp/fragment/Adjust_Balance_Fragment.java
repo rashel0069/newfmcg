@@ -64,12 +64,6 @@ public class Adjust_Balance_Fragment extends Fragment {
         adjustsaveBtn = view.findViewById(R.id.adjustsaveBtn_id);
 
 //        //database
-//        adjustDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "duepayandreceive").allowMainThreadQueries().build();
-//        adjustDBdao = adjustDB.getduepayandreceive();
-
-
-//        accounttype = String.valueOf(accountspinner.getSelectedItemPosition());
-//        transactiontype = transactionspinner.getSelectedItem().toString();
 
         adjustViewModel = ViewModelProviders.of( getActivity() ).get( AdjustViewModel.class );
         //Date time

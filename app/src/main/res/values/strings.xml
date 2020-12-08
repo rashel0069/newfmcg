@@ -170,9 +170,9 @@
 
         <item>Select Types of Balance</item>
 
-        <item>Incoming</item>
+        <item>Sales_Return</item>
 
-        <item>Outgoing</item>
+        <item>Purchase_Return</item>
 
     </string-array>
 
