@@ -12,6 +12,7 @@ import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -26,15 +27,19 @@ import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.UserEntity;
 import com.appshat.fmcgapp.Room.model.UserViewModel;
 import com.google.android.material.textfield.TextInputEditText;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    ImageButton locationbtn;
     TextView registration;
     TextInputEditText userMobile, userPassword;
     Button loginButton;
-
+    public static final String MY_PREFS_NAME = "MyPrefsFile";
     UserDao userDBdao;
     Databaseroom userDB;
 
@@ -42,14 +47,43 @@ public class MainActivity extends AppCompatActivity {
 
     UserViewModel userViewModel;
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Dexter.withContext( this )
+                .withPermissions( Manifest.permission.READ_CONTACTS,
+                        Manifest.permission.WRITE_CONTACTS,
+                        Manifest.permission.ACCESS_FINE_LOCATION).withListener( new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
+
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> list, PermissionToken permissionToken) {
+
+            }
+        } ).check();
+
+        if (mobile == null && password == null){
+            SharedPreferences preferences = getSharedPreferences( MY_PREFS_NAME,MODE_PRIVATE );
+            mobile = preferences.getString( "mobilenumber","No Number Found" );
+            password = preferences.getString( "password","****" );
+            UserAuthenTication();
+
+
+        }
+    }
+
     @SuppressLint("ObsoleteSdkInt")
     @RequiresApi(api = Build.VERSION_CODES.O)
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        locationbtn = findViewById(R.id.currentlocation_btn);
 
         userMobile = findViewById(R.id.phoneNumber_id);
         userPassword = findViewById(R.id.password_Id);
@@ -60,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
 
         userDB = Databaseroom.getDatabaseroomref(getApplication());
         userDBdao = userDB.getUserDao();
+
+
+        //sharedpref
+        SharedPreferences.Editor editor = getSharedPreferences( MY_PREFS_NAME,MODE_PRIVATE ).edit();
 
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -99,41 +137,45 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UserEntity userEntity = new UserEntity("Mobile", "Password");
+
                 mobile = userMobile.getText().toString().trim();
                 password = userPassword.getText().toString().trim();
 
-                UserEntity userData = new UserEntity(mobile, password);
-
-                try {
-                    userEntity = new GetToUser(userDBdao).execute(userData).get();
-                } catch (Exception e) {
-                    Toast.makeText(MainActivity.this, "" + e, Toast.LENGTH_SHORT).show();
-                }
-
-
-                if (userEntity != null) {
-                    // Fragment pass
-                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                    startActivity(intent);
-                    finish();
-                    Toast.makeText(MainActivity.this, "Login Successfuly", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
-                }
+                editor.putString( "mobilenumber",mobile );
+                editor.putString( "password",password );
+                editor.apply();
+                UserAuthenTication();
 
             }
         });
 
 
-        locationbtn.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), MapActivity.class);
-            startActivity(intent);
-        });
-
 
     }
-        public class GetToUser extends AsyncTask<UserEntity, Void, UserEntity> {
+
+    private void UserAuthenTication() {
+        UserEntity userEntity = new UserEntity("Mobile", "Password");
+        UserEntity userData = new UserEntity(mobile, password);
+
+        try {
+            userEntity = new GetToUser(userDBdao).execute(userData).get();
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, "" + e, Toast.LENGTH_SHORT).show();
+        }
+
+
+        if (userEntity != null) {
+            // Fragment pass
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            startActivity(intent);
+            finish();
+            Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(MainActivity.this, "User Not Register", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public class GetToUser extends AsyncTask<UserEntity, Void, UserEntity> {
         private final UserDao userDao;
 
         public GetToUser(UserDao userDao) {

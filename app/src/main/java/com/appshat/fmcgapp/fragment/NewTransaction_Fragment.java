@@ -1,15 +1,21 @@
 package com.appshat.fmcgapp.fragment;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +24,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,13 +50,40 @@ public class NewTransaction_Fragment extends Fragment {
     EditText cnameET, cmblnumET, camountET;
     TextView timedateTV;
     Button newtransBTN;
+    ImageView phonecontactSelect;
     NewtransactionDao newtransactionDBdao;
     DatePickerDialog.OnDateSetListener mDateSetListener;
     Calendar cal;
     Databaseroom newtransactionDB;
     TransactionViewModel transactionViewModel;
-    String accounttype, transactiontype, clientname, clientmobile,clientamount, duedate;
-    String currentdate;
+    String accounttype, transactiontype, clientname, clientmobile,clientamount, duedate,currentdate;
+
+
+    static final int PICK_CONTACT = 1;
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult( requestCode, resultCode, data );
+
+        switch (requestCode){
+            case(PICK_CONTACT):
+                if (resultCode == Activity.RESULT_OK){
+                    Uri contactData = data.getData();
+                    String[] projection = {ContactsContract.CommonDataKinds.Phone.NUMBER, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
+                    Cursor c = getContext().getContentResolver().query(contactData, projection, null, null, null, null );
+                    c.moveToFirst();
+                    int numberindex = c.getColumnIndex( ContactsContract.CommonDataKinds.Phone.NUMBER );
+                    String number = c.getString( numberindex );
+                    cmblnumET.setText( number );
+
+                    int nameindex = c.getColumnIndex( ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME );
+                    String name = c.getString( nameindex );
+                    cnameET.setText( name );
+
+                }
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,6 +99,7 @@ public class NewTransaction_Fragment extends Fragment {
         camountET=view.findViewById(R.id.amountET_id);
         cmblnumET=view.findViewById(R.id.clientmobilenumberET_id);
         cnameET=view.findViewById(R.id.customernameET_id);
+        phonecontactSelect = view.findViewById( R.id.phoneContact_id );
 
         transactionViewModel = ViewModelProviders.of( getActivity() ).get( TransactionViewModel.class );
 
@@ -156,6 +191,18 @@ public class NewTransaction_Fragment extends Fragment {
 
             }
         };
+
+        phonecontactSelect.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("content://contacts");
+                Intent intent = new Intent(Intent.ACTION_PICK, uri );
+                intent.setType( ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE );
+                startActivityForResult( intent,PICK_CONTACT );
+            }
+        } );
+
+
 
         return view;
     }

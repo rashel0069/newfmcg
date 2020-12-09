@@ -22,8 +22,16 @@ public interface CashboxDao {
     @Delete
     void delete(CashboxEntity cashboxEntity);
 
-    @Query( "SELECT * FROM cashbox WHERE Date LIKE :today" )
+    @Query( "SELECT * FROM cashbox WHERE Date LIKE :today AND DayendCash" )
     List<CashboxEntity> getCashboxinfo(String today);
+
+
+    @Query( "SELECT * FROM cashbox WHERE Date LIKE :today AND WithdrawCash" )
+    List<CashboxEntity> getCashboxinfoWith(String today);
+
+
+    @Query( "SELECT * FROM cashbox WHERE Date LIKE :today AND Depositcash" )
+    List<CashboxEntity> getCashboxinfoDep(String today);
 
 
 }

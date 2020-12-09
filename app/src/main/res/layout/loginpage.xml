@@ -146,41 +146,16 @@
         </LinearLayout>
 
 
-        <ImageButton
-            android:id="@+id/currentlocation_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="60dp"
-            android:background="@color/red_500"
-            android:src="@drawable/ic_baseline_my_location"
-            app:layout_constraintEnd_toEndOf="@+id/linearLayout13"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout13"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout13"
-            tools:ignore="ContentDescription,MissingConstraints" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/currentlocation"
-            android:textColor="@color/red_500"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/currentlocation_btn"
-            app:layout_constraintStart_toStartOf="@+id/currentlocation_btn"
-            app:layout_constraintTop_toBottomOf="@+id/currentlocation_btn" />
-
         <ImageView
             android:layout_width="157dp"
             android:layout_height="150dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/logimg"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/currentlocation_btn"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            app:layout_constraintHorizontal_bias="0.878"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout13"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout13"
             tools:ignore="ContentDescription,MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

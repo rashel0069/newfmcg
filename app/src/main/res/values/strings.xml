@@ -170,6 +170,10 @@
 
         <item>Select Types of Balance</item>
 
+        <item>Past_Receivable</item>
+
+        <item>Past_Payable</item>
+
         <item>Sales_Return</item>
 
         <item>Purchase_Return</item>
