@@ -17,6 +17,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -65,13 +66,11 @@ public class MainActivity extends AppCompatActivity {
             }
         } ).check();
 
-        if (mobile == null && password == null){
-            SharedPreferences preferences = getSharedPreferences( MY_PREFS_NAME,MODE_PRIVATE );
-            mobile = preferences.getString( "mobilenumber","No Number Found" );
-            password = preferences.getString( "password","****" );
+        if (mobile == null && password == null) {
+            SharedPreferences preferences = getSharedPreferences( MY_PREFS_NAME, MODE_PRIVATE );
+            mobile = preferences.getString( "mobilenumber", "No Number Found" );
+            password = preferences.getString( "password", "****" );
             UserAuthenTication();
-
-
         }
     }
 
@@ -138,13 +137,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                mobile = userMobile.getText().toString().trim();
-                password = userPassword.getText().toString().trim();
+               if (!TextUtils.isEmpty(userMobile.getText().toString().trim() ) && !TextUtils.isEmpty( userPassword.getText().toString().trim() )
+                       && userMobile.getText().toString().trim().length() == 11){
+                   mobile = userMobile.getText().toString().trim();
+                   password = userPassword.getText().toString().trim();
 
-                editor.putString( "mobilenumber",mobile );
-                editor.putString( "password",password );
-                editor.apply();
-                UserAuthenTication();
+                   editor.putString( "mobilenumber",mobile );
+                   editor.putString( "password",password );
+                   editor.apply();
+                   UserAuthenTication();
+               }else if (!TextUtils.isEmpty(userMobile.getText().toString().trim() ) && userMobile.getText().toString().trim().length() == 11){
+                   userPassword.setError( "Enter Password" );
+               }else if (!TextUtils.isEmpty( userPassword.getText().toString().trim() )){
+                   userMobile.setError( "Enter Mobile Number" );
+               }else{
+                   userMobile.setError( "Enter Mobile Number" );
+                   userPassword.setError( "Enter Password");
+               }
 
             }
         });

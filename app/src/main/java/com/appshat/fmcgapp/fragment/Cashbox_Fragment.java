@@ -62,28 +62,28 @@ public class Cashbox_Fragment extends Fragment {
                 deposit = depositET.getText().toString();
                 datetime = currentdate;
 
-                if (!TextUtils.isEmpty(dayendET.getText()) && !TextUtils.isEmpty(depositET.getText()) && !TextUtils.isEmpty(withdrawalET.getText())) {
+                if (!TextUtils.isEmpty(dayendET.getText().toString().trim()) && !TextUtils.isEmpty(depositET.getText().toString().trim()) && !TextUtils.isEmpty(withdrawalET.getText().toString().trim())) {
                     calculation();
 
-                } else if (!TextUtils.isEmpty(dayendET.getText()) && !TextUtils.isEmpty(depositET.getText())){
+                } else if (!TextUtils.isEmpty(dayendET.getText().toString().trim()) && !TextUtils.isEmpty(depositET.getText().toString().trim())){
                     withdrawal = "0";
                     calculation();
 
-                }else if (!TextUtils.isEmpty(dayendET.getText()) && !TextUtils.isEmpty(withdrawalET.getText())){
+                }else if (!TextUtils.isEmpty(dayendET.getText().toString().trim()) && !TextUtils.isEmpty(withdrawalET.getText().toString().trim())){
                     deposit = "0";
                     calculation();
-                }else if (!TextUtils.isEmpty(depositET.getText()) && !TextUtils.isEmpty(withdrawalET.getText())){
+                }else if (!TextUtils.isEmpty(depositET.getText().toString().trim()) && !TextUtils.isEmpty(withdrawalET.getText().toString().trim())){
                     dayend ="0";
                     calculation();
-                }else if (!TextUtils.isEmpty(dayendET.getText())){
+                }else if (!TextUtils.isEmpty(dayendET.getText().toString().trim())){
                     withdrawal = "0";
                     deposit = "0";
                     calculation();
-                }else if (!TextUtils.isEmpty(depositET.getText()) ){
+                }else if (!TextUtils.isEmpty(depositET.getText().toString().trim()) ){
                     withdrawal = "0";
                     dayend ="0";
                     calculation();
-                }else if (!TextUtils.isEmpty(withdrawalET.getText())){
+                }else if (!TextUtils.isEmpty(withdrawalET.getText().toString().trim())){
                     dayend ="0";
                     deposit = "0";
                     calculation();

@@ -16,11 +16,14 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.provider.ContactsContract;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -118,6 +121,17 @@ public class Adjust_Balance_Fragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 accounttype = parent.getSelectedItem().toString();
+                Toast.makeText( getContext(), ""+ position, Toast.LENGTH_SHORT ).show();
+
+                if (position == 1 || position == 2){
+                    String[] cas = getResources().getStringArray( R.array.trans2 );
+                    ArrayAdapter adapter = new ArrayAdapter( getContext(),R.layout.myarrylistsample,cas );
+                    transactionspinner.setAdapter( adapter );
+                }else {
+                    String[] cas = getResources().getStringArray( R.array.trans );
+                    ArrayAdapter adapter = new ArrayAdapter( getContext(),R.layout.myarrylistsample,cas );
+                    transactionspinner.setAdapter( adapter );
+                }
             }
 
             @Override
@@ -130,6 +144,7 @@ public class Adjust_Balance_Fragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 transactiontype = parent.getSelectedItem().toString();
+
             }
 
             @Override
@@ -143,13 +158,14 @@ public class Adjust_Balance_Fragment extends Fragment {
         adjustsaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clientname = clientnameET.getText().toString();
-                clientmobile = clientmobileET.getText().toString();
-                date = duepaydateTV.getText().toString();
-                clientamount=adjustamountET.getText().toString();
 
-                if (accounttype != null && transactiontype != null && clientname != null && clientmobile != null && clientamount != null && date != null) {
+                if (!accounttype.isEmpty() && transactiontype.isEmpty() && !TextUtils.isEmpty( clientnameET.getText().toString() ) &&
+                        !TextUtils.isEmpty( clientmobileET.getText().toString().trim() ) && !TextUtils.isEmpty( adjustamountET.getText().toString().trim() ) && !TextUtils.isEmpty( duepaydateTV.getText().toString() )) {
 
+                    clientname = clientnameET.getText().toString();
+                    clientmobile = clientmobileET.getText().toString();
+                    date = duepaydateTV.getText().toString();
+                    clientamount=adjustamountET.getText().toString();
 
                     AdjustEntity adjustEntity = new AdjustEntity(accounttype, transactiontype, clientname, clientmobile, clientamount, date, currentdate);
                     adjustViewModel.insertAdjust(adjustEntity);
@@ -159,12 +175,11 @@ public class Adjust_Balance_Fragment extends Fragment {
                     ft1.replace(R.id.framelayout_container_id, fragment1);
                     ft1.commit();
 
-                    Toast.makeText(getContext(), "Registraton Done", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Insert Sucessfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getContext(), "Mobile and Password field is empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Please fill up the required fields", Toast.LENGTH_SHORT).show();
                 }
 
-                Toast.makeText(getContext(), accounttype + " " + transactiontype, Toast.LENGTH_SHORT).show();
             }
 
         });

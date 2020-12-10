@@ -158,7 +158,7 @@
 
     <string-array name="date">
 
-        <item> Enter DueDate / PayDate</item>
+        <item>*  Enter DueDate / PayDate </item>
 
         <item>Duedate</item>
 
@@ -168,7 +168,7 @@
 
     <string-array name="adjustbalance">
 
-        <item>Select Types of Balance</item>
+        <item>*  Select Types of Balance </item>
 
         <item>Past_Receivable</item>
 
@@ -182,7 +182,7 @@
 
     <string-array name="trans">
 
-        <item> Select Transaction Type</item>
+        <item>*  Select Transaction Type</item>
 
         <item>Cash</item>
 
@@ -192,10 +192,18 @@
 
     </string-array>
 
+    <string-array name="trans2">
+
+        <item>*  Select Transaction Type</item>
+
+        <item>Cash</item>
+
+    </string-array>
+
 
     <string-array name="transactiontype">
 
-        <item>Select Transaction Type</item>
+        <item>*  Select Transaction Type </item>
 
         <item>Cash</item>
 
@@ -206,7 +214,7 @@
 
     <string-array name="accountType">
 
-        <item>Select Account Type</item>
+        <item>*  Select Account Type</item>
 
         <item>Sales</item>
 

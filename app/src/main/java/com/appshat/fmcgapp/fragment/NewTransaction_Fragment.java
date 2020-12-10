@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.provider.ContactsContract;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -135,12 +136,15 @@ public class NewTransaction_Fragment extends Fragment {
         newtransBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clientname = cnameET.getText().toString();
-                clientmobile = cmblnumET.getText().toString();
-                duedate = timedateTV.getText().toString();
-                clientamount=camountET.getText().toString();
 
-                if (accounttype != null && transactiontype != null && clientname != null && clientmobile != null && clientamount != null && duedate != null) {
+
+                if (!accounttype.isEmpty() && !transactiontype.isEmpty() && !TextUtils.isEmpty( cnameET.getText().toString() )
+                        && !TextUtils.isEmpty( cmblnumET.getText().toString().trim() ) && !TextUtils.isEmpty( camountET.getText().toString().trim() ) && !TextUtils.isEmpty( timedateTV.getText().toString() )) {
+
+                    clientname = cnameET.getText().toString();
+                    clientmobile = cmblnumET.getText().toString();
+                    duedate = timedateTV.getText().toString();
+                    clientamount = camountET.getText().toString().trim();
 
                     NewtransactionEntity newtransactionEntity = new NewtransactionEntity(accounttype,transactiontype,clientname,clientmobile,clientamount,duedate,currentdate);
 
@@ -151,12 +155,11 @@ public class NewTransaction_Fragment extends Fragment {
                     ft1.replace(R.id.framelayout_container_id, fragment1);
                     ft1.commit();
 
-                    Toast.makeText(getContext(), "Registraton Done", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Insert Sucessfully", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getContext(), "Mobile and Password field is empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Please fill up the required fields", Toast.LENGTH_SHORT).show();
                 }
 
-                Toast.makeText(getContext(), accounttype + " " + transactiontype, Toast.LENGTH_SHORT).show();
             }
         });
         timedateTV.setOnClickListener(new View.OnClickListener() {

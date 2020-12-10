@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,16 +60,20 @@ public class Information_Fragment extends Fragment {
            @Override
            public void onClick(View v) {
 
-               shopname = shoppnameEt.getText().toString();
-               shopkeepername = ownernameET.getText().toString();
-               shopaddress=addressET.getText().toString();
-               usermobile=phonenumberET.getText().toString().trim();
-               opening=openingET.getText().toString().trim();
-               receivable=receivableET.getText().toString().trim();
-               payable=payableET.getText().toString().trim();
 
+               if (!TextUtils.isEmpty( shoppnameEt.getText().toString() ) && !TextUtils.isEmpty( ownernameET.getText().toString() ) &&
+                       !TextUtils.isEmpty( addressET.getText().toString() ) && !TextUtils.isEmpty( phonenumberET.getText().toString().trim() ) &&
+                       !TextUtils.isEmpty( openingET.getText().toString().trim() ) && !TextUtils.isEmpty( receivableET.getText().toString().trim() )
+                       && !TextUtils.isEmpty( payableET.getText().toString().trim() ) ){
 
-               if (shopname != null && shopkeepername != null && shopaddress != null && usermobile != null && opening != null && receivable != null && payable != null  ){
+                   shopname = shoppnameEt.getText().toString();
+                   shopkeepername = ownernameET.getText().toString();
+                   shopaddress=addressET.getText().toString();
+                   usermobile=phonenumberET.getText().toString().trim();
+                   opening=openingET.getText().toString().trim();
+                   receivable=receivableET.getText().toString().trim();
+                   payable=payableET.getText().toString().trim();
+
                    InformationEntity informationEntity = new InformationEntity( usermobile,shopname,shopkeepername,shopaddress,opening,receivable,payable );
                    informationViewModel.insertInfo( informationEntity );
 
@@ -85,9 +90,9 @@ public class Information_Fragment extends Fragment {
                    ft1.replace(R.id.framelayout_container_id, fragment1);
                    ft1.commit();
 
-                   Toast.makeText( getContext(), "Registraton Done", Toast.LENGTH_SHORT ).show();
+                   Toast.makeText( getContext(), "Thank you for your kind informations", Toast.LENGTH_SHORT ).show();
                }else {
-                   Toast.makeText( getContext(), "Mobile and Password field is empty", Toast.LENGTH_SHORT ).show();
+                   Toast.makeText( getContext(), "Please fill up all fields", Toast.LENGTH_SHORT ).show();
                }
 
 

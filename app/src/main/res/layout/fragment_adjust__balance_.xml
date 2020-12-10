@@ -56,6 +56,7 @@
             android:entries="@array/trans"
             android:spinnerMode="dropdown"
             android:textAlignment="center"
+            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/balancetypespinner_id"

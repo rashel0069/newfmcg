@@ -84,7 +84,7 @@ public class Expense_Fragment extends Fragment {
                     salary = "0";
                     expensecalcu();
                 }else {
-                    Toast.makeText( getContext(), "Please Fill up one field", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText( getContext(), "Please fill up one field", Toast.LENGTH_SHORT ).show();
                 }
 
             }
