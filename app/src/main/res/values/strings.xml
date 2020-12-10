@@ -19,7 +19,7 @@
 
     <string name="amount">Enter Your Amount</string>
 
-    <string name="amounthint">exe. 5000</string>
+    <string name="amounthint">eg. 5000</string>
 
     <string name="customerName">Customer Name</string>
 
@@ -29,15 +29,15 @@
 
     <string name="rent">Rent Expense</string>
 
-    <string name="renthint"> exe. 10000</string>
+    <string name="renthint"> eg. 10000</string>
 
     <string name="salary">Salary Expense</string>
 
-    <string name="salaryhint"> exe. 1000</string>
+    <string name="salaryhint"> eg. 1000</string>
 
     <string name="others">Other Expense</string>
 
-    <string name="otherhint"> exe. 500</string>
+    <string name="otherhint"> eg. 500</string>
 
     <string name="shopname">Shop Name</string>
 
@@ -53,7 +53,7 @@
 
     <string name="sownernamehint">Enter Your Shopkeeper Name</string>
 
-    <string name="openinghint">Opening Amount exe. 5000</string>
+    <string name="openinghint">Opening Amount eg. 5000</string>
 
     <string name="ra">Receivable Amount</string>
 
@@ -61,13 +61,13 @@
 
     <string name="pa">Payable Amount</string>
 
-    <string name="pahint">Payable Amount exe. 1000</string>
+    <string name="pahint">Payable Amount eg. 1000</string>
 
     <string name="note">Note</string>
 
     <string name="dayendcash">DayEnd Cash</string>
 
-    <string name="dayend">exe: 2000</string>
+    <string name="dayend">eg: 2000</string>
 
     <string name="totalcash">Total Cash</string>
 
@@ -95,7 +95,7 @@
 
     <string name="currentlocation">Current Location</string>
 
-    <string name="withdrawalhint">exe: 500</string>
+    <string name="withdrawalhint">eg: 500</string>
 
     <string name="withdrawal"> Withdrawal Cash</string>
 
@@ -105,7 +105,7 @@
 
     <string name="depositcash"> Deposit Cash</string>
 
-    <string name="deposithint">exe: 1000</string>
+    <string name="deposithint">eg: 1000</string>
 
     <string name="payable">Payable</string>
 
@@ -143,7 +143,7 @@
 
     <string name="amounts">Amount</string>
 
-    <string name="date" tools:ignore="TypographyDashes">Pick a date exe:27-9-2020</string>
+    <string name="date" tools:ignore="TypographyDashes">Pick a date eg:27-9-2020</string>
 
     <string name="adjust">Due payable/ Due Receivable</string>
 

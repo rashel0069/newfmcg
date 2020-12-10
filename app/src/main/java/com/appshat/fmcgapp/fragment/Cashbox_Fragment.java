@@ -49,8 +49,6 @@ public class Cashbox_Fragment extends Fragment {
         depositET = view.findViewById(R.id.depositET_id);
 
 //        //database
-//        cashboxDB = Room.databaseBuilder(getActivity(), Databaseroom.class, "cashbox").allowMainThreadQueries().build();
-//        cashboxDBdao = cashboxDB.getCashboxDao();
         cashBoxViewModel = ViewModelProviders.of( getActivity() ).get( CashBoxViewModel.class );
         //Date time
         String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
@@ -115,11 +113,6 @@ public class Cashbox_Fragment extends Fragment {
         Toast.makeText(getContext(), "Insert Successfully", Toast.LENGTH_SHORT).show();
 
         Home_Fragment fragment1 = new Home_Fragment();
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("Dayendbalance",d1);
-//        bundle.putInt("Withdrawalbalance",d2);
-//        bundle.putInt("Depositbalance",d3);
-//        fragment1.setArguments(bundle);
         FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
         ft1.replace(R.id.framelayout_container_id, fragment1);
         ft1.commit();

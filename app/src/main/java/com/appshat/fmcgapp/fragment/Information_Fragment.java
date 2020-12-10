@@ -31,9 +31,6 @@ public class Information_Fragment extends Fragment {
     String  usermobile,shopname,shopkeepername,shopaddress, opening, receivable,  payable;
 
     public static final String MY_PREF_NAME = "myPrefFile";
-
-//    InformationDao informationDBdao;
-//    Databaseroom informationDB;
     InformationViewModel informationViewModel;
 
     @Nullable
@@ -44,8 +41,7 @@ public class Information_Fragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_information_, container, false);
 
 //        //database
-//        informationDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"informations" ).allowMainThreadQueries().build();
-//        informationDBdao =
+
         informationViewModel = ViewModelProviders.of( getActivity()).get( InformationViewModel.class );
 
         shoppnameEt= view.findViewById(R.id.sname_ET);
