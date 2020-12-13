@@ -16,7 +16,7 @@ import com.appshat.fmcgapp.R;
 
 public class ShowTransaction_Fragment extends Fragment {
     EditText searchmbl;
-    Button searchBtn, showallBtn;
+    Button searchBtn, transallBtn,expBtn,recpayBtn;
     RecyclerView recyclerView;
 
     @Override
@@ -27,8 +27,11 @@ public class ShowTransaction_Fragment extends Fragment {
 
         searchmbl = view.findViewById(R.id.smblET_id);
         searchBtn = view.findViewById(R.id.searchBtn_id);
-        showallBtn = view.findViewById(R.id.showallBtn_id);
-        recyclerView = view.findViewById(R.id.showallBtn_id);
+        transallBtn = view.findViewById(R.id.transallBtn_id);
+        recyclerView = view.findViewById(R.id.rv_id);
+        expBtn = view.findViewById(R.id.expBtn_id);
+        recpayBtn = view.findViewById(R.id.payrecBtn_id);
+
 
         return view;
 

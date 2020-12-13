@@ -4,56 +4,92 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".fragment.ShowTransaction_Fragment">
+    tools:context="com.appshat.fmcgapp.fragment.ShowTransaction_Fragment">
 
-    <EditText
-        android:id="@+id/smblET_id"
+    <LinearLayout
+        android:id="@+id/linearLayout25"
+        android:weightSum="4"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:paddingLeft="8dp"
-        android:background="@drawable/edittext_background"
-        android:hint="@string/scontacthint"
-        android:inputType="number"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-
-    <Button
-        android:id="@+id/searchBtn_id"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
         android:padding="8dp"
-        android:textAllCaps="false"
-        android:text="@string/search"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/smblET_id" />
+        tools:ignore="MissingConstraints">
 
-    <Button
-        android:id="@+id/showallBtn_id"
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/smblET_id"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/edittext_background"
+            android:hint="@string/scontacthint"
+            android:inputType="number"
+            android:paddingLeft="8dp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/searchBtn_id"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:padding="8dp"
+            android:text="@string/search"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout26"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/showall"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/smblET_id" />
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:weightSum="3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout25"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-16dp">
+
+
+        <Button
+            android:id="@+id/transallBtn_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/todaytrans"
+            android:singleLine="true"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/expBtn_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="@string/expense"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/payrecBtn_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="@string/payrec"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/searchBtn_id"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout26"
         tools:ignore="MissingConstraints"
-        />
+        tools:layout_editor_absoluteX="3dp" />
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
