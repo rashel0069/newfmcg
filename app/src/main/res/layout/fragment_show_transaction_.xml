@@ -84,10 +84,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
+        android:background="@drawable/shape_background"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout26"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="3dp" />
-
+        tools:layout_editor_absoluteX="3dp"
+        tools:listitem="@layout/showdata_list"/>
 
 
 
