@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp">
+    android:layout_height="wrap_content"
+    android:padding="2dp">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_id"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="130dp"
         app:cardCornerRadius="10dp"
         tools:ignore="MissingConstraints">
 
@@ -123,6 +123,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/date_data_Id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -133,11 +134,7 @@
                 android:hint="13-12-2020"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout27"
-                tools:ignore="MissingConstraints" />
+                android:textStyle="bold"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

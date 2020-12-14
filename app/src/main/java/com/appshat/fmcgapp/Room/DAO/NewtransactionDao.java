@@ -1,4 +1,5 @@
 package com.appshat.fmcgapp.Room.DAO;
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -28,6 +29,9 @@ public interface NewtransactionDao {
 
     @Query( "SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND currentdate LIKE :currentdate" )
     List<NewtransactionEntity> getAllSell(String accounttype, String currentdate);
+
+    @Query( "SELECT * FROM newtransaction" )
+    LiveData<List<NewtransactionEntity>>getTodayTrans();
 
 
 
