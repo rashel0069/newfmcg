@@ -152,9 +152,9 @@
     <string name="expensetransaction">Expense</string>
 
 
-    <string name="message_box_title">You get the Money </string>
+    <string name="message_box_title">You will get the money  </string>
 
-    <string name="message_timesheet_not_up_to_date">You get the money</string>
+    <string name="message_timesheet_not_up_to_date">You  will get the money</string>
 
     <string-array name="date">
 

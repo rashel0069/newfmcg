@@ -1,7 +1,11 @@
 package com.appshat.fmcgapp.fragment;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -10,10 +14,10 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.room.Room;
 
 import android.provider.ContactsContract;
 import android.text.TextUtils;
@@ -30,6 +34,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appshat.fmcgapp.AlarmReceiver;
 import com.appshat.fmcgapp.R;
 
 import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
@@ -57,7 +62,7 @@ public class NewTransaction_Fragment extends Fragment {
     Calendar cal;
     Databaseroom newtransactionDB;
     TransactionViewModel transactionViewModel;
-    String accounttype, transactiontype, clientname, clientmobile,clientamount, duedate,currentdate;
+    String accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate;
 
 
     static final int PICK_CONTACT = 1;
@@ -65,22 +70,22 @@ public class NewTransaction_Fragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult( requestCode, resultCode, data );
+        super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode){
-            case(PICK_CONTACT):
-                if (resultCode == Activity.RESULT_OK){
+        switch (requestCode) {
+            case (PICK_CONTACT):
+                if (resultCode == Activity.RESULT_OK) {
                     Uri contactData = data.getData();
                     String[] projection = {ContactsContract.CommonDataKinds.Phone.NUMBER, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
-                    Cursor c = getContext().getContentResolver().query(contactData, projection, null, null, null, null );
+                    Cursor c = getContext().getContentResolver().query(contactData, projection, null, null, null, null);
                     c.moveToFirst();
-                    int numberindex = c.getColumnIndex( ContactsContract.CommonDataKinds.Phone.NUMBER );
-                    String number = c.getString( numberindex );
-                    cmblnumET.setText( number );
+                    int numberindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+                    String number = c.getString(numberindex);
+                    cmblnumET.setText(number);
 
-                    int nameindex = c.getColumnIndex( ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME );
-                    String name = c.getString( nameindex );
-                    cnameET.setText( name );
+                    int nameindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+                    String name = c.getString(nameindex);
+                    cnameET.setText(name);
 
                 }
         }
@@ -97,12 +102,11 @@ public class NewTransaction_Fragment extends Fragment {
         transspinner = view.findViewById(R.id.newtransactionspinner_id);
         timedateTV = view.findViewById(R.id.dateTV_id);
         newtransBTN = view.findViewById(R.id.newtranssave_id);
-        camountET=view.findViewById(R.id.amountET_id);
-        cmblnumET=view.findViewById(R.id.clientmobilenumberET_id);
-        cnameET=view.findViewById(R.id.customernameET_id);
-        phonecontactSelect = view.findViewById( R.id.phoneContact_id );
-
-        transactionViewModel = ViewModelProviders.of( getActivity() ).get( TransactionViewModel.class );
+        camountET = view.findViewById(R.id.amountET_id);
+        cmblnumET = view.findViewById(R.id.clientmobilenumberET_id);
+        cnameET = view.findViewById(R.id.customernameET_id);
+        phonecontactSelect = view.findViewById(R.id.phoneContact_id);
+        transactionViewModel = ViewModelProviders.of(getActivity()).get(TransactionViewModel.class);
 
         //Current date
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
@@ -138,15 +142,14 @@ public class NewTransaction_Fragment extends Fragment {
             public void onClick(View v) {
 
 
-                if (!accounttype.isEmpty() && !transactiontype.isEmpty() && !TextUtils.isEmpty( cnameET.getText().toString() )
-                        && !TextUtils.isEmpty( cmblnumET.getText().toString().trim() ) && !TextUtils.isEmpty( camountET.getText().toString().trim() ) && !TextUtils.isEmpty( timedateTV.getText().toString() )) {
+                if (!accounttype.isEmpty() && !transactiontype.isEmpty() && !TextUtils.isEmpty(cnameET.getText().toString())
+                        && !TextUtils.isEmpty(cmblnumET.getText().toString().trim()) && !TextUtils.isEmpty(camountET.getText().toString().trim()) && !TextUtils.isEmpty(timedateTV.getText().toString())) {
 
                     clientname = cnameET.getText().toString();
                     clientmobile = cmblnumET.getText().toString();
                     duedate = timedateTV.getText().toString();
                     clientamount = camountET.getText().toString().trim();
-
-                    NewtransactionEntity newtransactionEntity = new NewtransactionEntity(accounttype,transactiontype,clientname,clientmobile,clientamount,duedate,currentdate);
+                    NewtransactionEntity newtransactionEntity = new NewtransactionEntity(accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate);
 
                     transactionViewModel.intertTrans(newtransactionEntity);
 
@@ -154,13 +157,24 @@ public class NewTransaction_Fragment extends Fragment {
                     FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
                     ft1.replace(R.id.framelayout_container_id, fragment1);
                     ft1.commit();
-
                     Toast.makeText(getContext(), "Insert Sucessfully", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), "Please fill up the required fields", Toast.LENGTH_SHORT).show();
                 }
 
+
+                   /* customername.setText(" ");
+                    mobilenumber.setText(" ");
+                    amounts.setText(" ");
+                    due.setText(" ");*/
+                // noteET.setText(" ");
+                if(transactiontype.equals("Credit")) {
+                    setAlerm(cal);
+                }
+
+
             }
+
         });
         timedateTV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,10 +184,13 @@ public class NewTransaction_Fragment extends Fragment {
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
 
+
                 DatePickerDialog dialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
                         year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
+
+
             }
         });
 
@@ -189,25 +206,36 @@ public class NewTransaction_Fragment extends Fragment {
                 cal = Calendar.getInstance();
                 cal.setTimeInMillis(System.currentTimeMillis());
                 cal.clear();
-                cal.set(year,month,day,parseInt(hour),parseInt(minutes));
+                cal.set(year, month, day, parseInt(hour), parseInt(minutes));
                 timedateTV.setText(date);
 
             }
         };
 
-        phonecontactSelect.setOnClickListener( new View.OnClickListener() {
+        phonecontactSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse("content://contacts");
-                Intent intent = new Intent(Intent.ACTION_PICK, uri );
-                intent.setType( ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE );
-                startActivityForResult( intent,PICK_CONTACT );
+                Intent intent = new Intent(Intent.ACTION_PICK, uri);
+                intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+                startActivityForResult(intent, PICK_CONTACT);
             }
-        } );
-
+        });
 
 
         return view;
     }
 
+    private void setAlerm(Calendar cal) {
+        AlarmManager alarmMgr = (AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(getActivity(), AlarmReceiver.class);
+        intent.putExtra("clientname",clientname);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
+        // cal.add(Calendar.SECOND, 5);
+        alarmMgr.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),pendingIntent);
+        Toast.makeText(getActivity().getApplicationContext(), "successfully set alerm", Toast.LENGTH_LONG).show();
+
+    }
+
 }
+
