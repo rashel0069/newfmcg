@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">FMCG Retail App</string>
+
+    <string name="intro">স্বাগতম</string>
+
+    <string name="hint1">মোবাইল নম্বর</string>
+
+    <string name="hint2">পাসওয়ার্ড</string>
+
+    <string name="login">লগইন</string>
+
+    <string name="creditsales">বাকিতে বিক্রয়</string>
+
+    <string name="registration"><u>রেজিস্টার</u></string>
+
+    <string name="registration2">এখানে ক্লিক করুন </string>
+
+    <string name="save">সংরক্ষণ</string>
+
+    <string name="amount">টাকার পরিমাণ </string>
+
+    <string name="amounthint">যেমন:৫০০০</string>
+
+    <string name="customerName">ক্রেতার নাম</string>
+
+    <string name="titletv">আপনার আজকের গ্রহণযোগ্য / প্রদানযোগ্য অনুস্মারক: </string>
+
+    <string name="duedate">নির্দিষ্ট তারিখ</string>
+
+    <string name="opening">শুরুর পরিমাণ</string>
+
+    <string name="rent">ভাড়ার পরিমাণ</string>
+
+    <string name="renthint"> যেমন: ১০০০</string>
+
+    <string name="salary">বেতন খরচ</string>
+
+    <string name="salaryhint">যেমন: ১০০০</string>
+
+    <string name="others">অন্যান্য খরচ</string>
+
+    <string name="otherhint">যেমন:৫০০</string>
+
+    <string name="shopname">দোকানের নাম</string>
+
+    <string name="saddress">ঠিকানা</string>
+
+    <string name="sownername">দোকানদারের নাম</string>
+
+    <string name="shopnamehint">দোকানের নাম লিখুন</string>
+
+    <string name="saddresshint">দোকানের ঠিকানা লিখুন</string>
+
+    <string name="scontacthint">মোবাইল নাম্বার লিখুন</string>
+
+    <string name="sownernamehint">দোকানদারের নাম</string>
+
+    <string name="openinghint">শুরুর পরিমাণ যেমন:৫০০০ </string>
+
+    <string name="ra">প্রাপ্তির পরিমাণ</string>
+
+    <string name="rahint">>প্রাপ্তির পরিমাণ যেমন: ৫০০০ </string>
+
+    <string name="pa">প্রদেয় পরিমান</string>
+
+    <string name="pahint">প্রদেয় পরিমান যেমন: ১০০০ </string>
+
+    <string name="note">টীকা</string>
+
+    <string name="dayendcash">দিনশেষের হিসাব</string>
+
+    <string name="dayend">যেমন:২০০০</string>
+
+    <string name="totalcash">মোট টাকা</string>
+
+    <string name="totalcashhint">০.০০</string>
+
+    <string name="receivable">প্রাপ্য টাকা</string>
+
+    <string name="cashsales">নগদে বিক্রয়</string>
+
+    <string name="totalsales">মোট বিক্রয়</string>
+
+    <string name="spe"> ক্রয়/ বিক্রয় / ব্যয়</string>
+
+    <string name="search">অনুসন্ধান করুন</string>
+
+    <string name="sar">পাওনা হিসাব দেখুন</string>
+
+    <string name="showall">সকল লেনদেন দেখুন</string>
+
+    <string name="sap">সমস্ত দেনা দেখুন</string>
+
+    <string name="rp">গ্রহণযোগ্য / প্রদেয় </string>
+
+    <string name="location">অবস্থান</string>
+
+    <string name="currentlocation">বর্তমান অবস্থান</string>
+
+    <string name="withdrawalhint">যেমন: ৫০০</string>
+
+    <string name="withdrawal">উত্তোলনের পরিমাণ</string>
+
+    <string name="expense">ব্যয়</string>
+
+    <string name="adjusttv">নিস্পত্তি হিসাব</string>
+
+    <string name="depositcash">জমা টাকা</string>
+
+    <string name="deposithint">যেমন: ১০০০</string>
+
+    <string name="payable">প্রদানযোগ্য</string>
+
+    <string name="purchase">নগদ ক্রয়</string>
+
+    <string name="cashBox">ক্যাশবাক্স</string>
+
+    <string name="newtransaction">নতুন লেনদেন</string>
+
+    <string name="showtransaction">লেনদেন দেখান</string>
+
+    <string name="order">অর্ডার</string>
+
+    <string name="selector">ভাষা নির্বাচন</string>
+
+    <string name="country">দেশ</string>
+
+    <string name="address">ঠিকানা</string>
+
+    <string name="postalcode">পোস্ট অফিসের নাম্বার</string>
+
+    <string name="city">শহর</string>
+
+    <string name="account">হিসাবের প্রকার</string>
+
+    <string name="trans">লেনদেনের প্রকার</string>
+
+    <string name="customernamehint">ক্রেতার নাম লিখুন </string>
+
+    <string name="customernumberhint">ক্রেতার মোবাইল নম্বর</string>
+
+    <string name="amounts">পরিমাণ</string>
+
+    <string name="date" tools:ignore="TypographyDashes">তারিখ নির্বাচন করুন যেমন: ২৭-৯-২০২০</string>
+
+    <string name="adjust">বকেয়া প্রদেয় / প্রাপ্য</string>
+
+    <string name="cashtransaction">নগদ লেনদেন</string>
+
+    <string name="expensetransaction">ব্যয়</string>
+
+    <string name="reminder">আপনার আজকের অনুস্মারক .....</string>
+
+    <string-array name="date">
+
+        <item>*পরিশোধ / প্রাপ্তির তারিখ </item>
+
+        <item>নির্দিষ্ট তারিখ</item>
+
+        <item>পরিশোধের তারিখ</item>
+
+    </string-array>
+
+    <string-array name="adjustbalance">
+
+        <item>* হিসাবের প্রকার </item>
+
+        <item>পূর্বের প্রাপ্তি</item>
+
+        <item>পূর্বের প্রদেয়</item>
+
+        <item>বিক্রয় ফেরত</item>
+
+        <item>ক্রয় ফেরত</item>
+
+    </string-array>
+
+    <string-array name="trans">
+
+        <item>*লেনদেনের প্রকার</item>
+
+        <item>নগদ টাকা</item>
+
+        <item>বাকি</item>
+
+        <item>নিস্পত্তি হিসাব</item>
+
+    </string-array>
+
+    <string-array name="trans2">
+
+        <item>*লেনদেনের প্রকার</item>
+
+        <item>নগদ টাকা</item>
+
+    </string-array>
+
+
+    <string-array name="transactiontype">
+
+        <item>*লেনদেনের প্রকার</item>
+
+        <item>নগদ টাকা</item>
+
+        <item>বাকি</item>
+
+    </string-array>
+
+
+    <string-array name="accountType">
+
+        <item>*হিসাবের প্রকার</item>
+
+        <item>বিক্রয়</item>
+
+        <item>ক্রয়</item>
+
+
+    </string-array>
+
+    <string name="alerm_time_hour">3</string>
+
+    <string name="alerm_time_second">8</string>
+
+
+    <string name="hello_blank_fragment">হ্যালো_ব্ল্যাঙ্ক_ফ্রেগমেন্ট</string>
+
+    <string name="todaytrans">লেনদেন</string>
+
+    <string name="payrec">পরিশোধ / প্রাপ্তির পরিমাণ</string>
+
+</resources>

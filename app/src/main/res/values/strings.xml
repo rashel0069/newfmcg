@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <string name="app_name">FMCG Retail App</string>
 
     <string name="intro">Welcome</string>
@@ -22,6 +23,8 @@
     <string name="amounthint">eg. 5000</string>
 
     <string name="customerName">Customer Name</string>
+
+    <string name="titletv">Your today\'s receivable/payable Reminder : </string>
 
     <string name="duedate">Duedate</string>
 
@@ -129,11 +132,8 @@
 
     <string name="city">City</string>
 
-    <string name="state">State</string>
-
     <string name="account">Account Types</string>
 
-    <string name="dwd">Dayend/Withdrawal/Deposit</string>
 
     <string name="trans">Transaction Types</string>
 
@@ -152,9 +152,7 @@
     <string name="expensetransaction">Expense</string>
 
 
-    <string name="message_box_title">You will get the money  </string>
-
-    <string name="message_timesheet_not_up_to_date">You  will get the money</string>
+    <string name="reminder">Your today reminder.....</string>
 
     <string-array name="date">
 
@@ -227,7 +225,6 @@
 
     <string name="alerm_time_second">8</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -235,7 +232,7 @@
 
     <string name="payrec">Payable/Receivable</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
 
 
 </resources>

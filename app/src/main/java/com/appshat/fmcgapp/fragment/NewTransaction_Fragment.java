@@ -63,8 +63,6 @@ public class NewTransaction_Fragment extends Fragment {
     Databaseroom newtransactionDB;
     TransactionViewModel transactionViewModel;
     String accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate;
-
-
     static final int PICK_CONTACT = 1;
 
 
@@ -162,13 +160,7 @@ public class NewTransaction_Fragment extends Fragment {
                     Toast.makeText(getContext(), "Please fill up the required fields", Toast.LENGTH_SHORT).show();
                 }
 
-
-                   /* customername.setText(" ");
-                    mobilenumber.setText(" ");
-                    amounts.setText(" ");
-                    due.setText(" ");*/
-                // noteET.setText(" ");
-                if(transactiontype.equals("Credit")) {
+                if (transactiontype.equals("Credit")) {
                     setAlerm(cal);
                 }
 
@@ -226,16 +218,22 @@ public class NewTransaction_Fragment extends Fragment {
         return view;
     }
 
+
     private void setAlerm(Calendar cal) {
-        AlarmManager alarmMgr = (AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmMgr = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getActivity(), AlarmReceiver.class);
-        intent.putExtra("clientname",clientname);
+        intent.putExtra("clientname", clientname);
+        intent.putExtra("clientmobilenumber", clientmobile);
+        intent.putExtra("clientamount", clientamount);
+        intent.putExtra("accounttype", accounttype);
+        intent.putExtra("date", duedate);
+
+        getActivity().sendBroadcast(intent);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
         // cal.add(Calendar.SECOND, 5);
-        alarmMgr.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),pendingIntent);
+        alarmMgr.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
         Toast.makeText(getActivity().getApplicationContext(), "successfully set alerm", Toast.LENGTH_LONG).show();
 
     }
 
 }
-

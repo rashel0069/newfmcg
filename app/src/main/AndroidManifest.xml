@@ -18,6 +18,7 @@
         android:roundIcon="@mipmap/store"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <activity android:name=".Broadcast_Activity"></activity>
         <activity android:name=".Kotlin.ui.ChatBot" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MapActivity" />
@@ -40,8 +41,10 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <receiver
             android:name=".AlarmReceiver"
+            android:enabled="true"
             android:process=":remote" />
     </application>
 
