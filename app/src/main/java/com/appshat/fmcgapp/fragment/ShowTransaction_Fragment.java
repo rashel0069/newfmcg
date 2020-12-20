@@ -1,5 +1,7 @@
 package com.appshat.fmcgapp.fragment;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.appshat.fmcgapp.Helper;
+import com.appshat.fmcgapp.Localhelper;
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 import com.appshat.fmcgapp.Room.model.TransactionViewModel;
@@ -28,6 +32,8 @@ public class ShowTransaction_Fragment extends Fragment {
     RecyclerView recyclerView;
     TransactionListAdapter transactionListAdapter;
     TransactionViewModel transactionViewModel;
+    Context context;
+    Resources resources;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +52,25 @@ public class ShowTransaction_Fragment extends Fragment {
         recyclerView.setNestedScrollingEnabled( false );
         transactionListAdapter = new TransactionListAdapter();
         recyclerView.setAdapter( transactionListAdapter );
+
+        if (Helper.getBangla()) {
+            context = Localhelper.setLocale(getActivity(), "bn");
+            resources = context.getResources();
+            searchmbl.setHint(resources.getString(R.string.scontacthint));
+            searchBtn.setText(resources.getString(R.string.search));
+            transallBtn.setText(resources.getString(R.string.todaytrans));
+            expBtn.setText(resources.getString(R.string.expense));
+            recpayBtn.setText(resources.getString(R.string.payrec));
+
+        } else {
+            context = Localhelper.setLocale(getActivity(), "en");
+            resources = context.getResources();
+            searchmbl.setHint(resources.getString(R.string.scontacthint));
+            searchBtn.setText(resources.getString(R.string.search));
+            transallBtn.setText(resources.getString(R.string.todaytrans));
+            expBtn.setText(resources.getString(R.string.expense));
+            recpayBtn.setText(resources.getString(R.string.payrec));
+        }
 
         transactionViewModel = ViewModelProviders.of( this ).get( TransactionViewModel.class );
         transactionViewModel.getmAllTrans().observe( getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {

@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -35,6 +36,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appshat.fmcgapp.AlarmReceiver;
+import com.appshat.fmcgapp.Helper;
+import com.appshat.fmcgapp.Localhelper;
 import com.appshat.fmcgapp.R;
 
 import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
@@ -54,12 +57,14 @@ import static java.lang.Integer.parseInt;
 public class NewTransaction_Fragment extends Fragment {
     Spinner accspinner, transspinner;
     EditText cnameET, cmblnumET, camountET;
-    TextView timedateTV;
+    TextView cnTV,cmTV,amTV,timedateTV;
     Button newtransBTN;
     ImageView phonecontactSelect;
     NewtransactionDao newtransactionDBdao;
     DatePickerDialog.OnDateSetListener mDateSetListener;
     Calendar cal;
+    Context context;
+    Resources resources;
     Databaseroom newtransactionDB;
     TransactionViewModel transactionViewModel;
     String accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate;
@@ -100,14 +105,45 @@ public class NewTransaction_Fragment extends Fragment {
         transspinner = view.findViewById(R.id.newtransactionspinner_id);
         timedateTV = view.findViewById(R.id.dateTV_id);
         newtransBTN = view.findViewById(R.id.newtranssave_id);
+        amTV=view.findViewById(R.id.amountTV_id);
         camountET = view.findViewById(R.id.amountET_id);
+        cmTV=view.findViewById(R.id.clientmobilenumberTV_id);
         cmblnumET = view.findViewById(R.id.clientmobilenumberET_id);
+        cnTV=view.findViewById(R.id.customernameTV_id);
         cnameET = view.findViewById(R.id.customernameET_id);
         phonecontactSelect = view.findViewById(R.id.phoneContact_id);
         transactionViewModel = ViewModelProviders.of(getActivity()).get(TransactionViewModel.class);
 
+
+        //language setter
+        if (Helper.getBangla()) {
+            context = Localhelper.setLocale(getActivity(), "bn");
+            resources = context.getResources();
+          timedateTV.setHint(resources.getString(R.string.date));
+          cnTV.setText(resources.getString(R.string.customerName));
+          cnameET.setHint(resources.getString(R.string.customernamehint));
+          cmTV.setText(resources.getString(R.string.hint1));
+          cmblnumET.setHint(resources.getString(R.string.customernumberhint));
+          amTV.setText(resources.getString(R.string.amounts));
+          camountET.setHint(resources.getString(R.string.amounthint));
+          newtransBTN.setText(resources.getString(R.string.save));
+
+        } else {
+            context = Localhelper.setLocale(getActivity(), "en");
+            resources = context.getResources();
+            timedateTV.setHint(resources.getString(R.string.date));
+            cnTV.setText(resources.getString(R.string.customerName));
+            cnameET.setHint(resources.getString(R.string.customernamehint));
+            amTV.setText(resources.getString(R.string.amounts));
+            camountET.setHint(resources.getString(R.string.amounthint));
+            cmTV.setText(resources.getString(R.string.hint1));
+            cmblnumET.setHint(resources.getString(R.string.customernumberhint));
+            newtransBTN.setText(resources.getString(R.string.save));
+
+        }
         //Current date
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
 
 //for spinner set position
         accspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

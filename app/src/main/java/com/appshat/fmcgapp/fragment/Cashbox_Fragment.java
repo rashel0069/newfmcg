@@ -1,5 +1,7 @@
 package com.appshat.fmcgapp.fragment;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,13 +15,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appshat.fmcgapp.Helper;
+import com.appshat.fmcgapp.Localhelper;
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.CashboxDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
 import com.appshat.fmcgapp.Room.model.CashBoxViewModel;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,12 +35,15 @@ import java.util.Locale;
 
 public class Cashbox_Fragment extends Fragment {
     EditText dayendET, withdrawalET, depositET;
+    TextView cashttile,dayendTV,withdrawalTV,depositTV;
     Button cashbtn;
     String dayend, withdrawal, deposit, datetime;
     CashboxDao cashboxDBdao;
     Databaseroom cashboxDB;
     CashBoxViewModel cashBoxViewModel;
     int d1,d2,d3;
+    Context context;
+    Resources resources;
 
 
     @Override
@@ -42,11 +51,35 @@ public class Cashbox_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cashbox_fragment, container, false);
-
         cashbtn = view.findViewById(R.id.cashsaveBtn_id);
+        cashttile=view.findViewById(R.id.cashtitleTV_Id);
+        dayendTV=view.findViewById(R.id.dc_Id);
         dayendET = view.findViewById(R.id.dayendcashET_id);
+        withdrawalTV=view.findViewById(R.id.wd_id);
         withdrawalET = view.findViewById(R.id.withdrawalET_id);
+        depositTV=view.findViewById(R.id.ds_id);
         depositET = view.findViewById(R.id.depositET_id);
+
+
+        //language setter
+        if (Helper.getBangla()) {
+            context = Localhelper.setLocale(getActivity(), "bn");
+            resources = context.getResources();
+            cashttile.setText(resources.getString(R.string.cashtransaction));
+            dayendTV.setText(resources.getString(R.string.dayendcash));
+            withdrawalTV.setText(resources.getString(R.string.withdrawal));
+            depositTV.setText(resources.getString(R.string.depositcash));
+            cashbtn.setText(resources.getString(R.string.save));
+
+        } else {
+            context = Localhelper.setLocale(getActivity(), "en");
+            resources = context.getResources();
+            cashttile.setText(resources.getString(R.string.cashtransaction));
+            dayendTV.setText(resources.getString(R.string.dayendcash));
+            withdrawalTV.setText(resources.getString(R.string.withdrawal));
+            depositTV.setText(resources.getString(R.string.depositcash));
+            cashbtn.setText(resources.getString(R.string.save));
+        }
 
 //        //database
         cashBoxViewModel = ViewModelProviders.of( getActivity() ).get( CashBoxViewModel.class );

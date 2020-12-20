@@ -62,7 +62,7 @@
 
     <string name="ra">প্রাপ্তির পরিমাণ</string>
 
-    <string name="rahint">>প্রাপ্তির পরিমাণ যেমন: ৫০০০ </string>
+    <string name="rahint">প্রাপ্তির পরিমাণ যেমন: ৫০০০ </string>
 
     <string name="pa">প্রদেয় পরিমান</string>
 
@@ -124,7 +124,7 @@
 
     <string name="order">অর্ডার</string>
 
-    <string name="selector">ভাষা নির্বাচন</string>
+    <string name="selector">ভাষা</string>
 
     <string name="country">দেশ</string>
 

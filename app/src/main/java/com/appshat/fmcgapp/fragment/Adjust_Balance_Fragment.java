@@ -2,7 +2,9 @@ package com.appshat.fmcgapp.fragment;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -32,6 +34,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appshat.fmcgapp.Helper;
+import com.appshat.fmcgapp.Localhelper;
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.AdjustDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
@@ -49,8 +53,10 @@ public class Adjust_Balance_Fragment extends Fragment {
 
     Spinner accountspinner, transactionspinner;
     EditText adjustamountET, clientnameET, clientmobileET;
-    TextView duepaydateTV;
+    TextView clientnameTV,cmblTV,duepaydateTV, drpTV, amountTV;
     Button adjustsaveBtn;
+    Context context;
+    Resources resources;
     DatePickerDialog.OnDateSetListener mDateSetListener;
     Calendar cal;
     AdjustDao adjustDBdao;
@@ -63,22 +69,21 @@ public class Adjust_Balance_Fragment extends Fragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult( requestCode, resultCode, data );
+        super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode){
-            case(PICK_CONTACT):
-                if (resultCode == Activity.RESULT_OK){
+        switch (requestCode) {
+            case (PICK_CONTACT):
+                if (resultCode == Activity.RESULT_OK) {
                     Uri contactData = data.getData();
                     String[] projection = {ContactsContract.CommonDataKinds.Phone.NUMBER, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
-                    Cursor c = getContext().getContentResolver().query(contactData, projection, null, null, null, null );
+                    Cursor c = getContext().getContentResolver().query(contactData, projection, null, null, null, null);
                     c.moveToFirst();
-                    int numberindex = c.getColumnIndex( ContactsContract.CommonDataKinds.Phone.NUMBER );
-                    String number = c.getString( numberindex );
-                    clientmobileET.setText( number );
-
-                    int nameindex = c.getColumnIndex( ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME );
-                    String name = c.getString( nameindex );
-                    clientnameET.setText( name );
+                    int numberindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+                    String number = c.getString(numberindex);
+                    clientmobileET.setText(number);
+                    int nameindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+                    String name = c.getString(nameindex);
+                    clientnameET.setText(name);
 
                 }
         }
@@ -93,44 +98,77 @@ public class Adjust_Balance_Fragment extends Fragment {
         accountspinner = view.findViewById(R.id.balancetypespinner_id);
         transactionspinner = view.findViewById(R.id.transitiontypespinner_id);
         adjustamountET = view.findViewById(R.id.adjustamountET_id);
+        clientnameTV=view.findViewById(R.id.clientnameTV_id);
         clientnameET = view.findViewById(R.id.clientname_id);
+        cmblTV=view.findViewById(R.id.clientmblTV_id);
         clientmobileET = view.findViewById(R.id.cmblTV_id);
         duepaydateTV = view.findViewById(R.id.currentdateTV_id);
+        drpTV = view.findViewById(R.id.drpTV_id);
         adjustsaveBtn = view.findViewById(R.id.adjustsaveBtn_id);
-        phoneContact = view.findViewById( R.id.phoneContact_id2 );
+        amountTV = view.findViewById(R.id.amountsTV_id);
+        phoneContact = view.findViewById(R.id.phoneContact_id2);
+
 
 //        //database
 
-        adjustViewModel = ViewModelProviders.of( getActivity() ).get( AdjustViewModel.class );
+        adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
         //Date time
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
 
-        phoneContact.setOnClickListener( new View.OnClickListener() {
+        phoneContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse("content://contacts");
-                Intent intent = new Intent(Intent.ACTION_PICK, uri );
-                intent.setType( ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE );
-                startActivityForResult( intent,PICK_CONTACT );
+                Intent intent = new Intent(Intent.ACTION_PICK, uri);
+                intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+                startActivityForResult(intent, PICK_CONTACT);
             }
-        } );
+        });
+
+//language setter
+        if (Helper.getBangla()) {
+            context = Localhelper.setLocale(getActivity(), "bn");
+            resources = context.getResources();
+            drpTV.setText(resources.getString(R.string.adjust));
+            clientnameTV.setText(resources.getString(R.string.customerName));
+            clientnameET.setHint(resources.getString(R.string.customernamehint));
+            cmblTV.setText(resources.getString(R.string.hint1));
+            clientmobileET.setHint(resources.getString(R.string.customernumberhint));
+            amountTV.setText(resources.getString(R.string.amounts));
+            adjustamountET.setHint(resources.getString(R.string.amounthint));
+            duepaydateTV.setHint(resources.getString(R.string.date));
+            adjustsaveBtn.setText(resources.getString(R.string.save));
 
 
+
+        } else {
+            context = Localhelper.setLocale(getActivity(), "en");
+            resources = context.getResources();
+            drpTV.setText(resources.getString(R.string.adjust));
+            clientnameTV.setText(resources.getString(R.string.customerName));
+            clientnameET.setHint(resources.getString(R.string.customernamehint));
+            cmblTV.setText(resources.getString(R.string.hint1));
+            clientmobileET.setHint(resources.getString(R.string.customernumberhint));
+            amountTV.setText(resources.getString(R.string.amounts));
+            adjustamountET.setHint(resources.getString(R.string.amounthint));
+            duepaydateTV.setHint(resources.getString(R.string.date));
+            adjustsaveBtn.setText(resources.getString(R.string.save));
+        }
 //for spinner set position
         accountspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 accounttype = parent.getSelectedItem().toString();
-                Toast.makeText( getContext(), ""+ position, Toast.LENGTH_SHORT ).show();
+                Toast.makeText(getContext(), "" + position, Toast.LENGTH_SHORT).show();
 
-                if (position == 1 || position == 2){
-                    String[] cas = getResources().getStringArray( R.array.trans2 );
-                    ArrayAdapter adapter = new ArrayAdapter( getContext(),R.layout.myarrylistsample,cas );
-                    transactionspinner.setAdapter( adapter );
-                }else {
-                    String[] cas = getResources().getStringArray( R.array.trans );
-                    ArrayAdapter adapter = new ArrayAdapter( getContext(),R.layout.myarrylistsample,cas );
-                    transactionspinner.setAdapter( adapter );
+                if (position == 1 || position == 2) {
+                    String[] cas = getResources().getStringArray(R.array.trans2);
+                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+                    transactionspinner.setAdapter(adapter);
+                } else {
+                    String[] cas = getResources().getStringArray(R.array.trans);
+                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+                    transactionspinner.setAdapter(adapter);
                 }
             }
 
@@ -144,7 +182,7 @@ public class Adjust_Balance_Fragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 transactiontype = parent.getSelectedItem().toString();
-                Toast.makeText( getContext(), ""+transactiontype, Toast.LENGTH_SHORT ).show();
+                Toast.makeText(getContext(), "" + transactiontype, Toast.LENGTH_SHORT).show();
 
             }
 
@@ -164,8 +202,8 @@ public class Adjust_Balance_Fragment extends Fragment {
                 date = duepaydateTV.getText().toString();
                 clientamount = adjustamountET.getText().toString();
 
-                if (!accounttype.isEmpty() && !transactiontype.isEmpty() && !TextUtils.isEmpty( clientnameET.getText().toString() ) &&
-                        !TextUtils.isEmpty( clientmobileET.getText().toString().trim() ) && !TextUtils.isEmpty( adjustamountET.getText().toString().trim() ) && !TextUtils.isEmpty( duepaydateTV.getText().toString() )) {
+                if (!accounttype.isEmpty() && !transactiontype.isEmpty() && !TextUtils.isEmpty(clientnameET.getText().toString()) &&
+                        !TextUtils.isEmpty(clientmobileET.getText().toString().trim()) && !TextUtils.isEmpty(adjustamountET.getText().toString().trim()) && !TextUtils.isEmpty(duepaydateTV.getText().toString())) {
 
 
                     AdjustEntity adjustEntity = new AdjustEntity(accounttype, transactiontype, clientname, clientmobile, clientamount, date, currentdate);
@@ -211,7 +249,7 @@ public class Adjust_Balance_Fragment extends Fragment {
                 cal = Calendar.getInstance();
                 cal.setTimeInMillis(System.currentTimeMillis());
                 cal.clear();
-                cal.set(year,month,day,parseInt(hour),parseInt(minutes));
+                cal.set(year, month, day, parseInt(hour), parseInt(minutes));
                 duepaydateTV.setText(date);
 
             }

@@ -12,8 +12,35 @@
         android:background="@drawable/background_red"
         android:padding="8dp">
 
+        <ImageButton
+            android:id="@+id/languageBtn_Id"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_language_24"
+            app:layout_constraintEnd_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/languageTV_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selector"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/languageBtn_Id"
+            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintStart_toStartOf="@+id/languageBtn_Id"
+            app:layout_constraintTop_toBottomOf="@+id/languageBtn_Id"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/welcomeTV_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
@@ -38,7 +65,7 @@
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="@+id/welcomeTV_id"
             tools:ignore="MissingConstraints">
 
             <RelativeLayout
@@ -102,11 +129,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="208dp"
-            android:text="Login"
+            android:text="@string/login"
             app:layout_constraintEnd_toEndOf="@+id/cardView"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="@+id/cardView"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/welcomeTV_id"
             tools:ignore="HardcodedText,MissingConstraints" />
 
         <LinearLayout
@@ -123,6 +150,7 @@
             tools:ignore="MissingConstraints">
 
             <TextView
+                android:id="@+id/rtextTV_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/registration2"

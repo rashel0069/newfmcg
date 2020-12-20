@@ -39,7 +39,7 @@
             tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/rextTv_id"
+                android:id="@+id/rextTV_id"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"

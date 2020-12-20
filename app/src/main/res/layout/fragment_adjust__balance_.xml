@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/drpTV_id"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="8dp"
@@ -42,7 +42,7 @@
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/drpTV_id"
             tools:ignore="MissingConstraints" />
 
         <androidx.appcompat.widget.AppCompatSpinner
@@ -78,6 +78,7 @@
             tools:ignore="MissingConstraints">
 
             <TextView
+                android:id="@+id/clientnameTV_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -115,6 +116,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout23">
 
             <TextView
+                android:id="@+id/clientmblTV_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
