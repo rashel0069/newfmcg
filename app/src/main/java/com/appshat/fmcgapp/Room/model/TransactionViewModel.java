@@ -11,18 +11,23 @@ import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class TransactionViewModel extends AndroidViewModel {
     private NewtransactionDao newtransactionDao;
     private Databaseroom databaseroom;
     private LiveData<List<NewtransactionEntity>> mAllTrans;
+    private LiveData<List<NewtransactionEntity>> mtodayTrans;
 
     public TransactionViewModel(@NonNull Application application) {
         super( application );
+        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
         databaseroom = Databaseroom.getDatabaseroomref( application );
         newtransactionDao = databaseroom.getnewtransaction();
         mAllTrans = newtransactionDao.getTodayTrans();
+        mtodayTrans = newtransactionDao.getTransDate( currentdate );
 
     }
     public void intertTrans(NewtransactionEntity newtransactionEntity){
@@ -50,5 +55,8 @@ public class TransactionViewModel extends AndroidViewModel {
 
     public LiveData<List<NewtransactionEntity>> getmAllTrans() {
         return mAllTrans;
+    }
+    public LiveData<List<NewtransactionEntity>> getmTodayTrans(){
+        return mtodayTrans;
     }
 }

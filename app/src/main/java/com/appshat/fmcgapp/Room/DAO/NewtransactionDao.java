@@ -33,6 +33,9 @@ public interface NewtransactionDao {
     @Query( "SELECT * FROM newtransaction" )
     LiveData<List<NewtransactionEntity>>getTodayTrans();
 
+    @Query( "SELECT * FROM newtransaction WHERE currentdate LIKE :currentdate" )
+    LiveData<List<NewtransactionEntity>>getTransDate(String currentdate);
+
 
 
 }

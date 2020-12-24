@@ -37,8 +37,6 @@ public class TransactionListAdapter extends RecyclerView.Adapter<TransactionList
                 holder.dataAmoyunt.setText( newtransactionEntity.getClientamount() );
                 holder.dataDate.setText( newtransactionEntity.getDuedate() );
             }
-
-
     }
 
     @Override

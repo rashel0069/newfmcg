@@ -38,13 +38,16 @@
             android:textAllCaps="false" />
     </LinearLayout>
 
+<HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <LinearLayout
         android:id="@+id/linearLayout26"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:weightSum="3"
+        android:weightSum="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,10 +56,20 @@
 
 
         <Button
+            android:id="@+id/allBtn_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:text="@string/todaytrans2"
+            android:textAllCaps="false" />
+
+        <Button
             android:id="@+id/transallBtn_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginStart="8dp"
             android:singleLine="true"
             android:text="@string/todaytrans"
             android:textAllCaps="false" />
@@ -81,6 +94,7 @@
             android:textAllCaps="false" />
 
     </LinearLayout>
+</HorizontalScrollView>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

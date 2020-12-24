@@ -28,7 +28,7 @@ import java.util.List;
 
 public class ShowTransaction_Fragment extends Fragment {
     EditText searchmbl;
-    Button searchBtn, transallBtn,expBtn,recpayBtn;
+    Button searchBtn,transallBtn,expBtn,recpayBtn, allTrans;
     RecyclerView recyclerView;
     TransactionListAdapter transactionListAdapter;
     TransactionViewModel transactionViewModel;
@@ -44,6 +44,7 @@ public class ShowTransaction_Fragment extends Fragment {
         searchmbl = view.findViewById(R.id.smblET_id);
         searchBtn = view.findViewById(R.id.searchBtn_id);
         transallBtn = view.findViewById(R.id.transallBtn_id);
+        allTrans = view.findViewById(R.id.allBtn_id);
         recyclerView = view.findViewById(R.id.rv_id);
         expBtn = view.findViewById(R.id.expBtn_id);
         recpayBtn = view.findViewById(R.id.payrecBtn_id);
@@ -73,14 +74,37 @@ public class ShowTransaction_Fragment extends Fragment {
         }
 
         transactionViewModel = ViewModelProviders.of( this ).get( TransactionViewModel.class );
+        showAll();
+        // today transactions
+        transallBtn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                transactionViewModel.getmTodayTrans().observe( getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
+                    @Override
+                    public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
+                        transactionListAdapter.setTrans( newtransactionEntities );
+                    }
+                } );
+            }
+        } );
+
+        //All transaction
+        allTrans.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAll();
+            }
+        } );
+
+        return view;
+
+    }
+    private void showAll(){
         transactionViewModel.getmAllTrans().observe( getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
             @Override
             public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
                 transactionListAdapter.setTrans( newtransactionEntities );
             }
         } );
-
-        return view;
-
     }
 }

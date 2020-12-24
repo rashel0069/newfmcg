@@ -18,7 +18,7 @@
 
     <string name="registration2">এখানে ক্লিক করুন </string>
 
-    <string name="save">সংরক্ষণ</string>
+    <string name="save">সংরক্ষণ করুন</string>
 
     <string name="amount">টাকার পরিমাণ </string>
 
@@ -229,6 +229,7 @@
     <string name="hello_blank_fragment">হ্যালো_ব্ল্যাঙ্ক_ফ্রেগমেন্ট</string>
 
     <string name="todaytrans">লেনদেন</string>
+    <string name="todaytrans2">সকল লেনদেন</string>
 
     <string name="payrec">পরিশোধ / প্রাপ্তির পরিমাণ</string>
 

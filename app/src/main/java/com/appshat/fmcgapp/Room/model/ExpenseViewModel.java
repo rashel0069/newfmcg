@@ -12,6 +12,8 @@ import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
 public class ExpenseViewModel extends AndroidViewModel {
     private ExpenseDao expenseDao;
     private Databaseroom databaseroom;
+
+
     public ExpenseViewModel(@NonNull Application application) {
         super( application );
 
@@ -23,7 +25,6 @@ public class ExpenseViewModel extends AndroidViewModel {
     }
     private class InsertAsyncTask extends AsyncTask<ExpenseEntity, Void,Void>{
         ExpenseDao mExpenseDao;
-
         public InsertAsyncTask(ExpenseDao mExpenseDao) {
             this.mExpenseDao = mExpenseDao;
         }
