@@ -119,6 +119,19 @@
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <TextView
+                    android:id="@+id/forgotepassword_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/f2"
+                    android:layout_alignEnd="@+id/f2"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="@string/forgot_password"
+                    android:textColor="@color/red_500" />
+
             </RelativeLayout>
 
 

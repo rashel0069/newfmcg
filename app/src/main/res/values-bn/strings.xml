@@ -192,13 +192,19 @@
 
     <string-array name="trans2">
 
-        <item>*লেনদেনের প্রকার</item>
+        <item>* লেনদেনের প্রকার</item>
 
         <item>নগদ টাকা</item>
 
     </string-array>
+    <string-array name="trans3">
 
+        <item>* লেনদেনের প্রকার</item>
 
+        <item>বাকি</item>
+
+    </string-array>
+    
     <string-array name="transactiontype">
 
         <item>*লেনদেনের প্রকার</item>
@@ -208,8 +214,6 @@
         <item>বাকি</item>
 
     </string-array>
-
-
     <string-array name="accountType">
 
         <item>*হিসাবের প্রকার</item>
@@ -217,20 +221,13 @@
         <item>বিক্রয়</item>
 
         <item>ক্রয়</item>
-
-
     </string-array>
-
     <string name="alerm_time_hour">3</string>
-
     <string name="alerm_time_second">8</string>
-
-
     <string name="hello_blank_fragment">হ্যালো_ব্ল্যাঙ্ক_ফ্রেগমেন্ট</string>
-
     <string name="todaytrans">লেনদেন</string>
     <string name="todaytrans2">সকল লেনদেন</string>
-
     <string name="payrec">পরিশোধ / প্রাপ্তির পরিমাণ</string>
+    <string name="forgot_password">পাসওয়ার্ড ভুলে গেছেন?</string>
 
 </resources>

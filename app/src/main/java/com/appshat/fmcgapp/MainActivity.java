@@ -41,7 +41,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    TextView registration,welcome,languagetv,regTV;
+    TextView registration,welcome,languagetv,regTV,passforgot;
     TextInputEditText userMobile, userPassword;
     TextInputLayout f1TV,f2TV;
     Button loginButton;
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        passforgot = findViewById( R.id.forgotepassword_id );
         userMobile = findViewById(R.id.phoneNumber_id);
         userPassword = findViewById(R.id.password_Id);
         f1TV=findViewById(R.id.f1);
@@ -104,35 +104,32 @@ public class MainActivity extends AppCompatActivity {
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         userDB = Databaseroom.getDatabaseroomref(getApplication());
         userDBdao = userDB.getUserDao();
-
-
-
         //language setter
 
-        if(Helper.getBangla()){
-            context = Localhelper.setLocale(MainActivity.this,"bn");
-             resources=context.getResources();
-             languagetv.setText(resources.getString(R.string.selector));
-             welcome.setText(resources.getString(R.string.intro));
-             loginButton.setText(resources.getString(R.string.login));
-             regTV.setText(resources.getString(R.string.registration2));
-             registration.setText(resources.getString(R.string.registration));
 
-        }else {
-            context = Localhelper.setLocale(MainActivity.this, "en");
-            resources = context.getResources();
-            languagetv.setText(resources.getString(R.string.selector));
-            welcome.setText(resources.getString(R.string.intro));
-//            userMobile.setHint(resources.getString(R.string.hint1));
-//            userPassword.setHint(resources.getString(R.string.hint2));
-//            f1TV.setHint(resources.getString(R.string.hint1));
-//            f2TV.setHint(resources.getString(R.string.hint2));
-            loginButton.setText(resources.getString(R.string.login));
-            regTV.setText(resources.getString(R.string.registration2));
-            registration.setText(resources.getString(R.string.registration));
-        }
+//        if(Helper.getBangla()){
+//            context = Localhelper.setLocale(MainActivity.this,"bn");
+//            resources=context.getResources();
+//            languagetv.setText(resources.getString(R.string.selector));
+//            welcome.setText(resources.getString(R.string.intro));
+//            loginButton.setText(resources.getString(R.string.login));
+//            regTV.setText(resources.getString(R.string.registration2));
+//            registration.setText(resources.getString(R.string.registration));
+//            passforgot.setText( resources.getText( R.string.forgot_password ) );
+//
+//        }else {
+//            context = Localhelper.setLocale(MainActivity.this, "en");
+//            resources = context.getResources();
+//            languagetv.setText(resources.getString(R.string.selector));
+//            welcome.setText(resources.getString(R.string.intro));
+//            loginButton.setText(resources.getString(R.string.login));
+//            regTV.setText(resources.getString(R.string.registration2));
+//            registration.setText(resources.getString(R.string.registration));
+//            passforgot.setText( resources.getText( R.string.forgot_password ) );
+//        }
 
-        languageImg.setOnClickListener(new View.OnClickListener() {
+
+       languageImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String[]language ={"English","Bangla"};
@@ -154,13 +151,11 @@ public class MainActivity extends AppCompatActivity {
                             resources = context.getResources();
                             languagetv.setText(resources.getString(R.string.selector));
                             welcome.setText(resources.getString(R.string.intro));
-//                            userMobile.setHint(resources.getString(R.string.hint1));
-//                            userPassword.setHint(resources.getString(R.string.hint2));
-//                            f1TV.setHint(resources.getString(R.string.hint1));
-//                            f2TV.setHint(resources.getString(R.string.hint2));
                             loginButton.setText(resources.getString(R.string.login));
                             regTV.setText(resources.getString(R.string.registration2));
                             registration.setText(resources.getString(R.string.registration));
+                            passforgot.setText( resources.getText( R.string.forgot_password ) );
+
                         }
 
                         if (language[which].equals("Bangla")){
@@ -169,13 +164,10 @@ public class MainActivity extends AppCompatActivity {
                             resources = context.getResources();
                             languagetv.setText(resources.getString(R.string.selector));
                             welcome.setText(resources.getString(R.string.intro));
-//                            userMobile.setHint(resources.getString(R.string.hint1));
-////                            userPassword.setHint(resources.getString(R.string.hint2));
-//                            f1TV.setHint(resources.getString(R.string.hint1));
-//                            f2TV.setHint(resources.getString(R.string.hint2));
                             loginButton.setText(resources.getString(R.string.login));
                             regTV.setText(resources.getString(R.string.registration2));
                             registration.setText(resources.getString(R.string.registration));
+                            passforgot.setText( resources.getText( R.string.forgot_password ) );
                         }
                     }
                 }).setPositiveButton("ok", new DialogInterface.OnClickListener() {
@@ -197,7 +189,6 @@ public class MainActivity extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationManager mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
             NotificationChannel mChannel = new NotificationChannel(Constants.CHANNEL_ID, Constants.CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH);
-
             mChannel.setDescription(Constants.CHANNEL_DESCRIPTION);
             mChannel.enableLights(true);
             mChannel.setLightColor(Color.RED);
@@ -247,7 +238,6 @@ public class MainActivity extends AppCompatActivity {
                        && userMobile.getText().toString().trim().length() == 11){
                    mobile = userMobile.getText().toString().trim();
                    password = userPassword.getText().toString().trim();
-
                    editor.putString( "mobilenumber",mobile );
                    editor.putString( "password",password );
                    editor.apply();

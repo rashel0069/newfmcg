@@ -26,6 +26,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -68,6 +69,7 @@ public class NewTransaction_Fragment extends Fragment {
     TransactionViewModel transactionViewModel;
     String accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate;
     static final int PICK_CONTACT = 1;
+    boolean purchase = false;
 
 
     @Override
@@ -113,6 +115,11 @@ public class NewTransaction_Fragment extends Fragment {
         phonecontactSelect = view.findViewById(R.id.phoneContact_id);
         transactionViewModel = ViewModelProviders.of(getActivity()).get(TransactionViewModel.class);
 
+        //spinner
+        String[] cas = getResources().getStringArray(R.array.accountType);
+        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+        accspinner.setAdapter(adapter);
+
 
         //language setter
         if (Helper.getBangla()) {
@@ -149,6 +156,17 @@ public class NewTransaction_Fragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 accounttype = parent.getSelectedItem().toString();
+                if(position == 1 ){
+                    String[] cas = getResources().getStringArray(R.array.trans3);
+                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+                    transspinner.setAdapter(adapter);
+                    purchase = false;
+                }else {
+                    String[] cas = getResources().getStringArray(R.array.transactiontype);
+                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+                    transspinner.setAdapter(adapter);
+                    purchase = true;
+                }
             }
 
             @Override
@@ -161,6 +179,24 @@ public class NewTransaction_Fragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 transactiontype = parent.getSelectedItem().toString();
+                if (purchase == true && position == 1){
+                    cmblnumET.setEnabled( false );
+                    cnameET.setEnabled( false );
+                    phonecontactSelect.setClickable( false );
+                    cnameET.setText( "No Need Customer Name" );
+                    cmblnumET.setText( "No Need Mobile Name" );
+                    timedateTV.setClickable( false );
+                    timedateTV.setText( currentdate );
+
+                }else {
+                    cmblnumET.setEnabled( true );
+                    cnameET.setEnabled( true );
+                    phonecontactSelect.setClickable( true );
+                    cnameET.setText( "" );
+                    cmblnumET.setText( "" );
+                    timedateTV.setClickable( true );
+                    timedateTV.setText( "");
+                }
             }
 
             @Override
@@ -170,13 +206,16 @@ public class NewTransaction_Fragment extends Fragment {
             }
         });
 
+
         newtransBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
                 if (!accounttype.isEmpty() && !transactiontype.isEmpty() && !TextUtils.isEmpty(cnameET.getText().toString())
-                        && !TextUtils.isEmpty(cmblnumET.getText().toString().trim()) && !TextUtils.isEmpty(camountET.getText().toString().trim()) && !TextUtils.isEmpty(timedateTV.getText().toString())) {
+                        && !TextUtils.isEmpty(cmblnumET.getText().toString().trim())
+                        && !TextUtils.isEmpty(camountET.getText().toString().trim())
+                        && !TextUtils.isEmpty(timedateTV.getText().toString())) {
 
                     clientname = cnameET.getText().toString();
                     clientmobile = cmblnumET.getText().toString();

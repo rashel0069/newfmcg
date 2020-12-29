@@ -198,6 +198,14 @@
 
     </string-array>
 
+    <string-array name="trans3">
+
+        <item>*  Select Transaction Type</item>
+
+        <item>Credit</item>
+
+    </string-array>
+
 
     <string-array name="transactiontype">
 
@@ -230,10 +238,8 @@
 
     <string name="todaytrans">Transaction</string>
     <string name="todaytrans2">See ALL</string>
-
     <string name="payrec">Payable/Receivable</string>
-
-
+    <string name="forgot_password">Forgot Password?</string>
 
 
 </resources>

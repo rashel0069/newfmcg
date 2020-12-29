@@ -108,6 +108,11 @@ public class Adjust_Balance_Fragment extends Fragment {
         amountTV = view.findViewById(R.id.amountsTV_id);
         phoneContact = view.findViewById(R.id.phoneContact_id2);
 
+        //aspinner
+        String[] cas = getResources().getStringArray(R.array.adjustbalance);
+        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+        accountspinner.setAdapter(adapter);
+
 
 //        //database
 
@@ -159,7 +164,6 @@ public class Adjust_Balance_Fragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 accounttype = parent.getSelectedItem().toString();
-                Toast.makeText(getContext(), "" + position, Toast.LENGTH_SHORT).show();
 
                 if (position == 1 || position == 2) {
                     String[] cas = getResources().getStringArray(R.array.trans2);
@@ -182,7 +186,6 @@ public class Adjust_Balance_Fragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 transactiontype = parent.getSelectedItem().toString();
-                Toast.makeText(getContext(), "" + transactiontype, Toast.LENGTH_SHORT).show();
 
             }
 
