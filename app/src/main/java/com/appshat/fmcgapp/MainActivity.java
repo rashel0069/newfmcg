@@ -114,8 +114,6 @@ public class MainActivity extends AppCompatActivity {
              resources=context.getResources();
              languagetv.setText(resources.getString(R.string.selector));
              welcome.setText(resources.getString(R.string.intro));
-             userMobile.setHint(resources.getString(R.string.hint1));
-             userPassword.setHint(resources.getString(R.string.hint2));
              loginButton.setText(resources.getString(R.string.login));
              regTV.setText(resources.getString(R.string.registration2));
              registration.setText(resources.getString(R.string.registration));
@@ -214,17 +212,28 @@ public class MainActivity extends AppCompatActivity {
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 mobile = userMobile.getText().toString().trim();
                 password = userPassword.getText().toString().trim();
+                if (!TextUtils.isEmpty( userMobile.getText().toString().trim() ) && !TextUtils.isEmpty( userPassword.getText().toString() )){
 
-                if (mobile != null && password != null) {
-                    UserEntity userEntity = new UserEntity(mobile, password);
-                    userViewModel.insertUser(userEntity);
-                    Toast.makeText(MainActivity.this, "Registraton Done", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "Mobile and Password field is empty", Toast.LENGTH_SHORT).show();
+                    if (mobile != null && password != null) {
+                        UserEntity userEntity = new UserEntity(mobile, password);
+                        userViewModel.insertUser(userEntity);
+                        Toast.makeText(MainActivity.this, "Registraton Done", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Mobile and Password field is empty", Toast.LENGTH_SHORT).show();
+                    }
+                }else if(!TextUtils.isEmpty( userMobile.getText().toString().trim() )
+                        && TextUtils.isEmpty( userPassword.getText().toString() ) ){
+                    userPassword.setError( "Enter Password" );
+                }else if(TextUtils.isEmpty( userMobile.getText().toString().trim() )
+                        && !TextUtils.isEmpty( userPassword.getText().toString() ) ){
+                    userMobile.setError( "Enter Mobile number" );
+                }else {
+                    userMobile.setError( "Enter Mobile number" );
+                    userPassword.setError( "Enter Password" );
                 }
-
             }
         });
 
