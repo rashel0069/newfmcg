@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -17,6 +18,7 @@ import androidx.room.Room;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -40,6 +42,7 @@ import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
 import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 import com.appshat.fmcgapp.Room.model.InformationViewModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.nio.file.OpenOption;
 import java.text.DateFormat;
@@ -69,8 +72,6 @@ public class Home_Fragment<Date> extends Fragment {
     public static final String MY_PREF_NAME = "myPrefFile";
     Context context;
     Resources resources;
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -502,7 +503,11 @@ public class Home_Fragment<Date> extends Fragment {
             return pastpayable.toString();
         }
 
+
     }
 }
+
+
+
 
 
