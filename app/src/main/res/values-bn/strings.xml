@@ -166,28 +166,21 @@
 
     <string-array name="adjustbalance">
 
-        <item>* হিসাবের প্রকার </item>
+        <item>*লেনদেনের প্রকার </item>
 
         <item>পূর্বের প্রাপ্তি</item>
 
         <item>পূর্বের প্রদেয়</item>
 
-        <item>বিক্রয় ফেরত</item>
-
-        <item>ক্রয় ফেরত</item>
-
     </string-array>
 
     <string-array name="trans">
 
-        <item>*লেনদেনের প্রকার</item>
+    <item>*হিসাবের প্রকার</item>
 
-        <item>নগদ টাকা</item>
+    <item>নগদ টাকা</item>
 
-        <item>বাকি</item>
-
-        <item>নিস্পত্তি হিসাব</item>
-
+    <item>পণ্য</item>
     </string-array>
 
     <string-array name="trans2">
@@ -195,9 +188,12 @@
         <item>* লেনদেনের প্রকার</item>
 
         <item>নগদ টাকা</item>
+
         <item>পণ্য</item>
 
     </string-array>
+
+
     <string-array name="trans3">
 
         <item>* লেনদেনের প্রকার</item>
@@ -224,11 +220,36 @@
         <item>ক্রয়</item>
     </string-array>
     <string name="alerm_time_hour">3</string>
+
     <string name="alerm_time_second">8</string>
+
     <string name="hello_blank_fragment">হ্যালো_ব্ল্যাঙ্ক_ফ্রেগমেন্ট</string>
+
     <string name="todaytrans">লেনদেন</string>
+
     <string name="todaytrans2">সকল লেনদেন</string>
+
     <string name="payrec">পরিশোধ / প্রাপ্তির পরিমাণ</string>
+
     <string name="forgot_password">পাসওয়ার্ড ভুলে গেছেন?</string>
+    <string name="pr">পূর্ববর্তী প্রাপ্তিযোগ্য </string>
+
+    <string name="cash">নগদ টাকা</string>
+
+    <string name="cashhint">যেমন:১০০০</string>
+
+    <string name="product">পণ্য</string>
+
+    <string name="producthint">যেমন: ৫০০</string>
+
+    <string name="adj">পাত্তনা মেটান</string>
+
+    <string name="adjusthint">যেমন: ৫০</string>
+
+    <string name="cs">বর্তমান অবস্থা</string>
+
+    <string name="cshint"> ০.০০</string>
+
+    <string name="prhint">যেমন: ১০০০০ </string>
 
 </resources>

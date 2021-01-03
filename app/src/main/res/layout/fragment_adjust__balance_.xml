@@ -63,7 +63,7 @@
             tools:ignore="MissingConstraints" />
 
         <LinearLayout
-            android:id="@+id/linearLayout23"
+            android:id="@+id/linearLayout9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -78,31 +78,47 @@
             tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/clientnameTV_id"
+                android:id="@+id/clientmblTV_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="8dp"
-                android:text="@string/customerName"
+                android:text="@string/hint1"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/clientname_id"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:paddingLeft="5dp"
-                android:background="@color/white"
-                android:layout_margin="5dp"
-                android:hint="@string/customernamehint"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:layout_height="match_parent"
+                android:weightSum="4">
+
+                <EditText
+                    android:id="@+id/cmblTV_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:hint="@string/customernumberhint"
+                    android:inputType="number"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/phoneContact_id2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/search" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout24"
+            android:id="@+id/linearLayout10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -113,121 +129,250 @@
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout23">
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout9"
+            tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/clientmblTV_id"
+                android:id="@+id/clientnameTV_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:paddingLeft="8dp"
-                android:textStyle="bold"
-                android:text="@string/hint1"
+                android:text="@string/customerName"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/clientname_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:hint="@string/customernamehint"
+                android:paddingLeft="5dp"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:weightSum="4">
-                <EditText
-                    android:id="@+id/cmblTV_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:padding="5dp"
-                    android:layout_margin="5dp"
-                    android:inputType="number"
-                    android:background="@color/white"
-                    android:hint="@string/customernumberhint"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-                <ImageView
-                    android:id="@+id/phoneContact_id2"
-                    android:layout_weight="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_baseline_contact_phone_24"/>
-            </LinearLayout>
-
-
-
-
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout16"
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/edittext_background"
             android:orientation="horizontal"
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout24"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout10"
             tools:ignore="MissingConstraints">
 
             <TextView
-                android:id="@+id/amountsTV_id"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/amounts"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/adjustamountET_id"
+                android:id="@+id/prTV_id"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_background"
                 android:gravity="center"
-                android:hint="@string/amounthint"
+                android:text="@string/pr"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/rentET_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:hint="@string/prhint"
                 android:inputType="numberDecimal"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
-
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/currentdateTV_id"
+        <LinearLayout
+            android:id="@+id/linearLayout21"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/edittext_background"
-            android:gravity="center"
-            android:hint="@string/date"
-            android:textColor="@color/black"
-            android:textSize="15sp"
+            android:orientation="horizontal"
+            android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout16"
-            tools:ignore="MissingConstraints,UnknownId,UnknownIdInLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/cashTV_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:text="@string/cash"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/salaryET_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:hint="@string/cashhint"
+                android:inputType="numberDecimal"
+                android:maxLength="11"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout22"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout21"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/productTV_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:text="@string/product"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/othersET_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:hint="@string/producthint"
+                android:inputType="numberDecimal"
+                android:maxLength="11"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout22"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/adjTV_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:text="@string/adj"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/adjET_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:hint="@string/adjusthint"
+                android:inputType="numberDecimal"
+                android:maxLength="11"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout11"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/csTV_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:text="@string/cs"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/csamount_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:hint="@string/adjusthint"
+                android:inputType="numberDecimal"
+                android:maxLength="11"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/adjustsaveBtn_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/save"
             android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/currentdateTV_id"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout12"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
