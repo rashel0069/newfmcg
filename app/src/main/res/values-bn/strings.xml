@@ -195,6 +195,7 @@
         <item>* লেনদেনের প্রকার</item>
 
         <item>নগদ টাকা</item>
+        <item>পণ্য</item>
 
     </string-array>
     <string-array name="trans3">

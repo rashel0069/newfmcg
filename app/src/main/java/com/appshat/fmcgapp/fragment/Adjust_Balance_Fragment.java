@@ -243,7 +243,7 @@ public class Adjust_Balance_Fragment extends Fragment {
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month;
+                month = month+1;
                 Log.d(TAG, "onDateSet: dd/mm/yyyy:  " + "/" + day + "/" + month + "/" + year);
                 String date = day + "/" + month + "/" + year;
                 String hour = getResources().getString(R.string.alerm_time_hour);

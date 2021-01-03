@@ -68,7 +68,7 @@
 
     <string name="note">Note</string>
 
-    <string name="dayendcash">DayEnd Cash</string>
+    <string name="dayendcash">DayEnd Balance</string>
 
     <string name="dayend">eg: 2000</string>
 
@@ -145,7 +145,7 @@
 
     <string name="date" tools:ignore="TypographyDashes">Pick a date eg:27-9-2020</string>
 
-    <string name="adjust">Due payable/ Due Receivable</string>
+    <string name="adjust">Payable /Receivable</string>
 
     <string name="cashtransaction">Cash Transaction</string>
 
@@ -195,6 +195,7 @@
         <item>*  Select Transaction Type</item>
 
         <item>Cash</item>
+        <item>Products</item>
 
     </string-array>
 
