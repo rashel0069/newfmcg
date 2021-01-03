@@ -16,9 +16,9 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:background="@color/red_700"
                     android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="35dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -28,7 +28,7 @@
                         android:layout_height="match_parent"
                         android:text="@string/opening"
                         android:gravity="center"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -38,10 +38,10 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="8dp"
                         android:gravity="center"
+                        android:textColor="@color/white"
                         android:hint="@string/totalcashhint"
                         android:textSize="12sp"
-                        android:textStyle="bold"
-                        tools:ignore="MissingConstraints,RtlHardcoded,SmallSp" />
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
