@@ -109,10 +109,13 @@ public class Adjust_Balance_Fragment extends Fragment {
         phoneContact = view.findViewById(R.id.phoneContact_id2);
 
         //aspinner
-        String[] cas = getResources().getStringArray(R.array.adjustbalance);
+        String[] cas = getResources().getStringArray(R.array.returndata);
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
         accountspinner.setAdapter(adapter);
 
+        String[] cas2 = getResources().getStringArray( R.array.trans2 );
+        ArrayAdapter adapter1 = new ArrayAdapter( getContext(),R.layout.myarrylistsample,cas2 );
+        transactionspinner.setAdapter( adapter1 );
 
 //        //database
 
@@ -165,15 +168,17 @@ public class Adjust_Balance_Fragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 accounttype = parent.getSelectedItem().toString();
 
-                if (position == 1 || position == 2) {
-                    String[] cas = getResources().getStringArray(R.array.trans2);
-                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-                    transactionspinner.setAdapter(adapter);
-                } else {
-                    String[] cas = getResources().getStringArray(R.array.trans);
-                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-                    transactionspinner.setAdapter(adapter);
-                }
+//                if (position == 1 || position == 2) {
+//                    String[] cas = getResources().getStringArray(R.array.trans2);
+//                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+//                    transactionspinner.setAdapter(adapter);
+//                }
+
+//                else {
+//                    String[] cas = getResources().getStringArray(R.array.trans);
+//                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+//                    transactionspinner.setAdapter(adapter);
+//                }
             }
 
             @Override

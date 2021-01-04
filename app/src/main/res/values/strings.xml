@@ -145,7 +145,7 @@
 
     <string name="date" tools:ignore="TypographyDashes">Pick a date eg:27-9-2020</string>
 
-    <string name="adjust">Payable /Receivable</string>
+    <string name="adjust">Payable / Receivable</string>
 
     <string name="cashtransaction">Cash Transaction</string>
 
@@ -186,9 +186,7 @@
     <string-array name="trans2">
 
         <item>*  Select Transaction Type</item>
-
         <item>Cash</item>
-        <item>Products</item>
 
     </string-array>
 
@@ -219,6 +217,16 @@
         <item>Sales</item>
 
         <item>Purchase</item>
+
+    </string-array>
+
+    <string-array name="returndata">
+
+        <item>*  Select Account Type</item>
+
+        <item>Sales Return</item>
+
+        <item>Purchase Return</item>
 
 
     </string-array>
@@ -257,5 +265,6 @@
     <string name="cshint">0.00</string>
 
     <string name="prhint">eg. 1000</string>
+    <string name="cashreturn">Cash Return</string>
 
 </resources>

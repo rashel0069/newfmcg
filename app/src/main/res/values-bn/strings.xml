@@ -189,8 +189,6 @@
 
         <item>নগদ টাকা</item>
 
-        <item>পণ্য</item>
-
     </string-array>
 
 
@@ -218,6 +216,15 @@
         <item>বিক্রয়</item>
 
         <item>ক্রয়</item>
+    </string-array>
+
+    <string-array name="returndata">
+
+        <item>*হিসাবের প্রকার</item>
+
+        <item>বিক্রয় ফেরত</item>
+
+        <item>ক্রয় ফেরত</item>
     </string-array>
     <string name="alerm_time_hour">3</string>
 
@@ -251,5 +258,6 @@
     <string name="cshint"> ০.০০</string>
 
     <string name="prhint">যেমন: ১০০০০ </string>
+    <string name="cashreturn">Cash Return / Pay</string>
 
 </resources>

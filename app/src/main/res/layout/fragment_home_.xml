@@ -466,10 +466,43 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/adjust"
+                    android:text="@string/cashreturn"
                     android:textAlignment="center"
                     android:textAllCaps="false" />
             </LinearLayout>
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:weightSum="3">
+
+             <TextView
+                 android:layout_weight="1"
+                 android:layout_gravity="center"
+                 android:layout_width="match_parent"
+                 android:layout_height="90dp"
+                 android:layout_marginStart="8dp"
+                 android:textAlignment="center"
+                 android:textAllCaps="false" />
+             <Button
+                 android:layout_gravity="center"
+                 android:id="@+id/receivablepayable_id"
+                 android:layout_width="match_parent"
+                 android:layout_weight="1"
+                 android:layout_height="90dp"
+                 android:layout_marginStart="8dp"
+                 android:text="@string/rp"
+                 android:textAlignment="center"
+                 android:textAllCaps="false" />
+             <TextView
+                 android:layout_weight="1"
+                 android:layout_gravity="center"
+                 android:layout_width="match_parent"
+                 android:layout_height="90dp"
+                 android:layout_marginStart="8dp"
+                 android:layout_marginEnd="8dp"
+                 android:textAlignment="center"
+                 android:textAllCaps="false" />
+         </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
