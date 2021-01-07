@@ -135,7 +135,6 @@ public class Information_Fragment extends Fragment {
                         editor.putString("receivablecash", receivable);
                         editor.putString("payablecash", payable);
                         editor.apply();
-
                         Home_Fragment fragment1 = new Home_Fragment();
                         FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
                         ft1.replace(R.id.framelayout_container_id, fragment1);

@@ -7,8 +7,13 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Under Development Coming Soon..."
+        android:textColor="@color/red_700"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textAlignment="center"/>
 
 </FrameLayout>

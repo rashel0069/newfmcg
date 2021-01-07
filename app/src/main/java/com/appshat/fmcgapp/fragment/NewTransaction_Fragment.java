@@ -218,7 +218,7 @@ public class NewTransaction_Fragment extends Fragment {
                         && !TextUtils.isEmpty(timedateTV.getText().toString())) {
 
                     clientname = cnameET.getText().toString();
-                    clientmobile = cmblnumET.getText().toString();
+                    clientmobile = cmblnumET.getText().toString().trim();
                     duedate = timedateTV.getText().toString();
                     clientamount = camountET.getText().toString().trim();
                     NewtransactionEntity newtransactionEntity = new NewtransactionEntity(accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate);

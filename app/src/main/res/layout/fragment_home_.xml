@@ -485,7 +485,7 @@
                  android:textAllCaps="false" />
              <Button
                  android:layout_gravity="center"
-                 android:id="@+id/receivablepayable_id"
+                 android:id="@+id/receivepay_fragment_id"
                  android:layout_width="match_parent"
                  android:layout_weight="1"
                  android:layout_height="90dp"

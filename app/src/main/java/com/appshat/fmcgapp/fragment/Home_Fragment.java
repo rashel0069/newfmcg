@@ -2,27 +2,17 @@ package com.appshat.fmcgapp.fragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.room.Room;
 
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,16 +29,10 @@ import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
-import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
-import com.appshat.fmcgapp.Room.model.InformationViewModel;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.nio.file.OpenOption;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -58,7 +42,7 @@ import static java.lang.String.valueOf;
 public class Home_Fragment<Date> extends Fragment {
 
     private static final String TAG = "Activity";
-    Button cashbtn, transactionbtn, orderbtn, showtransbtn, expensebtn, adjustbtn;
+    Button cashbtn, transactionbtn, orderbtn, showtransbtn, expensebtn, adjustbtn,recivablebtn;
     TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,
             openingcashTV, dayendcashTV, receivablecashTV, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
     String opening, receviable, payable, dayend, withdraw, deposit, sellcash, sellcredit, cashpurches, cashexpence, cashtotal;
@@ -84,6 +68,7 @@ public class Home_Fragment<Date> extends Fragment {
         prev = s.format(cal.getTime());
 
         adjustbtn = view.findViewById(R.id.adjustBtn_id);
+        recivablebtn = view.findViewById(R.id.receivepay_fragment_id);
         cashbtn = view.findViewById(R.id.cashboxBtn_id);
         transactionbtn = view.findViewById(R.id.newtransactionBtn_id);
         orderbtn = view.findViewById(R.id.orderBtn_id);
@@ -121,8 +106,9 @@ public class Home_Fragment<Date> extends Fragment {
             purchasecashTV.setText(resources.getString(R.string.purchase));
             expensecashTV.setText(resources.getString(R.string.expense));
             totalcashTV.setText(resources.getString(R.string.totalsales));
-            adjustbtn.setText(resources.getString(R.string.adjust));
+            adjustbtn.setText(resources.getString(R.string.cashreturn));
             cashbtn.setText(resources.getString(R.string.cashBox));
+            recivablebtn.setText( resources.getText( R.string.rp ) );
             transactionbtn.setText(resources.getString(R.string.newtransaction));
             orderbtn.setText(resources.getString(R.string.order));
             showtransbtn.setText(resources.getString(R.string.showtransaction));
@@ -141,8 +127,9 @@ public class Home_Fragment<Date> extends Fragment {
             purchasecashTV.setText(resources.getString(R.string.purchase));
             expensecashTV.setText(resources.getString(R.string.expense));
             totalcashTV.setText(resources.getString(R.string.totalsales));
-            adjustbtn.setText(resources.getString(R.string.adjust));
+            adjustbtn.setText(resources.getString(R.string.cashreturn));
             cashbtn.setText(resources.getString(R.string.cashBox));
+            recivablebtn.setText( resources.getText( R.string.rp ) );
             transactionbtn.setText(resources.getString(R.string.newtransaction));
             orderbtn.setText(resources.getString(R.string.order));
             showtransbtn.setText(resources.getString(R.string.showtransaction));
@@ -159,7 +146,6 @@ public class Home_Fragment<Date> extends Fragment {
 
 
         //Data Receive
-
 
         cashbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,6 +211,17 @@ public class Home_Fragment<Date> extends Fragment {
                 transaction.commit();
             }
         });
+
+        recivablebtn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Receivablepayable_Fragment receive_balance_fragment = new Receivablepayable_Fragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, receive_balance_fragment);
+                transaction.addToBackStack("null");
+                transaction.commit();
+            }
+        } );
 
         return view;
     }

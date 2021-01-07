@@ -97,12 +97,12 @@ public class Adjust_Balance_Fragment extends Fragment {
 
         accountspinner = view.findViewById(R.id.balancetypespinner_id);
         transactionspinner = view.findViewById(R.id.transitiontypespinner_id);
-       // adjustamountET = view.findViewById(R.id.adjustamountET_id);
+        adjustamountET = view.findViewById(R.id.adjustamountET_id);
         clientnameTV=view.findViewById(R.id.clientnameTV_id);
         clientnameET = view.findViewById(R.id.clientname_id);
         cmblTV=view.findViewById(R.id.clientmblTV_id);
         clientmobileET = view.findViewById(R.id.cmblTV_id);
-       // duepaydateTV = view.findViewById(R.id.currentdateTV_id);
+        duepaydateTV = view.findViewById(R.id.currentdateTV_id);
         drpTV = view.findViewById(R.id.drpTV_id);
         adjustsaveBtn = view.findViewById(R.id.adjustsaveBtn_id);
        // amountTV = view.findViewById(R.id.amountsTV_id);
@@ -206,7 +206,7 @@ public class Adjust_Balance_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 clientname = clientnameET.getText().toString();
-                clientmobile = clientmobileET.getText().toString();
+                clientmobile = clientmobileET.getText().toString().trim();
                 date = duepaydateTV.getText().toString();
                 clientamount = adjustamountET.getText().toString();
 
@@ -230,20 +230,20 @@ public class Adjust_Balance_Fragment extends Fragment {
             }
 
         });
-//        duepaydateTV.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Calendar cal = Calendar.getInstance();
-//                int year = cal.get(Calendar.YEAR);
-//                int month = cal.get(Calendar.MONTH);
-//                int day = cal.get(Calendar.DAY_OF_MONTH);
-//
-//                DatePickerDialog dialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
-//                        year, month, day);
-//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//                dialog.show();
-//            }
-//        });
+        duepaydateTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
+                        year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
 
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override

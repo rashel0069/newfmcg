@@ -92,7 +92,7 @@
 
     <string name="sap">Show all payable</string>
 
-    <string name="rp"> Receivable/ Payable</string>
+    <string name="rp"> Receivable / Payable</string>
 
     <string name="location">Location</string>
 
@@ -266,5 +266,9 @@
 
     <string name="prhint">eg. 1000</string>
     <string name="cashreturn">Cash Return</string>
+    <string name="previous">Previous Balance</string>
+    <string name="calculate">Calculate</string>
+    <string name="summary">Summary</string>
+    <string name="newbalance">New Balance</string>
 
 </resources>

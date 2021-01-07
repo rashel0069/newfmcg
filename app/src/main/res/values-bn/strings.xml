@@ -258,6 +258,10 @@
     <string name="cshint"> ০.০০</string>
 
     <string name="prhint">যেমন: ১০০০০ </string>
-    <string name="cashreturn">Cash Return / Pay</string>
+    <string name="cashreturn">ফেরত হিসাব</string>
+    <string name="previous">পূর্ববর্তী হিসাব</string>
+    <string name="calculate">হিসাব</string>
+    <string name="summary">Summary</string>
+    <string name="newbalance">New Balance</string>
 
 </resources>

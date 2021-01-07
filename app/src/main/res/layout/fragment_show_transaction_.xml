@@ -1,117 +1,109 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
     tools:context="com.appshat.fmcgapp.fragment.ShowTransaction_Fragment">
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <LinearLayout
+           android:id="@+id/linearLayout25"
+           android:weightSum="4"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:padding="8dp"
+           tools:ignore="MissingConstraints">
 
-    <LinearLayout
-        android:id="@+id/linearLayout25"
-        android:weightSum="4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        tools:ignore="MissingConstraints">
+           <EditText
+               android:id="@+id/smblET_id"
+               android:layout_weight="1"
+               android:layout_width="match_parent"
+               android:layout_height="45dp"
+               android:background="@drawable/edittext_background"
+               android:hint="@string/scontacthint"
+               android:inputType="number"
+               android:paddingLeft="8dp"
+               android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/smblET_id"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@drawable/edittext_background"
-            android:hint="@string/scontacthint"
-            android:inputType="number"
-            android:paddingLeft="8dp"
-            android:textSize="16sp" />
+           <Button
+               android:id="@+id/searchBtn_id"
+               android:layout_weight="3"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="8dp"
+               android:padding="8dp"
+               android:text="@string/search"
+               android:textAllCaps="false" />
+       </LinearLayout>
 
-        <Button
-            android:id="@+id/searchBtn_id"
-            android:layout_weight="3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:padding="8dp"
-            android:text="@string/search"
-            android:textAllCaps="false" />
-    </LinearLayout>
+       <HorizontalScrollView
+           android:layout_below="@+id/linearLayout25"
+           android:id="@+id/linearLayout26"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="8dp"
+               android:weightSum="4">
+               <Button
+                   android:id="@+id/allBtn_id"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:singleLine="true"
+                   android:text="@string/todaytrans2"
+                   android:textAllCaps="false" />
 
-<HorizontalScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:id="@+id/linearLayout26"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:weightSum="4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout25"
-        tools:ignore="MissingConstraints">
+               <Button
+                   android:id="@+id/transallBtn_id"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:layout_marginStart="8dp"
+                   android:singleLine="true"
+                   android:text="@string/todaytrans"
+                   android:textAllCaps="false" />
 
+               <Button
+                   android:id="@+id/expBtn_id"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="8dp"
+                   android:layout_weight="1"
+                   android:text="@string/expense"
+                   android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/allBtn_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:singleLine="true"
-            android:text="@string/todaytrans2"
-            android:textAllCaps="false" />
+               <Button
+                   android:id="@+id/payrecBtn_id"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="8dp"
+                   android:layout_weight="1"
+                   android:singleLine="true"
+                   android:text="@string/payrec"
+                   android:textAllCaps="false" />
 
-        <Button
-            android:id="@+id/transallBtn_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:singleLine="true"
-            android:text="@string/todaytrans"
-            android:textAllCaps="false" />
+           </LinearLayout>
+       </HorizontalScrollView>
 
-        <Button
-            android:id="@+id/expBtn_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:text="@string/expense"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/payrecBtn_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:singleLine="true"
-            android:text="@string/payrec"
-            android:textAllCaps="false" />
-
-    </LinearLayout>
-</HorizontalScrollView>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout26"
-        tools:ignore="MissingConstraints">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_id"
-            android:background="@color/red_500"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"/>
-    </androidx.core.widget.NestedScrollView>
+       <LinearLayout
+           android:layout_below="@+id/linearLayout26"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/rv_id"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:background="@color/red_500"
+               android:padding="8dp" />
+       </LinearLayout>
+   </RelativeLayout>
 
 
-
-
-</LinearLayout>
+</FrameLayout>
