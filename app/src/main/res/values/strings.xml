@@ -265,10 +265,23 @@
     <string name="cshint">0.00</string>
 
     <string name="prhint">eg. 1000</string>
+
     <string name="cashreturn">Cash Return</string>
+
     <string name="previous">Previous Balance</string>
+
     <string name="calculate">Calculate</string>
+
     <string name="summary">Summary</string>
+
     <string name="newbalance">New Balance</string>
+
+    <string name="edit">Edit Profile</string>
+
+    <string name="logout">Logout</string>
+
+    <string name="website">Website</string>
+
+    <string name="facebook">Facebook</string>
 
 </resources>
