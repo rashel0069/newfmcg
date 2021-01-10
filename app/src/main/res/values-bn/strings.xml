@@ -265,15 +265,25 @@
 
     <string name="calculate">হিসাব</string>
 
-    <string name="summary">Summary</string>
+    <string name="summary">সারসংক্ষেপ</string>
 
-    <string name="newbalance">New Balance</string>
+    <string name="newbalance">নতুন হিসাব</string>
 
-    <string name="edit">Edit Profile</string>
+    <string name="edit">জীবন বৃত্তান্ত</string>
 
-    <string name="logout">Logout</string>
+    <string name="logout">লগআউট </string>
 
-    <string name="website">Website</string>
+    <string name="website">ওয়েবসাইট</string>
 
-    <string name="facebook">Facebook</string>
+    <string name="facebook">ফেসবুক</string>
+
+    <string name="about">আমরা তথ্য সরবরাহআমরা যে পরিষেবাটি সরবরাহ করি তা হার্ডওয়ার বা সফ্টওয়্যার সম্পর্কিত প্রয়োজনীয়তা হতে পারে।
+         সুতরাং বুকরণ, পরিষেবা-ভিত্তিক সংস্থা যেখানে আমাদের বেশিরভাগ ক্লায়েন্ট একটি কর্পোরেশন।
+         দ্ধিদীপ্তই হচ্ছে চাবি এবং নতুনত্ব হল আমাদের দক্ষতা।
+
+         <br><br>ম োট কথা, আমরা আপনার সমস্ত ডিজিটাল প্রয়োজনের জন্য মূলত একটি স্টপ সলিউশন সরবরাহকারী।
+         আমাদের পরিষেবাতে ডিজিটাল কৌশল, ওয়েবসাইট ডিজাইন ও বিকাশ, ডিজিটাল বিপণন, ডিজিটাল প্রদর্শন,
+         সার্ভার-সাইড সলিউশন, সিআরএম, আইওটি সলিউশন এবং গবেষণা রয়েছে। </br></br>
+    </string>
+
 </resources>
