@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.appshat.fmcgapp.fragment.About_Fragment;
 import com.appshat.fmcgapp.fragment.History_Fragment;
@@ -17,13 +19,25 @@ import com.appshat.fmcgapp.fragment.Profile_Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
-
+    BottomNavigationView bottomNav;
+    public static final String MY_PREF_NAME = "myPrefFile";
+    Boolean val = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        SharedPreferences vals = getSharedPreferences(MY_PREF_NAME, MODE_PRIVATE);
+        val = vals.getBoolean( "visibility",false );
         loaddefaultfragment();
+
+        //bottom nav
+        bottomNav = findViewById( R.id.b_navigation );
+        if (val){
+            bottomNav.setVisibility( View.VISIBLE );
+            bottomNav.setOnNavigationItemSelectedListener( navListener );
+        }else {
+            Toast.makeText( this, "Information Save First", Toast.LENGTH_SHORT ).show();
+        }
 
     }
 
@@ -35,6 +49,7 @@ public class HomeActivity extends AppCompatActivity {
             Home_Fragment fragment1 = new Home_Fragment();
             FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
             ft1.replace(R.id.framelayout_container_id, fragment1);
+            val = true;
             ft1.commit();
         }
         else {
@@ -42,20 +57,11 @@ public class HomeActivity extends AppCompatActivity {
             FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
             ft1.replace(R.id.framelayout_container_id, fragment);
             ft1.commit();
-
             SharedPreferences.Editor editor = prefs.edit();
             editor.putBoolean( "firststart", true );
             editor.apply();
-
         }
 
-
-    //bottom nav
-    BottomNavigationView bottomNav = findViewById( R.id.b_navigation );
-  bottomNav.setOnNavigationItemSelectedListener( navListener );
-
-    getSupportFragmentManager().beginTransaction().replace( R.id.framelayout_container_id,
-                new Home_Fragment() ).commit();
 
 }
 

@@ -265,15 +265,15 @@
 
     <string name="calculate">হিসাব</string>
 
-    <string name="summary">Summary</string>
+    <string name="summary">সংক্ষিপ্ত বিবরণ</string>
 
-    <string name="newbalance">New Balance</string>
+    <string name="newbalance">নতুন হিসাব</string>
 
-    <string name="edit">Edit Profile</string>
+    <string name="edit">প্রোফাইল সম্পাদনা</string>
 
-    <string name="logout">Logout</string>
+    <string name="logout">লগ আউট</string>
 
-    <string name="website">Website</string>
+    <string name="website">ওয়েবসাইট</string>
 
-    <string name="facebook">Facebook</string>
+    <string name="facebook">ফেসবুক</string>
 </resources>

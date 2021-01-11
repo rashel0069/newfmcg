@@ -134,12 +134,10 @@ public class Information_Fragment extends Fragment {
                         editor.putString("opencash", opening);
                         editor.putString("receivablecash", receivable);
                         editor.putString("payablecash", payable);
+                        editor.putBoolean( "visibility", true);
                         editor.apply();
-                        Home_Fragment fragment1 = new Home_Fragment();
-                        FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
-                        ft1.replace(R.id.framelayout_container_id, fragment1);
-                        ft1.commit();
-
+                        getActivity().finish();
+                        startActivity( getActivity().getIntent() );
                         Toast.makeText(getContext(), "Thank you for your kind informations", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "Please fill up all fields", Toast.LENGTH_SHORT).show();
