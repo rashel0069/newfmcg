@@ -51,11 +51,11 @@
 
             </TextView>
             <TextView
-                android:layout_marginTop="15dp"
                 android:id="@+id/textViewJustify2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:justificationMode="inter_word"
+                android:layout_marginTop="15dp"
                 android:text="@string/about2"
                 android:textColor="@color/black"
                 android:textStyle="bold">

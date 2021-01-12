@@ -204,7 +204,8 @@
                                 android:gravity="center"
                                 android:hint="@string/totalcashhint"
                                 android:textColor="@color/black"
-                                android:textSize="16sp" />
+                                android:textColorHint="@color/black"
+                                android:textSize="16sp"  />
                             <View
                                 android:layout_width="match_parent"
                                 android:layout_height="1dp"
