@@ -25,5 +25,9 @@ public interface AdjustDao {
     @Query( "SELECT * FROM duepayandreceive WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transactiontype AND currentdate LIKE :currentdate" )
     List<AdjustEntity> getAdjust(String accounttype,String transactiontype, String currentdate);
 
+    //paid-out
+    @Query( "SELECT * FROM duepayandreceive WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transStatus AND clientmobile LIKE :mobileno" )
+    List<AdjustEntity> getPaidout(String accounttype,String transStatus,String mobileno);
+
 
 }

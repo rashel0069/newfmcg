@@ -77,7 +77,10 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences preferences = getSharedPreferences( MY_PREFS_NAME, MODE_PRIVATE );
             mobile = preferences.getString( "mobilenumber", "No Number Found" );
             password = preferences.getString( "password", "****" );
-            UserAuthenTication();
+            if (mobile!=null && password!=null){
+                UserAuthenTication();
+            }
+
         }
     }
 
@@ -105,28 +108,6 @@ public class MainActivity extends AppCompatActivity {
         userDB = Databaseroom.getDatabaseroomref(getApplication());
         userDBdao = userDB.getUserDao();
         //language setter
-
-
-//        if(Helper.getBangla()){
-//            context = Localhelper.setLocale(MainActivity.this,"bn");
-//            resources=context.getResources();
-//            languagetv.setText(resources.getString(R.string.selector));
-//            welcome.setText(resources.getString(R.string.intro));
-//            loginButton.setText(resources.getString(R.string.login));
-//            regTV.setText(resources.getString(R.string.registration2));
-//            registration.setText(resources.getString(R.string.registration));
-//            passforgot.setText( resources.getText( R.string.forgot_password ) );
-//
-//        }else {
-//            context = Localhelper.setLocale(MainActivity.this, "en");
-//            resources = context.getResources();
-//            languagetv.setText(resources.getString(R.string.selector));
-//            welcome.setText(resources.getString(R.string.intro));
-//            loginButton.setText(resources.getString(R.string.login));
-//            regTV.setText(resources.getString(R.string.registration2));
-//            registration.setText(resources.getString(R.string.registration));
-//            passforgot.setText( resources.getText( R.string.forgot_password ) );
-//        }
 
 
        languageImg.setOnClickListener(new View.OnClickListener() {

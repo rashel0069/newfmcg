@@ -34,7 +34,7 @@ public class About_Fragment extends Fragment {
             resources = context.getResources();
 
            firstpartabout.setText(resources.getString(R.string.about));
-            secondpartabout.setText(resources.getString(R.string.about2));
+           secondpartabout.setText(resources.getString(R.string.about2));
 
 
         }else {

@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.provider.ContactsContract;
 import android.text.TextUtils;
@@ -26,11 +27,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appshat.fmcgapp.R;
+import com.appshat.fmcgapp.Room.DAO.AdjustDao;
 import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
+import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
+import com.appshat.fmcgapp.Room.model.AdjustViewModel;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class Receivablepayable_Fragment extends Fragment {
     Spinner spadjust;
@@ -38,10 +44,13 @@ public class Receivablepayable_Fragment extends Fragment {
     TextView customerName,previousBalns,summPrev,newBalance;
     ImageView contactnumber;
     Button calculate,saveTrans,searchUser;
-    String customerContName;
+    String customerContName,currentdate,accounttype,transtype,cmmobile,cmamount,date;
     NewtransactionDao newtransactionDao;
     LinearLayout l1,l2;
+    AdjustViewModel adjustViewModel;
+    AdjustDao duepayrecivedao;
     Databaseroom databaseroom;
+    Double cpa,result;
     static final int PICK_CONTACT = 1;
     int rpvalue = 0;
 
@@ -80,15 +89,6 @@ public class Receivablepayable_Fragment extends Fragment {
         newBalance = v.findViewById( R.id.newBalance_id );
         //save change
         saveTrans = v.findViewById( R.id.recivepaybtn_id );
-        saveTrans.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText( getContext(), "Update Transaction", Toast.LENGTH_SHORT ).show();
-            }
-        } );
-        //database
-        databaseroom = Databaseroom.getDatabaseroomref( getActivity() );
-        newtransactionDao = databaseroom.getnewtransaction();
         //spinner
         spadjust = v.findViewById( R.id.spinner_id_payrecive );
         String[] cas = getResources().getStringArray(R.array.adjustbalance);
@@ -98,7 +98,8 @@ public class Receivablepayable_Fragment extends Fragment {
         spadjust.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    rpvalue = position;
+                rpvalue = position;
+                accounttype = parent.getSelectedItem().toString();
             }
 
             @Override
@@ -106,6 +107,30 @@ public class Receivablepayable_Fragment extends Fragment {
 
             }
         } );
+        saveTrans.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                transtype = "PAID-OUT";
+                cmmobile = edtmobile.getText().toString().trim();
+                cmamount = String.valueOf( cpa );
+                date = newBalance.getText().toString();
+                if (!TextUtils.isEmpty( edtmobile.getText().toString() ) && !TextUtils.isEmpty( customerName.getText().toString() )
+                && !TextUtils.isEmpty( previousBalns.getText().toString() )){
+                    AdjustEntity duepayrecive = new AdjustEntity( accounttype,transtype,customerContName,cmmobile,cmamount,date,currentdate );
+                    adjustViewModel.insertAdjust( duepayrecive );
+                }
+                Toast.makeText( getContext(), "Update Transaction", Toast.LENGTH_SHORT ).show();
+            }
+        } );
+        //database
+        adjustViewModel = ViewModelProviders.of(getActivity()).get( AdjustViewModel.class);
+        //Date time
+        currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+        //database
+        databaseroom = Databaseroom.getDatabaseroomref( getActivity() );
+        newtransactionDao = databaseroom.getnewtransaction();
+        duepayrecivedao = databaseroom.getduepayandreceive();
+
         //edit new trans
         newCash = v.findViewById( R.id.newCash_id );
         newProduct = v.findViewById( R.id.newProduct_id );
@@ -172,11 +197,11 @@ public class Receivablepayable_Fragment extends Fragment {
 
     private void calculatenow() {
         l2.setVisibility( View.VISIBLE );
-       Double cpa = Double.parseDouble( newCash.getText().toString().trim() ) +
+        cpa = Double.parseDouble( newCash.getText().toString().trim() ) +
                Double.parseDouble( newProduct.getText().toString().trim() ) + Double.parseDouble( newAdjust.getText().toString().trim() );
-       Double result = Double.parseDouble( previousBalns.getText().toString().trim() ) - cpa;
+        result = Double.parseDouble( previousBalns.getText().toString().trim() ) - cpa;
 
-       summPrev.setText( previousBalns.getText().toString().trim() +" - " + String.valueOf( cpa ) +"= "+String.valueOf( result ) );
+       summPrev.setText( previousBalns.getText().toString().trim() +" - " + String.valueOf( cpa ) +" = "+String.valueOf( result ) );
        newBalance.setText( String.valueOf( result ) );
     }
 
@@ -187,7 +212,9 @@ public class Receivablepayable_Fragment extends Fragment {
                    try {
                        l1.setVisibility( View.VISIBLE );
                        String crsellsin = new GetCreaditSellsUser().execute().get();
-                       previousBalns.setText( crsellsin );
+                       String crsellpout = new GetCreaditsellPaid().execute().get();
+                       Double re = Double.parseDouble( crsellsin ) - Double.parseDouble( crsellpout );
+                       previousBalns.setText( String.valueOf( re ) );
                        customerName.setText( customerContName );
                    }catch (Exception e) {
                        Toast.makeText(getContext(), "Error:" + e, Toast.LENGTH_SHORT).show();
@@ -195,8 +222,10 @@ public class Receivablepayable_Fragment extends Fragment {
                }else if (rpvalue == 2){
                    try {
                        l1.setVisibility( View.VISIBLE );
-                       String crsellsin = new GetCreaditbuysUser().execute().get();
-                       previousBalns.setText( crsellsin );
+                       String crbuysin = new GetCreaditbuysUser().execute().get();
+                       String crbuypout = new GetCreaditbuyPaid().execute().get();
+                       Double re = Double.parseDouble( crbuysin ) - Double.parseDouble( crbuypout );
+                       previousBalns.setText( String.valueOf( re ) );
                        customerName.setText( customerContName );
                    }catch (Exception e) {
                        Toast.makeText(getContext(), "Error:" + e, Toast.LENGTH_SHORT).show();
@@ -212,6 +241,44 @@ public class Receivablepayable_Fragment extends Fragment {
             Toast.makeText( getContext(), "Select Transaction and valid Mobile number", Toast.LENGTH_SHORT ).show();
             l1.setVisibility( View.GONE );
             l2.setVisibility( View.GONE );
+        }
+    }
+    public class GetCreaditsellPaid extends AsyncTask<Void,Void,String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String mobilenum = edtmobile.getText().toString().trim();
+            List<AdjustEntity> adjustEntities = duepayrecivedao.getPaidout( "Past_Receivable","PAID-OUT",mobilenum );
+            if (adjustEntities != null){
+                Double total_credit = 0.0;
+                for (int i = 0; i < adjustEntities.size(); i++) {
+                    total_credit = Double.parseDouble(adjustEntities.get(i).getClientamount()) + total_credit;
+                    customerContName = adjustEntities.get(i).getClientname();
+                }
+                return total_credit.toString().trim();
+            }else {
+                Toast.makeText( getContext(), "User not found", Toast.LENGTH_SHORT ).show();
+                return null;
+            }
+        }
+    }
+    public class GetCreaditbuyPaid extends AsyncTask<Void,Void,String>{
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            String mobilenum = edtmobile.getText().toString().trim();
+            List<AdjustEntity> adjustEntities = duepayrecivedao.getPaidout( "Past_Payable","PAID-OUT",mobilenum );
+            if (adjustEntities != null){
+                Double total_credit = 0.0;
+                for (int i = 0; i < adjustEntities.size(); i++) {
+                    total_credit = Double.parseDouble(adjustEntities.get(i).getClientamount()) + total_credit;
+                    customerContName = adjustEntities.get(i).getClientname();
+                }
+                return total_credit.toString().trim();
+            }else {
+                Toast.makeText( getContext(), "User not found", Toast.LENGTH_SHORT ).show();
+                return null;
+            }
         }
     }
     public class GetCreaditSellsUser extends AsyncTask<Void, Void, String>{
@@ -234,7 +301,6 @@ public class Receivablepayable_Fragment extends Fragment {
 
         }
     }
-
     public class GetCreaditbuysUser extends AsyncTask<Void, Void, String>{
         @Override
         protected String doInBackground(Void... voids) {

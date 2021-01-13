@@ -117,8 +117,7 @@ public class Adjust_Balance_Fragment extends Fragment {
         ArrayAdapter adapter1 = new ArrayAdapter( getContext(),R.layout.myarrylistsample,cas2 );
         transactionspinner.setAdapter( adapter1 );
 
-//        //database
-
+        //database
         adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
         //Date time
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
@@ -142,9 +141,6 @@ public class Adjust_Balance_Fragment extends Fragment {
             clientnameET.setHint(resources.getString(R.string.customernamehint));
             cmblTV.setText(resources.getString(R.string.hint1));
             clientmobileET.setHint(resources.getString(R.string.customernumberhint));
-         //   amountTV.setText(resources.getString(R.string.amounts));
-          //  adjustamountET.setHint(resources.getString(R.string.amounthint));
-          //  duepaydateTV.setHint(resources.getString(R.string.date));
             adjustsaveBtn.setText(resources.getString(R.string.save));
 
 
@@ -157,9 +153,6 @@ public class Adjust_Balance_Fragment extends Fragment {
             clientnameET.setHint(resources.getString(R.string.customernamehint));
             cmblTV.setText(resources.getString(R.string.hint1));
             clientmobileET.setHint(resources.getString(R.string.customernumberhint));
-        //    amountTV.setText(resources.getString(R.string.amounts));
-         //   adjustamountET.setHint(resources.getString(R.string.amounthint));
-         //   duepaydateTV.setHint(resources.getString(R.string.date));
             adjustsaveBtn.setText(resources.getString(R.string.save));
         }
 //for spinner set position
@@ -167,18 +160,6 @@ public class Adjust_Balance_Fragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 accounttype = parent.getSelectedItem().toString();
-
-//                if (position == 1 || position == 2) {
-//                    String[] cas = getResources().getStringArray(R.array.trans2);
-//                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-//                    transactionspinner.setAdapter(adapter);
-//                }
-
-//                else {
-//                    String[] cas = getResources().getStringArray(R.array.trans);
-//                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-//                    transactionspinner.setAdapter(adapter);
-//                }
             }
 
             @Override

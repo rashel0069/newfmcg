@@ -5,276 +5,306 @@
     android:layout_height="match_parent"
     tools:context=".fragment.Receivablepayable_Fragment">
 
-  <ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="match_parent">
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
-          <androidx.appcompat.widget.AppCompatSpinner
-              android:id="@+id/spinner_id_payrecive"
-              android:layout_width="match_parent"
-              android:layout_height="40dp"
-              android:layout_marginStart="8dp"
-              android:layout_marginTop="16dp"
-              android:layout_marginEnd="8dp"
-              android:background="@drawable/edittext_background"
-              android:entries="@array/adjustbalance"
-              android:spinnerMode="dropdown"
-              android:textAlignment="center" />
-          <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginStart="8dp"
-              android:layout_marginTop="16dp"
-              android:layout_marginEnd="8dp"
-              android:background="@drawable/edittext_background"
-              android:orientation="vertical">
-              <TextView
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"
-                  android:paddingStart="8dp"
-                  android:textStyle="bold"
-                  android:text="@string/hint1"
-                  android:textColor="@color/black"
-                  android:textSize="15sp" />
-              <LinearLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:weightSum="4">
-                  <EditText
-                      android:maxLength="14"
-                      android:id="@+id/searchmobile_id"
-                      android:layout_width="match_parent"
-                      android:layout_height="40dp"
-                      android:layout_weight="1"
-                      android:background="@color/white"
-                      android:paddingLeft="5dp"
-                      android:layout_margin="5dp"
-                      android:hint="@string/customernumberhint"
-                      android:inputType="number"
-                      android:textColor="@color/black"
-                      android:textSize="15sp" />
-                  <ImageView
-                      android:id="@+id/contact_view_id"
-                      android:layout_weight="3"
-                      android:scaleType="centerInside"
-                      android:layout_gravity="center"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:src="@drawable/ic_baseline_contact_phone_24"/>
-              </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-          </LinearLayout>
-          <Button
-              android:id="@+id/searchUser_id"
-              android:layout_margin="8dp"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/search"
-              android:textAllCaps="false"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-          <LinearLayout
-              android:id="@+id/l1_id"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_margin="8dp"
-              android:visibility="gone"
-              android:background="@drawable/edittext_background"
-              android:orientation="vertical">
-              <LinearLayout
-                  android:layout_margin="8dp"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-                  <TextView
-                      android:padding="5dp"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:textColor="@color/black"
-                      android:text="@string/customerName"
-                      android:textSize="16sp"/>
-                  <TextView
-                      android:id="@+id/viewCustomer_id"
-                      android:padding="5dp"
-                      android:textColor="@color/black"
-                      android:layout_marginStart="8dp"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:hint="@string/customerName"
-                      android:textSize="16sp"/>
-              </LinearLayout>
-              <LinearLayout
-                  android:layout_margin="8dp"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-                  <TextView
-                      android:padding="5dp"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:textColor="@color/black"
-                      android:text="@string/previous"
-                      android:textSize="16sp"/>
-                  <TextView
-                      android:id="@+id/viewpreviousblnc_id"
-                      android:padding="5dp"
-                      android:textColor="@color/black"
-                      android:layout_marginStart="8dp"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:hint="@string/prhint"
-                      android:textSize="16sp"/>
-              </LinearLayout>
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinner_id_payrecive"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/edittext_background"
+                android:entries="@array/adjustbalance"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center" />
 
-              <LinearLayout
-                  android:weightSum="3"
-                  android:layout_margin="8dp"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-                  <TextView
-                      android:gravity="center"
-                      android:layout_weight="1"
-                      android:padding="5dp"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:textColor="@color/black"
-                      android:text="@string/cash"
-                      android:textSize="16sp"/>
-                  <TextView
-                      android:layout_weight="1"
-                      android:padding="5dp"
-                      android:gravity="center"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:textColor="@color/black"
-                      android:text="@string/product"
-                      android:textSize="16sp"/>
-                  <TextView
-                      android:layout_weight="1"
-                      android:padding="5dp"
-                      android:gravity="center"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:textColor="@color/black"
-                      android:text="@string/adj"
-                      android:textSize="16sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/edittext_background"
+                android:orientation="vertical">
 
-              </LinearLayout>
-              <LinearLayout
-                  android:layout_marginLeft="8dp"
-                  android:layout_marginRight="8dp"
-                  android:layout_marginBottom="8dp"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-                  <EditText
-                      android:id="@+id/newCash_id"
-                      android:layout_weight="1"
-                      android:gravity="center"
-                      android:textColor="@color/black"
-                      android:layout_width="match_parent"
-                      android:layout_height="40dp"
-                      android:background="@color/white"
-                      android:hint="@string/cashhint"
-                      android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingStart="8dp"
+                    android:text="@string/hint1"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                  <EditText
-                      android:id="@+id/newProduct_id"
-                      android:layout_weight="1"
-                      android:gravity="center"
-                      android:layout_width="match_parent"
-                      android:layout_height="40dp"
-                      android:textColor="@color/black"
-                      android:background="@color/white"
-                      android:hint="@string/cashhint"
-                      android:textSize="16sp"/>
-                  <EditText
-                      android:id="@+id/newAdjust_id"
-                      android:layout_weight="1"
-                      android:gravity="center"
-                      android:textColor="@color/black"
-                      android:layout_width="match_parent"
-                      android:layout_height="40dp"
-                      android:background="@color/white"
-                      android:hint="@string/cashhint"
-                      android:textSize="16sp"/>
-              </LinearLayout>
-              <Button
-                  android:id="@+id/calclate_id"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="@string/calculate"
-                  android:textAllCaps="false"
-                  android:layout_gravity="end"
-                  android:layout_marginEnd="8dp"
-                  android:layout_marginBottom="8dp"
-                  android:layout_marginTop="8dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="4">
 
-          </LinearLayout>
+                    <EditText
+                        android:id="@+id/searchmobile_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:hint="@string/customernumberhint"
+                        android:inputType="number"
+                        android:maxLength="14"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
 
-          <LinearLayout
-              android:id="@+id/l2_id"
-              android:visibility="gone"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:layout_margin="8dp">
-              <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:text="@string/summary"
-                  android:textSize="16sp"
-                  android:textColor="@color/black"
-                  android:textStyle="bold"/>
-              <LinearLayout
-                  android:weightSum="2"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/contact_view_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="3"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_baseline_contact_phone_24" />
+                </LinearLayout>
 
-                  <TextView
-                      android:id="@+id/summarybalance_id"
-                      android:layout_weight="1"
-                      android:layout_width="match_parent"
-                      android:textSize="16sp"
-                      android:paddingStart="8dp"
-                      android:textColor="@color/black"
-                      android:gravity="center_vertical"
-                      android:layout_height="40dp"
-                      android:text="@string/previous"/>
-              </LinearLayout>
-              <LinearLayout
-                  android:weightSum="2"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content">
-                  <TextView
-                      android:layout_weight="1"
-                      android:layout_width="0dp"
-                      android:textSize="16sp"
-                      android:paddingStart="8dp"
-                      android:textColor="@color/black"
-                      android:gravity="center_vertical"
-                      android:layout_height="40dp"
-                      android:text="@string/newbalance"/>
-                  <TextView
-                      android:id="@+id/newBalance_id"
-                      android:layout_weight="1"
-                      android:layout_width="0dp"
-                      android:textSize="16sp"
-                      android:textColor="@color/black"
-                      android:gravity="center"
-                      android:layout_height="40dp"
-                      android:text="@string/newbalance"/>
-              </LinearLayout>
-              <Button
-                  android:id="@+id/recivepaybtn_id"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_marginTop="24dp"
-                  android:text="@string/save"
-                  android:textAllCaps="false"/>
-          </LinearLayout>
+            </LinearLayout>
 
-      </LinearLayout>
-  </ScrollView>
+            <Button
+                android:id="@+id/searchUser_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/search"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:id="@+id/l1_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/edittext_background"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/customerName"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/viewCustomer_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/customerName"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/previous"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/viewpreviousblnc_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:hint="@string/prhint"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/cash"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/product"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/adj"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <EditText
+                        android:id="@+id/newCash_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:hint="@string/cashhint"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/newProduct_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:hint="@string/cashhint"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/newAdjust_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:hint="@string/cashhint"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/calclate_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/calculate"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/l2_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/summary"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/summarybalance_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="8dp"
+                        android:text="@string/previous"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="8dp"
+                        android:text="@string/newbalance"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/newBalance_id"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/newbalance"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/recivepaybtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/save"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>
