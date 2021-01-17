@@ -30,6 +30,6 @@ public interface InformationDao {
     void delete(InformationEntity informationEntity);
 
     @Query( "SELECT * FROM informations" )
-    LiveData<List<InformationEntity>>findAllInfo();
+    List<InformationEntity>findAllInfo();
 
 }

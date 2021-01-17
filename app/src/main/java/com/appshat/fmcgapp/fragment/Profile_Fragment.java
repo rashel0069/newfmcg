@@ -7,11 +7,14 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.media.Image;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,13 +27,24 @@ import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Localhelper;
 import com.appshat.fmcgapp.MainActivity;
 import com.appshat.fmcgapp.R;
+import com.appshat.fmcgapp.Room.DAO.InformationDao;
+import com.appshat.fmcgapp.Room.DB.Databaseroom;
+import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
+import com.appshat.fmcgapp.Room.model.InformationViewModel;
+
+import java.util.List;
 
 public class Profile_Fragment extends Fragment {
     CardView languageselector;
-    TextView editTV,websiteTV,fbTV,langTV,logoutTV;
+    TextView editTV,websiteTV,fbTV,langTV,logoutTV,shopkeepName,shopAddress;
+    ImageView photoUp;
+    String shopN,shopAd;
     boolean lang_selected = true;
     Context context;
     Resources resources;
+    InformationViewModel informationViewModel;
+    InformationDao informationDao;
+    Databaseroom databaseroom;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -45,8 +59,21 @@ public class Profile_Fragment extends Fragment {
         fbTV = view.findViewById(R.id.fb_id);
         langTV = view.findViewById(R.id.lang_id);
         logoutTV = view.findViewById(R.id.logout_id);
+        photoUp = view.findViewById( R.id.editphoto_id );
+        shopkeepName = view.findViewById( R.id.textView3 );
+        shopAddress = view.findViewById( R.id.textView2 );
 
+        databaseroom = Databaseroom.getDatabaseroomref( getActivity() );
+        informationDao = databaseroom.getInformationDao();
+        informationViewModel = ViewModelProviders.of( getActivity() ).get( InformationViewModel.class );
 
+        //upload photo
+        photoUp.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        } );
         // edit profile
         CardView edit = view.findViewById( R.id.cardView2 );
         edit.setOnClickListener( new View.OnClickListener() {
@@ -87,15 +114,21 @@ public class Profile_Fragment extends Fragment {
             }
         } );
 
-
+        try {
+            String s = new GetInformation().execute().get();
+            if (shopN != null && shopAd != null){
+                shopkeepName.setText( shopN );
+                shopAddress.setText( shopAd );
+            }
+        }catch (Exception e){
+            Toast.makeText( context, "Error"+e, Toast.LENGTH_SHORT ).show();
+        }
 
         // using login swtiching the language
-
         //language setter
         if (Helper.getBangla()) {
             context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
-
             langTV.setText(resources.getString(R.string.selector));
             editTV.setText(resources.getString(R.string.edit));
             websiteTV.setText(resources.getString(R.string.website));
@@ -164,7 +197,17 @@ public class Profile_Fragment extends Fragment {
             }
         });
 
-
         return view;
+    }
+    public class GetInformation extends AsyncTask<Void,Void,String>{
+        @Override
+        protected String doInBackground(Void... voids) {
+            List<InformationEntity> informationEntities = informationDao.findAllInfo();
+            if (informationEntities != null){
+                shopN = informationEntities.get( 0 ).getShopkeepername();
+                shopAd = informationEntities.get( 0 ).getShopaddress();
+            }
+            return null;
+        }
     }
 }

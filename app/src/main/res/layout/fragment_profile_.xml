@@ -16,7 +16,7 @@
             android:layout_width="115dp"
             android:layout_height="127dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="24dp"
             android:background="@color/white"
             android:scaleType="centerInside"
             android:src="@drawable/user"
@@ -53,6 +53,17 @@
             app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:ignore="MissingConstraints" />
 
+        <ImageView
+            android:id="@+id/editphoto_id"
+            android:layout_width="115dp"
+            android:layout_height="30dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_baseline_cloud_upload_24"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/profile_img_id"
+            app:layout_constraintStart_toStartOf="@+id/profile_img_id"
+            app:layout_constraintTop_toBottomOf="@+id/profile_img_id" />
+
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
@@ -80,7 +91,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/cardView4"
             app:layout_constraintEnd_toStartOf="@+id/cardView4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/editphoto_id"
             tools:ignore="MissingConstraints">
 
             <LinearLayout
@@ -110,6 +121,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
             android:layout_width="90dp"
@@ -120,7 +132,7 @@
             android:clickable="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/editphoto_id"
             tools:ignore="MissingConstraints">
 
             <LinearLayout
@@ -149,6 +161,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView4"
             android:layout_width="90dp"
@@ -159,7 +172,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/cardView5"
             app:layout_constraintEnd_toStartOf="@+id/cardView5"
             app:layout_constraintStart_toEndOf="@+id/cardView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/editphoto_id"
             tools:ignore="MissingConstraints">
 
             <LinearLayout
@@ -188,6 +201,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView5"
             android:layout_width="90dp"
@@ -197,7 +211,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/cardView3"
             app:layout_constraintEnd_toStartOf="@+id/cardView3"
             app:layout_constraintStart_toEndOf="@+id/cardView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/editphoto_id"
             tools:ignore="MissingConstraints">
 
             <LinearLayout
