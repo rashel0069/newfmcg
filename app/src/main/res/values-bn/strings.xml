@@ -94,7 +94,7 @@
 
     <string name="sap">সমস্ত দেনা দেখুন</string>
 
-    <string name="rp">গ্রহণযোগ্য / প্রদেয় </string>
+    <string name="rp">দেনা / পাওনা</string>
 
     <string name="location">অবস্থান</string>
 
@@ -120,7 +120,7 @@
 
     <string name="newtransaction">নতুন লেনদেন</string>
 
-    <string name="showtransaction">লেনদেন দেখান</string>
+    <string name="showtransaction">লেনদেনের বই</string>
 
     <string name="order">অর্ডার</string>
 
@@ -259,7 +259,7 @@
 
     <string name="prhint">যেমন: ১০০০০ </string>
 
-    <string name="cashreturn">ফেরত হিসাব</string>
+    <string name="cashreturn">পণ্য ফেরত</string>
 
     <string name="previous">পূর্ববর্তী হিসাব</string>
 
