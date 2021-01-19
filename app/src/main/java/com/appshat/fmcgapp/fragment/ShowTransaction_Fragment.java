@@ -62,6 +62,7 @@ public class ShowTransaction_Fragment extends Fragment {
             transallBtn.setText(resources.getString(R.string.todaytrans));
             expBtn.setText(resources.getString(R.string.expense));
             recpayBtn.setText(resources.getString(R.string.payrec));
+            allTrans.setText(resources.getString(R.string.todaytrans2));
 
         } else {
             context = Localhelper.setLocale(getActivity(), "en");
@@ -71,6 +72,7 @@ public class ShowTransaction_Fragment extends Fragment {
             transallBtn.setText(resources.getString(R.string.todaytrans));
             expBtn.setText(resources.getString(R.string.expense));
             recpayBtn.setText(resources.getString(R.string.payrec));
+            allTrans.setText(resources.getString(R.string.todaytrans2));
         }
 
         transactionViewModel = ViewModelProviders.of( this ).get( TransactionViewModel.class );
