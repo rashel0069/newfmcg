@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -32,20 +33,42 @@ import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 import com.appshat.fmcgapp.Room.model.InformationViewModel;
 
+import java.net.URI;
 import java.util.List;
 
 public class Profile_Fragment extends Fragment {
     CardView languageselector;
     TextView editTV,websiteTV,fbTV,langTV,logoutTV,shopkeepName,shopAddress;
-    ImageView photoUp;
-    String shopN,shopAd;
+    ImageView photoUp,profileImage;
+    String shopN,shopAd,imageUrl;
     boolean lang_selected = true;
     Context context;
     Resources resources;
     InformationViewModel informationViewModel;
     InformationDao informationDao;
     Databaseroom databaseroom;
+    Uri uri;
+    Uri uri2 = null;
+    SharedPreferences photoprf;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
+    public static final String MY_PHOTO = "MyPhoto";
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult( requestCode, resultCode, data );
+
+        uri = data.getData();
+        profileImage.setImageURI( uri );
+
+        photoprf = getActivity().getSharedPreferences( MY_PHOTO,Context.MODE_PRIVATE );
+        SharedPreferences.Editor editor = photoprf.edit();
+        editor.putString("url", uri.toString() );
+        Toast.makeText( context, ""+uri, Toast.LENGTH_SHORT ).show();
+        editor.commit();
+
+
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -62,16 +85,21 @@ public class Profile_Fragment extends Fragment {
         photoUp = view.findViewById( R.id.editphoto_id );
         shopkeepName = view.findViewById( R.id.textView3 );
         shopAddress = view.findViewById( R.id.textView2 );
-
+        profileImage = view.findViewById( R.id.profile_img_id );
         databaseroom = Databaseroom.getDatabaseroomref( getActivity() );
         informationDao = databaseroom.getInformationDao();
         informationViewModel = ViewModelProviders.of( getActivity() ).get( InformationViewModel.class );
+
+
+
 
         //upload photo
         photoUp.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent pickPhoto = new Intent(Intent.ACTION_PICK);
+                pickPhoto.setType( "image/*" );
+                startActivityForResult( pickPhoto,1 );
             }
         } );
         // edit profile
@@ -210,4 +238,5 @@ public class Profile_Fragment extends Fragment {
             return null;
         }
     }
+
 }

@@ -121,7 +121,7 @@ public class Adjust_Balance_Fragment extends Fragment {
         adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
         //Date time
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-
+        duepaydateTV.setText( currentdate );
         phoneContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -211,38 +211,7 @@ public class Adjust_Balance_Fragment extends Fragment {
             }
 
         });
-        duepaydateTV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
-                        year, month, day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-            }
-        });
-
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month+1;
-                Log.d(TAG, "onDateSet: dd/mm/yyyy:  " + "/" + day + "/" + month + "/" + year);
-                String date = day + "/" + month + "/" + year;
-                String hour = getResources().getString(R.string.alerm_time_hour);
-                String minutes = getResources().getString(R.string.alerm_time_second);
-                ///set time for alerm notification=============================
-                cal = Calendar.getInstance();
-                cal.setTimeInMillis(System.currentTimeMillis());
-                cal.clear();
-                cal.set(year, month, day, parseInt(hour), parseInt(minutes));
-                duepaydateTV.setText(date);
-
-            }
-        };
         return view;
     }
 }

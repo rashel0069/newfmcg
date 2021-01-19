@@ -2,7 +2,6 @@ package com.appshat.fmcgapp.fragment;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +13,6 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
@@ -31,6 +29,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,6 +58,7 @@ public class NewTransaction_Fragment extends Fragment {
     EditText cnameET, cmblnumET, camountET;
     TextView cnTV,cmTV,amTV,timedateTV;
     Button newtransBTN;
+    LinearLayout l1,l2;
     ImageView phonecontactSelect;
     NewtransactionDao newtransactionDBdao;
     DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -102,6 +102,8 @@ public class NewTransaction_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_new_transaction_, container, false);
         // Inflate the layout for this fragment
 
+        l1 = view.findViewById( R.id.layout_1 );
+        l2 = view.findViewById( R.id.linearLayout_2 );
         accspinner = view.findViewById(R.id.newaccountspinner_id);
         transspinner = view.findViewById(R.id.newtransactionspinner_id);
         timedateTV = view.findViewById(R.id.dateTV_id);
@@ -151,7 +153,7 @@ public class NewTransaction_Fragment extends Fragment {
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
 
-//for spinner set position
+        //for spinner set position
         accspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -185,6 +187,8 @@ public class NewTransaction_Fragment extends Fragment {
                     phonecontactSelect.setClickable( false );
                     cnameET.setText( "No Need Customer Name" );
                     cmblnumET.setText( "No Need Mobile Name" );
+                    l1.setVisibility( View.GONE );
+                    l2.setVisibility( View.GONE );
                     timedateTV.setClickable( false );
                     timedateTV.setText( currentdate );
 
@@ -194,6 +198,8 @@ public class NewTransaction_Fragment extends Fragment {
                     phonecontactSelect.setClickable( true );
                     cnameET.setText( "" );
                     cmblnumET.setText( "" );
+                    l1.setVisibility( View.VISIBLE );
+                    l2.setVisibility( View.VISIBLE );
                     timedateTV.setClickable( true );
                     timedateTV.setText( "");
                 }

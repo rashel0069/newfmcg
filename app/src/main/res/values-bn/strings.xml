@@ -86,7 +86,7 @@
 
     <string name="spe"> ক্রয়/ বিক্রয় / ব্যয়</string>
 
-    <string name="search">অনুসন্ধান করুন</string>
+    <string name="search">অনুসন্ধান</string>
 
     <string name="sar">পাওনা হিসাব দেখুন</string>
 
@@ -234,7 +234,7 @@
 
     <string name="todaytrans">লেনদেন</string>
 
-    <string name="todaytrans2">সকল লেনদেন</string>
+    <string name="alltrans">সকল লেনদেন</string>
 
     <string name="payrec">পরিশোধ / প্রাপ্তির পরিমাণ</string>
 

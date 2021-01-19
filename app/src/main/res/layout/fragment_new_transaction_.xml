@@ -44,7 +44,7 @@
             tools:ignore="MissingConstraints" />
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/layout_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -75,7 +75,7 @@
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:paddingLeft="5dp"
+                android:paddingStart="5dp"
                 android:background="@color/white"
                 android:hint="@string/customernamehint"
                 android:textColor="@color/black"
@@ -85,7 +85,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout14"
+            android:id="@+id/linearLayout_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -96,7 +96,7 @@
             android:background="@drawable/edittext_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/layout_1"
             tools:ignore="MissingConstraints">
 
             <TextView
@@ -150,7 +150,7 @@
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout14"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout_2"
             tools:ignore="MissingConstraints">
 
             <TextView

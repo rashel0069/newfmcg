@@ -61,7 +61,9 @@ public class MainActivity extends AppCompatActivity {
         Dexter.withContext( this )
                 .withPermissions( Manifest.permission.READ_CONTACTS,
                         Manifest.permission.WRITE_CONTACTS,
-                        Manifest.permission.ACCESS_FINE_LOCATION).withListener( new MultiplePermissionsListener() {
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE).withListener( new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport multiplePermissionsReport) {
 
