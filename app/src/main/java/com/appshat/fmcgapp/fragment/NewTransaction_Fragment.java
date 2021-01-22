@@ -18,7 +18,9 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.provider.ContactsContract;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,11 +54,10 @@ import java.util.Locale;
 import static android.content.ContentValues.TAG;
 import static java.lang.Integer.parseInt;
 
-
 public class NewTransaction_Fragment extends Fragment {
     Spinner accspinner, transspinner;
     EditText cnameET, cmblnumET, camountET;
-    TextView cnTV,cmTV,amTV,timedateTV;
+    TextView cnTV,cmTV,amTV,timedateTV,saveNewContact;
     Button newtransBTN;
     LinearLayout l1,l2;
     ImageView phonecontactSelect;
@@ -84,7 +85,7 @@ public class NewTransaction_Fragment extends Fragment {
                     Cursor c = getContext().getContentResolver().query(contactData, projection, null, null, null, null);
                     c.moveToFirst();
                     int numberindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                    String number = c.getString(numberindex);
+                    String number = c.getString(numberindex).trim();
                     cmblnumET.setText(number);
 
                     int nameindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
@@ -114,6 +115,7 @@ public class NewTransaction_Fragment extends Fragment {
         cmblnumET = view.findViewById(R.id.clientmobilenumberET_id);
         cnTV=view.findViewById(R.id.customernameTV_id);
         cnameET = view.findViewById(R.id.customernameET_id);
+        saveNewContact = view.findViewById( R.id.saveContact_id );
         phonecontactSelect = view.findViewById(R.id.phoneContact_id);
         transactionViewModel = ViewModelProviders.of(getActivity()).get(TransactionViewModel.class);
 
@@ -122,6 +124,44 @@ public class NewTransaction_Fragment extends Fragment {
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
         accspinner.setAdapter(adapter);
 
+        //
+        cmblnumET.addTextChangedListener( new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!TextUtils.isEmpty( cnameET.getText().toString()) && cmblnumET.getText().length() == 11 ){
+                    saveNewContact.setVisibility( View.VISIBLE );
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        } );
+
+        //click save number
+        saveNewContact.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!TextUtils.isEmpty( cmblnumET.getText().toString().trim() )
+                        && !TextUtils.isEmpty( cnameET.getText().toString() )){
+                  Intent intent = new Intent(Intent.ACTION_INSERT);
+                  intent.setType( ContactsContract.RawContacts.CONTENT_TYPE );
+                  intent.putExtra( ContactsContract.Intents.Insert.NAME, cnameET.getText().toString() );
+                  intent.putExtra( ContactsContract.Intents.Insert.PHONE, cmblnumET.getText().toString() );
+                  if (intent.resolveActivity( getActivity().getPackageManager() ) != null){
+                      startActivity( intent );
+                  }
+                }else {
+                    Toast.makeText( context, "Give Phone Number and Name please", Toast.LENGTH_SHORT ).show();
+                }
+            }
+        } );
 
         //language setter
         if (Helper.getBangla()) {

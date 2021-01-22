@@ -121,6 +121,7 @@
                   android:layout_weight="1"
                   android:background="@color/white"
                   android:paddingLeft="5dp"
+                  android:maxLength="16"
                   android:layout_margin="5dp"
                   android:hint="@string/customernumberhint"
                   android:inputType="number"
@@ -133,9 +134,19 @@
                   android:layout_height="match_parent"
                   android:scaleType="centerInside"
                   android:src="@drawable/ic_baseline_contact_phone_24"/>
+
           </LinearLayout>
 
 
+            <TextView
+                android:id="@+id/saveContact_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="@string/new_customer_save_now"
+                android:textColor="@color/red_700"
+                android:layout_margin="8dp"
+                android:textSize="16sp"/>
         </LinearLayout>
 
 
