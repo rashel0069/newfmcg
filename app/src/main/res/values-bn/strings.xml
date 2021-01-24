@@ -239,6 +239,7 @@
     <string name="payrec">পরিশোধ / প্রাপ্তির পরিমাণ</string>
 
     <string name="forgot_password">পাসওয়ার্ড ভুলে গেছেন?</string>
+
     <string name="pr">পূর্ববর্তী প্রাপ্তিযোগ্য </string>
 
     <string name="cash">নগদ টাকা</string>
@@ -281,8 +282,29 @@
  </string>
 
     <string name="about2" >মোট কথা, আমরা আপনার সমস্ত ডিজিটাল প্রয়োজনের জন্য মূলত একটি স্টপ সলিউশন সরবরাহকারী। আমাদের পরিষেবাতে ডিজিটাল কৌশল, ওয়েবসাইট ডিজাইন ও বিকাশ, ডিজিটাল বিপণন, ডিজিটাল প্রদর্শন, সার্ভার-সাইড সলিউশন, সিআরএম, আইওটি সলিউশন এবং গবেষণা রয়েছে।</string>
-    <string name="coming_soon">শীঘ্রই আসছে...</string>
+
+    <string name="previousday">আগের দিন</string>
+
+    <string name="lastweek">গত সপ্তাহে</string>
+
+    <string name="lastmonth">গত মাসে</string>
+
     <string name="edit_photo">ছবি সম্পাদনা</string>
+
+    <string name="datehistory">তারিখ:  </string>
+
+    <string name="sales">বিক্রয়</string>
+
+    <string name="totalreceivable">মোট প্রাপ্য</string>
+
+    <string name="closingcash">সর্বমোট নগদ </string>
+
+    <string name="from"></string>
+
+    <string name="to">To</string>
+
+    <string name="datehint">যেমন: ২৭-৯-২০২০</string>
+
     <string name="new_customer_save_now">নতুন গ্রাহক ? সংরক্ষণ করুন</string>
     <string name="previous_day_history">Previous Day History</string>
 
