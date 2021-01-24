@@ -290,8 +290,31 @@
  </string>
     <string name="about2">To sum up,we are basically a one stop solution provider for all your digital needs.Our services encompass Digital Strategy,Website Design and Development,
             Digital Marketing,Digital Display,Server-Side Solution,CRM,IOT Solution and Research.</string>
-    <string name="coming_soon">Underdevelopment coming soon...</string>
+
+    <string name="previousday">Previous Day</string>
+
+    <string name="lastweek">Last Week</string>
+
+    <string name="lastmonth">Last Month</string>
+
     <string name="edit_photo">Edit Photo</string>
+
+    <string name="datehistory">Date:  </string>
+
+    <string name="sales">Sales</string>
+
+    <string name="totalreceivable">Total Receivable</string>
+
+    <string name="closingcash">CLosing Cash</string>
+
+    <string name="from">From</string>
+
+    <string name="to">To</string>
+
+    <string name="datehint">eg:27-9-2020</string>
+
+
+
     <string name="new_customer_save_now">New Customer ? Save Now</string>
 
 </resources>
