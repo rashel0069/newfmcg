@@ -44,7 +44,7 @@ public class Home_Fragment<Date> extends Fragment {
     private static final String TAG = "Activity";
     Button cashbtn, transactionbtn, orderbtn, showtransbtn, expensebtn, adjustbtn,recivablebtn;
     TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,
-            openingcashTV, dayendcashTV, receivablecashTV, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
+            openingcashTV, dayendcashTV,receivablecashTV,payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
     String opening, receviable, payable, dayend, withdraw, deposit, sellcash, sellcredit, cashpurches, cashexpence, cashtotal;
     String prev;
     InformationDao informationDbDao;
@@ -78,8 +78,7 @@ public class Home_Fragment<Date> extends Fragment {
         dayendCash = view.findViewById(R.id.textdayend_id);
         openingcashTV = view.findViewById(R.id.openingamountTitle_id);
         openingCash = view.findViewById(R.id.openingamountTV_id);
-        receivablecashTV = view.findViewById(R.id.receivableTV_id);
-        receivablecash = view.findViewById(R.id.receivableamountTV_id);
+        //receivablecash = view.findViewById(R.id.receivableamountTV_id);
         payablecashTV = view.findViewById(R.id.payableTitle_id);
         payableCash = view.findViewById(R.id.payableamountTV_id);
         cashsellTV = view.findViewById(R.id.cashsalesTitle_id);
@@ -99,7 +98,6 @@ public class Home_Fragment<Date> extends Fragment {
             resources = context.getResources();
             dayendcashTV.setText(resources.getString(R.string.dayendcash));
             openingcashTV.setText(resources.getString(R.string.opening));
-            receivablecashTV.setText(resources.getString(R.string.receivable));
             payablecashTV.setText(resources.getString(R.string.payable));
             cashsellTV.setText(resources.getString(R.string.cashsales));
             creditsellTV.setText(resources.getString(R.string.creditsales));
@@ -120,7 +118,6 @@ public class Home_Fragment<Date> extends Fragment {
             resources = context.getResources();
             dayendcashTV.setText(resources.getString(R.string.dayendcash));
             openingcashTV.setText(resources.getString(R.string.opening));
-            receivablecashTV.setText(resources.getString(R.string.receivable));
             payablecashTV.setText(resources.getString(R.string.payable));
             cashsellTV.setText(resources.getString(R.string.cashsales));
             creditsellTV.setText(resources.getString(R.string.creditsales));
@@ -231,7 +228,6 @@ public class Home_Fragment<Date> extends Fragment {
         try {
             String crSells = new GetCreditSells().execute().get();
             creditSell.setText(crSells);
-            receivablecash.setText(crSells);
             String cashEX = new GetExpense().execute().get();
             expenseCash.setText(cashEX);
             String sellTotal = new GetAllSells().execute().get();

@@ -1,20 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+
     tools:context=".fragment.History_Fragment">
 
-    <TextView
-        android:id="@+id/comingsoon_id"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/coming_soon"
-        android:textAlignment="center"
-        android:textColor="@color/red_700"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:orientation="vertical">
+        <TextView
+            android:background="@color/red_700"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/previous_day_history"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:textColor="@color/red_700"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:text="Date: "/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:hint="24-01-2021"/>
+        </LinearLayout>
 
-</FrameLayout>
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/history_frame">
+
+        </include>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Previous Week History"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:background="@color/red_700"
+            android:textColor="@color/white"/>
+        <LinearLayout
+            android:weightSum="4"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:layout_weight="1"
+                android:textColor="@color/red_700"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:text="From: "/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:hint="24-01-2021"/>
+            <TextView
+                android:layout_weight="1"
+                android:textColor="@color/red_700"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:text="To: "/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:hint="24-01-2021"/>
+        </LinearLayout>
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/history_frame">
+
+        </include>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Last Month History"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:background="@color/red_700"
+            android:textColor="@color/white"/>
+        <LinearLayout
+            android:weightSum="2"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp">
+            <TextView
+                android:layout_weight="1"
+                android:textColor="@color/red_700"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:text="Name of the month: "/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:hint="January"/>
+        </LinearLayout>
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/history_frame">
+
+        </include>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

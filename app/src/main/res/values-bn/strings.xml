@@ -112,7 +112,7 @@
 
     <string name="deposithint">যেমন: ১০০০</string>
 
-    <string name="payable">প্রদানযোগ্য</string>
+    <string name="payable">বাকিতে ক্রয়</string>
 
     <string name="purchase">নগদ ক্রয়</string>
 
@@ -284,5 +284,6 @@
     <string name="coming_soon">শীঘ্রই আসছে...</string>
     <string name="edit_photo">ছবি সম্পাদনা</string>
     <string name="new_customer_save_now">নতুন গ্রাহক ? সংরক্ষণ করুন</string>
+    <string name="previous_day_history">Previous Day History</string>
 
 </resources>

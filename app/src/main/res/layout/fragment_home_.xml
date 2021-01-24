@@ -22,289 +22,6 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/openingamountTitle_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="@string/opening"
-                        android:gravity="center"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/openingamountTV_id"
-                        android:layout_width="80dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="8dp"
-                        android:gravity="center"
-                        android:textColor="@color/white"
-                        android:hint="@string/totalcashhint"
-                        android:textSize="12sp"
-                        android:textStyle="bold"/>
-
-                </LinearLayout>
-
-            <LinearLayout
-                    android:weightSum="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="3dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_marginBottom="3dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <TextView
-                                android:gravity="center"
-                                android:id="@+id/textdayend_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:hint="0"
-                                android:textColor="@color/black"
-                                android:textAlignment="center"
-                                android:textSize="16sp"/>
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_margin="4dp"
-                                android:background="@color/red_500" />
-                            <TextView
-                                android:layout_gravity="center"
-                                android:id="@+id/dayendcashTitle_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/dayendcash"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="3dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/receivableamountTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:gravity="center"
-                                android:hint="@string/totalcashhint"
-                                android:textColor="@color/black"
-                                android:textSize="16sp" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_margin="4dp"
-                                android:background="@color/red_500" />
-                            <TextView
-                                android:id="@+id/receivableTV_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/receivable"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/payableamountTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:gravity="center"
-                                android:textSize="16sp"
-                                android:hint="@string/totalcashhint"
-                                android:textColor="@color/black" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_margin="4dp"
-                                android:background="@color/red_500" />
-                            <TextView
-                                android:id="@+id/payableTitle_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/payable"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-
-                </LinearLayout>
-
-            <LinearLayout
-                    android:weightSum="3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="3dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_marginBottom="3dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/cashsalesamountTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:gravity="center"
-                                android:hint="@string/totalcashhint"
-                                android:textColor="@color/black"
-                                android:textColorHint="@color/black"
-                                android:textSize="16sp"  />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_margin="4dp"
-                                android:background="@color/red_500" />
-                            <TextView
-                                android:id="@+id/cashsalesTitle_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/cashsales"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
-
-                        </LinearLayout>
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="3dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/creditsalesamountTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:gravity="center"
-                                android:hint="@string/totalcashhint"
-                                android:textColor="@color/black"
-                                android:textSize="16sp" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_margin="4dp"
-                                android:background="@color/red_500" />
-                            <TextView
-                                android:id="@+id/creditsalesTitle_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/creditsales"
-                                android:textColor="@color/black"
-                                android:textStyle="bold"/>
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="120dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/purchaseamountTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:gravity="center"
-                                android:hint="@string/totalcashhint"
-                                android:textColor="@color/black"
-                                android:textSize="16sp" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_margin="4dp"
-                                android:background="@color/red_500" />
-                            <TextView
-                                android:id="@+id/purchaseTitle_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/purchase"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-
                 </LinearLayout>
 
             <LinearLayout
@@ -312,91 +29,343 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="3dp"
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120dp">
-
-                        <LinearLayout
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/openingamountTV_id"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="40dp"
                             android:gravity="center"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/expenseamountTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:gravity="center"
-                                android:hint="@string/totalcashhint"
-                                android:textColor="@color/black"
-                                android:textSize="16sp" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_margin="4dp"
-                                android:background="@color/red_500" />
-                            <TextView
-                                android:id="@+id/expenseTitle_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/expense"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold"/>
+                            android:hint="@string/totalcashhint"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="4dp"
+                            android:background="@color/red_500" />
+                        <TextView
+                            android:id="@+id/openingamountTitle_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/opening"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
 
-                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="3dp">
 
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_weight="1"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="3dp"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_marginBottom="3dp">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
                             android:gravity="center"
-                            android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/totalsalesamountTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:gravity="center"
-                                android:hint="@string/totalcashhint"
-                                android:textColor="@color/black"
-                                android:textSize="16sp" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_margin="4dp"
-                                android:background="@color/red_500" />
-                            <TextView
-                                android:id="@+id/totalsalesTitle_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="@string/totalsales"
-                                android:textColor="@color/black"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
+                            android:id="@+id/textdayend_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:hint="0.00"
+                            android:textColor="@color/black"
+                            android:textAlignment="center"
+                            android:textSize="16sp"/>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="4dp"
+                            android:background="@color/red_500" />
+                        <TextView
+                            android:layout_gravity="center"
+                            android:id="@+id/dayendcashTitle_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dayendcash"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
 
-                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
 
+                </androidx.cardview.widget.CardView>
 
 
-                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/expenseamountTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:hint="@string/totalcashhint"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="4dp"
+                            android:background="@color/red_500" />
+                        <TextView
+                            android:id="@+id/expenseTitle_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/expense"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/purchaseamountTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:hint="@string/totalcashhint"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="4dp"
+                            android:background="@color/red_500" />
+                        <TextView
+                            android:id="@+id/purchaseTitle_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/purchase"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/payableamountTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:textSize="16sp"
+                            android:hint="@string/totalcashhint"
+                            android:textColor="@color/black" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="4dp"
+                            android:background="@color/red_500" />
+                        <TextView
+                            android:id="@+id/payableTitle_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/payable"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/cashsalesamountTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:hint="@string/totalcashhint"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"  />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="4dp"
+                            android:background="@color/red_500" />
+                        <TextView
+                            android:id="@+id/cashsalesTitle_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/cashsales"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/creditsalesamountTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:hint="@string/totalcashhint"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="4dp"
+                            android:background="@color/red_500" />
+                        <TextView
+                            android:id="@+id/creditsalesTitle_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/creditsales"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="3dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/totalsalesamountTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center"
+                            android:hint="@string/totalcashhint"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="4dp"
+                            android:background="@color/red_500" />
+                        <TextView
+                            android:id="@+id/totalsalesTitle_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/totalsales"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -449,14 +418,12 @@
                     android:text="@string/showtransaction"
                     android:textAlignment="center"
                     android:textAllCaps="false" />
-                <Button
+                <TextView
                     android:layout_weight="1"
-                    android:id="@+id/expenseBtn_id"
+                    android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="90dp"
                     android:layout_marginStart="8dp"
-                    android:layout_gravity="center"
-                    android:text="@string/expense"
                     android:textAlignment="center"
                     android:textAllCaps="false" />
                 <Button
@@ -471,38 +438,44 @@
                     android:textAlignment="center"
                     android:textAllCaps="false" />
             </LinearLayout>
-         <LinearLayout
+
+            <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:weightSum="3">
 
-             <TextView
-                 android:layout_weight="1"
-                 android:layout_gravity="center"
-                 android:layout_width="match_parent"
-                 android:layout_height="90dp"
-                 android:layout_marginStart="8dp"
-                 android:textAlignment="center"
-                 android:textAllCaps="false" />
-             <Button
-                 android:layout_gravity="center"
-                 android:id="@+id/receivepay_fragment_id"
-                 android:layout_width="match_parent"
-                 android:layout_weight="1"
-                 android:layout_height="90dp"
-                 android:layout_marginStart="8dp"
-                 android:text="@string/rp"
-                 android:textAlignment="center"
-                 android:textAllCaps="false" />
-             <TextView
-                 android:layout_weight="1"
-                 android:layout_gravity="center"
-                 android:layout_width="match_parent"
-                 android:layout_height="90dp"
-                 android:layout_marginStart="8dp"
-                 android:layout_marginEnd="8dp"
-                 android:textAlignment="center"
-                 android:textAllCaps="false" />
+                <Button
+                    android:layout_gravity="center"
+                    android:id="@+id/receivepay_fragment_id"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/rp"
+                    android:textAlignment="center"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:layout_weight="1"
+                    android:id="@+id/expenseBtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="center"
+                    android:text="@string/expense"
+                    android:textAlignment="center"
+                    android:textAllCaps="false" />
+                <Button
+                    android:layout_gravity="center"
+                    android:id="@+id/openingammount_id"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/opening"
+                    android:textAlignment="center"
+                    android:textAllCaps="false" />
          </LinearLayout>
 
         </LinearLayout>

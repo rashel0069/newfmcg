@@ -110,7 +110,7 @@
 
     <string name="deposithint">eg: 1000</string>
 
-    <string name="payable">Payable</string>
+    <string name="payable">Credit Purchase</string>
 
     <string name="purchase">Cash Purchase</string>
 
@@ -293,5 +293,6 @@
     <string name="coming_soon">Underdevelopment coming soon...</string>
     <string name="edit_photo">Edit Photo</string>
     <string name="new_customer_save_now">New Customer ? Save Now</string>
+    <string name="previous_day_history">Previous Day History</string>
 
 </resources>
