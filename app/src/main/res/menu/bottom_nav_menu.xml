@@ -6,7 +6,7 @@
         android:title="Home" />
     <item
         android:id="@+id/history"
-        android:icon="@drawable/shape"
+        android:icon="@drawable/history"
         android:title="History" />
     <item
         android:id="@+id/profile"

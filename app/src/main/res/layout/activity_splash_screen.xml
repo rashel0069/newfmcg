@@ -24,7 +24,7 @@
         android:textAlignment="center"
         android:textColor="@color/red_700"
         android:fontFamily="cursive"
-        android:text="FMCG App" />
+        android:text="@string/app_name" />
 
 
 </LinearLayout>

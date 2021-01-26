@@ -22,6 +22,7 @@ import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Localhelper;
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.CashboxDao;
+import com.appshat.fmcgapp.Room.DAO.InformationDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
 import com.appshat.fmcgapp.Room.model.CashBoxViewModel;
@@ -39,6 +40,7 @@ public class Cashbox_Fragment extends Fragment {
     Button cashbtn;
     String dayend, withdrawal, deposit, datetime;
     CashboxDao cashboxDBdao;
+    InformationDao informationDbDao;
     Databaseroom cashboxDB;
     CashBoxViewModel cashBoxViewModel;
     int d1,d2,d3;
@@ -81,7 +83,7 @@ public class Cashbox_Fragment extends Fragment {
             cashbtn.setText(resources.getString(R.string.save));
         }
 
-//        //database
+        //database
         cashBoxViewModel = ViewModelProviders.of( getActivity() ).get( CashBoxViewModel.class );
         //Date time
         String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());

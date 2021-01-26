@@ -21,6 +21,21 @@ public class CashBoxViewModel extends AndroidViewModel {
         databaseroom = Databaseroom.getDatabaseroomref( application );
         cashboxDao = databaseroom.getCashboxDao();
     }
+    public void updateOpening(CashboxEntity cashboxEntity){
+        new CashBoxViewModel.UpdateAsyncTask(cashboxDao).execute(cashboxEntity);
+    }
+    private class UpdateAsyncTask extends AsyncTask<CashboxEntity, Void,Void>{
+        CashboxDao mCashboxDao;
+        UpdateAsyncTask(CashboxDao cashboxDao){
+            this.mCashboxDao = cashboxDao;
+        }
+        @Override
+        protected Void doInBackground(CashboxEntity... cashboxEntities) {
+            mCashboxDao.update( cashboxEntities[0] );
+            return null;
+        }
+    }
+
     public void insertCashbox(CashboxEntity cashboxEntity){
         new CashBoxViewModel.InsertAsyncTask(cashboxDao).execute(cashboxEntity);
     }

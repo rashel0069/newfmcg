@@ -26,4 +26,5 @@ public interface ExpenseDao {
     @Query( "SELECT * FROM expense WHERE currentdate LIKE :expenseDate" )
     List<ExpenseEntity> getExpense(String expenseDate);
 
+
 }

@@ -24,10 +24,17 @@ import android.widget.Toast;
 import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Localhelper;
 import com.appshat.fmcgapp.R;
+import com.appshat.fmcgapp.Room.DAO.CashboxDao;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
+import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
 import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
+import com.appshat.fmcgapp.Room.model.CashBoxViewModel;
 import com.appshat.fmcgapp.Room.model.InformationViewModel;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -35,11 +42,14 @@ public class Information_Fragment extends Fragment {
     TextView shoppnameTV, ownernameTV, addressTV, phonenumberTV, openingTV, receivableTV, payableTV;
     EditText shoppnameEt, ownernameET, addressET, phonenumberET, openingET, receivableET, payableET;
     Button saveBtn;
-    String usermobile, shopname, shopkeepername, shopaddress, opening, receivable, payable;
+    String usermobile, shopname, shopkeepername, shopaddress, opening, receivable, payable,dayend, withdrawal, deposit, datetime;;
     Context context;
     Resources resources;
     public static final String MY_PREF_NAME = "myPrefFile";
     InformationViewModel informationViewModel;
+    Databaseroom databaseroom;
+    CashboxDao cashboxDBdao;
+    CashBoxViewModel cashBoxViewModel;
 
     @Nullable
     @Override
@@ -49,6 +59,7 @@ public class Information_Fragment extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_information_, container, false);
 
 //        //database
+        cashBoxViewModel = ViewModelProviders.of( getActivity() ).get( CashBoxViewModel.class );
         informationViewModel = ViewModelProviders.of(getActivity()).get(InformationViewModel.class);
         shoppnameTV = view.findViewById(R.id.sname_TV);
         shoppnameEt = view.findViewById(R.id.sname_ET);
@@ -65,6 +76,13 @@ public class Information_Fragment extends Fragment {
         payableTV = view.findViewById(R.id.payamnt_TV);
         payableET = view.findViewById(R.id.payableamount_ET);
         saveBtn = view.findViewById(R.id.saved_id);
+
+        //Date time
+        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
+        cal.add(Calendar.DAY_OF_YEAR, -1);
+        datetime = s.format(cal.getTime());
 
 //language setter
         if (Helper.getBangla()) {
@@ -127,7 +145,8 @@ public class Information_Fragment extends Fragment {
 
                         InformationEntity informationEntity = new InformationEntity(usermobile, shopname, shopkeepername, shopaddress, opening, receivable, payable);
                         informationViewModel.insertInfo(informationEntity);
-
+                        CashboxEntity cashboxEntity = new CashboxEntity(datetime, opening, "0", "0");
+                        cashBoxViewModel.insertCashbox(cashboxEntity);
                         //save data
 
                         SharedPreferences.Editor editor = getActivity().getSharedPreferences(MY_PREF_NAME, MODE_PRIVATE).edit();

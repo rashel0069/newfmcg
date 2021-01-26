@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appshat.fmcgapp.ExampleDialog;
 import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Kotlin.ui.ChatBot;
 import com.appshat.fmcgapp.Localhelper;
@@ -29,7 +31,9 @@ import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
+import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
+import com.appshat.fmcgapp.Room.model.InformationViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -42,13 +46,14 @@ import static java.lang.String.valueOf;
 public class Home_Fragment<Date> extends Fragment {
 
     private static final String TAG = "Activity";
-    Button cashbtn, transactionbtn, orderbtn, showtransbtn, expensebtn, adjustbtn,recivablebtn;
+    Button cashbtn, transactionbtn, orderbtn, showtransbtn, expensebtn, adjustbtn,recivablebtn,edtOpening;
     TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,
             openingcashTV, dayendcashTV,receivablecashTV,payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
     String opening, receviable, payable, dayend, withdraw, deposit, sellcash, sellcredit, cashpurches, cashexpence, cashtotal;
-    String prev;
+    String prev,openAmount;
     InformationDao informationDbDao;
     NewtransactionDao newtransactionDao;
+    InformationViewModel informationViewModel;
     ExpenseDao expenseDao;
     CashboxDao cashboxDao;
     AdjustDao adjustDao;
@@ -78,7 +83,7 @@ public class Home_Fragment<Date> extends Fragment {
         dayendCash = view.findViewById(R.id.textdayend_id);
         openingcashTV = view.findViewById(R.id.openingamountTitle_id);
         openingCash = view.findViewById(R.id.openingamountTV_id);
-        //receivablecash = view.findViewById(R.id.receivableamountTV_id);
+        edtOpening = view.findViewById( R.id.openingammount_id );
         payablecashTV = view.findViewById(R.id.payableTitle_id);
         payableCash = view.findViewById(R.id.payableamountTV_id);
         cashsellTV = view.findViewById(R.id.cashsalesTitle_id);
@@ -111,6 +116,7 @@ public class Home_Fragment<Date> extends Fragment {
             orderbtn.setText(resources.getString(R.string.order));
             showtransbtn.setText(resources.getString(R.string.showtransaction));
             expensebtn.setText(resources.getString(R.string.expense));
+            edtOpening.setText( resources.getString( R.string.opening ) );
 
 
         } else {
@@ -131,6 +137,7 @@ public class Home_Fragment<Date> extends Fragment {
             orderbtn.setText(resources.getString(R.string.order));
             showtransbtn.setText(resources.getString(R.string.showtransaction));
             expensebtn.setText(resources.getString(R.string.expense));
+            edtOpening.setText( resources.getString( R.string.opening ) );
         }
 
         //creditsells Data
@@ -139,11 +146,21 @@ public class Home_Fragment<Date> extends Fragment {
         expenseDao = databaseroom.getExpenseDao();
         cashboxDao = databaseroom.getCashboxDao();
         adjustDao = databaseroom.getduepayandreceive();
+        informationDbDao = databaseroom.getInformationDao();
+        informationViewModel = ViewModelProviders.of( getActivity() ).get( InformationViewModel.class );
         LoadDatafromRoom();
 
 
-        //Data Receive
+        //opening amount dialog
+        edtOpening.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ExampleDialog exampleDialog = new ExampleDialog();
+                exampleDialog.show( getActivity().getSupportFragmentManager(),"Opening amount dialog" );
+            }
+        } );
 
+        //Data Receive
         cashbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -252,12 +269,17 @@ public class Home_Fragment<Date> extends Fragment {
             if (!dayendCash.getText().toString().isEmpty() && Double.valueOf(dayendCash.getText().toString()) != 0.0) {
                 Double cashseles = (Double.parseDouble(dayend) - Double.parseDouble(opening) + Double.parseDouble(cashPurc) + Double.parseDouble(withdraw)
                         - Double.parseDouble(purchesreturncash) - Double.parseDouble(pastreceivable) + Double.parseDouble(pastpayable) + Double.parseDouble(salesreturncash));
-
-                cashSell.setText(String.valueOf(cashseles));
-
+                if (cashseles >= 0){
+                    cashSell.setText(String.valueOf(cashseles));
+                }else {
+                    cashSell.setText("0.0");
+                }
                 Double tseles = Double.parseDouble(crSells) + cashseles;
-                totalCash.setText(String.valueOf(tseles));
-
+                if ( tseles >= 0){
+                    totalCash.setText(String.valueOf(tseles));
+                }else {
+                    totalCash.setText("0.0");
+                }
             }
 
 
@@ -293,6 +315,19 @@ public class Home_Fragment<Date> extends Fragment {
             }
 
             return cash_purchaes.toString().trim();
+        }
+    }
+    //dayend
+    public class GetInformation extends AsyncTask<Void,Void,String>{
+        @Override
+        protected String doInBackground(Void... voids) {
+            List<InformationEntity> informationEntities = informationDbDao.findAllInfo();
+            Double openamount = 0.0;
+            if (informationEntities != null){
+                openamount = Double.parseDouble( informationEntities.get( 0 ).getOpeningamount() );
+                return openamount.toString().trim();
+            }
+            return null;
         }
     }
 
@@ -370,7 +405,7 @@ public class Home_Fragment<Date> extends Fragment {
                 open = Double.parseDouble(cashboxEntities.get(i).getDayend());
             }
 
-            return open.toString();
+            return open.toString().trim();
         }
     }
 

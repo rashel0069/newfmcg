@@ -23,7 +23,6 @@ public interface InformationDao {
     void insert(InformationEntity informationEntity);
 
     @Update
-
     void update(InformationEntity informationEntity);
 
     @Delete
@@ -31,5 +30,6 @@ public interface InformationDao {
 
     @Query( "SELECT * FROM informations" )
     List<InformationEntity>findAllInfo();
+
 
 }
