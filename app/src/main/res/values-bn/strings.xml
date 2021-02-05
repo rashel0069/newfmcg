@@ -299,7 +299,7 @@
 
     <string name="closingcash">সর্বমোট নগদ </string>
 
-    <string name="from"></string>
+    <string name="from">Form</string>
 
     <string name="to">To</string>
 
@@ -307,5 +307,6 @@
 
     <string name="new_customer_save_now">নতুন গ্রাহক ? সংরক্ষণ করুন</string>
     <string name="previous_day_history">Previous Day History</string>
+    <string name="upload_picture">ছবি আপলোড </string>
 
 </resources>

@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -32,7 +33,10 @@ import com.appshat.fmcgapp.Room.DAO.InformationDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 import com.appshat.fmcgapp.Room.model.InformationViewModel;
+import com.appshat.fmcgapp.adapter.DataConverter;
+import com.bumptech.glide.Glide;
 
+import java.io.File;
 import java.net.URI;
 import java.util.List;
 
@@ -40,34 +44,16 @@ public class Profile_Fragment extends Fragment {
     CardView languageselector;
     TextView editTV,websiteTV,fbTV,langTV,logoutTV,shopkeepName,shopAddress;
     ImageView photoUp,profileImage;
-    String shopN,shopAd,imageUrl;
+    String shopN,shopAd;
     boolean lang_selected = true;
     Context context;
     Resources resources;
     InformationViewModel informationViewModel;
     InformationDao informationDao;
     Databaseroom databaseroom;
+    byte[] imageUrl;
     Uri uri;
-    Uri uri2 = null;
-    SharedPreferences photoprf;
     public static final String MY_PREFS_NAME = "MyPrefsFile";
-    public static final String MY_PHOTO = "MyPhoto";
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult( requestCode, resultCode, data );
-
-        uri = data.getData();
-        profileImage.setImageURI( uri );
-
-        photoprf = getActivity().getSharedPreferences( MY_PHOTO,Context.MODE_PRIVATE );
-        SharedPreferences.Editor editor = photoprf.edit();
-        editor.putString("url", uri.toString() );
-        Toast.makeText( context, ""+uri, Toast.LENGTH_SHORT ).show();
-        editor.commit();
-
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,32 +68,24 @@ public class Profile_Fragment extends Fragment {
         fbTV = view.findViewById(R.id.fb_id);
         langTV = view.findViewById(R.id.lang_id);
         logoutTV = view.findViewById(R.id.logout_id);
-        photoUp = view.findViewById( R.id.editphoto_id );
+        profileImage = view.findViewById( R.id.profile_img_id );
         shopkeepName = view.findViewById( R.id.textView3 );
         shopAddress = view.findViewById( R.id.textView2 );
-        profileImage = view.findViewById( R.id.profile_img_id );
         databaseroom = Databaseroom.getDatabaseroomref( getActivity() );
         informationDao = databaseroom.getInformationDao();
         informationViewModel = ViewModelProviders.of( getActivity() ).get( InformationViewModel.class );
 
 
-
-
-        //upload photo
-        photoUp.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pickPhoto = new Intent(Intent.ACTION_PICK);
-                pickPhoto.setType( "image/*" );
-                startActivityForResult( pickPhoto,1 );
-            }
-        } );
         // edit profile
         CardView edit = view.findViewById( R.id.cardView2 );
         edit.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText( context, "Edit Profile", Toast.LENGTH_SHORT ).show();
+                Information_Fragment information_fragment = new Information_Fragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, information_fragment);
+                transaction.addToBackStack("null");
+                transaction.commit();
             }
         } );
         //website
@@ -147,9 +125,10 @@ public class Profile_Fragment extends Fragment {
             if (shopN != null && shopAd != null){
                 shopkeepName.setText( shopN );
                 shopAddress.setText( shopAd );
+                profileImage.setImageBitmap( DataConverter.convertByteArrayToImage( imageUrl ) );
             }
         }catch (Exception e){
-            Toast.makeText( context, "Error"+e, Toast.LENGTH_SHORT ).show();
+            Toast.makeText( getContext(), "Error"+e, Toast.LENGTH_SHORT ).show();
         }
 
         // using login swtiching the language
@@ -231,10 +210,18 @@ public class Profile_Fragment extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
             List<InformationEntity> informationEntities = informationDao.findAllInfo();
-            if (informationEntities != null){
-                shopN = informationEntities.get( 0 ).getShopkeepername();
-                shopAd = informationEntities.get( 0 ).getShopaddress();
-            }
+           try {
+               if (informationEntities != null){
+                   for (int i=0; i<= informationEntities.size(); i++){
+                       shopN = informationEntities.get( i ).getShopkeepername();
+                       shopAd = informationEntities.get( i ).getShopaddress();
+                       imageUrl = informationEntities.get( i ).getImageurl();
+                   }
+               }
+
+           }catch (Exception e){
+
+           }
             return null;
         }
     }

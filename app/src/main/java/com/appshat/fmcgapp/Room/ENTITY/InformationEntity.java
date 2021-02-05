@@ -31,7 +31,13 @@ public class InformationEntity {
     @ColumnInfo(name = "payableamount")
     String payableamount;
 
-    public InformationEntity(String mobilenumber, @NonNull String shopname, @NonNull String shopkeepername, @NonNull String shopaddress, @NonNull String openingamount, @NonNull String receivableamount, @NonNull String payableamount) {
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    byte[] imageurl;
+
+    public InformationEntity(String mobilenumber, @NonNull String shopname,
+                             @NonNull String shopkeepername, @NonNull String shopaddress,
+                             @NonNull String openingamount, @NonNull String receivableamount,
+                             @NonNull String payableamount, byte[] imageurl) {
         this.mobilenumber = mobilenumber;
         this.shopname = shopname;
         this.shopkeepername = shopkeepername;
@@ -39,6 +45,7 @@ public class InformationEntity {
         this.openingamount = openingamount;
         this.receivableamount = receivableamount;
         this.payableamount = payableamount;
+        this.imageurl = imageurl;
     }
 
     public String getMobilenumber() {
@@ -101,9 +108,14 @@ public class InformationEntity {
 
     public void setPayableamount(@NonNull String payableamount) {
         this.payableamount = payableamount;
+    }
 
+    public byte[] getImageurl() {
+        return imageurl;
+    }
 
-
+    public void setImageurl(byte[] imageurl) {
+        this.imageurl = imageurl;
     }
 
     @Override
@@ -116,6 +128,7 @@ public class InformationEntity {
                 ", openingamount='" + openingamount + '\'' +
                 ", receivableamount='" + receivableamount + '\'' +
                 ", payableamount='" + payableamount + '\'' +
+                ", imageurl='" + imageurl + '\'' +
                 '}';
     }
 }

@@ -16,9 +16,6 @@ import java.util.List;
 @Dao
 public interface InformationDao {
 
-
-
-
     @Insert
     void insert(InformationEntity informationEntity);
 

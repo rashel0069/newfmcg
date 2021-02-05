@@ -1,8 +1,12 @@
 package com.appshat.fmcgapp.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +37,9 @@ import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 import com.appshat.fmcgapp.Room.model.CashBoxViewModel;
 import com.appshat.fmcgapp.Room.model.InformationViewModel;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -42,9 +50,11 @@ public class Information_Fragment extends Fragment {
     TextView shoppnameTV, ownernameTV, addressTV, phonenumberTV, openingTV, receivableTV, payableTV;
     EditText shoppnameEt, ownernameET, addressET, phonenumberET, openingET, receivableET, payableET;
     Button saveBtn;
-    String usermobile, shopname, shopkeepername, shopaddress, opening, receivable, payable,dayend, withdrawal, deposit, datetime;;
+    String usermobile, shopname, shopkeepername, shopaddress, opening, receivable, payable,dayend, withdrawal, deposit, datetime,imageuri;
     Context context;
     Resources resources;
+    ImageView photoUp,profileImage;
+    Uri uri;
     public static final String MY_PREF_NAME = "myPrefFile";
     InformationViewModel informationViewModel;
     Databaseroom databaseroom;
@@ -76,6 +86,8 @@ public class Information_Fragment extends Fragment {
         payableTV = view.findViewById(R.id.payamnt_TV);
         payableET = view.findViewById(R.id.payableamount_ET);
         saveBtn = view.findViewById(R.id.saved_id);
+        photoUp = view.findViewById( R.id.editphoto_id );
+        profileImage = view.findViewById( R.id.profile_img_id );
 
         //Date time
         String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
@@ -83,6 +95,16 @@ public class Information_Fragment extends Fragment {
         SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
         cal.add(Calendar.DAY_OF_YEAR, -1);
         datetime = s.format(cal.getTime());
+
+        //upload photo
+        photoUp.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pickPhoto = new Intent(Intent.ACTION_PICK);
+                pickPhoto.setType( "image/*" );
+                startActivityForResult( pickPhoto,1 );
+            }
+        } );
 
 //language setter
         if (Helper.getBangla()) {
@@ -125,44 +147,47 @@ public class Information_Fragment extends Fragment {
             payableET.setHint(resources.getString(R.string.pahint));
             saveBtn.setText(resources.getString(R.string.save));
         }
-            saveBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-
-                    if (!TextUtils.isEmpty(shoppnameEt.getText().toString()) && !TextUtils.isEmpty(ownernameET.getText().toString()) &&
+    saveBtn.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             if (!TextUtils.isEmpty(shoppnameEt.getText().toString()) && !TextUtils.isEmpty(ownernameET.getText().toString()) &&
                             !TextUtils.isEmpty(addressET.getText().toString()) && !TextUtils.isEmpty(phonenumberET.getText().toString().trim()) &&
                             !TextUtils.isEmpty(openingET.getText().toString().trim()) && !TextUtils.isEmpty(receivableET.getText().toString().trim())
                             && !TextUtils.isEmpty(payableET.getText().toString().trim())) {
 
-                        shopname = shoppnameEt.getText().toString();
-                        shopkeepername = ownernameET.getText().toString();
-                        shopaddress = addressET.getText().toString();
-                        usermobile = phonenumberET.getText().toString().trim();
-                        opening = openingET.getText().toString().trim();
-                        receivable = receivableET.getText().toString().trim();
-                        payable = payableET.getText().toString().trim();
+              shopname = shoppnameEt.getText().toString();
+              shopkeepername = ownernameET.getText().toString();
+              shopaddress = addressET.getText().toString();
+              usermobile = phonenumberET.getText().toString().trim();
+              opening = openingET.getText().toString().trim();
+              receivable = receivableET.getText().toString().trim();
+              payable = payableET.getText().toString().trim();
 
-                        InformationEntity informationEntity = new InformationEntity(usermobile, shopname, shopkeepername, shopaddress, opening, receivable, payable);
-                        informationViewModel.insertInfo(informationEntity);
-                        CashboxEntity cashboxEntity = new CashboxEntity(datetime, opening, "0", "0");
-                        cashBoxViewModel.insertCashbox(cashboxEntity);
-                        //save data
+              profileImage.setDrawingCacheEnabled( true );
+              profileImage.buildDrawingCache();
 
-                        SharedPreferences.Editor editor = getActivity().getSharedPreferences(MY_PREF_NAME, MODE_PRIVATE).edit();
-                        editor.putString("opencash", opening);
-                        editor.putString("receivablecash", receivable);
-                        editor.putString("payablecash", payable);
-                        editor.putBoolean( "visibility", true);
-                        editor.apply();
-                        getActivity().finish();
-                        startActivity( getActivity().getIntent() );
-                        Toast.makeText(getContext(), "Thank you for your kind informations", Toast.LENGTH_SHORT).show();
+              Bitmap bitmap = profileImage.getDrawingCache();
+              ByteArrayOutputStream baos = new ByteArrayOutputStream();
+              bitmap.compress( Bitmap.CompressFormat.JPEG,100,baos );
+              byte[] data = baos.toByteArray();
+
+              InformationEntity informationEntity = new InformationEntity(usermobile, shopname, shopkeepername, shopaddress, opening, receivable, payable,data);
+              informationViewModel.insertInfo(informationEntity);
+              CashboxEntity cashboxEntity = new CashboxEntity(datetime, opening, "0", "0");
+              cashBoxViewModel.insertCashbox(cashboxEntity);
+              //save data
+                 SharedPreferences.Editor editor = getActivity().getSharedPreferences(MY_PREF_NAME, MODE_PRIVATE).edit();
+                 editor.putString("opencash", opening);
+                 editor.putString("receivablecash", receivable);
+                 editor.putString("payablecash", payable);
+                 editor.putBoolean( "visibility", true);
+                 editor.apply();
+                 getActivity().finish();
+                 startActivity( getActivity().getIntent() );
+                 Toast.makeText(getContext(), "Thank you for your kind informations", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "Please fill up all fields", Toast.LENGTH_SHORT).show();
                     }
-
-
                 }
             });
 
@@ -171,4 +196,23 @@ public class Information_Fragment extends Fragment {
         }
 
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult( requestCode, resultCode, data );
+
+        try {
+            uri = data.getData();
+            final InputStream imageStream;
+            imageStream = getActivity().getContentResolver().openInputStream( uri );
+            final Bitmap image = BitmapFactory.decodeStream( imageStream );
+            //imageuri = uri.toString();
+            profileImage.setImageBitmap( image );
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
+}

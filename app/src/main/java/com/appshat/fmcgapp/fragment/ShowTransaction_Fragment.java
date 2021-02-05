@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Localhelper;
@@ -28,7 +29,8 @@ import java.util.List;
 
 public class ShowTransaction_Fragment extends Fragment {
     EditText searchmbl;
-    Button searchBtn,transallBtn,expBtn,recpayBtn, allTrans;
+    Button transallBtn,expBtn,recpayBtn, allTrans;
+    ImageButton searchBtn,contractBtn;
     RecyclerView recyclerView;
     TransactionListAdapter transactionListAdapter;
     TransactionViewModel transactionViewModel;
@@ -42,7 +44,6 @@ public class ShowTransaction_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_show_transaction_, container, false);
 
         searchmbl = view.findViewById(R.id.smblET_id);
-        searchBtn = view.findViewById(R.id.searchBtn_id);
         transallBtn = view.findViewById(R.id.transallBtn_id);
         allTrans = view.findViewById(R.id.allBtn_id);
         recyclerView = view.findViewById(R.id.rv_id);
@@ -58,7 +59,6 @@ public class ShowTransaction_Fragment extends Fragment {
             context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
             searchmbl.setHint(resources.getString(R.string.scontacthint));
-            searchBtn.setText(resources.getString(R.string.search));
             transallBtn.setText(resources.getString(R.string.todaytrans));
             expBtn.setText(resources.getString(R.string.expense));
             recpayBtn.setText(resources.getString(R.string.payrec));
@@ -68,7 +68,6 @@ public class ShowTransaction_Fragment extends Fragment {
             context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
             searchmbl.setHint(resources.getString(R.string.scontacthint));
-            searchBtn.setText(resources.getString(R.string.search));
             transallBtn.setText(resources.getString(R.string.todaytrans));
             expBtn.setText(resources.getString(R.string.expense));
             recpayBtn.setText(resources.getString(R.string.payrec));
