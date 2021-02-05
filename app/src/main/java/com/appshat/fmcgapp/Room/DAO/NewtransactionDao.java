@@ -6,8 +6,14 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
+import com.appshat.fmcgapp.Room.ENTITY.TransactionEntity;
 
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 @Dao
 public interface NewtransactionDao {
@@ -39,5 +45,6 @@ public interface NewtransactionDao {
     //get user info past reciveable
     @Query( "SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transactiontype AND clientmobile LIKE :mobile" )
     List<NewtransactionEntity> getCerditSellinfo(String accounttype, String transactiontype, String mobile);
+
 
 }

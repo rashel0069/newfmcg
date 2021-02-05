@@ -44,12 +44,20 @@ import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
+import com.appshat.fmcgapp.Room.ENTITY.TransactionEntity;
 import com.appshat.fmcgapp.Room.model.TransactionViewModel;
+import com.appshat.fmcgapp.adapter.JsonPlaceHolderApi;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.ContentValues.TAG;
 import static java.lang.Integer.parseInt;
@@ -62,6 +70,7 @@ public class NewTransaction_Fragment extends Fragment {
     LinearLayout l1,l2;
     ImageView phonecontactSelect;
     NewtransactionDao newtransactionDBdao;
+    JsonPlaceHolderApi jsonPlaceHolderApi;
     DatePickerDialog.OnDateSetListener mDateSetListener;
     Calendar cal;
     Context context;
@@ -123,6 +132,14 @@ public class NewTransaction_Fragment extends Fragment {
         String[] cas = getResources().getStringArray(R.array.accountType);
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
         accspinner.setAdapter(adapter);
+
+        //api call
+
+        Retrofit retrofit = new Retrofit.Builder().baseUrl( "http://103.239.253.160:3666/digi/fmcg/v1/" )
+                .addConverterFactory( GsonConverterFactory.create() )
+                .build();
+
+        jsonPlaceHolderApi = retrofit.create( JsonPlaceHolderApi.class );
 
         //
         cmblnumET.addTextChangedListener( new TextWatcher() {
@@ -267,9 +284,30 @@ public class NewTransaction_Fragment extends Fragment {
                     clientmobile = cmblnumET.getText().toString().trim();
                     duedate = timedateTV.getText().toString();
                     clientamount = camountET.getText().toString().trim();
-                    NewtransactionEntity newtransactionEntity = new NewtransactionEntity(accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate);
+                    TransactionEntity transactionEntity = new TransactionEntity( accounttype, transactiontype,clientname, clientmobile,
+                            clientamount, duedate);
+                    NewtransactionEntity newtransactionEntity = new NewtransactionEntity(accounttype,
+                            transactiontype, clientname, clientmobile,
+                            clientamount, duedate, currentdate);
 
                     transactionViewModel.intertTrans(newtransactionEntity);
+
+                    Call<TransactionEntity> call = jsonPlaceHolderApi.createPost( transactionEntity );
+                    call.enqueue( new Callback<TransactionEntity>() {
+                        @Override
+                        public void onResponse(Call<TransactionEntity> call, Response<TransactionEntity> response) {
+                            if (!response.isSuccessful()){
+                                return;
+                            }
+                            Toast.makeText( getContext(), "HTTP OK", Toast.LENGTH_LONG ).show();
+                        }
+
+                        @Override
+                        public void onFailure(Call<TransactionEntity> call, Throwable t) {
+                            Toast.makeText( getContext(), "HTTP Error", Toast.LENGTH_SHORT ).show();
+                        }
+                    } );
+
 
                     Home_Fragment fragment1 = new Home_Fragment();
                     FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
@@ -352,7 +390,7 @@ public class NewTransaction_Fragment extends Fragment {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
         // cal.add(Calendar.SECOND, 5);
         alarmMgr.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
-        Toast.makeText(getActivity().getApplicationContext(), "successfully set alerm", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity().getApplicationContext(), "successfully set alerm", Toast.LENGTH_LONG).show();
 
     }
 

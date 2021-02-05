@@ -119,7 +119,7 @@ public class Receivablepayable_Fragment extends Fragment {
                     AdjustEntity duepayrecive = new AdjustEntity( accounttype,transtype,customerContName,cmmobile,cmamount,date,currentdate );
                     adjustViewModel.insertAdjust( duepayrecive );
                 }
-                Toast.makeText( getContext(), "Update Transaction", Toast.LENGTH_SHORT ).show();
+                Toast.makeText( getContext(), "Update TransactionEntity", Toast.LENGTH_SHORT ).show();
             }
         } );
         //database
@@ -238,7 +238,7 @@ public class Receivablepayable_Fragment extends Fragment {
            }
 
         }else {
-            Toast.makeText( getContext(), "Select Transaction and valid Mobile number", Toast.LENGTH_SHORT ).show();
+            Toast.makeText( getContext(), "Select TransactionEntity and valid Mobile number", Toast.LENGTH_SHORT ).show();
             l1.setVisibility( View.GONE );
             l2.setVisibility( View.GONE );
         }

@@ -34,4 +34,6 @@ public interface CashboxDao {
     List<CashboxEntity> getCashboxinfoDep(String today);
 
 
+
+
 }
