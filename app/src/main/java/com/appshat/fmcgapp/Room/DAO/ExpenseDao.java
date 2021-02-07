@@ -1,5 +1,6 @@
 package com.appshat.fmcgapp.Room.DAO;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -26,5 +27,7 @@ public interface ExpenseDao {
     @Query( "SELECT * FROM expense WHERE currentdate LIKE :expenseDate" )
     List<ExpenseEntity> getExpense(String expenseDate);
 
+    @Query( "SELECT * FROM expense" )
+    LiveData<List<ExpenseEntity>> getallExpence();
 
 }

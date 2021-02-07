@@ -1,5 +1,6 @@
 package com.appshat.fmcgapp.Room.DAO;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -28,6 +29,9 @@ public interface AdjustDao {
     //paid-out
     @Query( "SELECT * FROM duepayandreceive WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transStatus AND clientmobile LIKE :mobileno" )
     List<AdjustEntity> getPaidout(String accounttype,String transStatus,String mobileno);
+
+    @Query( "SELECT * FROM duepayandreceive" )
+    LiveData<List<AdjustEntity>> getAllpayreceive();
 
 
 }

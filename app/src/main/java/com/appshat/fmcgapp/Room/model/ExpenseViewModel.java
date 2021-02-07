@@ -4,14 +4,19 @@ import android.app.Application;
 import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+
 import com.appshat.fmcgapp.Room.DAO.CashboxDao;
 import com.appshat.fmcgapp.Room.DAO.ExpenseDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
 
+import java.util.List;
+
 public class ExpenseViewModel extends AndroidViewModel {
     private ExpenseDao expenseDao;
     private Databaseroom databaseroom;
+    private LiveData<List<ExpenseEntity>> mAllExpence;
 
 
     public ExpenseViewModel(@NonNull Application application) {
@@ -19,6 +24,7 @@ public class ExpenseViewModel extends AndroidViewModel {
 
         databaseroom = Databaseroom.getDatabaseroomref( application );
         expenseDao = databaseroom.getExpenseDao();
+        mAllExpence = expenseDao.getallExpence();
     }
     public void insertExpense(ExpenseEntity expenseEntity){
         new ExpenseViewModel.InsertAsyncTask(expenseDao).execute(expenseEntity);
@@ -29,7 +35,6 @@ public class ExpenseViewModel extends AndroidViewModel {
             this.mExpenseDao = mExpenseDao;
         }
 
-
         @Override
         protected Void doInBackground(ExpenseEntity... expenseEntities) {
             mExpenseDao.insert( expenseEntities[0] );
@@ -39,5 +44,8 @@ public class ExpenseViewModel extends AndroidViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
+    }
+    public LiveData<List<ExpenseEntity>> getmAllExpence(){
+        return mAllExpence;
     }
 }

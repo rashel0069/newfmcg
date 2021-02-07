@@ -35,11 +35,10 @@ public class TransactionViewModel extends AndroidViewModel {
     }
 
     private class InsertAsyncTask extends AsyncTask<NewtransactionEntity, Void,Void>{
+        NewtransactionDao mNewtransactionDao;
         public InsertAsyncTask(NewtransactionDao mNewtransactionDao) {
             this.mNewtransactionDao = mNewtransactionDao;
         }
-
-        NewtransactionDao mNewtransactionDao;
 
         @Override
         protected Void doInBackground(NewtransactionEntity... newtransactionEntities) {

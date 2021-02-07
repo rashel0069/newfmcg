@@ -16,12 +16,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
 import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Localhelper;
 import com.appshat.fmcgapp.R;
+import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
+import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
+import com.appshat.fmcgapp.Room.model.AdjustViewModel;
+import com.appshat.fmcgapp.Room.model.ExpenseViewModel;
 import com.appshat.fmcgapp.Room.model.TransactionViewModel;
+import com.appshat.fmcgapp.adapter.ExpenceListAdapter;
+import com.appshat.fmcgapp.adapter.PayReceiveListAdapter;
 import com.appshat.fmcgapp.adapter.TransactionListAdapter;
 
 import java.util.List;
@@ -33,7 +38,11 @@ public class ShowTransaction_Fragment extends Fragment {
     ImageButton searchBtn,contractBtn;
     RecyclerView recyclerView;
     TransactionListAdapter transactionListAdapter;
+    ExpenceListAdapter expenceListAdapter;
+    PayReceiveListAdapter payReceiveListAdapter;
     TransactionViewModel transactionViewModel;
+    ExpenseViewModel expenseViewModel;
+    AdjustViewModel payeceiveViewModel;
     Context context;
     Resources resources;
 
@@ -49,11 +58,15 @@ public class ShowTransaction_Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.rv_id);
         expBtn = view.findViewById(R.id.expBtn_id);
         recpayBtn = view.findViewById(R.id.payrecBtn_id);
+
+
         recyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ) );
         recyclerView.setHasFixedSize( true );
         recyclerView.setNestedScrollingEnabled( false );
-        transactionListAdapter = new TransactionListAdapter();
-        recyclerView.setAdapter( transactionListAdapter );
+
+        transactionViewModel = ViewModelProviders.of( this ).get( TransactionViewModel.class );
+        expenseViewModel = ViewModelProviders.of( this ).get( ExpenseViewModel.class );
+        payeceiveViewModel = ViewModelProviders.of( this ).get( AdjustViewModel.class );
 
         if (Helper.getBangla()) {
             context = Localhelper.setLocale(getActivity(), "bn");
@@ -74,7 +87,7 @@ public class ShowTransaction_Fragment extends Fragment {
             allTrans.setText(resources.getString(R.string.alltrans));
         }
 
-        transactionViewModel = ViewModelProviders.of( this ).get( TransactionViewModel.class );
+        //show all
         showAll();
         // today transactions
         transallBtn.setOnClickListener( new View.OnClickListener() {
@@ -86,6 +99,22 @@ public class ShowTransaction_Fragment extends Fragment {
                         transactionListAdapter.setTrans( newtransactionEntities );
                     }
                 } );
+            }
+        } );
+        expBtn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                expenceListAdapter = new ExpenceListAdapter();
+                recyclerView.setAdapter( expenceListAdapter );
+                showExpence();
+            }
+        } );
+
+        recpayBtn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPayrecive();
             }
         } );
 
@@ -100,11 +129,34 @@ public class ShowTransaction_Fragment extends Fragment {
         return view;
 
     }
+    //show pay recive
+    private void showPayrecive(){
+        payReceiveListAdapter = new PayReceiveListAdapter();
+        recyclerView.setAdapter( payReceiveListAdapter );
+        payeceiveViewModel.getAllAdjust().observe( getViewLifecycleOwner(), new Observer<List<AdjustEntity>>() {
+            @Override
+            public void onChanged(List<AdjustEntity> adjustEntities) {
+                payReceiveListAdapter.setPayRecv( adjustEntities );
+            }
+        } );
+    }
+
     private void showAll(){
+        transactionListAdapter = new TransactionListAdapter();
+        recyclerView.setAdapter( transactionListAdapter );
         transactionViewModel.getmAllTrans().observe( getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
             @Override
             public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
                 transactionListAdapter.setTrans( newtransactionEntities );
+            }
+        } );
+    }
+
+    private void showExpence(){
+        expenseViewModel.getmAllExpence().observe( getViewLifecycleOwner(), new Observer<List<ExpenseEntity>>() {
+            @Override
+            public void onChanged(List<ExpenseEntity> expenseEntities) {
+                expenceListAdapter.setExpance( expenseEntities );
             }
         } );
     }

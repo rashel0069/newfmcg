@@ -29,7 +29,7 @@ public class InformationViewModel extends AndroidViewModel {
     }
 
     public void insertInfo(InformationEntity informationEntity){
-        new InsertAsyncTask(informationDao).execute(informationEntity);
+        new InformationViewModel.InsertAsyncTask( informationDao ).execute( informationEntity );
     }
 
    private class InsertAsyncTask extends AsyncTask<InformationEntity, Void,Void> {
