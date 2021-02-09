@@ -23,20 +23,6 @@ public class History_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_history_, container, false);
-        //language setter
-//        if (Helper.getBangla()) {
-//            context = Localhelper.setLocale(getActivity(), "bn");
-//            resources = context.getResources();
-//
-//            cms.setText(resources.getString(R.string.coming_soon));
-//
-//
-//        }else {
-//            context = Localhelper.setLocale(getActivity(),"en");
-//            resources = context.getResources();
-//            cms.setText(resources.getString(R.string.coming_soon));
-//
-//        }
    return view;
     }
 }

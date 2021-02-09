@@ -10,6 +10,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
        <LinearLayout
+           android:visibility="gone"
            android:id="@+id/linearLayout25"
            android:weightSum="4"
            android:layout_width="match_parent"
@@ -26,7 +27,7 @@
                android:layout_height="45dp"
                android:background="@drawable/edittext_background"
                android:hint="@string/scontacthint"
-               android:inputType="number"
+               android:inputType="textPhonetic"
                android:paddingLeft="8dp"
                android:textSize="16sp" />
 
@@ -43,6 +44,7 @@
                    android:layout_height="wrap_content"
                    android:layout_marginLeft="8dp"
                    android:padding="8dp"
+
                    android:background="@color/white"
                    android:src="@drawable/ic_baseline_contact_phone_24"
                    android:text="@string/search"
@@ -62,10 +64,10 @@
                    android:textAllCaps="false" />
 
            </LinearLayout>
+
        </LinearLayout>
 
        <HorizontalScrollView
-           android:layout_below="@+id/linearLayout25"
            android:id="@+id/linearLayout26"
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
@@ -117,9 +119,26 @@
        </HorizontalScrollView>
 
        <LinearLayout
+           android:id="@+id/la2"
            android:layout_below="@+id/linearLayout26"
            android:layout_width="match_parent"
            android:layout_height="wrap_content">
+           <SearchView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:queryHint="Search Here"
+               android:iconifiedByDefault="false"
+               android:layout_alignParentTop="true"
+               android:background="@color/white"
+               android:queryBackground="@color/white"
+               android:id="@+id/search_view"/>
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/la2">
+
            <androidx.recyclerview.widget.RecyclerView
                android:id="@+id/rv_id"
                android:layout_width="match_parent"
