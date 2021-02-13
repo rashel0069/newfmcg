@@ -17,10 +17,9 @@
             android:layout_height="158dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
-
             android:padding="8dp"
             android:scaleType="fitXY"
-            android:src="@drawable/user"
+            android:src="@drawable/nopreview"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -59,9 +59,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:singleLine="true"
                             android:text="@string/opening"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -101,8 +102,9 @@
                             android:layout_height="wrap_content"
                             android:text="@string/dayendcash"
                             android:textAlignment="center"
+                            android:singleLine="true"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -152,7 +154,7 @@
                             android:gravity="center"
                             android:text="@string/expense"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -191,9 +193,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:singleLine="true"
                             android:text="@string/purchase"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                     </LinearLayout>
@@ -230,9 +233,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:singleLine="true"
                             android:text="@string/payable"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -282,7 +286,7 @@
                             android:gravity="center"
                             android:text="@string/cashsales"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
@@ -320,6 +324,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:textSize="14sp"
                             android:text="@string/creditsales"
                             android:textColor="@color/black"
                             android:textStyle="bold"/>
@@ -360,7 +365,7 @@
                             android:gravity="center"
                             android:text="@string/totalsales"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
@@ -379,6 +384,7 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="8dp"
                     android:text="@string/cashBox"
+                    android:textSize="14sp"
                     android:textAlignment="center"
                     android:textAllCaps="false" />
                 <Button
@@ -389,6 +395,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_gravity="center"
                     android:text="@string/newtransaction"
+                    android:textSize="14sp"
                     android:textAlignment="center"
                     android:textAllCaps="false" />
                 <Button
@@ -400,6 +407,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/order"
+                    android:textSize="14sp"
                     android:textAlignment="center"
                     android:textAllCaps="false" />
             </LinearLayout>
@@ -417,6 +425,7 @@
                     android:layout_marginStart="8dp"
                     android:text="@string/showtransaction"
                     android:textAlignment="center"
+                    android:textSize="14sp"
                     android:textAllCaps="false" />
                 <ImageView
                     android:id="@+id/lockscreen_id"
@@ -437,6 +446,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/cashreturn"
+                    android:textSize="14sp"
                     android:textAlignment="center"
                     android:textAllCaps="false" />
             </LinearLayout>
@@ -454,6 +464,7 @@
                     android:layout_height="90dp"
                     android:layout_marginStart="8dp"
                     android:text="@string/rp"
+                    android:textSize="14sp"
                     android:textAlignment="center"
                     android:textAllCaps="false" />
 
@@ -465,6 +476,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_gravity="center"
                     android:text="@string/expense"
+                    android:textSize="14sp"
                     android:textAlignment="center"
                     android:textAllCaps="false" />
                 <Button
@@ -476,6 +488,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
                     android:text="@string/opening"
+                    android:textSize="14sp"
                     android:textAlignment="center"
                     android:textAllCaps="false" />
          </LinearLayout>

@@ -66,24 +66,24 @@ public class Expense_Fragment extends Fragment {
         oe = view.findViewById(R.id.otherTV_id);
         otherET = view.findViewById(R.id.othersET_id);
         expensesaveBtn = view.findViewById(R.id.expensesaveBtn_id);
-        mLogAdview=view.findViewById(R.id.expenseView_id);
+     //   mLogAdview=view.findViewById(R.id.expenseView_id);
 
         //banner ad
-        MobileAds.initialize( getActivity(),"ca-app-pub-3940256099942544~3347511713" );
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mLogAdview.loadAd( adRequest );
+//        MobileAds.initialize( getActivity(),"ca-app-pub-3940256099942544~3347511713" );
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mLogAdview.loadAd( adRequest );
 
         //InterstitialAd
-        interstitialAd = new InterstitialAd( getActivity() );
-        //testing add key
-        interstitialAd.setAdUnitId( "ca-app-pub-3940256099942544/1033173712" );
-        interstitialAd.loadAd(new AdRequest.Builder().build());
-        interstitialAd.setAdListener( new AdListener(){
-            @Override
-            public void onAdClosed() {
-                interstitialAd.loadAd( new AdRequest.Builder().build() );
-            }
-        } );
+//        interstitialAd = new InterstitialAd( getActivity() );
+//        //testing add key
+//        interstitialAd.setAdUnitId( "ca-app-pub-3940256099942544/1033173712" );
+//        interstitialAd.loadAd(new AdRequest.Builder().build());
+//        interstitialAd.setAdListener( new AdListener(){
+//            @Override
+//            public void onAdClosed() {
+//                interstitialAd.loadAd( new AdRequest.Builder().build() );
+//            }
+//        } );
 
 
 

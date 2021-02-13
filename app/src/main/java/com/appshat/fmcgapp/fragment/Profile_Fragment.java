@@ -122,10 +122,15 @@ public class Profile_Fragment extends Fragment {
 
         try {
             String s = new GetInformation().execute().get();
-            if (shopN != null && shopAd != null){
+            if (shopN != null && shopAd != null ){
                 shopkeepName.setText( shopN );
                 shopAddress.setText( shopAd );
                 profileImage.setImageBitmap( DataConverter.convertByteArrayToImage( imageUrl ) );
+//                if (imageUrl.length > 0){
+//                    profileImage.setImageBitmap( DataConverter.convertByteArrayToImage( imageUrl ) );
+//                }else{
+//                    profileImage.setImageDrawable( R.drawable.nopreview );
+//                }
             }
         }catch (Exception e){
             Toast.makeText( getContext(), "Error"+e, Toast.LENGTH_SHORT ).show();
