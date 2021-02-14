@@ -92,7 +92,7 @@
 
     <string name="sap">Show all payable</string>
 
-    <string name="rp"> Receivable / Payable</string>
+    <string name="rp"> Receivable &amp; Payable</string>
 
     <string name="location">Location</string>
 
@@ -114,7 +114,7 @@
 
     <string name="purchase">Cash Purchase</string>
 
-    <string name="cashBox">CashBox</string>
+    <string name="cashBox">Cash Balance</string>
 
     <string name="newtransaction">New Transaction</string>
 
@@ -318,5 +318,6 @@
     <string name="new_customer_save_now">New Customer ? Save Now</string>
     <string name="previous_day_history">Previous Day History</string>
     <string name="upload_picture">Upload Picture</string>
+    <string name="new_opening_balance">New Opening Balance</string>
 
 </resources>

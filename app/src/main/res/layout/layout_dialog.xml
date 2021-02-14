@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="8dp">
    <LinearLayout
         android:layout_width="match_parent"
@@ -14,8 +14,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="16sp"
+            android:singleLine="true"
             android:textColor="@color/red_700"
-            android:text="New Opening Balance"/>
+            android:text="@string/new_opening_balance"/>
         <EditText
             android:id="@+id/openingamount_new"
             android:layout_weight="1"
@@ -25,7 +26,7 @@
             android:textColor="@color/black"
             android:layout_height="40dp"
             android:inputType="number"
-            android:hint="000"/>
+            android:hint="@string/dayend"/>
     </LinearLayout>
 
 </RelativeLayout>

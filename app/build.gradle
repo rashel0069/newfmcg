@@ -12,6 +12,11 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    bundle{
+        language{
+            enableSplit = false
+        }
+    }
     defaultConfig {
         applicationId "com.appshat.myapplication"
         minSdkVersion 21

@@ -308,5 +308,6 @@
     <string name="new_customer_save_now">নতুন গ্রাহক ? সংরক্ষণ করুন</string>
     <string name="previous_day_history">Previous Day History</string>
     <string name="upload_picture">ছবি আপলোড </string>
+    <string name="new_opening_balance">New Opening Balance</string>
 
 </resources>
