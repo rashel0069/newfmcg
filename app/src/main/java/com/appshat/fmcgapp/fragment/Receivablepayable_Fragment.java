@@ -120,6 +120,9 @@ public class Receivablepayable_Fragment extends Fragment {
                     adjustViewModel.insertAdjust( duepayrecive );
                 }
                 Toast.makeText( getContext(), "Update TransactionEntity", Toast.LENGTH_SHORT ).show();
+                l1.setVisibility( View.GONE );
+                l2.setVisibility( View.GONE );
+
             }
         } );
         //database

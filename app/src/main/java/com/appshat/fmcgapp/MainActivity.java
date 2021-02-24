@@ -191,12 +191,19 @@ public class MainActivity extends AppCompatActivity {
                 password = userPassword.getText().toString().trim();
                 if (!TextUtils.isEmpty( userMobile.getText().toString().trim() ) && !TextUtils.isEmpty( userPassword.getText().toString() )){
 
-                    if (mobile != null && password != null) {
-                        UserEntity userEntity = new UserEntity(mobile, password);
-                        userViewModel.insertUser(userEntity);
-                        Toast.makeText(MainActivity.this, "Registraton Done", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(MainActivity.this, "Mobile and Password field is empty", Toast.LENGTH_SHORT).show();
+                    if ((userMobile.getText().toString().contains( "016") || userMobile.getText().toString().contains( "017")
+                            || userMobile.getText().toString().contains( "018") || userMobile.getText().toString().contains( "015")
+                            || userMobile.getText().toString().contains( "014") || userMobile.getText().toString().contains( "013")
+                            || userMobile.getText().toString().contains( "019")) && userMobile.getText().toString().length() == 11){
+                        if (mobile != null && password != null) {
+                            UserEntity userEntity = new UserEntity(mobile, password);
+                            userViewModel.insertUser(userEntity);
+                            Toast.makeText(MainActivity.this, "Registraton Done", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(MainActivity.this, "Mobile and Password field is empty", Toast.LENGTH_SHORT).show();
+                        }
+                    }else {
+                        Toast.makeText( getApplicationContext(), "Enter Valid Number", Toast.LENGTH_SHORT ).show();
                     }
                 }else if(!TextUtils.isEmpty( userMobile.getText().toString().trim() )
                         && TextUtils.isEmpty( userPassword.getText().toString() ) ){
@@ -248,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             userEntity = new GetToUser(userDBdao).execute(userData).get();
         } catch (Exception e) {
-            Toast.makeText(MainActivity.this, "" + e, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "" + e, Toast.LENGTH_SHORT).show();
         }
 
 
@@ -259,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
             Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(MainActivity.this, "User Not Register", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(MainActivity.this, "User Not Register", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -272,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected UserEntity doInBackground(UserEntity... userEntities) {
-            UserEntity userEntity = userDao.getUserEntity(userEntities[0].getMobile(), userEntities[0].getPassword());
+            UserEntity userEntity = userDao.getUserEntity(userEntities[0].getMobile(),userEntities[0].getPassword());
             return userEntity;
         }
 

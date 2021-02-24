@@ -10,17 +10,20 @@ import androidx.room.RoomDatabase;
 import com.appshat.fmcgapp.Room.DAO.AdjustDao;
 import com.appshat.fmcgapp.Room.DAO.CashboxDao;
 import com.appshat.fmcgapp.Room.DAO.ExpenseDao;
+import com.appshat.fmcgapp.Room.DAO.HistoryDao;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
 import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
 import com.appshat.fmcgapp.Room.DAO.UserDao;
 import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
+import com.appshat.fmcgapp.Room.ENTITY.HistoryEntity;
 import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 import com.appshat.fmcgapp.Room.ENTITY.UserEntity;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
 
-@Database( entities = {UserEntity.class, InformationEntity.class, CashboxEntity.class, ExpenseEntity.class, AdjustEntity.class, NewtransactionEntity.class},version = 7)
+@Database( entities = {UserEntity.class, InformationEntity.class, CashboxEntity.class, ExpenseEntity.class,
+        AdjustEntity.class, NewtransactionEntity.class, HistoryEntity.class},version = 8)
 public abstract class Databaseroom extends RoomDatabase {
 
     private static volatile Databaseroom databaseroomref;
@@ -46,6 +49,8 @@ public abstract class Databaseroom extends RoomDatabase {
     public abstract AdjustDao getduepayandreceive();
 
     public abstract NewtransactionDao getnewtransaction();
+
+    public abstract HistoryDao getHistory();
 
 }
 

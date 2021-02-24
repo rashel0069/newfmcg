@@ -31,7 +31,7 @@
                    android:layout_height="wrap_content"
                    android:textSize="16sp"
                    android:gravity="center"
-                   android:hint="15000"/>
+                   android:hint="@string/n_a"/>
            </LinearLayout>
 
            <LinearLayout
@@ -50,7 +50,7 @@
                    android:layout_height="wrap_content"
                    android:textSize="16sp"
                    android:gravity="center"
-                   android:hint="10000"/>
+                   android:hint="@string/n_a"/>
            </LinearLayout>
 
        </LinearLayout>
@@ -76,7 +76,7 @@
                    android:layout_height="wrap_content"
                    android:textSize="16sp"
                    android:gravity="center"
-                   android:hint="15000"/>
+                   android:hint="@string/n_a"/>
            </LinearLayout>
 
            <LinearLayout
@@ -95,7 +95,7 @@
                    android:layout_height="wrap_content"
                    android:textSize="16sp"
                    android:gravity="center"
-                   android:hint="10000"/>
+                   android:hint="@string/n_a"/>
            </LinearLayout>
 
        </LinearLayout>
@@ -121,7 +121,7 @@
                    android:layout_height="wrap_content"
                    android:textSize="16sp"
                    android:gravity="center"
-                   android:hint="15000"/>
+                   android:hint="@string/n_a"/>
            </LinearLayout>
 
        </LinearLayout>

@@ -116,9 +116,9 @@
 
     <string name="cashBox">Cash Balance</string>
 
-    <string name="newtransaction">New Transaction</string>
+    <string name="newtransaction">New Txn</string>
 
-    <string name="showtransaction">Show Transaction</string>
+    <string name="showtransaction">Show Txn</string>
 
     <string name="order">Order</string>
 
@@ -289,7 +289,7 @@
         So brain-storming is key and innovation is our skill-set.
  </string>
     <string name="about2">To sum up,we are basically a one stop solution provider for all your digital needs.Our services encompass Digital Strategy,Website Design and Development,
-            Digital Marketing,Digital Display,Server-Side Solution,CRM,IOT Solution and Research.</string>
+            Digital Marketing, Digital Display, Server-Side Solution, CRM, IOT Solution and Research.</string>
 
     <string name="previousday">Previous Day</string>
 
@@ -299,7 +299,7 @@
 
     <string name="edit_photo">Edit Photo</string>
 
-    <string name="datehistory">Date:  </string>
+    <string name="datehistory">Date:</string>
 
     <string name="sales">Sales</string>
 
@@ -307,17 +307,27 @@
 
     <string name="closingcash">CLosing Cash</string>
 
-    <string name="from">From</string>
+    <string name="from">From:</string>
 
-    <string name="to">To</string>
+    <string name="to">To:</string>
 
-    <string name="datehint">eg:27-9-2020</string>
-
-
+    <string name="datehint">eg:27–9–2020</string>
 
     <string name="new_customer_save_now">New Customer ? Save Now</string>
     <string name="previous_day_history">Previous Day History</string>
     <string name="upload_picture">Upload Picture</string>
     <string name="new_opening_balance">New Opening Balance</string>
+    <string name="d1">Date:</string>
+    <string name="s1">Sales:</string>
+    <string name="credit_sales">Credit Sales:</string>
+    <string name="r1">Receivable:</string>
+    <string name="p1">Payable:</string>
+    <string name="o1">Op.Cash:</string>
+    <string name="c1">Cl.Cash:</string>
+    <string name="previous_week_history">Previous Week History</string>
+    <string name="last_month_history">Last Month History</string>
+    <string name="n_a">N/A</string>
+    <string name="january">January</string>
+    <string name="name_of_the_month">Name of the month:</string>
 
 </resources>

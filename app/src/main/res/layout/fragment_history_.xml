@@ -5,158 +5,365 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     tools:context=".fragment.History_Fragment">
 
-    <LinearLayout
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:background="@color/red_700"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="@string/previous_day_history"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:textColor="@color/white"/>
+        android:layout_height="wrap_content">
+
         <LinearLayout
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_width="match_parent"
-            android:layout_height="30dp">
-            <TextView
-                android:textColor="@color/red_700"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textSize="16sp"
-                android:text="Date: "/>
-            <TextView
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="14sp"
-                android:gravity="center"
-                android:hint="24-01-2021"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/red_700"
+                    android:gravity="center"
+                    android:text="@string/previous_day_history"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/d1"
+                        android:textColor="@color/red_700"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/prev_day_dateId"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:hint="24-01-2021"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/edittext_background"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/s1"
+                                android:textColor="@color/red_700"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/pre_day_sale"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:hint="@string/n_a"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/credit_sales"
+                                android:textColor="@color/red_700"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/pre_day_creSale"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:hint="@string/n_a"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/r1"
+                                android:textColor="@color/red_700"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/pre_day_receivable"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:hint="@string/n_a"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="8dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/p1"
+                                android:textColor="@color/red_700"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/pre_day_payable"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:hint="@string/n_a"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/o1"
+                                android:textColor="@color/red_700"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/pre_day_openingcash"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:hint="@string/n_a"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/c1"
+                                android:textColor="@color/red_700"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/pre_day_closecash"
+                                android:layout_width="100dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:hint="@string/n_a"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/red_700"
+                    android:gravity="center"
+                    android:text="@string/previous_week_history"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/from"
+                        android:textColor="@color/red_700"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/from_date_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:hint="@string/date"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/to"
+                        android:textColor="@color/red_700"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/to_date_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:hint="@string/date"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_margin="8dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/nodata"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@color/red_700"
+                    android:gravity="center"
+                    android:text="@string/last_month_history"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/name_of_the_month"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/red_700"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="@string/january"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="150dp"
+                   android:layout_margin="8dp"
+                   android:scaleType="centerInside"
+                   android:src="@drawable/nodata"/>
+
+            </LinearLayout>
         </LinearLayout>
-
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            layout="@layout/history_frame">
-
-        </include>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="Previous Week History"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:background="@color/red_700"
-            android:textColor="@color/white"/>
-        <LinearLayout
-            android:weightSum="4"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="30dp">
-            <TextView
-                android:layout_weight="1"
-                android:textColor="@color/red_700"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:textSize="16sp"
-                android:text="From: "/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:hint="24-01-2021"
-                android:textSize="14sp" />
-            <TextView
-                android:layout_weight="1"
-                android:textColor="@color/red_700"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:text="To: "/>
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="14sp"
-                android:gravity="center"
-                android:hint="24-01-2021"/>
-        </LinearLayout>
-
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            layout="@layout/history_frame">
-
-        </include>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="Last Month History"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:background="@color/red_700"
-            android:textColor="@color/white"/>
-        <LinearLayout
-            android:weightSum="2"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="30dp">
-            <TextView
-                android:layout_weight="1"
-                android:textColor="@color/red_700"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="16sp"
-                android:text="Name of the month: "/>
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="14sp"
-                android:gravity="center"
-                android:hint="January"/>
-        </LinearLayout>
-
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            layout="@layout/history_frame">
-
-        </include>
-
-    </LinearLayout>
-
+    </ScrollView>
 
 
 </LinearLayout>

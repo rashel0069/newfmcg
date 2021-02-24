@@ -126,6 +126,7 @@ public class NewTransaction_Fragment extends Fragment {
         cnameET = view.findViewById(R.id.customernameET_id);
         saveNewContact = view.findViewById( R.id.saveContact_id );
         phonecontactSelect = view.findViewById(R.id.phoneContact_id);
+
         transactionViewModel = ViewModelProviders.of(getActivity()).get(TransactionViewModel.class);
 
         //spinner
@@ -299,12 +300,12 @@ public class NewTransaction_Fragment extends Fragment {
                             if (!response.isSuccessful()){
                                 return;
                             }
-                            Toast.makeText( getContext(), "HTTP OK", Toast.LENGTH_LONG ).show();
+                            //Toast.makeText( getContext(), "HTTP OK", Toast.LENGTH_LONG ).show();
                         }
 
                         @Override
                         public void onFailure(Call<TransactionEntity> call, Throwable t) {
-                            Toast.makeText( getContext(), "HTTP Error", Toast.LENGTH_SHORT ).show();
+                            //Toast.makeText( getContext(), "HTTP Error", Toast.LENGTH_SHORT ).show();
                         }
                     } );
 

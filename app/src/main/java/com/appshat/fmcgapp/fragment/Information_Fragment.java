@@ -162,7 +162,6 @@ public class Information_Fragment extends Fragment {
               opening = openingET.getText().toString().trim();
               receivable = receivableET.getText().toString().trim();
               payable = payableET.getText().toString().trim();
-
               profileImage.setDrawingCacheEnabled( true );
               profileImage.buildDrawingCache();
 

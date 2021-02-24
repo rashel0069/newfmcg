@@ -49,9 +49,9 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/cardView"
             app:layout_constraintHorizontal_bias="0.457"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
@@ -71,16 +71,16 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="25dp">
+                android:padding="10dp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/f1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
+                    android:baselineAligned="false"
                     android:hint="@string/hint1"
                     android:textColorHint="@color/black"
-                   android:baselineAligned="false"
                     app:boxBackgroundColor="@android:color/transparent"
                     app:startIconDrawable="@drawable/ic_baseline_phone_iphone"
                     app:startIconTint="@color/black">
@@ -102,13 +102,13 @@
                     android:layout_below="@+id/f1"
                     android:layout_marginTop="8dp"
                     android:background="@android:color/transparent"
+                    android:baselineAligned="false"
                     android:hint="@string/hint2"
                     android:textColorHint="@color/black"
                     app:boxBackgroundColor="@android:color/transparent"
                     app:passwordToggleEnabled="true"
                     app:passwordToggleTint="@color/red_500"
                     app:startIconDrawable="@drawable/ic_baseline_lock"
-                    android:baselineAligned="false"
                     app:startIconTint="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -123,19 +123,12 @@
                     android:id="@+id/forgotepassword_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignStart="@+id/f2"
-                    android:layout_alignTop="@+id/f2"
-                    android:layout_alignEnd="@+id/f2"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginTop="61dp"
-                    android:layout_marginEnd="0dp"
-                    android:layout_marginBottom="2dp"
+                    android:padding="2dp"
+                    android:layout_below="@id/f2"
                     android:text="@string/forgot_password"
-                    android:textColor="@color/red_500" />
+                    android:textColor="@color/red_700" />
 
             </RelativeLayout>
-
 
         </androidx.cardview.widget.CardView>
 
@@ -143,12 +136,11 @@
             android:id="@+id/login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="208dp"
+            android:layout_marginTop="175dp"
             android:text="@string/login"
             app:layout_constraintEnd_toEndOf="@+id/cardView"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="@+id/cardView"
-            app:layout_constraintTop_toBottomOf="@+id/welcomeTV_id"
+            app:layout_constraintTop_toTopOf="@+id/cardView"
             tools:ignore="HardcodedText,MissingConstraints" />
 
         <LinearLayout
@@ -192,14 +184,15 @@
         <ImageView
             android:layout_width="157dp"
             android:layout_height="150dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/logimg"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.878"
+            app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toStartOf="@+id/linearLayout13"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout13"
             tools:ignore="ContentDescription,MissingConstraints" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

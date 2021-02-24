@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,20 +27,24 @@ import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.AdjustDao;
 import com.appshat.fmcgapp.Room.DAO.CashboxDao;
 import com.appshat.fmcgapp.Room.DAO.ExpenseDao;
+import com.appshat.fmcgapp.Room.DAO.HistoryDao;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
 import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
 import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
 import com.appshat.fmcgapp.Room.ENTITY.CashboxEntity;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
+import com.appshat.fmcgapp.Room.ENTITY.HistoryEntity;
 import com.appshat.fmcgapp.Room.ENTITY.InformationEntity;
 import com.appshat.fmcgapp.Room.ENTITY.NewtransactionEntity;
+import com.appshat.fmcgapp.Room.model.HistoryViewModel;
 import com.appshat.fmcgapp.Room.model.InformationViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 
 import static java.lang.String.valueOf;
@@ -51,9 +57,12 @@ public class Home_Fragment<Date> extends Fragment {
             openingcashTV, dayendcashTV,receivablecashTV,payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
     String opening, receviable, payable, dayend, withdraw, deposit, sellcash, sellcredit, cashpurches, cashexpence, cashtotal;
     String prev,openAmount;
+
     InformationDao informationDbDao;
     NewtransactionDao newtransactionDao;
+    HistoryDao historyDao;
     InformationViewModel informationViewModel;
+    HistoryViewModel historyViewModel;
     ExpenseDao expenseDao;
     CashboxDao cashboxDao;
     AdjustDao adjustDao;
@@ -66,6 +75,7 @@ public class Home_Fragment<Date> extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_, container, false);
+        historyViewModel = ViewModelProviders.of( getActivity() ).get( HistoryViewModel.class );
 
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
@@ -143,13 +153,16 @@ public class Home_Fragment<Date> extends Fragment {
         //creditsells Data
         databaseroom = Databaseroom.getDatabaseroomref(getActivity());
         newtransactionDao = databaseroom.getnewtransaction();
+        historyDao = databaseroom.getHistory();
         expenseDao = databaseroom.getExpenseDao();
         cashboxDao = databaseroom.getCashboxDao();
         adjustDao = databaseroom.getduepayandreceive();
         informationDbDao = databaseroom.getInformationDao();
         informationViewModel = ViewModelProviders.of( getActivity() ).get( InformationViewModel.class );
-        LoadDatafromRoom();
+        //historyViewModel = ViewModelProviders.of( getActivity()).get( HistoryViewModel.class );
 
+        LoadDatafromRoom();
+       // InsertHistory();
 
         //opening amount dialog
         edtOpening.setOnClickListener( new View.OnClickListener() {
@@ -159,7 +172,6 @@ public class Home_Fragment<Date> extends Fragment {
                 exampleDialog.show( getActivity().getSupportFragmentManager(),"Opening amount dialog" );
             }
         } );
-
         //Data Receive
         cashbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,15 +185,14 @@ public class Home_Fragment<Date> extends Fragment {
 
             }
         });
-
         orderbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(view.getContext(), ChatBot.class);
-                startActivityForResult(myIntent, 0);
+//                Intent myIntent = new Intent(view.getContext(), ChatBot.class);
+//                startActivityForResult(myIntent, 0);
+                Toast.makeText( getContext(), "Available Soon", Toast.LENGTH_SHORT ).show();
             }
         });
-
         transactionbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,7 +203,6 @@ public class Home_Fragment<Date> extends Fragment {
                 transaction.commit();
             }
         });
-
         showtransbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -203,7 +213,6 @@ public class Home_Fragment<Date> extends Fragment {
                 transaction.commit();
             }
         });
-
         expensebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -214,7 +223,6 @@ public class Home_Fragment<Date> extends Fragment {
                 transaction.commit();
             }
         });
-
         adjustbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -225,7 +233,6 @@ public class Home_Fragment<Date> extends Fragment {
                 transaction.commit();
             }
         });
-
         recivablebtn.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -243,6 +250,7 @@ public class Home_Fragment<Date> extends Fragment {
     private void LoadDatafromRoom() {
 
         try {
+            //others data load
             String crSells = new GetCreditSells().execute().get();
             creditSell.setText(crSells);
             String cashEX = new GetExpense().execute().get();
@@ -281,10 +289,61 @@ public class Home_Fragment<Date> extends Fragment {
                     totalCash.setText("0.0");
                 }
             }
+            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            String s = new GetUid().execute().get();
+            String opc,dac,exc,puc,pac,css,crs,toc;
+            opc = openingCash.getText().toString().trim();
+            dac = dayendCash.getText().toString().trim();
+            exc = expenseCash.getText().toString().trim();
+            puc = purchaseCash.getText().toString().trim();
+            pac = payableCash.getText().toString().trim();
+            css = cashSell.getText().toString().trim();
+            crs = creditSell.getText().toString().trim();
+            toc = totalCash.getText().toString().trim();
+            if (s.matches( currentdate )){
+                new Thread( new Runnable() {
+                    @Override
+                    public void run() {
+                        HistoryEntity historyEntity = Databaseroom.getDatabaseroomref( getContext() ).getHistory().findbyId( currentdate );
+                        try {
+                            if (historyEntity.getId().matches( currentdate )){
+                                historyEntity.setOpeningammount( opc );
+                                historyEntity.setDayendbalance( dac );
+                                historyEntity.setExpense( exc );
+                                historyEntity.setCashpurchase( puc );
+                                historyEntity.setCreditpurchase( pac );
+                                historyEntity.setCreditpurchase( pac );
+                                historyEntity.setCashsales( css );
+                                historyEntity.setCreditsales( crs );
+                                historyEntity.setTotalsales( toc );
+                                Databaseroom.getDatabaseroomref( getContext() ).getHistory().update( historyEntity );
+                            }
+                        }catch (Exception e){
 
-
+                        }
+                    }
+                } ).start();
+            }else{
+                HistoryEntity historyEntity = new HistoryEntity(currentdate,opc,dac,exc,puc,pac,"0.0",crs,toc,currentdate );
+                historyViewModel.insertHistory( historyEntity );
+            }
         } catch (Exception e) {
-            Toast.makeText(getContext(), "Error:" + e, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    public class GetUid extends AsyncTask<Void, Void, String>{
+        @Override
+        protected String doInBackground(Void... voids) {
+
+            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            List<HistoryEntity> historyEntities = historyDao.getallHistory( currentdate );
+            String date = "";
+              for (int i = 0; i<historyEntities.size(); i++){
+                  date = historyEntities.get(i).getTodaydate();
+              }
+
+            return date;
         }
     }
 
@@ -531,8 +590,8 @@ public class Home_Fragment<Date> extends Fragment {
             return pastpayable.toString();
         }
 
-
     }
+
 }
 
 
