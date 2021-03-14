@@ -7,6 +7,7 @@
     <string name="hint1">Mobile Number</string>
 
     <string name="hint2">Password</string>
+    <string name="hint3"> Confirm Password</string>
 
     <string name="login">Login</string>
 
@@ -14,7 +15,7 @@
 
     <string name="registration"><u>Register</u></string>
 
-    <string name="registration2">Click Here to </string>
+    <string name="registration2">New User? Click Here to </string>
 
     <string name="save">Save</string>
 
@@ -329,5 +330,7 @@
     <string name="n_a">N/A</string>
     <string name="january">January</string>
     <string name="name_of_the_month">Name of the month:</string>
+    <string name="registration_now">Registration Now</string>
+    <string name="already_to">Already Registered ! Go back to  </string>
 
 </resources>

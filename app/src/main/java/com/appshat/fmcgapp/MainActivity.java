@@ -3,10 +3,8 @@ package com.appshat.fmcgapp;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.room.Room;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
@@ -186,35 +184,9 @@ public class MainActivity extends AppCompatActivity {
         registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                mobile = userMobile.getText().toString().trim();
-                password = userPassword.getText().toString().trim();
-                if (!TextUtils.isEmpty( userMobile.getText().toString().trim() ) && !TextUtils.isEmpty( userPassword.getText().toString() )){
-
-                    if ((userMobile.getText().toString().contains( "016") || userMobile.getText().toString().contains( "017")
-                            || userMobile.getText().toString().contains( "018") || userMobile.getText().toString().contains( "015")
-                            || userMobile.getText().toString().contains( "014") || userMobile.getText().toString().contains( "013")
-                            || userMobile.getText().toString().contains( "019")) && userMobile.getText().toString().length() == 11){
-                        if (mobile != null && password != null) {
-                            UserEntity userEntity = new UserEntity(mobile, password);
-                            userViewModel.insertUser(userEntity);
-                            Toast.makeText(MainActivity.this, "Registraton Done", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(MainActivity.this, "Mobile and Password field is empty", Toast.LENGTH_SHORT).show();
-                        }
-                    }else {
-                        Toast.makeText( getApplicationContext(), "Enter Valid Number", Toast.LENGTH_SHORT ).show();
-                    }
-                }else if(!TextUtils.isEmpty( userMobile.getText().toString().trim() )
-                        && TextUtils.isEmpty( userPassword.getText().toString() ) ){
-                    userPassword.setError( "Enter Password" );
-                }else if(TextUtils.isEmpty( userMobile.getText().toString().trim() )
-                        && !TextUtils.isEmpty( userPassword.getText().toString() ) ){
-                    userMobile.setError( "Enter Mobile number" );
-                }else {
-                    userMobile.setError( "Enter Mobile number" );
-                    userPassword.setError( "Enter Password" );
-                }
+                Intent intent = new Intent(getApplicationContext(),RegActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -244,8 +216,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     private void UserAuthenTication() {
@@ -266,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
             Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
         } else {
-           // Toast.makeText(MainActivity.this, "User Not Register", Toast.LENGTH_SHORT).show();
+          Toast.makeText(MainActivity.this, "User Not Register", Toast.LENGTH_SHORT).show();
         }
     }
 

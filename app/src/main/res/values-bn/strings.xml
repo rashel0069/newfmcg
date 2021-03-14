@@ -10,6 +10,8 @@
 
     <string name="hint2">পাসওয়ার্ড</string>
 
+    <string name="hint3">পাসওয়ার্ড নিশ্চিত করুন</string>
+
     <string name="login">লগইন</string>
 
     <string name="creditsales">বাকিতে বিক্রয়</string>
@@ -321,5 +323,7 @@
     <string name="n_a">N/A</string>
     <string name="january">জানুয়ারী</string>
     <string name="name_of_the_month">মাসের নাম:</string>
+    <string name="registration_now">নিবন্ধকরণ</string>
+    <string name="already_to">Already Regitered! Go back to</string>
 
 </resources>
