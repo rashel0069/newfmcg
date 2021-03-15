@@ -20,11 +20,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textSize="70sp"
+        android:fontFamily="cursive"
+        android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="@color/red_700"
-        android:fontFamily="cursive"
-        android:text="@string/app_name" />
+        android:textSize="70sp" />
 
 
 </LinearLayout>

@@ -285,12 +285,11 @@
 
     <string name="facebook">Facebook</string>
 
-    <string name="about">We are an information catering,
-        service oriented company where most of our clients are corporation.The service which we provide can be of Hardware or Software related requirements.
-        So brain-storming is key and innovation is our skill-set.
+    <string name="about" tools:ignore="StringEscaping">Khero khata is a cross functional retail store app for transaction processing.
  </string>
-    <string name="about2">To sum up,we are basically a one stop solution provider for all your digital needs.Our services encompass Digital Strategy,Website Design and Development,
-            Digital Marketing, Digital Display, Server-Side Solution, CRM, IOT Solution and Research.</string>
+
+    <string name="about2">Its
+        aims to disrupt traditional retail space by digitizing financial data recording, ordering and providing data analytics</string>
 
     <string name="previousday">Previous Day</string>
 
