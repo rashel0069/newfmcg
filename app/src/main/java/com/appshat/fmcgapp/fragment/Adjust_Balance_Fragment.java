@@ -36,6 +36,7 @@ import android.widget.Toast;
 
 import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Localhelper;
+import com.appshat.fmcgapp.MainActivity;
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.AdjustDao;
 import com.appshat.fmcgapp.Room.DB.Databaseroom;
@@ -133,8 +134,9 @@ public class Adjust_Balance_Fragment extends Fragment {
         });
 
 //language setter
-        if (Helper.getBangla()) {
-            context = Localhelper.setLocale(getActivity(), "bn");
+        if (!Helper.getBangla()){
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"en");
             resources = context.getResources();
             drpTV.setText(resources.getString(R.string.adjust));
             clientnameTV.setText(resources.getString(R.string.customerName));
@@ -146,7 +148,8 @@ public class Adjust_Balance_Fragment extends Fragment {
 
 
         } else {
-            context = Localhelper.setLocale(getActivity(), "en");
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"bn");
             resources = context.getResources();
             drpTV.setText(resources.getString(R.string.adjust));
             clientnameTV.setText(resources.getString(R.string.customerName));

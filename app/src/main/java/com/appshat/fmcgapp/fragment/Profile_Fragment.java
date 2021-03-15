@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -138,8 +139,9 @@ public class Profile_Fragment extends Fragment {
 
         // using login swtiching the language
         //language setter
-        if (Helper.getBangla()) {
-            context = Localhelper.setLocale(getActivity(), "bn");
+        if (!Helper.getBangla()){
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"en");
             resources = context.getResources();
             langTV.setText(resources.getString(R.string.selector));
             editTV.setText(resources.getString(R.string.edit));
@@ -148,7 +150,8 @@ public class Profile_Fragment extends Fragment {
             logoutTV.setText(resources.getString(R.string.logout));
 
         }else {
-            context = Localhelper.setLocale(getActivity(),"en");
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"bn");
             resources = context.getResources();
             langTV.setText(resources.getString(R.string.selector));
             editTV.setText(resources.getString(R.string.edit));

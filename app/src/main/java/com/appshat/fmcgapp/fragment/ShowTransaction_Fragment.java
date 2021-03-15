@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import android.widget.SearchView;
 
 import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Localhelper;
+import com.appshat.fmcgapp.MainActivity;
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.ENTITY.AdjustEntity;
 import com.appshat.fmcgapp.Room.ENTITY.ExpenseEntity;
@@ -75,8 +77,9 @@ public class ShowTransaction_Fragment extends Fragment {
         expenseViewModel = ViewModelProviders.of( this ).get( ExpenseViewModel.class );
         payeceiveViewModel = ViewModelProviders.of( this ).get( AdjustViewModel.class );
 
-        if (Helper.getBangla()) {
-            context = Localhelper.setLocale(getActivity(), "bn");
+        if (!Helper.getBangla()){
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"en");
             resources = context.getResources();
             searchmbl.setHint(resources.getString(R.string.scontacthint));
             transallBtn.setText(resources.getString(R.string.todaytrans));
@@ -85,7 +88,8 @@ public class ShowTransaction_Fragment extends Fragment {
             allTrans.setText(resources.getString(R.string.alltrans));
 
         } else {
-            context = Localhelper.setLocale(getActivity(), "en");
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"bn");
             resources = context.getResources();
             searchmbl.setHint(resources.getString(R.string.scontacthint));
             transallBtn.setText(resources.getString(R.string.todaytrans));

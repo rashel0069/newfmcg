@@ -8,6 +8,7 @@ public class Helper {
     private static final String PREFS_NAME = "fcm";
     private static final String name = "asdasd";
     private static final String bangla = "fdsdf";
+    private static final String english = "english";
 
 
     public static boolean setPreference(String key, String value) {
@@ -86,6 +87,18 @@ public class Helper {
 
     public static boolean getBangla(){
         return getPreferenceBool(bangla);
+    }
+    //==============================setting Language English============================================
+
+    public static void setEnglish(Boolean status){
+        setPreferenceBool(english,status);
+
+    }
+
+
+
+    public static boolean getEnglish(){
+        return getPreferenceBool(english);
     }
 }
 

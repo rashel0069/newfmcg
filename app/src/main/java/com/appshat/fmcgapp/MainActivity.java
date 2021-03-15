@@ -19,6 +19,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         Dexter.withContext( this )
                 .withPermissions( Manifest.permission.READ_CONTACTS,
                         Manifest.permission.WRITE_CONTACTS,
@@ -107,8 +109,46 @@ public class MainActivity extends AppCompatActivity {
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         userDB = Databaseroom.getDatabaseroomref(getApplication());
         userDBdao = userDB.getUserDao();
-        //language setter
 
+
+        if (Helper.getEnglish()){
+            Helper.setEnglish(true);
+            Helper.setBangla(false);
+        }else {
+            Helper.setEnglish(false);
+            Helper.setBangla(true);
+        }
+
+
+        Log.e("Bangla", String.valueOf(Helper.getBangla()));
+
+        //language setter
+        if (!Helper.getBangla()){
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(MainActivity.this,"en");
+            resources = context.getResources();
+            languagetv.setText(resources.getString(R.string.selector));
+            welcome.setText(resources.getString(R.string.intro));
+            loginButton.setText(resources.getString(R.string.login));
+            regTV.setText(resources.getString(R.string.registration2));
+            f1TV.setHint(resources.getString(R.string.hint1));
+            f2TV.setHint(resources.getString(R.string.hint2));
+            registration.setText(resources.getString(R.string.registration));
+            passforgot.setText( resources.getText( R.string.forgot_password ) );
+
+        }else {
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(MainActivity.this,"bn");
+            resources = context.getResources();
+            languagetv.setText(resources.getString(R.string.selector));
+            welcome.setText(resources.getString(R.string.intro));
+            loginButton.setText(resources.getString(R.string.login));
+            regTV.setText(resources.getString(R.string.registration2));
+            registration.setText(resources.getString(R.string.registration));
+            f1TV.setHint(resources.getString(R.string.hint1));
+            f2TV.setHint(resources.getString(R.string.hint2));
+            passforgot.setText( resources.getText( R.string.forgot_password ) );
+        }
 
        languageImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         languagetv.setText(language[which]);
                         if (language[which].equals("English")){
+                            Helper.setEnglish(true);
                             Helper.setBangla(false);
                             context = Localhelper.setLocale(MainActivity.this,"en");
                             resources = context.getResources();
@@ -141,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if (language[which].equals("Bangla")){
                             Helper.setBangla(true);
+                            Helper.setEnglish(false);
                             context = Localhelper.setLocale(MainActivity.this,"bn");
                             resources = context.getResources();
                             languagetv.setText(resources.getString(R.string.selector));

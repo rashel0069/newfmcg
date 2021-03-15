@@ -39,6 +39,7 @@ public class History_Fragment extends Fragment {
     public static final String DATE_DIALOG_2 = "datePicker2";
     private static int mYear2,mMonth2, mDay2;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -132,7 +133,7 @@ public class History_Fragment extends Fragment {
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // get selected date
             Calendar cb = Calendar.getInstance();
-            cb.set( Calendar.YEAR,year );
+            cb.set( Calendar.YEAR,year);
             cb.set( Calendar.MONTH,month );
             cb.set( Calendar.DAY_OF_MONTH,day );
             SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Room;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Localhelper;
+import com.appshat.fmcgapp.MainActivity;
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.CashboxDao;
 import com.appshat.fmcgapp.Room.DAO.InformationDao;
@@ -64,8 +66,9 @@ public class Cashbox_Fragment extends Fragment {
 
 
         //language setter
-        if (Helper.getBangla()) {
-            context = Localhelper.setLocale(getActivity(), "bn");
+        if (!Helper.getBangla()){
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"en");
             resources = context.getResources();
             cashttile.setText(resources.getString(R.string.cashtransaction));
             dayendTV.setText(resources.getString(R.string.dayendcash));
@@ -74,7 +77,8 @@ public class Cashbox_Fragment extends Fragment {
             cashbtn.setText(resources.getString(R.string.save));
 
         } else {
-            context = Localhelper.setLocale(getActivity(), "en");
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"bn");
             resources = context.getResources();
             cashttile.setText(resources.getString(R.string.cashtransaction));
             dayendTV.setText(resources.getString(R.string.dayendcash));

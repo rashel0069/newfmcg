@@ -23,6 +23,7 @@ import com.appshat.fmcgapp.ExampleDialog;
 import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Kotlin.ui.ChatBot;
 import com.appshat.fmcgapp.Localhelper;
+import com.appshat.fmcgapp.MainActivity;
 import com.appshat.fmcgapp.R;
 import com.appshat.fmcgapp.Room.DAO.AdjustDao;
 import com.appshat.fmcgapp.Room.DAO.CashboxDao;
@@ -108,8 +109,9 @@ public class Home_Fragment<Date> extends Fragment {
         totalCash = view.findViewById(R.id.totalsalesamountTV_id);
 
 //language setter
-        if (Helper.getBangla()) {
-            context = Localhelper.setLocale(getActivity(), "bn");
+        if (!Helper.getBangla()){
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"en");
             resources = context.getResources();
             dayendcashTV.setText(resources.getString(R.string.dayendcash));
             openingcashTV.setText(resources.getString(R.string.opening));
@@ -130,7 +132,8 @@ public class Home_Fragment<Date> extends Fragment {
 
 
         } else {
-            context = Localhelper.setLocale(getActivity(), "en");
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"bn");
             resources = context.getResources();
             dayendcashTV.setText(resources.getString(R.string.dayendcash));
             openingcashTV.setText(resources.getString(R.string.opening));

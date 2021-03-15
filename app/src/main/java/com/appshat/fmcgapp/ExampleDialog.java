@@ -70,6 +70,7 @@ public class  ExampleDialog extends AppCompatDialogFragment {
                 }
             }
         } );
+
         newOpenAmount = view.findViewById( R.id.openingamount_new );
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");

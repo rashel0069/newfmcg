@@ -39,6 +39,7 @@ import android.widget.Toast;
 import com.appshat.fmcgapp.AlarmReceiver;
 import com.appshat.fmcgapp.Helper;
 import com.appshat.fmcgapp.Localhelper;
+import com.appshat.fmcgapp.MainActivity;
 import com.appshat.fmcgapp.R;
 
 import com.appshat.fmcgapp.Room.DAO.NewtransactionDao;
@@ -182,8 +183,9 @@ public class NewTransaction_Fragment extends Fragment {
         } );
 
         //language setter
-        if (Helper.getBangla()) {
-            context = Localhelper.setLocale(getActivity(), "bn");
+        if (!Helper.getBangla()){
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"en");
             resources = context.getResources();
           timedateTV.setHint(resources.getString(R.string.date));
           cnTV.setText(resources.getString(R.string.customerName));
@@ -194,8 +196,9 @@ public class NewTransaction_Fragment extends Fragment {
           camountET.setHint(resources.getString(R.string.amounthint));
           newtransBTN.setText(resources.getString(R.string.save));
 
-        } else {
-            context = Localhelper.setLocale(getActivity(), "en");
+        }else {
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"bn");
             resources = context.getResources();
             timedateTV.setHint(resources.getString(R.string.date));
             cnTV.setText(resources.getString(R.string.customerName));
