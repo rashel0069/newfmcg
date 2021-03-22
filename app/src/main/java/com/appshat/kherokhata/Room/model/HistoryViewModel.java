@@ -19,46 +19,49 @@ public class HistoryViewModel extends AndroidViewModel {
 
 
     public HistoryViewModel(@NonNull Application application) {
-        super( application );
-        databaseroom = Databaseroom.getDatabaseroomref( application );
+        super(application);
+        databaseroom = Databaseroom.getDatabaseroomref(application);
         historyDao = databaseroom.getHistory();
     }
-    public void updateHistory(HistoryEntity historyEntity){
+
+    public void updateHistory(HistoryEntity historyEntity) {
         new HistoryViewModel.UpdateAsyncTask(historyDao).execute(historyEntity);
     }
 
     public void insertHistory(HistoryEntity historyEntity) {
-        new HistoryViewModel.InsertAsyncTask( historyDao ).execute( historyEntity );
-        }
+        new HistoryViewModel.InsertAsyncTask(historyDao).execute(historyEntity);
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+    }
 
     private class InsertAsyncTask extends AsyncTask<HistoryEntity, Void, Void> {
         HistoryDao mHistoryDao;
+
         public InsertAsyncTask(HistoryDao mHistoryDao) {
             this.mHistoryDao = mHistoryDao;
         }
 
         @Override
         protected Void doInBackground(HistoryEntity... historyEntities) {
-            mHistoryDao.insert( historyEntities[0] );
+            mHistoryDao.insert(historyEntities[0]);
             return null;
         }
     }
 
-    private class UpdateAsyncTask extends AsyncTask<HistoryEntity,Void,Void> {
+    private class UpdateAsyncTask extends AsyncTask<HistoryEntity, Void, Void> {
         HistoryDao mHistoryDao;
+
         public UpdateAsyncTask(HistoryDao mHistoryDao) {
-           this.mHistoryDao = mHistoryDao;
+            this.mHistoryDao = mHistoryDao;
         }
 
         @Override
         protected Void doInBackground(HistoryEntity... historyEntities) {
-            mHistoryDao.update( historyEntities[0] );
+            mHistoryDao.update(historyEntities[0]);
             return null;
         }
-    }
-
-    @Override
-    protected void onCleared() {
-        super.onCleared();
     }
 }

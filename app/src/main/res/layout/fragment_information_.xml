@@ -34,6 +34,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -41,6 +42,7 @@
                         android:textColor="@color/red_700"
                         android:textSize="14sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/sname_TV"
                         android:layout_width="wrap_content"
@@ -56,10 +58,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="16sp"
                     android:background="@drawable/edittext_background"
                     android:hint="@string/shopnamehint"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:textSize="16sp" />
 
 
             </LinearLayout>
@@ -80,6 +82,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -90,12 +93,12 @@
 
                     <TextView
                         android:id="@+id/sownername_TV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sownername"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sownername"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -104,10 +107,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="16sp"
                     android:background="@drawable/edittext_background"
                     android:hint="@string/sownernamehint"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -128,6 +131,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -135,6 +139,7 @@
                         android:textColor="@color/red_700"
                         android:textSize="14sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/saddress_TV"
                         android:layout_width="wrap_content"
@@ -150,10 +155,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="16sp"
                     android:background="@drawable/edittext_background"
                     android:hint="@string/saddresshint"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -173,6 +178,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -180,6 +186,7 @@
                         android:textColor="@color/red_700"
                         android:textSize="14sp"
                         android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/smobilenumber_TV"
                         android:layout_width="wrap_content"
@@ -196,12 +203,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="16sp"
-                    android:inputType="number"
-                    android:maxLength="11"
                     android:background="@drawable/edittext_background"
                     android:hint="@string/scontacthint"
-                    android:padding="8dp" />
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:padding="8dp"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -221,6 +228,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -245,11 +253,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="16sp"
-                    android:inputType="numberDecimal"
                     android:background="@drawable/edittext_background"
                     android:hint="@string/openinghint"
-                    android:padding="8dp" />
+                    android:inputType="numberDecimal"
+                    android:padding="8dp"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -265,9 +273,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
                 tools:ignore="MissingConstraints">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -292,11 +302,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="16sp"
-                    android:inputType="numberDecimal"
                     android:background="@drawable/edittext_background"
                     android:hint="@string/rahint"
-                    android:padding="8dp" />
+                    android:inputType="numberDecimal"
+                    android:padding="8dp"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -313,9 +323,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
                 tools:ignore="MissingConstraints">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -340,11 +352,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
-                    android:textSize="16sp"
-                    android:inputType="numberDecimal"
                     android:background="@drawable/edittext_background"
                     android:hint="@string/pahint"
-                    android:padding="8dp" />
+                    android:inputType="numberDecimal"
+                    android:padding="8dp"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -382,22 +394,24 @@
                         android:textSize="14sp"
                         android:textStyle="bold" />
                 </LinearLayout>
+
                 <ImageView
                     android:id="@+id/profile_img_id"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="5dp"
-                    android:src="@drawable/nopreview"
                     android:background="@drawable/edittext_background"
                     android:padding="8dp"
+                    android:src="@drawable/nopreview"
                     android:textSize="16sp" />
+
                 <ImageView
                     android:id="@+id/editphoto_id"
                     android:layout_width="150dp"
                     android:layout_height="30dp"
                     android:background="@color/white"
                     android:src="@drawable/ic_baseline_cloud_upload_24"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 

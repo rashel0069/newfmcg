@@ -1,10 +1,12 @@
 package com.appshat.kherokhata.Room.DAO;
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
 import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
 
 import java.util.List;
@@ -24,20 +26,20 @@ public interface NewtransactionDao {
     @Delete
     void delete(NewtransactionEntity newtransactionEntity);
 
-    @Query( "SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transactiontype AND currentdate LIKE :currentdate" )
+    @Query("SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transactiontype AND currentdate LIKE :currentdate")
     List<NewtransactionEntity> getCerditSell(String accounttype, String transactiontype, String currentdate);
 
-    @Query( "SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND currentdate LIKE :currentdate" )
+    @Query("SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND currentdate LIKE :currentdate")
     List<NewtransactionEntity> getAllSell(String accounttype, String currentdate);
 
-    @Query( "SELECT * FROM newtransaction" )
-    LiveData<List<NewtransactionEntity>>getTodayTrans();
+    @Query("SELECT * FROM newtransaction")
+    LiveData<List<NewtransactionEntity>> getTodayTrans();
 
-    @Query( "SELECT * FROM newtransaction WHERE currentdate LIKE :currentdate" )
-    LiveData<List<NewtransactionEntity>>getTransDate(String currentdate);
+    @Query("SELECT * FROM newtransaction WHERE currentdate LIKE :currentdate")
+    LiveData<List<NewtransactionEntity>> getTransDate(String currentdate);
 
     //get user info past reciveable
-    @Query( "SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transactiontype AND clientmobile LIKE :mobile" )
+    @Query("SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transactiontype AND clientmobile LIKE :mobile")
     List<NewtransactionEntity> getCerditSellinfo(String accounttype, String transactiontype, String mobile);
 
 

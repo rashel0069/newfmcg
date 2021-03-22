@@ -23,8 +23,8 @@ public interface InformationDao {
     @Delete
     void delete(InformationEntity informationEntity);
 
-    @Query( "SELECT * FROM informations" )
-    List<InformationEntity>findAllInfo();
+    @Query("SELECT * FROM informations")
+    List<InformationEntity> findAllInfo();
 
 
 }

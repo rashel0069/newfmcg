@@ -7,18 +7,15 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "duepayandreceive")
 public class AdjustEntity {
-    @PrimaryKey(autoGenerate = true)
-    @NonNull
-    int id;
-
     @ColumnInfo(name = "accoounttype")
     public
     String accounttype;
-
     @ColumnInfo(name = "transactiontype")
     public
     String transactiontype;
-
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    int id;
     @NonNull
     @ColumnInfo(name = "clientname")
     String clientname;

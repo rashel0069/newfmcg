@@ -3,11 +3,6 @@ package com.appshat.kherokhata.fragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.appshat.kherokhata.Helper;
 import com.appshat.kherokhata.Localhelper;
@@ -33,14 +32,14 @@ import java.util.Locale;
 
 public class Cashbox_Fragment extends Fragment {
     EditText dayendET, withdrawalET, depositET;
-    TextView cashttile,dayendTV,withdrawalTV,depositTV;
+    TextView cashttile, dayendTV, withdrawalTV, depositTV;
     Button cashbtn;
     String dayend, withdrawal, deposit, datetime;
     CashboxDao cashboxDBdao;
     InformationDao informationDbDao;
     Databaseroom cashboxDB;
     CashBoxViewModel cashBoxViewModel;
-    int d1,d2,d3;
+    int d1, d2, d3;
     Context context;
     Resources resources;
 
@@ -51,19 +50,19 @@ public class Cashbox_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cashbox_fragment, container, false);
         cashbtn = view.findViewById(R.id.cashsaveBtn_id);
-        cashttile=view.findViewById(R.id.cashtitleTV_Id);
-        dayendTV=view.findViewById(R.id.dc_Id);
+        cashttile = view.findViewById(R.id.cashtitleTV_Id);
+        dayendTV = view.findViewById(R.id.dc_Id);
         dayendET = view.findViewById(R.id.dayendcashET_id);
-        withdrawalTV=view.findViewById(R.id.wd_id);
+        withdrawalTV = view.findViewById(R.id.wd_id);
         withdrawalET = view.findViewById(R.id.withdrawalET_id);
-        depositTV=view.findViewById(R.id.ds_id);
+        depositTV = view.findViewById(R.id.ds_id);
         depositET = view.findViewById(R.id.depositET_id);
 
 
         //language setter
-        if (!Helper.getBangla()){
+        if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(),"en");
+            context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
             cashttile.setText(resources.getString(R.string.cashtransaction));
             dayendTV.setText(resources.getString(R.string.dayendcash));
@@ -73,7 +72,7 @@ public class Cashbox_Fragment extends Fragment {
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(),"bn");
+            context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
             cashttile.setText(resources.getString(R.string.cashtransaction));
             dayendTV.setText(resources.getString(R.string.dayendcash));
@@ -83,7 +82,7 @@ public class Cashbox_Fragment extends Fragment {
         }
 
         //database
-        cashBoxViewModel = ViewModelProviders.of( getActivity() ).get( CashBoxViewModel.class );
+        cashBoxViewModel = ViewModelProviders.of(getActivity()).get(CashBoxViewModel.class);
         //Date time
         String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
 
@@ -99,30 +98,30 @@ public class Cashbox_Fragment extends Fragment {
                 if (!TextUtils.isEmpty(dayendET.getText().toString().trim()) && !TextUtils.isEmpty(depositET.getText().toString().trim()) && !TextUtils.isEmpty(withdrawalET.getText().toString().trim())) {
                     calculation();
 
-                } else if (!TextUtils.isEmpty(dayendET.getText().toString().trim()) && !TextUtils.isEmpty(depositET.getText().toString().trim())){
+                } else if (!TextUtils.isEmpty(dayendET.getText().toString().trim()) && !TextUtils.isEmpty(depositET.getText().toString().trim())) {
                     withdrawal = "0";
                     calculation();
 
-                }else if (!TextUtils.isEmpty(dayendET.getText().toString().trim()) && !TextUtils.isEmpty(withdrawalET.getText().toString().trim())){
+                } else if (!TextUtils.isEmpty(dayendET.getText().toString().trim()) && !TextUtils.isEmpty(withdrawalET.getText().toString().trim())) {
                     deposit = "0";
                     calculation();
-                }else if (!TextUtils.isEmpty(depositET.getText().toString().trim()) && !TextUtils.isEmpty(withdrawalET.getText().toString().trim())){
-                    dayend ="0";
+                } else if (!TextUtils.isEmpty(depositET.getText().toString().trim()) && !TextUtils.isEmpty(withdrawalET.getText().toString().trim())) {
+                    dayend = "0";
                     calculation();
-                }else if (!TextUtils.isEmpty(dayendET.getText().toString().trim())){
+                } else if (!TextUtils.isEmpty(dayendET.getText().toString().trim())) {
                     withdrawal = "0";
                     deposit = "0";
                     calculation();
-                }else if (!TextUtils.isEmpty(depositET.getText().toString().trim()) ){
+                } else if (!TextUtils.isEmpty(depositET.getText().toString().trim())) {
                     withdrawal = "0";
-                    dayend ="0";
+                    dayend = "0";
                     calculation();
-                }else if (!TextUtils.isEmpty(withdrawalET.getText().toString().trim())){
-                    dayend ="0";
+                } else if (!TextUtils.isEmpty(withdrawalET.getText().toString().trim())) {
+                    dayend = "0";
                     deposit = "0";
                     calculation();
-                }else {
-                    Toast.makeText( getContext(), "Please Fill up one field", Toast.LENGTH_SHORT ).show();
+                } else {
+                    Toast.makeText(getContext(), "Please Fill up one field", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -139,7 +138,7 @@ public class Cashbox_Fragment extends Fragment {
 
         //calculation
         d1 = Integer.parseInt(dayend);
-        d2 =Integer.parseInt(withdrawal);
+        d2 = Integer.parseInt(withdrawal);
         d3 = Integer.parseInt(deposit);
 
         CashboxEntity cashboxEntity = new CashboxEntity(datetime, dayend, withdrawal, deposit);

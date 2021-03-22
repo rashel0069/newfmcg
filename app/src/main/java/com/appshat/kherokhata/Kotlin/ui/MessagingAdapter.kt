@@ -61,9 +61,8 @@ class MessagingAdapter : RecyclerView.Adapter<MessagingAdapter.MessageViewHolder
     }
 
 
-
     override fun getItemCount(): Int {
         return messagesList.size
     }
 
-    }
+}

@@ -15,18 +15,23 @@ public class InformationViewModel extends AndroidViewModel {
     private Databaseroom databaseroom;
 
     public InformationViewModel(@NonNull Application application) {
-        super( application );
+        super(application);
 
-        databaseroom = Databaseroom.getDatabaseroomref( application );
+        databaseroom = Databaseroom.getDatabaseroomref(application);
         informationDao = databaseroom.getInformationDao();
 
     }
 
-    public void insertInfo(InformationEntity informationEntity){
-        new InformationViewModel.InsertAsyncTask( informationDao ).execute( informationEntity );
+    public void insertInfo(InformationEntity informationEntity) {
+        new InformationViewModel.InsertAsyncTask(informationDao).execute(informationEntity);
     }
 
-   private class InsertAsyncTask extends AsyncTask<InformationEntity, Void,Void> {
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+    }
+
+    private class InsertAsyncTask extends AsyncTask<InformationEntity, Void, Void> {
 
         InformationDao mInformationDao;
 
@@ -36,13 +41,8 @@ public class InformationViewModel extends AndroidViewModel {
 
         @Override
         protected Void doInBackground(InformationEntity... informationEntities) {
-            mInformationDao.insert( informationEntities[0] );
+            mInformationDao.insert(informationEntities[0]);
             return null;
         }
-    }
-
-    @Override
-    protected void onCleared() {
-        super.onCleared();
     }
 }

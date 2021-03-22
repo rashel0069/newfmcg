@@ -123,8 +123,8 @@
                     android:id="@+id/forgotepassword_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="2dp"
                     android:layout_below="@id/f2"
+                    android:padding="2dp"
                     android:text="@string/forgot_password"
                     android:textColor="@color/red_700" />
 
@@ -170,8 +170,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
-                android:text="@string/registration"
                 android:clickable="true"
+                android:text="@string/registration"
                 android:textColor="@color/red_500"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -195,8 +195,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </ScrollView>

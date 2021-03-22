@@ -1,4 +1,5 @@
 package com.appshat.kherokhata.fragment;
+
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
@@ -11,12 +12,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -36,11 +31,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.appshat.kherokhata.AlarmReceiver;
 import com.appshat.kherokhata.Helper;
 import com.appshat.kherokhata.Localhelper;
 import com.appshat.kherokhata.R;
-
 import com.appshat.kherokhata.Room.DAO.NewtransactionDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
@@ -63,11 +62,12 @@ import static android.content.ContentValues.TAG;
 import static java.lang.Integer.parseInt;
 
 public class NewTransaction_Fragment extends Fragment {
+    static final int PICK_CONTACT = 1;
     Spinner accspinner, transspinner;
     EditText cnameET, cmblnumET, camountET;
-    TextView cnTV,cmTV,amTV,timedateTV,saveNewContact;
+    TextView cnTV, cmTV, amTV, timedateTV, saveNewContact;
     Button newtransBTN;
-    LinearLayout l1,l2;
+    LinearLayout l1, l2;
     ImageView phonecontactSelect;
     NewtransactionDao newtransactionDBdao;
     JsonPlaceHolderApi jsonPlaceHolderApi;
@@ -78,7 +78,6 @@ public class NewTransaction_Fragment extends Fragment {
     Databaseroom newtransactionDB;
     TransactionViewModel transactionViewModel;
     String accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate;
-    static final int PICK_CONTACT = 1;
     boolean purchase = false;
 
 
@@ -112,19 +111,19 @@ public class NewTransaction_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_new_transaction_, container, false);
         // Inflate the layout for this fragment
 
-        l1 = view.findViewById( R.id.layout_1 );
-        l2 = view.findViewById( R.id.linearLayout_2 );
+        l1 = view.findViewById(R.id.layout_1);
+        l2 = view.findViewById(R.id.linearLayout_2);
         accspinner = view.findViewById(R.id.newaccountspinner_id);
         transspinner = view.findViewById(R.id.newtransactionspinner_id);
         timedateTV = view.findViewById(R.id.dateTV_id);
         newtransBTN = view.findViewById(R.id.newtranssave_id);
-        amTV=view.findViewById(R.id.amountTV_id);
+        amTV = view.findViewById(R.id.amountTV_id);
         camountET = view.findViewById(R.id.amountET_id);
-        cmTV=view.findViewById(R.id.clientmobilenumberTV_id);
+        cmTV = view.findViewById(R.id.clientmobilenumberTV_id);
         cmblnumET = view.findViewById(R.id.clientmobilenumberET_id);
-        cnTV=view.findViewById(R.id.customernameTV_id);
+        cnTV = view.findViewById(R.id.customernameTV_id);
         cnameET = view.findViewById(R.id.customernameET_id);
-        saveNewContact = view.findViewById( R.id.saveContact_id );
+        saveNewContact = view.findViewById(R.id.saveContact_id);
         phonecontactSelect = view.findViewById(R.id.phoneContact_id);
 
         transactionViewModel = ViewModelProviders.of(getActivity()).get(TransactionViewModel.class);
@@ -136,14 +135,14 @@ public class NewTransaction_Fragment extends Fragment {
 
         //api call
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl( "http://103.239.253.160:3666/digi/fmcg/v1/" )
-                .addConverterFactory( GsonConverterFactory.create() )
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://103.239.253.160:3666/digi/fmcg/v1/")
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        jsonPlaceHolderApi = retrofit.create( JsonPlaceHolderApi.class );
+        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
         //
-        cmblnumET.addTextChangedListener( new TextWatcher() {
+        cmblnumET.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -151,8 +150,8 @@ public class NewTransaction_Fragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!TextUtils.isEmpty( cnameET.getText().toString()) && cmblnumET.getText().length() == 11 ){
-                    saveNewContact.setVisibility( View.VISIBLE );
+                if (!TextUtils.isEmpty(cnameET.getText().toString()) && cmblnumET.getText().length() == 11) {
+                    saveNewContact.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -160,44 +159,44 @@ public class NewTransaction_Fragment extends Fragment {
             public void afterTextChanged(Editable s) {
 
             }
-        } );
+        });
 
         //click save number
-        saveNewContact.setOnClickListener( new View.OnClickListener() {
+        saveNewContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty( cmblnumET.getText().toString().trim() )
-                        && !TextUtils.isEmpty( cnameET.getText().toString() )){
-                  Intent intent = new Intent(Intent.ACTION_INSERT);
-                  intent.setType( ContactsContract.RawContacts.CONTENT_TYPE );
-                  intent.putExtra( ContactsContract.Intents.Insert.NAME, cnameET.getText().toString() );
-                  intent.putExtra( ContactsContract.Intents.Insert.PHONE, cmblnumET.getText().toString() );
-                  if (intent.resolveActivity( getActivity().getPackageManager() ) != null){
-                      startActivity( intent );
-                  }
-                }else {
-                    Toast.makeText( context, "Give Phone Number and Name please", Toast.LENGTH_SHORT ).show();
+                if (!TextUtils.isEmpty(cmblnumET.getText().toString().trim())
+                        && !TextUtils.isEmpty(cnameET.getText().toString())) {
+                    Intent intent = new Intent(Intent.ACTION_INSERT);
+                    intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
+                    intent.putExtra(ContactsContract.Intents.Insert.NAME, cnameET.getText().toString());
+                    intent.putExtra(ContactsContract.Intents.Insert.PHONE, cmblnumET.getText().toString());
+                    if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                        startActivity(intent);
+                    }
+                } else {
+                    Toast.makeText(context, "Give Phone Number and Name please", Toast.LENGTH_SHORT).show();
                 }
             }
-        } );
+        });
 
         //language setter
-        if (!Helper.getBangla()){
+        if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(),"en");
+            context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
-          timedateTV.setHint(resources.getString(R.string.date));
-          cnTV.setText(resources.getString(R.string.customerName));
-          cnameET.setHint(resources.getString(R.string.customernamehint));
-          cmTV.setText(resources.getString(R.string.hint1));
-          cmblnumET.setHint(resources.getString(R.string.customernumberhint));
-          amTV.setText(resources.getString(R.string.amounts));
-          camountET.setHint(resources.getString(R.string.amounthint));
-          newtransBTN.setText(resources.getString(R.string.save));
+            timedateTV.setHint(resources.getString(R.string.date));
+            cnTV.setText(resources.getString(R.string.customerName));
+            cnameET.setHint(resources.getString(R.string.customernamehint));
+            cmTV.setText(resources.getString(R.string.hint1));
+            cmblnumET.setHint(resources.getString(R.string.customernumberhint));
+            amTV.setText(resources.getString(R.string.amounts));
+            camountET.setHint(resources.getString(R.string.amounthint));
+            newtransBTN.setText(resources.getString(R.string.save));
 
-        }else {
+        } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(),"bn");
+            context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
             timedateTV.setHint(resources.getString(R.string.date));
             cnTV.setText(resources.getString(R.string.customerName));
@@ -218,12 +217,12 @@ public class NewTransaction_Fragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 accounttype = parent.getSelectedItem().toString();
-                if(position == 1 ){
+                if (position == 1) {
                     String[] cas = getResources().getStringArray(R.array.trans3);
                     ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
                     transspinner.setAdapter(adapter);
                     purchase = false;
-                }else {
+                } else {
                     String[] cas = getResources().getStringArray(R.array.transactiontype);
                     ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
                     transspinner.setAdapter(adapter);
@@ -241,27 +240,27 @@ public class NewTransaction_Fragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 transactiontype = parent.getSelectedItem().toString();
-                if (purchase == true && position == 1){
-                    cmblnumET.setEnabled( false );
-                    cnameET.setEnabled( false );
-                    phonecontactSelect.setClickable( false );
-                    cnameET.setText( "No Need Customer Name" );
-                    cmblnumET.setText( "No Need Mobile Name" );
-                    l1.setVisibility( View.GONE );
-                    l2.setVisibility( View.GONE );
-                    timedateTV.setClickable( false );
-                    timedateTV.setText( currentdate );
+                if (purchase == true && position == 1) {
+                    cmblnumET.setEnabled(false);
+                    cnameET.setEnabled(false);
+                    phonecontactSelect.setClickable(false);
+                    cnameET.setText("No Need Customer Name");
+                    cmblnumET.setText("No Need Mobile Name");
+                    l1.setVisibility(View.GONE);
+                    l2.setVisibility(View.GONE);
+                    timedateTV.setClickable(false);
+                    timedateTV.setText(currentdate);
 
-                }else {
-                    cmblnumET.setEnabled( true );
-                    cnameET.setEnabled( true );
-                    phonecontactSelect.setClickable( true );
-                    cnameET.setText( "" );
-                    cmblnumET.setText( "" );
-                    l1.setVisibility( View.VISIBLE );
-                    l2.setVisibility( View.VISIBLE );
-                    timedateTV.setClickable( true );
-                    timedateTV.setText( "");
+                } else {
+                    cmblnumET.setEnabled(true);
+                    cnameET.setEnabled(true);
+                    phonecontactSelect.setClickable(true);
+                    cnameET.setText("");
+                    cmblnumET.setText("");
+                    l1.setVisibility(View.VISIBLE);
+                    l2.setVisibility(View.VISIBLE);
+                    timedateTV.setClickable(true);
+                    timedateTV.setText("");
                 }
             }
 
@@ -287,7 +286,7 @@ public class NewTransaction_Fragment extends Fragment {
                     clientmobile = cmblnumET.getText().toString().trim();
                     duedate = timedateTV.getText().toString();
                     clientamount = camountET.getText().toString().trim();
-                    TransactionEntity transactionEntity = new TransactionEntity( accounttype, transactiontype,clientname, clientmobile,
+                    TransactionEntity transactionEntity = new TransactionEntity(accounttype, transactiontype, clientname, clientmobile,
                             clientamount, duedate);
                     NewtransactionEntity newtransactionEntity = new NewtransactionEntity(accounttype,
                             transactiontype, clientname, clientmobile,
@@ -295,11 +294,11 @@ public class NewTransaction_Fragment extends Fragment {
 
                     transactionViewModel.intertTrans(newtransactionEntity);
 
-                    Call<TransactionEntity> call = jsonPlaceHolderApi.createPost( transactionEntity );
-                    call.enqueue( new Callback<TransactionEntity>() {
+                    Call<TransactionEntity> call = jsonPlaceHolderApi.createPost(transactionEntity);
+                    call.enqueue(new Callback<TransactionEntity>() {
                         @Override
                         public void onResponse(Call<TransactionEntity> call, Response<TransactionEntity> response) {
-                            if (!response.isSuccessful()){
+                            if (!response.isSuccessful()) {
                                 return;
                             }
                             //Toast.makeText( getContext(), "HTTP OK", Toast.LENGTH_LONG ).show();
@@ -309,7 +308,7 @@ public class NewTransaction_Fragment extends Fragment {
                         public void onFailure(Call<TransactionEntity> call, Throwable t) {
                             //Toast.makeText( getContext(), "HTTP Error", Toast.LENGTH_SHORT ).show();
                         }
-                    } );
+                    });
 
 
                     Home_Fragment fragment1 = new Home_Fragment();
@@ -350,7 +349,7 @@ public class NewTransaction_Fragment extends Fragment {
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month+1;
+                month = month + 1;
                 Log.d(TAG, "onDateSet: dd/mm/yyyy:  " + "/" + day + "/" + month + "/" + year);
                 String date = day + "/" + month + "/" + year;
                 String hour = getResources().getString(R.string.alerm_time_hour);

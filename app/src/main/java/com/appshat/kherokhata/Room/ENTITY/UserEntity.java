@@ -1,4 +1,5 @@
 package com.appshat.kherokhata.Room.ENTITY;
+
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -6,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 
 @Entity(tableName = "users")
-public class UserEntity  {
+public class UserEntity {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "userId")
     int id;
@@ -24,6 +25,7 @@ public class UserEntity  {
         this.mobile = mobile;
         this.password = password;
     }
+
     @NonNull
     public int getId() {
         return id;

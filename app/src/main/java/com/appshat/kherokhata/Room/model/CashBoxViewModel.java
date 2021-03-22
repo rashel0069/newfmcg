@@ -15,30 +15,39 @@ public class CashBoxViewModel extends AndroidViewModel {
     private Databaseroom databaseroom;
 
     public CashBoxViewModel(@NonNull Application application) {
-        super( application );
-        databaseroom = Databaseroom.getDatabaseroomref( application );
+        super(application);
+        databaseroom = Databaseroom.getDatabaseroomref(application);
         cashboxDao = databaseroom.getCashboxDao();
     }
-    public void updateOpening(CashboxEntity cashboxEntity){
+
+    public void updateOpening(CashboxEntity cashboxEntity) {
         new CashBoxViewModel.UpdateAsyncTask(cashboxDao).execute(cashboxEntity);
     }
-    private class UpdateAsyncTask extends AsyncTask<CashboxEntity, Void,Void>{
+
+    public void insertCashbox(CashboxEntity cashboxEntity) {
+        new CashBoxViewModel.InsertAsyncTask(cashboxDao).execute(cashboxEntity);
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+    }
+
+    private class UpdateAsyncTask extends AsyncTask<CashboxEntity, Void, Void> {
         CashboxDao mCashboxDao;
-        UpdateAsyncTask(CashboxDao cashboxDao){
+
+        UpdateAsyncTask(CashboxDao cashboxDao) {
             this.mCashboxDao = cashboxDao;
         }
+
         @Override
         protected Void doInBackground(CashboxEntity... cashboxEntities) {
-            mCashboxDao.update( cashboxEntities[0] );
+            mCashboxDao.update(cashboxEntities[0]);
             return null;
         }
     }
 
-    public void insertCashbox(CashboxEntity cashboxEntity){
-        new CashBoxViewModel.InsertAsyncTask(cashboxDao).execute(cashboxEntity);
-    }
-
-    private class InsertAsyncTask extends AsyncTask<CashboxEntity, Void,Void>{
+    private class InsertAsyncTask extends AsyncTask<CashboxEntity, Void, Void> {
         CashboxDao mCashboxDao;
 
         public InsertAsyncTask(CashboxDao mCashboxDao) {
@@ -47,12 +56,8 @@ public class CashBoxViewModel extends AndroidViewModel {
 
         @Override
         protected Void doInBackground(CashboxEntity... cashboxEntities) {
-            mCashboxDao.insert( cashboxEntities[0] );
+            mCashboxDao.insert(cashboxEntities[0]);
             return null;
         }
-    }
-    @Override
-    protected void onCleared() {
-        super.onCleared();
     }
 }

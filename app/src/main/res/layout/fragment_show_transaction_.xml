@@ -1,152 +1,158 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context="com.appshat.kherokhata.fragment.ShowTransaction_Fragment">
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-       <LinearLayout
-           android:visibility="gone"
-           android:id="@+id/linearLayout25"
-           android:weightSum="4"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           android:padding="8dp"
-           tools:ignore="MissingConstraints">
 
-           <EditText
-               android:layout_gravity="center"
-               android:id="@+id/smblET_id"
-               android:layout_weight="1"
-               android:layout_width="match_parent"
-               android:layout_height="45dp"
-               android:background="@drawable/edittext_background"
-               android:hint="@string/scontacthint"
-               android:inputType="textPhonetic"
-               android:paddingLeft="8dp"
-               android:textSize="16sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-           <LinearLayout
-               android:layout_weight="3"
-               android:weightSum="2"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content">
-               <ImageButton
-                   android:layout_gravity="center"
-                   android:id="@+id/phonebook_id"
-                   android:layout_weight="1"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_marginLeft="8dp"
-                   android:padding="8dp"
+        <LinearLayout
+            android:id="@+id/linearLayout25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:weightSum="4"
+            tools:ignore="MissingConstraints">
 
-                   android:background="@color/white"
-                   android:src="@drawable/ic_baseline_contact_phone_24"
-                   android:text="@string/search"
-                   android:textAllCaps="false" />
-               <ImageButton
-                   android:layout_gravity="center"
-                   android:id="@+id/searchBtn_id"
-                   android:layout_weight="1"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_marginLeft="8dp"
-                   android:padding="8dp"
-                   android:scaleType="centerInside"
-                   android:background="@color/white"
-                   android:src="@drawable/search"
-                   android:text="@string/search"
-                   android:textAllCaps="false" />
+            <EditText
+                android:id="@+id/smblET_id"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:hint="@string/scontacthint"
+                android:inputType="textPhonetic"
+                android:paddingLeft="8dp"
+                android:textSize="16sp" />
 
-           </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:weightSum="2">
 
-       </LinearLayout>
+                <ImageButton
+                    android:id="@+id/phonebook_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
 
-       <HorizontalScrollView
-           android:id="@+id/linearLayout26"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:orientation="horizontal"
-               android:padding="8dp"
-               android:weightSum="4">
-               <Button
-                   android:id="@+id/allBtn_id"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:singleLine="true"
-                   android:text="@string/alltrans"
-                   android:textAllCaps="false" />
+                    android:padding="8dp"
+                    android:src="@drawable/ic_baseline_contact_phone_24"
+                    android:text="@string/search"
+                    android:textAllCaps="false" />
 
-               <Button
-                   android:id="@+id/transallBtn_id"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_weight="1"
-                   android:layout_marginStart="8dp"
-                   android:singleLine="true"
-                   android:text="@string/todaytrans"
-                   android:textAllCaps="false" />
+                <ImageButton
+                    android:id="@+id/searchBtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/search"
+                    android:text="@string/search"
+                    android:textAllCaps="false" />
 
-               <Button
-                   android:id="@+id/expBtn_id"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_marginStart="8dp"
-                   android:layout_weight="1"
-                   android:text="@string/expense"
-                   android:textAllCaps="false" />
+            </LinearLayout>
 
-               <Button
-                   android:id="@+id/payrecBtn_id"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_marginStart="8dp"
-                   android:layout_weight="1"
-                   android:singleLine="true"
-                   android:text="@string/payrec"
-                   android:textAllCaps="false" />
+        </LinearLayout>
 
-           </LinearLayout>
-       </HorizontalScrollView>
+        <HorizontalScrollView
+            android:id="@+id/linearLayout26"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-       <LinearLayout
-           android:id="@+id/la2"
-           android:layout_below="@+id/linearLayout26"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content">
-           <SearchView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:queryHint="Search Here"
-               android:iconifiedByDefault="false"
-               android:layout_alignParentTop="true"
-               android:background="@color/white"
-               android:queryBackground="@color/white"
-               android:id="@+id/search_view"/>
-       </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:weightSum="4">
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_below="@+id/la2">
+                <Button
+                    android:id="@+id/allBtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="@string/alltrans"
+                    android:textAllCaps="false" />
 
-           <androidx.recyclerview.widget.RecyclerView
-               android:id="@+id/rv_id"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:background="@color/red_500"
-               android:padding="8dp" />
-       </LinearLayout>
-   </RelativeLayout>
+                <Button
+                    android:id="@+id/transallBtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="@string/todaytrans"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/expBtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/expense"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/payrecBtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:singleLine="true"
+                    android:text="@string/payrec"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:id="@+id/la2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout26">
+
+            <SearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@color/white"
+                android:iconifiedByDefault="false"
+                android:queryBackground="@color/white"
+                android:queryHint="Search Here" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/la2">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/red_500"
+                android:padding="8dp" />
+        </LinearLayout>
+    </RelativeLayout>
 
 
 </FrameLayout>

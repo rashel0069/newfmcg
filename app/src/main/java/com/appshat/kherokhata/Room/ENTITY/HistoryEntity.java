@@ -30,7 +30,7 @@ public class HistoryEntity {
     @ColumnInfo(name = "todaydate")
     String todaydate;
 
-    public HistoryEntity( String id, String openingammount, String dayendbalance,
+    public HistoryEntity(String id, String openingammount, String dayendbalance,
                          String expense, String cashpurchase, String creditpurchase,
                          String cashsales, String creditsales, String totalsales, String todaydate) {
         this.id = id;

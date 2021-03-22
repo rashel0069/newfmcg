@@ -14,7 +14,7 @@ import java.util.List;
 @Dao
 public interface UserDao {
 
-    @Query( "SELECT * FROM users WHERE mobile = :mobile and password = :password")
+    @Query("SELECT * FROM users WHERE mobile = :mobile and password = :password")
     UserEntity getUserEntity(String mobile, String password);
 
     @Insert
@@ -26,7 +26,7 @@ public interface UserDao {
     @Delete
     void delete(UserEntity userEntity);
 
-    @Query( "SELECT * FROM users" )
+    @Query("SELECT * FROM users")
     LiveData<List<UserEntity>> findAllUser();
 
 

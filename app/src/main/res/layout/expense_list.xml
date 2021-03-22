@@ -9,111 +9,121 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <LinearLayout
-                android:layout_marginTop="5dp"
-                android:weightSum="2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:weightSum="2">
 
                 <TextView
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Date: "
                     android:textAlignment="textEnd"
                     android:textColor="@color/red_700"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="Date: "/>
+                    android:textStyle="bold" />
+
                 <TextView
-                    android:layout_marginLeft="5dp"
                     android:id="@+id/ex_data_id"
-                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:hint="02-02-2021"
                     android:textAlignment="textStart"
-                    android:hint="02-02-2021"/>
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_margin="4dp"
                 android:background="@color/red_700" />
+
             <LinearLayout
-                android:layout_marginTop="5dp"
-                android:weightSum="3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:weightSum="3">
 
                 <TextView
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/rent"
                     android:textAlignment="center"
                     android:textColor="@color/red_700"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="@string/rent"/>
+                    android:textStyle="bold" />
+
                 <TextView
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/salary"
                     android:textAlignment="center"
                     android:textColor="@color/red_700"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="@string/salary"/>
+                    android:textStyle="bold" />
+
                 <TextView
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/others"
                     android:textAlignment="center"
                     android:textColor="@color/red_700"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="@string/others"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
+
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:weightSum="3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:weightSum="3">
 
                 <TextView
                     android:id="@+id/ex_rent_id"
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="0.0"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:hint="0.0"/>
+                    android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/ex_salary_id"
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:hint="0.0"
                     android:textAlignment="center"
-                    android:hint="0.0"/>
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/ex_other_id"
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:hint="0.0"
                     android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:hint="0.0"/>
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 

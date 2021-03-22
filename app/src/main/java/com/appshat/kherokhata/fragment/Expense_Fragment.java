@@ -3,11 +3,6 @@ package com.appshat.kherokhata.fragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.appshat.kherokhata.Helper;
 import com.appshat.kherokhata.Localhelper;
@@ -43,6 +42,7 @@ public class Expense_Fragment extends Fragment {
     String rent, salary, others;
     AdView mLogAdview;
     InterstitialAd interstitialAd;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class Expense_Fragment extends Fragment {
         oe = view.findViewById(R.id.otherTV_id);
         otherET = view.findViewById(R.id.othersET_id);
         expensesaveBtn = view.findViewById(R.id.expensesaveBtn_id);
-     //   mLogAdview=view.findViewById(R.id.expenseView_id);
+        //   mLogAdview=view.findViewById(R.id.expenseView_id);
 
         //banner ad
 //        MobileAds.initialize( getActivity(),"ca-app-pub-3940256099942544~3347511713" );
@@ -83,11 +83,10 @@ public class Expense_Fragment extends Fragment {
 //        } );
 
 
-
         //language setter
-        if (!Helper.getBangla()){
+        if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(),"en");
+            context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
             expensetitle.setText(resources.getString(R.string.expensetransaction));
             rentET.setHint(resources.getString(R.string.renthint));
@@ -99,7 +98,7 @@ public class Expense_Fragment extends Fragment {
             expensesaveBtn.setText(resources.getString(R.string.save));
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(),"bn");
+            context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
             expensetitle.setText(resources.getString(R.string.expensetransaction));
             rentET.setHint(resources.getString(R.string.renthint));

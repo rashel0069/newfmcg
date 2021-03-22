@@ -10,7 +10,7 @@ public class InformationEntity {
 
     @PrimaryKey
     @NonNull
-     @ColumnInfo(name = "usermobile")
+    @ColumnInfo(name = "usermobile")
     String mobilenumber;
     @NonNull
     @ColumnInfo(name = "shopname")

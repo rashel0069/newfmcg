@@ -1,12 +1,12 @@
 package com.appshat.kherokhata;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class Broadcast_Activity extends AppCompatActivity {
-    TextView tv1,tv2;
+    TextView tv1, tv2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -19,50 +19,51 @@ public class PayReceiveListAdapter extends RecyclerView.Adapter<PayReceiveListAd
     @NonNull
     @Override
     public PayReciveViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from( parent.getContext() ).inflate( R.layout.showdata_list,parent,false );
-        PayReciveViewHolder viewHolder = new PayReciveViewHolder( itemView );
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.showdata_list, parent, false);
+        PayReciveViewHolder viewHolder = new PayReciveViewHolder(itemView);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull PayReciveViewHolder holder, int position) {
-        if (mPayRecive != null){
-            AdjustEntity adjustEntity = mPayRecive.get( position );
-            holder.dataName.setText( adjustEntity.getClientname() );
-            holder.dataMobile.setText( adjustEntity.getClientmobile() );
-            holder.dataAcetype.setText( adjustEntity.getAccounttype() );
-            holder.dataTranType.setText( adjustEntity.getTransactiontype() );
-            holder.dataAmoyunt.setText( adjustEntity.getClientamount() );
-            holder.dataDate.setText( adjustEntity.getCurrentdate() );
+        if (mPayRecive != null) {
+            AdjustEntity adjustEntity = mPayRecive.get(position);
+            holder.dataName.setText(adjustEntity.getClientname());
+            holder.dataMobile.setText(adjustEntity.getClientmobile());
+            holder.dataAcetype.setText(adjustEntity.getAccounttype());
+            holder.dataTranType.setText(adjustEntity.getTransactiontype());
+            holder.dataAmoyunt.setText(adjustEntity.getClientamount());
+            holder.dataDate.setText(adjustEntity.getCurrentdate());
         }
     }
 
     @Override
     public int getItemCount() {
-        if (mPayRecive != null){
+        if (mPayRecive != null) {
             return mPayRecive.size();
-        }else {
+        } else {
             return 0;
         }
     }
 
-
-    public class PayReciveViewHolder extends RecyclerView.ViewHolder{
-        private TextView dataName,dataMobile,dataTranType,dataAcetype,dataAmoyunt,dataDate;
-        public PayReciveViewHolder(@NonNull View itemView) {
-            super( itemView );
-            dataName = itemView.findViewById( R.id.namedata_id );
-            dataMobile = itemView.findViewById( R.id.mbldata_id );
-            dataAcetype = itemView.findViewById( R.id.salesdata_id );
-            dataTranType = itemView.findViewById( R.id.cashdata_id );
-            dataAmoyunt = itemView.findViewById( R.id.amountdata_id );
-            dataDate = itemView.findViewById( R.id.date_data_Id );
-
-        }
-    }
-    public void setPayRecv(List<AdjustEntity> adjustEntities){
+    public void setPayRecv(List<AdjustEntity> adjustEntities) {
         this.mPayRecive = adjustEntities;
         notifyDataSetChanged();
+    }
+
+    public class PayReciveViewHolder extends RecyclerView.ViewHolder {
+        private TextView dataName, dataMobile, dataTranType, dataAcetype, dataAmoyunt, dataDate;
+
+        public PayReciveViewHolder(@NonNull View itemView) {
+            super(itemView);
+            dataName = itemView.findViewById(R.id.namedata_id);
+            dataMobile = itemView.findViewById(R.id.mbldata_id);
+            dataAcetype = itemView.findViewById(R.id.salesdata_id);
+            dataTranType = itemView.findViewById(R.id.cashdata_id);
+            dataAmoyunt = itemView.findViewById(R.id.amountdata_id);
+            dataDate = itemView.findViewById(R.id.date_data_Id);
+
+        }
     }
 
 }

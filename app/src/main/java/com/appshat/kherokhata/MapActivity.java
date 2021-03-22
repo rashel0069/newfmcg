@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
 public class MapActivity extends AppCompatActivity implements LocationListener {
 
     TextView countryn, tvCountry, cityn, tvCity, postalcoden, tvPostalCode, addressn, tvAddress;
@@ -104,7 +105,7 @@ public class MapActivity extends AppCompatActivity implements LocationListener {
     }
 
     private void grantPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!=
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=
                 PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(),
                 Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 

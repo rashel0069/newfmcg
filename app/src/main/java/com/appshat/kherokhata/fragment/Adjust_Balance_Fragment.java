@@ -8,12 +8,6 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
@@ -29,6 +23,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.appshat.kherokhata.Helper;
 import com.appshat.kherokhata.Localhelper;
 import com.appshat.kherokhata.R;
@@ -41,13 +40,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import static java.lang.Integer.parseInt;
-
 public class Adjust_Balance_Fragment extends Fragment {
 
+    static final int PICK_CONTACT = 1;
     Spinner accountspinner, transactionspinner;
     EditText adjustamountET, clientmobileET;
-    TextView clientnameTV,cmblTV,duepaydateTV, drpTV, clientnameET, amountTV;
+    TextView clientnameTV, cmblTV, duepaydateTV, drpTV, clientnameET, amountTV;
     Button adjustsaveBtn;
     Context context;
     Resources resources;
@@ -59,7 +57,6 @@ public class Adjust_Balance_Fragment extends Fragment {
     String accounttype, transactiontype, clientname, clientmobile, clientamount, date;
     AdjustViewModel adjustViewModel;
     ImageView phoneContact;
-    static final int PICK_CONTACT = 1;
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -92,14 +89,14 @@ public class Adjust_Balance_Fragment extends Fragment {
         accountspinner = view.findViewById(R.id.balancetypespinner_id);
         transactionspinner = view.findViewById(R.id.transitiontypespinner_id);
         adjustamountET = view.findViewById(R.id.adjustamountET_id);
-        clientnameTV=view.findViewById(R.id.clientnameTV_id);
+        clientnameTV = view.findViewById(R.id.clientnameTV_id);
         clientnameET = view.findViewById(R.id.clientname_id);
-        cmblTV=view.findViewById(R.id.clientmblTV_id);
+        cmblTV = view.findViewById(R.id.clientmblTV_id);
         clientmobileET = view.findViewById(R.id.cmblTV_id);
         duepaydateTV = view.findViewById(R.id.currentdateTV_id);
         drpTV = view.findViewById(R.id.drpTV_id);
         adjustsaveBtn = view.findViewById(R.id.adjustsaveBtn_id);
-       // amountTV = view.findViewById(R.id.amountsTV_id);
+        // amountTV = view.findViewById(R.id.amountsTV_id);
         phoneContact = view.findViewById(R.id.phoneContact_id2);
 
         //aspinner
@@ -107,15 +104,15 @@ public class Adjust_Balance_Fragment extends Fragment {
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
         accountspinner.setAdapter(adapter);
 
-        String[] cas2 = getResources().getStringArray( R.array.trans2 );
-        ArrayAdapter adapter1 = new ArrayAdapter( getContext(),R.layout.myarrylistsample,cas2 );
-        transactionspinner.setAdapter( adapter1 );
+        String[] cas2 = getResources().getStringArray(R.array.trans2);
+        ArrayAdapter adapter1 = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas2);
+        transactionspinner.setAdapter(adapter1);
 
         //database
         adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
         //Date time
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-        duepaydateTV.setText( currentdate );
+        duepaydateTV.setText(currentdate);
         phoneContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,9 +124,9 @@ public class Adjust_Balance_Fragment extends Fragment {
         });
 
 //language setter
-        if (!Helper.getBangla()){
+        if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(),"en");
+            context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
             drpTV.setText(resources.getString(R.string.adjust));
             clientnameTV.setText(resources.getString(R.string.customerName));
@@ -139,10 +136,9 @@ public class Adjust_Balance_Fragment extends Fragment {
             adjustsaveBtn.setText(resources.getString(R.string.save));
 
 
-
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(),"bn");
+            context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
             drpTV.setText(resources.getString(R.string.adjust));
             clientnameTV.setText(resources.getString(R.string.customerName));

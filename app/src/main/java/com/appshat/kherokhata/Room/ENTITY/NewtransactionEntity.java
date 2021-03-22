@@ -7,18 +7,15 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "newtransaction")
 public class NewtransactionEntity {
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "userId")
-    int id;
-
     @ColumnInfo(name = "accoounttype")
     public
     String accounttype;
-
     @ColumnInfo(name = "transactiontype")
     public
     String transactiontype;
-
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "userId")
+    int id;
     @ColumnInfo(name = "clientname")
     String clientname;
 

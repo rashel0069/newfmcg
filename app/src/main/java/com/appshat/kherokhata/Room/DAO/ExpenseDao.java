@@ -23,10 +23,10 @@ public interface ExpenseDao {
     @Delete
     void delete(ExpenseEntity expenseEntity);
 
-    @Query( "SELECT * FROM expense WHERE currentdate LIKE :expenseDate" )
+    @Query("SELECT * FROM expense WHERE currentdate LIKE :expenseDate")
     List<ExpenseEntity> getExpense(String expenseDate);
 
-    @Query( "SELECT * FROM expense" )
+    @Query("SELECT * FROM expense")
     LiveData<List<ExpenseEntity>> getallExpence();
 
 }

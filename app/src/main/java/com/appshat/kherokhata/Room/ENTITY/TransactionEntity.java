@@ -2,7 +2,7 @@ package com.appshat.kherokhata.Room.ENTITY;
 
 public class TransactionEntity {
     Integer id;
-   private String account_type,tran_type,customer_name,customer_number,amount,due_date;
+    private String account_type, tran_type, customer_name, customer_number, amount, due_date;
 
     public TransactionEntity(String account_type, String tran_type, String customer_name, String customer_number, String amount, String due_date) {
         this.account_type = account_type;

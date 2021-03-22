@@ -1,8 +1,5 @@
 package com.appshat.kherokhata;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -14,6 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.appshat.kherokhata.Room.DAO.UserDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.UserEntity;
@@ -22,14 +22,14 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class RegActivity extends AppCompatActivity {
-    TextInputEditText reg_Mobile,reg_password,reg_ConfirmPassword;
+    TextInputEditText reg_Mobile, reg_password, reg_ConfirmPassword;
     TextInputLayout reg_Tv1, reg_Tv2, reg_Tv3;
-    TextView reg_now,registered_user;
+    TextView reg_now, registered_user;
     Button confirmButton;
     TextView loginPage;
     UserDao userDBdao;
     Databaseroom userDB;
-    String mobile, password,confirmpass;
+    String mobile, password, confirmpass;
     UserViewModel userViewModel;
     Context context;
     Resources resources;
@@ -51,9 +51,9 @@ public class RegActivity extends AppCompatActivity {
         loginPage = findViewById(R.id.reg_login);
 
 //language setter
-        if (!Helper.getBangla()){
+        if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(RegActivity.this,"en");
+            context = Localhelper.setLocale(RegActivity.this, "en");
             resources = context.getResources();
             reg_now.setText(resources.getString(R.string.registration_now));
             confirmButton.setText(resources.getString(R.string.confirm));
@@ -64,9 +64,9 @@ public class RegActivity extends AppCompatActivity {
             loginPage.setText(resources.getString(R.string.login));
 
 
-        }else {
+        } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(RegActivity.this,"bn");
+            context = Localhelper.setLocale(RegActivity.this, "bn");
             resources = context.getResources();
             reg_now.setText(resources.getString(R.string.registration_now));
             confirmButton.setText(resources.getString(R.string.confirm));
@@ -78,7 +78,6 @@ public class RegActivity extends AppCompatActivity {
 
 
         }
-
 
 
         //Database
@@ -102,37 +101,37 @@ public class RegActivity extends AppCompatActivity {
                 mobile = reg_Mobile.getText().toString().trim();
                 password = reg_password.getText().toString().trim();
                 confirmpass = reg_ConfirmPassword.getText().toString().trim();
-                if (!TextUtils.isEmpty( reg_Mobile.getText().toString().trim() ) && !TextUtils.isEmpty( reg_password.getText().toString() )
-                        && !TextUtils.isEmpty( reg_ConfirmPassword.getText().toString() )){
+                if (!TextUtils.isEmpty(reg_Mobile.getText().toString().trim()) && !TextUtils.isEmpty(reg_password.getText().toString())
+                        && !TextUtils.isEmpty(reg_ConfirmPassword.getText().toString())) {
 
-                    if ((reg_Mobile.getText().toString().contains( "016") || reg_Mobile.getText().toString().contains( "017")
-                            || reg_Mobile.getText().toString().contains( "018") || reg_Mobile.getText().toString().contains( "015")
-                            || reg_Mobile.getText().toString().contains( "014") || reg_Mobile.getText().toString().contains( "013")
-                            || reg_Mobile.getText().toString().contains( "019")) && reg_Mobile.getText().toString().length() == 11){
-                        if (reg_password.getText().toString().contains(reg_ConfirmPassword.getText().toString())){
+                    if ((reg_Mobile.getText().toString().contains("016") || reg_Mobile.getText().toString().contains("017")
+                            || reg_Mobile.getText().toString().contains("018") || reg_Mobile.getText().toString().contains("015")
+                            || reg_Mobile.getText().toString().contains("014") || reg_Mobile.getText().toString().contains("013")
+                            || reg_Mobile.getText().toString().contains("019")) && reg_Mobile.getText().toString().length() == 11) {
+                        if (reg_password.getText().toString().contains(reg_ConfirmPassword.getText().toString())) {
                             if (mobile != null && password != null) {
                                 UserEntity userEntity = new UserEntity(mobile, password);
                                 userViewModel.insertUser(userEntity);
-                                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                                 finish();
                                 Toast.makeText(RegActivity.this, "Registration Done", Toast.LENGTH_SHORT).show();
                             } else {
                                 Toast.makeText(RegActivity.this, "Mobile and Password field is empty", Toast.LENGTH_SHORT).show();
                             }
-                        }else {
-                            Toast.makeText( getApplicationContext(), "Password Not Match", Toast.LENGTH_SHORT ).show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Password Not Match", Toast.LENGTH_SHORT).show();
                         }
-                    }else if(!TextUtils.isEmpty( reg_Mobile.getText().toString().trim() )
-                            && TextUtils.isEmpty( reg_password.getText().toString() ) ){
-                        reg_password.setError( "Enter Password" );
-                    }else if(TextUtils.isEmpty( reg_Mobile.getText().toString().trim() )
-                            && !TextUtils.isEmpty( reg_password.getText().toString() ) ){
-                        reg_Mobile.setError( "Enter Mobile number" );
-                    }else {
-                        reg_Mobile.setError( "Enter Mobile number" );
+                    } else if (!TextUtils.isEmpty(reg_Mobile.getText().toString().trim())
+                            && TextUtils.isEmpty(reg_password.getText().toString())) {
+                        reg_password.setError("Enter Password");
+                    } else if (TextUtils.isEmpty(reg_Mobile.getText().toString().trim())
+                            && !TextUtils.isEmpty(reg_password.getText().toString())) {
+                        reg_Mobile.setError("Enter Mobile number");
+                    } else {
+                        reg_Mobile.setError("Enter Mobile number");
                     }
-                }else {
+                } else {
                     Toast.makeText(RegActivity.this, "Mobile Number and Password required", Toast.LENGTH_SHORT).show();
                 }
             }

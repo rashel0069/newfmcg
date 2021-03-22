@@ -3,13 +3,6 @@ package com.appshat.kherokhata.fragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SearchView;
+
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.appshat.kherokhata.Helper;
 import com.appshat.kherokhata.Localhelper;
@@ -39,8 +38,8 @@ import java.util.List;
 public class ShowTransaction_Fragment extends Fragment {
     EditText searchmbl;
     SearchView search;
-    Button transallBtn,expBtn,recpayBtn, allTrans;
-    ImageButton searchBtn,contractBtn;
+    Button transallBtn, expBtn, recpayBtn, allTrans;
+    ImageButton searchBtn, contractBtn;
     RecyclerView recyclerView;
     TransactionListAdapter transactionListAdapter;
     ExpenceListAdapter expenceListAdapter;
@@ -65,18 +64,18 @@ public class ShowTransaction_Fragment extends Fragment {
         recyclerView = view.findViewById(R.id.rv_id);
         expBtn = view.findViewById(R.id.expBtn_id);
         recpayBtn = view.findViewById(R.id.payrecBtn_id);
-        search = view.findViewById( R.id.search_view );
-        recyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ) );
-        recyclerView.setHasFixedSize( true );
-        recyclerView.setNestedScrollingEnabled( false );
+        search = view.findViewById(R.id.search_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
 
-        transactionViewModel = ViewModelProviders.of( this ).get( TransactionViewModel.class );
-        expenseViewModel = ViewModelProviders.of( this ).get( ExpenseViewModel.class );
-        payeceiveViewModel = ViewModelProviders.of( this ).get( AdjustViewModel.class );
+        transactionViewModel = ViewModelProviders.of(this).get(TransactionViewModel.class);
+        expenseViewModel = ViewModelProviders.of(this).get(ExpenseViewModel.class);
+        payeceiveViewModel = ViewModelProviders.of(this).get(AdjustViewModel.class);
 
-        if (!Helper.getBangla()){
+        if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(),"en");
+            context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
             searchmbl.setHint(resources.getString(R.string.scontacthint));
             transallBtn.setText(resources.getString(R.string.todaytrans));
@@ -86,7 +85,7 @@ public class ShowTransaction_Fragment extends Fragment {
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(),"bn");
+            context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
             searchmbl.setHint(resources.getString(R.string.scontacthint));
             transallBtn.setText(resources.getString(R.string.todaytrans));
@@ -95,7 +94,7 @@ public class ShowTransaction_Fragment extends Fragment {
             allTrans.setText(resources.getString(R.string.alltrans));
         }
 
-        search.setOnQueryTextListener( new SearchView.OnQueryTextListener() {
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return false;
@@ -103,10 +102,10 @@ public class ShowTransaction_Fragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                transactionListAdapter.getFilter().filter( newText );
+                transactionListAdapter.getFilter().filter(newText);
                 return false;
             }
-        } );
+        });
 //        searchmbl.addTextChangedListener( new TextWatcher() {
 //            @Override
 //            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -129,41 +128,41 @@ public class ShowTransaction_Fragment extends Fragment {
         //show all
         showAll();
         // today transactions
-        transallBtn.setOnClickListener( new View.OnClickListener() {
+        transallBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transactionViewModel.getmTodayTrans().observe( getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
+                transactionViewModel.getmTodayTrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
                     @Override
                     public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
-                        transactionListAdapter.setTrans( newtransactionEntities );
+                        transactionListAdapter.setTrans(newtransactionEntities);
                     }
-                } );
+                });
             }
-        } );
-        expBtn.setOnClickListener( new View.OnClickListener() {
+        });
+        expBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 expenceListAdapter = new ExpenceListAdapter();
-                recyclerView.setAdapter( expenceListAdapter );
+                recyclerView.setAdapter(expenceListAdapter);
                 showExpence();
             }
-        } );
+        });
 
-        recpayBtn.setOnClickListener( new View.OnClickListener() {
+        recpayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showPayrecive();
             }
-        } );
+        });
 
         //All transaction
-        allTrans.setOnClickListener( new View.OnClickListener() {
+        allTrans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAll();
             }
-        } );
+        });
 
         return view;
 
@@ -171,37 +170,37 @@ public class ShowTransaction_Fragment extends Fragment {
 
 
     //show pay recive
-    private void showPayrecive(){
+    private void showPayrecive() {
 
-        payeceiveViewModel.getAllAdjust().observe( getViewLifecycleOwner(), new Observer<List<AdjustEntity>>() {
+        payeceiveViewModel.getAllAdjust().observe(getViewLifecycleOwner(), new Observer<List<AdjustEntity>>() {
             @Override
             public void onChanged(List<AdjustEntity> adjustEntities) {
-                payReceiveListAdapter.setPayRecv( adjustEntities );
+                payReceiveListAdapter.setPayRecv(adjustEntities);
             }
-        } );
+        });
         payReceiveListAdapter = new PayReceiveListAdapter();
-        recyclerView.setAdapter( payReceiveListAdapter );
+        recyclerView.setAdapter(payReceiveListAdapter);
     }
 
-    private void showAll(){
+    private void showAll() {
         mTransactionList = new ArrayList<>();
         transactionListAdapter = new TransactionListAdapter(mTransactionList);
-        recyclerView.setAdapter( transactionListAdapter );
-        transactionViewModel.getmAllTrans().observe( getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
+        recyclerView.setAdapter(transactionListAdapter);
+        transactionViewModel.getmAllTrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
             @Override
             public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
-               transactionListAdapter.setTrans( newtransactionEntities );
+                transactionListAdapter.setTrans(newtransactionEntities);
             }
-        } );
-        recyclerView.setAdapter( transactionListAdapter );
+        });
+        recyclerView.setAdapter(transactionListAdapter);
     }
 
-    private void showExpence(){
-        expenseViewModel.getmAllExpence().observe( getViewLifecycleOwner(), new Observer<List<ExpenseEntity>>() {
+    private void showExpence() {
+        expenseViewModel.getmAllExpence().observe(getViewLifecycleOwner(), new Observer<List<ExpenseEntity>>() {
             @Override
             public void onChanged(List<ExpenseEntity> expenseEntities) {
-                expenceListAdapter.setExpance( expenseEntities );
+                expenceListAdapter.setExpance(expenseEntities);
             }
-        } );
+        });
     }
 }

@@ -8,36 +8,38 @@ import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 
 public class MyNotificationManager {
-    private Context mctx;
     private static MyNotificationManager mInstance;
+    private Context mctx;
 
-    private MyNotificationManager(Context context){
+    private MyNotificationManager(Context context) {
 
         mctx = context;
     }
-    public static synchronized MyNotificationManager getInstance(Context context){
 
-        if (mInstance == null){
+    public static synchronized MyNotificationManager getInstance(Context context) {
+
+        if (mInstance == null) {
             mInstance = new MyNotificationManager(context);
 
         }
-        return  mInstance;
+        return mInstance;
     }
-    public void displayNotification(String title, String body){
 
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mctx,Constants.CHANNEL_ID)
+    public void displayNotification(String title, String body) {
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mctx, Constants.CHANNEL_ID)
                 .setSmallIcon(R.drawable.icon)
                 .setContentTitle(title)
                 .setContentText(body);
 
-        Intent intent = new Intent(mctx,MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(mctx,0,intent,
+        Intent intent = new Intent(mctx, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(mctx, 0, intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
-              mBuilder.setContentIntent(pendingIntent);
+        mBuilder.setContentIntent(pendingIntent);
         NotificationManager mNotificationManager = (NotificationManager) mctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if (mNotificationManager != null){
-            mNotificationManager.notify(1,mBuilder.build());
+        if (mNotificationManager != null) {
+            mNotificationManager.notify(1, mBuilder.build());
         }
 
     }

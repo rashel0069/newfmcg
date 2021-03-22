@@ -12,7 +12,7 @@ import retrofit2.http.Query;
 
 public interface JsonPlaceHolderApi {
     @GET("transaction")
-    Call<List<TransactionEntity>> getPostes(@Query( "customer_number" ) String mobile);
+    Call<List<TransactionEntity>> getPostes(@Query("customer_number") String mobile);
 
     @POST("transaction")
     Call<TransactionEntity> createPost(@Body TransactionEntity transactionEntity);

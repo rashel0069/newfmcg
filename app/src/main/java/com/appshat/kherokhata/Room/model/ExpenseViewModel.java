@@ -2,6 +2,7 @@ package com.appshat.kherokhata.Room.model;
 
 import android.app.Application;
 import android.os.AsyncTask;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -19,32 +20,37 @@ public class ExpenseViewModel extends AndroidViewModel {
 
 
     public ExpenseViewModel(@NonNull Application application) {
-        super( application );
+        super(application);
 
-        databaseroom = Databaseroom.getDatabaseroomref( application );
+        databaseroom = Databaseroom.getDatabaseroomref(application);
         expenseDao = databaseroom.getExpenseDao();
         mAllExpence = expenseDao.getallExpence();
     }
-    public void insertExpense(ExpenseEntity expenseEntity){
+
+    public void insertExpense(ExpenseEntity expenseEntity) {
         new ExpenseViewModel.InsertAsyncTask(expenseDao).execute(expenseEntity);
     }
-    private class InsertAsyncTask extends AsyncTask<ExpenseEntity, Void,Void>{
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+    }
+
+    public LiveData<List<ExpenseEntity>> getmAllExpence() {
+        return mAllExpence;
+    }
+
+    private class InsertAsyncTask extends AsyncTask<ExpenseEntity, Void, Void> {
         ExpenseDao mExpenseDao;
+
         public InsertAsyncTask(ExpenseDao mExpenseDao) {
             this.mExpenseDao = mExpenseDao;
         }
 
         @Override
         protected Void doInBackground(ExpenseEntity... expenseEntities) {
-            mExpenseDao.insert( expenseEntities[0] );
+            mExpenseDao.insert(expenseEntities[0]);
             return null;
         }
-    }
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-    }
-    public LiveData<List<ExpenseEntity>> getmAllExpence(){
-        return mAllExpence;
     }
 }

@@ -6,12 +6,13 @@ import android.graphics.BitmapFactory;
 import java.io.ByteArrayOutputStream;
 
 public class DataConverter {
-    public static byte[] convertImageToByteArray(Bitmap bitmap){
+    public static byte[] convertImageToByteArray(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress( Bitmap.CompressFormat.JPEG,100,stream );
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         return stream.toByteArray();
     }
-    public static Bitmap convertByteArrayToImage(byte[] array){
-        return BitmapFactory.decodeByteArray( array,0,array.length );
+
+    public static Bitmap convertByteArrayToImage(byte[] array) {
+        return BitmapFactory.decodeByteArray(array, 0, array.length);
     }
 }

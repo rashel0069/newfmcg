@@ -4,12 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class Helper {
-    Context context;
     private static final String PREFS_NAME = "fcm";
     private static final String name = "asdasd";
     private static final String bangla = "fdsdf";
     private static final String english = "english";
-
+    Context context;
 
     public static boolean setPreference(String key, String value) {
         SharedPreferences settings = Fmcg.getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
@@ -48,7 +47,7 @@ public class Helper {
 
     public static Long getPreferenceLong(String key) {
         SharedPreferences settings = Fmcg.getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        return settings.getLong(key,0L);
+        return settings.getLong(key, 0L);
     }
 
     public static boolean setPreferenceFloat(String key, Float value) {
@@ -60,7 +59,7 @@ public class Helper {
 
     public static Float getPreferenceFloat(String key) {
         SharedPreferences settings = Fmcg.getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        return settings.getFloat(key,0f);
+        return settings.getFloat(key, 0f);
     }
 
 
@@ -78,27 +77,23 @@ public class Helper {
 
     //==============================setting Language============================================
 
-    public static void setBangla(Boolean status){
-        setPreferenceBool(bangla,status);
-
+    public static boolean getBangla() {
+        return getPreferenceBool(bangla);
     }
 
+    public static void setBangla(Boolean status) {
+        setPreferenceBool(bangla, status);
 
-
-    public static boolean getBangla(){
-        return getPreferenceBool(bangla);
     }
     //==============================setting Language English============================================
 
-    public static void setEnglish(Boolean status){
-        setPreferenceBool(english,status);
-
+    public static boolean getEnglish() {
+        return getPreferenceBool(english);
     }
 
+    public static void setEnglish(Boolean status) {
+        setPreferenceBool(english, status);
 
-
-    public static boolean getEnglish(){
-        return getPreferenceBool(english);
     }
 }
 

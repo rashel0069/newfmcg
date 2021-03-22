@@ -1,15 +1,17 @@
 package com.appshat.kherokhata.Kotlin.utils
+
 import com.appshat.kherokhata.Kotlin.utils.Constants.OPEN_GOOGLE
 import com.appshat.kherokhata.Kotlin.utils.Constants.OPEN_SEARCH
 import java.sql.Date
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
+
 object BotResponse {
 
     fun basicResponses(_message: String): String {
 
         val random = (0..2).random()
-        val message =_message.toLowerCase()
+        val message = _message.toLowerCase()
 
         return when {
 
@@ -39,7 +41,8 @@ object BotResponse {
                     0 -> "Hello there!"
                     1 -> "Sup"
                     2 -> "Buongiorno!"
-                    else -> "error" }
+                    else -> "error"
+                }
             }
 
             //How are you?
@@ -53,7 +56,7 @@ object BotResponse {
             }
 
             //What time is it?
-            message.contains("time") && message.contains("?")-> {
+            message.contains("time") && message.contains("?") -> {
                 val timeStamp = Timestamp(System.currentTimeMillis())
                 val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm")
                 val date = sdf.format(Date(timeStamp.time))
@@ -62,12 +65,12 @@ object BotResponse {
             }
 
             //Open Google
-            message.contains("open") && message.contains("google")-> {
+            message.contains("open") && message.contains("google") -> {
                 OPEN_GOOGLE
             }
 
             //Search on the internet
-            message.contains("search")-> {
+            message.contains("search") -> {
                 OPEN_SEARCH
             }
 

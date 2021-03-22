@@ -19,19 +19,20 @@ import com.appshat.kherokhata.Room.ENTITY.CashboxEntity;
 import com.appshat.kherokhata.Room.ENTITY.ExpenseEntity;
 import com.appshat.kherokhata.Room.ENTITY.HistoryEntity;
 import com.appshat.kherokhata.Room.ENTITY.InformationEntity;
-import com.appshat.kherokhata.Room.ENTITY.UserEntity;
 import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
+import com.appshat.kherokhata.Room.ENTITY.UserEntity;
 
-@Database( entities = {UserEntity.class, InformationEntity.class, CashboxEntity.class, ExpenseEntity.class,
-        AdjustEntity.class, NewtransactionEntity.class, HistoryEntity.class},version = 8)
+@Database(entities = {UserEntity.class, InformationEntity.class, CashboxEntity.class, ExpenseEntity.class,
+        AdjustEntity.class, NewtransactionEntity.class, HistoryEntity.class}, version = 8)
 public abstract class Databaseroom extends RoomDatabase {
 
     private static volatile Databaseroom databaseroomref;
-    public static Databaseroom getDatabaseroomref(Context context){
-        if (databaseroomref == null){
-            synchronized (Databaseroom.class){
-                if (databaseroomref == null ){
-                    databaseroomref = Room.databaseBuilder( context.getApplicationContext(), Databaseroom.class,"Fmvg_Database" ).fallbackToDestructiveMigration().build();
+
+    public static Databaseroom getDatabaseroomref(Context context) {
+        if (databaseroomref == null) {
+            synchronized (Databaseroom.class) {
+                if (databaseroomref == null) {
+                    databaseroomref = Room.databaseBuilder(context.getApplicationContext(), Databaseroom.class, "Fmvg_Database").fallbackToDestructiveMigration().build();
                 }
             }
         }

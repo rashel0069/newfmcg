@@ -17,9 +17,9 @@ public interface HistoryDao {
     @Update
     void update(HistoryEntity historyEntity);
 
-    @Query( "SELECT * FROM history WHERE todaydate LIKE :date" )
+    @Query("SELECT * FROM history WHERE todaydate LIKE :date")
     List<HistoryEntity> getallHistory(String date);
 
-    @Query( "SELECT * FROM history WHERE userId LIKE :userId" )
+    @Query("SELECT * FROM history WHERE userId LIKE :userId")
     HistoryEntity findbyId(String userId);
 }

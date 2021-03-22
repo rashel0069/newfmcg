@@ -26,7 +26,7 @@ import com.appshat.kherokhata.fragment.Home_Fragment;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class  ExampleDialog extends AppCompatDialogFragment {
+public class ExampleDialog extends AppCompatDialogFragment {
 
     EditText newOpenAmount;
     String dayend, withdrawal, deposit, datetime;
@@ -34,19 +34,20 @@ public class  ExampleDialog extends AppCompatDialogFragment {
     InformationDao informationDbDao;
     Databaseroom cashboxDB;
     CashBoxViewModel cashBoxViewModel;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder( getActivity() );
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate( R.layout.layout_dialog, null,false );
-        builder.setView( view ).setTitle( "Opening Amounts" )
-                .setNeutralButton( "Cancel", new DialogInterface.OnClickListener() {
+        View view = inflater.inflate(R.layout.layout_dialog, null, false);
+        builder.setView(view).setTitle("Opening Amounts")
+                .setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
-                } ).setPositiveButton( "Update", new DialogInterface.OnClickListener() {
+                }).setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Calendar cal = Calendar.getInstance();
@@ -54,28 +55,28 @@ public class  ExampleDialog extends AppCompatDialogFragment {
                 cal.add(Calendar.DAY_OF_YEAR, -1);
                 datetime = s.format(cal.getTime());
                 //database
-                cashBoxViewModel = ViewModelProviders.of( getActivity() ).get( CashBoxViewModel.class );
+                cashBoxViewModel = ViewModelProviders.of(getActivity()).get(CashBoxViewModel.class);
                 dayend = newOpenAmount.getText().toString().trim();
-                if (!TextUtils.isEmpty( newOpenAmount.getText().toString().trim() )){
+                if (!TextUtils.isEmpty(newOpenAmount.getText().toString().trim())) {
                     CashboxEntity cashboxEntity = new CashboxEntity(datetime, dayend, "0", "0");
                     cashBoxViewModel.insertCashbox(cashboxEntity);
                     Home_Fragment home_fragment = new Home_Fragment();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.framelayout_container_id, home_fragment);
                     transaction.commit();
-                    Toast.makeText( getContext(), "Update", Toast.LENGTH_SHORT ).show();
+                    Toast.makeText(getContext(), "Update", Toast.LENGTH_SHORT).show();
                 }
             }
-        } );
+        });
 
-        newOpenAmount = view.findViewById( R.id.openingamount_new );
+        newOpenAmount = view.findViewById(R.id.openingamount_new);
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
         cal.add(Calendar.DAY_OF_YEAR, -1);
         datetime = s.format(cal.getTime());
         //database
-        cashBoxViewModel = ViewModelProviders.of( getActivity() ).get( CashBoxViewModel.class );
+        cashBoxViewModel = ViewModelProviders.of(getActivity()).get(CashBoxViewModel.class);
         return builder.create();
     }
-     
+
 }

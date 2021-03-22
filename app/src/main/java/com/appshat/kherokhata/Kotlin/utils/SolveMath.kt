@@ -4,7 +4,7 @@ import android.util.Log
 
 object SolveMath {
 
-    fun solveMath(equation: String) : Int{
+    fun solveMath(equation: String): Int {
 
         val newEquation = equation.replace(" ", "")
         Log.d("Math", newEquation)

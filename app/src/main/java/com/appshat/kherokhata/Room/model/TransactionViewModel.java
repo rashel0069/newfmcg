@@ -22,31 +22,18 @@ public class TransactionViewModel extends AndroidViewModel {
     private LiveData<List<NewtransactionEntity>> mtodayTrans;
 
     public TransactionViewModel(@NonNull Application application) {
-        super( application );
+        super(application);
         String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-        databaseroom = Databaseroom.getDatabaseroomref( application );
+        databaseroom = Databaseroom.getDatabaseroomref(application);
         newtransactionDao = databaseroom.getnewtransaction();
         mAllTrans = newtransactionDao.getTodayTrans();
-        mtodayTrans = newtransactionDao.getTransDate( currentdate );
+        mtodayTrans = newtransactionDao.getTransDate(currentdate);
 
     }
-    public void intertTrans(NewtransactionEntity newtransactionEntity){
+
+    public void intertTrans(NewtransactionEntity newtransactionEntity) {
         new TransactionViewModel.InsertAsyncTask(newtransactionDao).execute(newtransactionEntity);
     }
-
-    private class InsertAsyncTask extends AsyncTask<NewtransactionEntity, Void,Void>{
-        NewtransactionDao mNewtransactionDao;
-        public InsertAsyncTask(NewtransactionDao mNewtransactionDao) {
-            this.mNewtransactionDao = mNewtransactionDao;
-        }
-
-        @Override
-        protected Void doInBackground(NewtransactionEntity... newtransactionEntities) {
-            mNewtransactionDao.insert( newtransactionEntities[0] );
-            return null;
-        }
-    }
-
 
     @Override
     protected void onCleared() {
@@ -56,7 +43,22 @@ public class TransactionViewModel extends AndroidViewModel {
     public LiveData<List<NewtransactionEntity>> getmAllTrans() {
         return mAllTrans;
     }
-    public LiveData<List<NewtransactionEntity>> getmTodayTrans(){
+
+    public LiveData<List<NewtransactionEntity>> getmTodayTrans() {
         return mtodayTrans;
+    }
+
+    private class InsertAsyncTask extends AsyncTask<NewtransactionEntity, Void, Void> {
+        NewtransactionDao mNewtransactionDao;
+
+        public InsertAsyncTask(NewtransactionDao mNewtransactionDao) {
+            this.mNewtransactionDao = mNewtransactionDao;
+        }
+
+        @Override
+        protected Void doInBackground(NewtransactionEntity... newtransactionEntities) {
+            mNewtransactionDao.insert(newtransactionEntities[0]);
+            return null;
+        }
     }
 }

@@ -16,26 +16,28 @@ public class UserViewModel extends AndroidViewModel {
     private UserEntity mAllUsers;
 
     public UserViewModel(@NonNull Application application) {
-        super( application );
-        databaseroom = Databaseroom.getDatabaseroomref( application );
+        super(application);
+        databaseroom = Databaseroom.getDatabaseroomref(application);
         userDao = databaseroom.getUserDao();
 
 
     }
-    public void insertUser(UserEntity userEntity){
+
+    public void insertUser(UserEntity userEntity) {
         new UserViewModel.InsertAsyncTask(userDao).execute(userEntity);
     }
 
-    private class InsertAsyncTask extends AsyncTask<UserEntity, Void,Void>{
+    private class InsertAsyncTask extends AsyncTask<UserEntity, Void, Void> {
 
         UserDao mUserDao;
+
         public InsertAsyncTask(UserDao mUserDao) {
             this.mUserDao = mUserDao;
         }
 
         @Override
         protected Void doInBackground(UserEntity... userEntities) {
-            mUserDao.insert( userEntities[0] );
+            mUserDao.insert(userEntities[0]);
             return null;
         }
     }

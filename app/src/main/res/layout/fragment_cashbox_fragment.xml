@@ -40,15 +40,16 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cashtitleTV_Id">
+
             <TextView
                 android:id="@+id/dc_Id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:text="@string/dayendcash"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -63,9 +64,9 @@
                     android:id="@+id/dayendcashET_id"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:gravity="center"
                     android:background="@drawable/edittext_background"
+                    android:gravity="center"
+                    android:inputType="number"
                     android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
