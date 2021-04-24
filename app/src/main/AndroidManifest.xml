@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.appshat.kherokhata">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -15,12 +16,14 @@
     <application
         android:name="com.appshat.kherokhata.Fmcg"
         android:allowBackup="true"
-        android:icon="@mipmap/fmcg"
+        android:icon="@mipmap/fmcg3"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/fmcg3"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication">
-        <activity android:name="com.appshat.kherokhata.RegActivity"></activity>
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.MyApplication"
+        tools:targetApi="m">
+        <activity android:name="com.appshat.kherokhata.RegActivity"/>
         <activity
             android:name="com.appshat.kherokhata.SplashScreen"
             android:theme="@style/noactionbar">
@@ -36,7 +39,9 @@
         <activity android:name="com.appshat.kherokhata.MapActivity" />
         <activity
             android:name="com.appshat.kherokhata.MainActivity"
-            android:theme="@style/noactionbar"></activity>
+            android:theme="@style/noactionbar">
+
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"

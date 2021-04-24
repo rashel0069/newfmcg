@@ -1,3 +1,4 @@
+
 package com.appshat.kherokhata;
 
 import android.Manifest;
@@ -320,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
             Toast.makeText(MainActivity.this, "Welcome", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(MainActivity.this, "User Not Register", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, "User Not Register", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -1,7 +1,11 @@
 package com.appshat.kherokhata.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,6 +65,7 @@ public class Home_Fragment<Date> extends Fragment {
     Databaseroom databaseroom;
     Context context;
     Resources resources;
+    boolean connect = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -184,7 +189,21 @@ public class Home_Fragment<Date> extends Fragment {
             public void onClick(View v) {
 //                Intent myIntent = new Intent(view.getContext(), ChatBot.class);
 //                startActivityForResult(myIntent, 0);
-                Toast.makeText(getContext(), "Available Soon", Toast.LENGTH_SHORT).show();
+
+                NetworkConnect();
+                if (connect == true){
+//                    Intent browserInt = new Intent(Intent.ACTION_VIEW, Uri.parse("http://103.108.140.234:3000/s/fmcg"));
+//                    startActivity(browserInt);
+
+                    BoatFragment boatFragment = new BoatFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.framelayout_container_id, boatFragment);
+                    transaction.addToBackStack("null");
+                    transaction.commit();
+
+                }else {
+                    Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         transactionbtn.setOnClickListener(new View.OnClickListener() {
@@ -237,9 +256,21 @@ public class Home_Fragment<Date> extends Fragment {
                 transaction.commit();
             }
         });
+        NetworkConnect();
 
         return view;
     }
+
+    private void NetworkConnect() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            connect = true;
+        }else {
+            connect = false;
+        }
+    }
+
 
     private void LoadDatafromRoom() {
 
