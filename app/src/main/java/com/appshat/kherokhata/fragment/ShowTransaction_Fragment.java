@@ -48,6 +48,7 @@ public class ShowTransaction_Fragment extends Fragment {
     ExpenseViewModel expenseViewModel;
     AdjustViewModel payeceiveViewModel;
     List<NewtransactionEntity> mTransactionList;
+    List<NewtransactionEntity> mTodayTrans;
 
     Context context;
     Resources resources;
@@ -131,18 +132,12 @@ public class ShowTransaction_Fragment extends Fragment {
         transallBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transactionViewModel.getmTodayTrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
-                    @Override
-                    public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
-                        transactionListAdapter.setTrans(newtransactionEntities);
-                    }
-                });
+              todayTrans();
             }
         });
         expBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 expenceListAdapter = new ExpenceListAdapter();
                 recyclerView.setAdapter(expenceListAdapter);
                 showExpence();
@@ -152,6 +147,8 @@ public class ShowTransaction_Fragment extends Fragment {
         recpayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                payReceiveListAdapter = new PayReceiveListAdapter();
+                recyclerView.setAdapter(payReceiveListAdapter);
                 showPayrecive();
             }
         });
@@ -169,23 +166,10 @@ public class ShowTransaction_Fragment extends Fragment {
     }
 
 
-    //show pay recive
-    private void showPayrecive() {
-
-        payeceiveViewModel.getAllAdjust().observe(getViewLifecycleOwner(), new Observer<List<AdjustEntity>>() {
-            @Override
-            public void onChanged(List<AdjustEntity> adjustEntities) {
-                payReceiveListAdapter.setPayRecv(adjustEntities);
-            }
-        });
-        payReceiveListAdapter = new PayReceiveListAdapter();
-        recyclerView.setAdapter(payReceiveListAdapter);
-    }
-
     private void showAll() {
         mTransactionList = new ArrayList<>();
         transactionListAdapter = new TransactionListAdapter(mTransactionList);
-        recyclerView.setAdapter(transactionListAdapter);
+        //recyclerView.setAdapter(transactionListAdapter);
         transactionViewModel.getmAllTrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
             @Override
             public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
@@ -202,5 +186,27 @@ public class ShowTransaction_Fragment extends Fragment {
                 expenceListAdapter.setExpance(expenseEntities);
             }
         });
+    }
+    //show pay recive
+    private void showPayrecive() {
+
+        payeceiveViewModel.getAllAdjust().observe(getViewLifecycleOwner(), new Observer<List<AdjustEntity>>() {
+            @Override
+            public void onChanged(List<AdjustEntity> adjustEntities) {
+                payReceiveListAdapter.setPayRecv(adjustEntities);
+            }
+        });
+
+    }
+    private void todayTrans() {
+        mTodayTrans = new ArrayList<>();
+        transactionListAdapter = new TransactionListAdapter(mTodayTrans);
+        transactionViewModel.getmTodayTrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
+            @Override
+            public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
+                transactionListAdapter.setTrans(newtransactionEntities);
+            }
+        });
+        recyclerView.setAdapter(transactionListAdapter);
     }
 }

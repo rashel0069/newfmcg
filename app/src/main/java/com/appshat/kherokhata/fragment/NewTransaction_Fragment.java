@@ -185,7 +185,7 @@ public class NewTransaction_Fragment extends Fragment {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
-            timedateTV.setHint(resources.getString(R.string.date));
+            //timedateTV.setHint(resources.getString(R.string.date));
             cnTV.setText(resources.getString(R.string.customerName));
             cnameET.setHint(resources.getString(R.string.customernamehint));
             cmTV.setText(resources.getString(R.string.hint1));
@@ -198,7 +198,7 @@ public class NewTransaction_Fragment extends Fragment {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
-            timedateTV.setHint(resources.getString(R.string.date));
+            //timedateTV.setHint(resources.getString(R.string.date));
             cnTV.setText(resources.getString(R.string.customerName));
             cnameET.setHint(resources.getString(R.string.customernamehint));
             amTV.setText(resources.getString(R.string.amounts));

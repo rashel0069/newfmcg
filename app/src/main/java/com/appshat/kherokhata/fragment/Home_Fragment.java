@@ -42,6 +42,7 @@ import com.appshat.kherokhata.Room.model.InformationViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -73,7 +74,6 @@ public class Home_Fragment<Date> extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_, container, false);
         historyViewModel = ViewModelProviders.of(getActivity()).get(HistoryViewModel.class);
-
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
         cal.add(Calendar.DAY_OF_YEAR, -1);
@@ -300,8 +300,8 @@ public class Home_Fragment<Date> extends Fragment {
             String pastpayable = new GetPastPayable().execute().get();
 
             if (!dayendCash.getText().toString().isEmpty() && Double.valueOf(dayendCash.getText().toString()) != 0.0) {
-                Double cashseles = (Double.parseDouble(dayend) - Double.parseDouble(opening) + Double.parseDouble(cashPurc) + Double.parseDouble(withdraw)
-                        - Double.parseDouble(purchesreturncash) - Double.parseDouble(pastreceivable) + Double.parseDouble(pastpayable) + Double.parseDouble(salesreturncash));
+                Double cashseles = (Double.parseDouble(dayend) - Double.parseDouble(opening) + Double.parseDouble(cashPurc) + Double.parseDouble(withdraw) - Double.parseDouble(deposit)
+                        - Double.parseDouble(purchesreturncash) - Double.parseDouble(pastreceivable) + Double.parseDouble(pastpayable) + Double.parseDouble(salesreturncash)  + Double.parseDouble(cashEX));
                 if (cashseles >= 0) {
                     cashSell.setText(String.valueOf(cashseles));
                 } else {
