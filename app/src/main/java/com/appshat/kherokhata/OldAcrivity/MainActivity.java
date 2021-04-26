@@ -1,5 +1,5 @@
 
-package com.appshat.kherokhata;
+package com.appshat.kherokhata.OldAcrivity;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -29,6 +29,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.UserDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.UserEntity;

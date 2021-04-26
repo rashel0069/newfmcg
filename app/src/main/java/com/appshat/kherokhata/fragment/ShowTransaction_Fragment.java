@@ -18,8 +18,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.appshat.kherokhata.Helper;
-import com.appshat.kherokhata.Localhelper;
+import com.appshat.kherokhata.OldAcrivity.Helper;
+import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.ENTITY.AdjustEntity;
 import com.appshat.kherokhata.Room.ENTITY.ExpenseEntity;

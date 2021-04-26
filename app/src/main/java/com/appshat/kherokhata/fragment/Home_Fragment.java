@@ -1,11 +1,9 @@
 package com.appshat.kherokhata.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,9 +18,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.appshat.kherokhata.ExampleDialog;
-import com.appshat.kherokhata.Helper;
-import com.appshat.kherokhata.Localhelper;
+import com.appshat.kherokhata.OldAcrivity.ExampleDialog;
+import com.appshat.kherokhata.OldAcrivity.Helper;
+import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.AdjustDao;
 import com.appshat.kherokhata.Room.DAO.CashboxDao;
@@ -42,7 +40,6 @@ import com.appshat.kherokhata.Room.model.InformationViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 

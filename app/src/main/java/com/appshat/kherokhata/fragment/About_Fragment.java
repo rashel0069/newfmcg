@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.appshat.kherokhata.Helper;
-import com.appshat.kherokhata.Localhelper;
+import com.appshat.kherokhata.OldAcrivity.Helper;
+import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 
 

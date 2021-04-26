@@ -1,4 +1,4 @@
-package com.appshat.kherokhata;
+package com.appshat.kherokhata.Notifications;
 
 import androidx.annotation.NonNull;
 

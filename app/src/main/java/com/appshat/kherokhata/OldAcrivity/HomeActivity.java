@@ -1,4 +1,4 @@
-package com.appshat.kherokhata;
+package com.appshat.kherokhata.OldAcrivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.fragment.About_Fragment;
 import com.appshat.kherokhata.fragment.History_Fragment;
 import com.appshat.kherokhata.fragment.Home_Fragment;

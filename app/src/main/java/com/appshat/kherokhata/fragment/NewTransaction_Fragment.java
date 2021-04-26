@@ -36,9 +36,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.appshat.kherokhata.AlarmReceiver;
-import com.appshat.kherokhata.Helper;
-import com.appshat.kherokhata.Localhelper;
+import com.appshat.kherokhata.OldAcrivity.AlarmReceiver;
+import com.appshat.kherokhata.OldAcrivity.Helper;
+import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.NewtransactionDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;

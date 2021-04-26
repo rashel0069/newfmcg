@@ -24,8 +24,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.appshat.kherokhata.Helper;
-import com.appshat.kherokhata.Localhelper;
+import com.appshat.kherokhata.OldAcrivity.Helper;
+import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.CashboxDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;

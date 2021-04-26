@@ -22,9 +22,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.appshat.kherokhata.Helper;
-import com.appshat.kherokhata.Localhelper;
-import com.appshat.kherokhata.MainActivity;
+import com.appshat.kherokhata.OldAcrivity.Helper;
+import com.appshat.kherokhata.OldAcrivity.Localhelper;
+import com.appshat.kherokhata.OldAcrivity.MainActivity;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.InformationDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;

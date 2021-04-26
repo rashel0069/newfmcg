@@ -1,4 +1,4 @@
-package com.appshat.kherokhata;
+package com.appshat.kherokhata.OldAcrivity;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -21,6 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import com.appshat.kherokhata.R;
 
 import java.io.IOException;
 import java.util.List;

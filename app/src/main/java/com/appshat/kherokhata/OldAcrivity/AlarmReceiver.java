@@ -1,4 +1,4 @@
-package com.appshat.kherokhata;
+package com.appshat.kherokhata.OldAcrivity;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -12,6 +12,8 @@ import android.os.Build;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
+
+import com.appshat.kherokhata.R;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

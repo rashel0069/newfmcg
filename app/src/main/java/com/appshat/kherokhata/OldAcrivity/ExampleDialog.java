@@ -1,4 +1,4 @@
-package com.appshat.kherokhata;
+package com.appshat.kherokhata.OldAcrivity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.CashboxDao;
 import com.appshat.kherokhata.Room.DAO.InformationDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;

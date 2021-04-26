@@ -1,4 +1,4 @@
-package com.appshat.kherokhata;
+package com.appshat.kherokhata.Notifications;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -6,6 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 
 import androidx.core.app.NotificationCompat;
+
+import com.appshat.kherokhata.OldAcrivity.Constants;
+import com.appshat.kherokhata.OldAcrivity.MainActivity;
+import com.appshat.kherokhata.R;
 
 public class MyNotificationManager {
     private static MyNotificationManager mInstance;

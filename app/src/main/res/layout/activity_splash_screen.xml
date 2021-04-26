@@ -6,7 +6,7 @@
     android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".SplashScreen">
+    tools:context=".OldAcrivity.SplashScreen">
 
     <ImageView
         android:id="@+id/splashImage"
