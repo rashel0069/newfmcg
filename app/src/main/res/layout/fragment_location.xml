@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    tools:context=".NewUIFragment.Location">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_horizontal">
+        <RelativeLayout
+            android:id="@+id/frame_4"
+            android:layout_width="350dp"
+            android:layout_height="319dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="37dp">
+
+            <ImageView
+                android:id="@+id/mylocation"
+                android:layout_width="249dp"
+                android:layout_height="193dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="50.5dp"
+                android:background="@drawable/my_current_location" />
+
+            <TextView
+                android:id="@+id/select_your"
+                android:layout_width="275dp"
+                android:layout_height="29dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="226dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_horizontal|top"
+                android:text="@string/select_your"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/lorem_ipsum"
+                android:layout_width="350dp"
+                android:layout_height="57dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="262dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center_horizontal|top"
+                android:lineSpacingExtra="2sp"
+                android:text="@string/lorem_ipsum"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                android:translationY="-1.08sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/frame_5"
+            android:layout_width="364.12dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="23dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="368dp">
+
+
+            <TextView
+                android:id="@+id/your_zone"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:layout_below="@+id/frame_4"
+                android:fontFamily="@font/montserrat"
+                android:gravity="top"
+                android:lineSpacingExtra="9sp"
+                android:text="@string/your_zone"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="16sp"
+                android:translationY="-4.75sp"
+                tools:ignore="NotSibling,UnknownId" />
+
+            <TextView
+                android:id="@+id/your_zone_id"
+                android:layout_width="wrap_content"
+                android:layout_height="39.55dp"
+                android:layout_marginTop="39dp"
+                android:text="Farmget"
+                android:textColor="@color/white"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@android:color/transparent"/>
+
+            <View
+                android:id="@+id/vector_2"
+                android:layout_width="364dp"
+                android:layout_height="1dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="0.12dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="78.55dp"
+                android:background="@drawable/vector_2" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="39dp"
+                android:src="@drawable/ic_baseline_expand_more_24"
+                android:layout_alignParentEnd="true" />
+            <TextView
+                android:id="@+id/your_area"
+                android:layout_width="79dp"
+                android:layout_height="29dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="108.55dp"
+                android:text="@string/your_area"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat"
+                android:textFontWeight="500"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="16sp"
+                android:lineSpacingExtra="9sp"
+                android:translationY="-4.75sp"
+                android:gravity="top" />
+            <EditText
+                android:id="@+id/types_of_yo"
+                android:layout_width="126dp"
+                android:layout_height="29dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="3.68dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="147.55dp"
+                android:text="@string/types_of_yo"
+                android:textSize="14sp"
+                android:fontFamily="@font/montserrat"
+                android:textFontWeight="400"
+                android:textColor="@color/white"
+                android:lineSpacingExtra="12sp"
+                android:translationY="-5.97sp"
+                android:gravity="top"
+                android:background="@android:color/transparent"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="145.55dp"
+                android:src="@drawable/ic_baseline_expand_more_24"
+                android:layout_alignParentEnd="true" />
+
+            <View
+                android:layout_width="363dp"
+                android:layout_height="1dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="0.12dp"
+                android:layout_marginTop="187.1dp"
+                android:background="@drawable/vector_2" />
+
+
+        </RelativeLayout>
+        <View
+            android:id="@+id/rectangle_7"
+            android:layout_width="364dp"
+            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="23dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="610dp"
+            android:background="@drawable/button_backgroung" />
+        <TextView
+            android:id="@+id/submit_button"
+            android:layout_width="364dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="23dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="610dp"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:lineSpacingExtra="8sp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal|center_vertical" />
+    </RelativeLayout>
+
+</ScrollView>

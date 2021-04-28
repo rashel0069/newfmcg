@@ -350,5 +350,13 @@
     <string name="already_to">Already Registered ! Go back to  </string>
 
     <string name="confirm">Confirm</string>
+    <string name="select_your">Select Your Location</string>
+    <string name="lorem_ipsum">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs</string>
+    <string name="your_zone">Your Zone</string>
+    <string name="your_area">Your Area</string>
+    <string name="types_of_yo">Types of your area</string>
+    <string name="submit">Submit</string>
+    <string name="enter_your_">Enter your Phone Number and password</string>
+    <string name="phone_numbe">Phone Number</string>
 
 </resources>
