@@ -4,6 +4,25 @@
 
     <string name="app_name">খেরো খাতা</string>
 
+    <string name="first_splash">Start Managing Your Finance</string>
+
+    <string name="digital_product">A digital product of</string>
+
+    <string name="digitalistic">DIGITALISTIC</string>
+
+    <string name="text1">Handle your accounts \n smartly With Khero Khata </string>
+
+    <string name="text2">No more analog accounts,Now you can \n easily handle your accounts book </string>
+
+    <string name="skip">Skip</string>
+
+    <string name="text3">Lorem ipsum, or lipsum as \n it is sometimes known </string>
+
+    <string name="sl">select language</string>
+
+
+    <string name="text4">Lorem ipsum, or lipsum as it is sometimes \n known, is dummy text used in laying out print,\n  graphic or web designs</string>
+
     <string name="intro">স্বাগতম</string>
 
     <string name="hint1">মোবাইল নম্বর</string>

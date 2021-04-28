@@ -1,12 +1,31 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name">KheroKhata</string>
+    <string name="app_name">Khero Khata</string>
+
+    <string name="first_splash">Start Managing Your Finance</string>
+
+    <string name="digital_product">A digital product of</string>
+
+    <string name="digitalistic">DIGITALISTIC</string>
+
+    <string name="text1">Handle your accounts \n smartly With Khero Khata </string>
+
+    <string name="text2">No more analog accounts, Now you can \n easily handle your accounts book </string>
+
+    <string name="skip">Skip</string>
+
+    <string name="text3">Lorem ipsum, or lipsum as \n it is sometimes known </string>
+
+    <string name="text4">Lorem ipsum, or lipsum as it is sometimes \n known, is dummy text used in laying out print,\n graphic or web designs</string>
+
+    <string name="sl">Select Language</string>
 
     <string name="intro">Welcome</string>
 
     <string name="hint1">Mobile Number</string>
 
     <string name="hint2">Password</string>
+
     <string name="hint3"> Confirm Password</string>
 
     <string name="login">Login</string>
