@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EB222C"
-    android:backgroundTintMode="multiply">
+    android:background="@color/primary">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -14,39 +13,34 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="151dp"
-            android:layout_height="195dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="130dp"
-            android:layout_marginTop="27dp"
-            android:background="@drawable/loginimage" />
+            android:id="@+id/back_arrow_id"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="70dp"
+            android:src="@drawable/backarrow" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/cre_text"
+            android:layout_width="364dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="239dp"
+            android:layout_below="@+id/back_arrow_id"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat"
-            android:gravity="top"
-            android:lineSpacingExtra="0sp"
-            android:text="@string/login"
+            android:lineHeight="29dp"
+            android:text="@string/create_account"
             android:textColor="@color/white"
             android:textFontWeight="600"
-            android:textSize="26dp" />
+            android:textSize="26sp" />
 
         <TextView
-            android:id="@+id/enter_text"
-            android:layout_width="329dp"
+            android:id="@+id/cre_text2"
+            android:layout_width="364dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="283dp"
+            android:layout_below="@+id/cre_text"
+            android:layout_marginTop="9dp"
             android:fontFamily="@font/montserrat"
-            android:gravity="top"
-            android:lineSpacingExtra="0sp"
-            android:text="@string/enter_your_"
+            android:lineHeight="15dp"
+            android:text="@string/enter_your"
             android:textColor="@color/white"
             android:textFontWeight="400"
             android:textSize="16sp" />
@@ -55,15 +49,15 @@
             android:id="@+id/phone_tv"
             android:layout_width="126dp"
             android:layout_height="29dp"
-            android:layout_below="@+id/enter_text"
-            android:layout_marginTop="40dp"
+            android:layout_below="@+id/cre_text2"
+            android:layout_marginTop="45dp"
             android:fontFamily="@font/montserrat"
             android:gravity="top"
-            android:lineSpacingExtra="9sp"
+            android:lineHeight="29dp"
             android:text="@string/phone_numbe"
             android:textColor="@color/white"
             android:textFontWeight="500"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <LinearLayout
             android:id="@+id/f1"
@@ -90,15 +84,15 @@
                 app:hintEnabled="false">
 
                 <EditText
-                    android:id="@+id/phoneNumber_id"
+                    android:id="@+id/reg_phoneNumber_id"
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
                     android:backgroundTint="@android:color/transparent"
                     android:hint="@string/mobile"
                     android:imeOptions="actionNext"
-                    android:padding="8dp"
                     android:inputType="number"
                     android:maxLength="11"
+                    android:padding="8dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -116,14 +110,14 @@
             android:layout_width="126dp"
             android:layout_height="29dp"
             android:layout_below="@id/view1"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat"
             android:gravity="top"
-            android:lineSpacingExtra="9sp"
+            android:lineHeight="29dp"
             android:text="@string/password"
             android:textColor="@color/white"
             android:textFontWeight="500"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <LinearLayout
             android:id="@+id/f2"
@@ -152,13 +146,14 @@
                 app:passwordToggleTint="@color/white">
 
                 <EditText
-                    android:id="@+id/password_Id"
+                    android:id="@+id/reg_password_Id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent"
                     android:hint=". . . . . . "
                     android:imeOptions="actionNext"
                     android:inputType="textPassword"
+                    android:maxLength="16"
                     android:padding="8dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white" />
@@ -173,25 +168,85 @@
             android:background="@drawable/vector_2" />
 
         <TextView
-            android:id="@+id/forgotepassword_id"
-            android:layout_width="364dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/view2"
-            android:layout_marginTop="10dp"
+            android:id="@+id/confirm_password_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_below="@id/view2"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat"
-            android:lineHeight="15.13dp"
-            android:text="@string/forgot_password"
-            android:textAlignment="textEnd"
+            android:gravity="top"
+            android:lineHeight="29dp"
+            android:text="@string/confirm_password"
             android:textColor="@color/white"
             android:textFontWeight="500"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/f3"
+            android:layout_width="364.12dp"
+            android:layout_height="49dp"
+            android:layout_below="@+id/confirm_password_tv"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/conf_password"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="13dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/lock" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:theme="@style/login"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/white">
+
+                <EditText
+                    android:id="@+id/reg_confirm_password_Id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:hint=". . . . . . "
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:maxLength="16"
+                    android:padding="8dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="364.12dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/f3"
+            android:background="@drawable/vector_2" />
 
         <TextView
-            android:id="@+id/login_btn"
+            android:id="@+id/terms"
+            android:layout_width="364dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view3"
+            android:layout_marginTop="25.35dp"
+            android:lineHeight="20.7dp"
+            android:text="@string/terms"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/reg_button"
             style="?android:attr/selectableItemBackground"
             android:layout_width="364dp"
             android:layout_height="55dp"
-            android:layout_marginTop="579dp"
+            android:layout_below="@id/terms"
+            android:layout_marginTop="26dp"
             android:background="@drawable/button_backgroung"
             android:clickable="true"
             android:focusable="true"
@@ -199,28 +254,26 @@
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
             android:lineHeight="30dp"
-            android:inputType="number"
-            android:maxLength="11"
-            android:text="@string/login"
+            android:text="@string/sign_up"
             android:textColor="@color/white"
             android:textFontWeight="600"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/registrationTV_id"
+            android:id="@+id/reg_login"
             android:layout_width="364dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/login_btn"
+            android:layout_below="@+id/reg_button"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat"
             android:lineHeight="17.07dp"
-            android:text="@string/singup"
+            android:text="@string/singin"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textFontWeight="500"
             android:textSize="14dp" />
-
     </RelativeLayout>
+
 
 </ScrollView>

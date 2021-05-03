@@ -23,11 +23,22 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".NewUIActivity.Start_Activity"></activity>
+        <activity android:name=".NewUIActivity.TestUI">
+
+        </activity>
+        <activity android:name=".NewUIActivity.Start_Activity"/>
+
         <activity android:name=".NewUIActivity.Second_Intro_Activity" />
+
         <activity android:name=".NewUIActivity.First_Intro_Activity" />
+
         <activity
             android:name=".NewUIActivity.First_Splash_Screen"
+            android:theme="@style/noactionbar"/>
+
+        <activity android:name=".OldAcrivity.RegActivity" />
+        <activity
+            android:name=".OldAcrivity.SplashScreen"
             android:theme="@style/noactionbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,14 +46,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OldAcrivity.RegActivity" />
-        <activity
-            android:name=".OldAcrivity.SplashScreen"
-            android:theme="@style/noactionbar" />
+
         <activity android:name=".OldAcrivity.Broadcast_Activity" />
+
         <activity android:name=".Kotlin.ui.ChatBot" />
+
         <activity android:name=".OldAcrivity.HomeActivity" />
+
         <activity android:name=".OldAcrivity.MapActivity" />
+
         <activity
             android:name=".OldAcrivity.MainActivity"
             android:theme="@style/noactionbar" />

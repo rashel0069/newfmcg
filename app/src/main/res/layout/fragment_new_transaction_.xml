@@ -9,39 +9,48 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="ScrollViewSize">
+        android:layout_height="match_parent">
 
-        <Spinner
-            android:id="@+id/newaccountspinner_id"
+        <LinearLayout
+            android:id="@+id/linner"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/edittext_background"
-            android:entries="@array/accountType"
-            android:spinnerMode="dropdown"
-            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <Spinner
-            android:id="@+id/newtransactionspinner_id"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/edittext_background"
-            android:entries="@array/transactiontype"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newaccountspinner_id"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/newaccounttv_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:hint="@string/purchase"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/newtransactiontv_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:hint="@string/cash"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/layout_1"
@@ -55,7 +64,7 @@
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newtransactionspinner_id"
+            app:layout_constraintTop_toBottomOf="@+id/linner"
             tools:ignore="MissingConstraints">
 
             <TextView
@@ -124,7 +133,7 @@
                     android:background="@color/white"
                     android:hint="@string/customernumberhint"
                     android:inputType="number"
-                    android:maxLength="16"
+                    android:maxLength="11"
                     android:paddingLeft="5dp"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
@@ -155,11 +164,12 @@
         <LinearLayout
             android:id="@+id/linearLayout15"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:orientation="horizontal"
+            android:background="@drawable/edittext_background"
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -171,9 +181,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_background"
-                android:gravity="center"
+                android:gravity="start|center"
                 android:text="@string/amounts"
+                android:paddingLeft="8dp"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -183,8 +193,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_background"
                 android:gravity="center"
+                android:background="@android:color/transparent"
                 android:hint="@string/amounthint"
                 android:inputType="number"
                 android:textColor="@color/black"
@@ -202,14 +212,14 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/edittext_background"
             android:gravity="center"
+            android:clickable="true"
             android:hint="@string/date"
             android:textColor="@color/black"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout15"
-            tools:ignore="UnknownId" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout15"/>
 
         <Button
             android:id="@+id/newtranssave_id"

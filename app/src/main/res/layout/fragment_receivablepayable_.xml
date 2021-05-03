@@ -59,7 +59,7 @@
                         android:background="@color/white"
                         android:hint="@string/customernumberhint"
                         android:inputType="number"
-                        android:maxLength="14"
+                        android:maxLength="11"
                         android:paddingLeft="5dp"
                         android:textColor="@color/black"
                         android:textSize="15sp" />

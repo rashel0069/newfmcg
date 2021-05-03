@@ -65,6 +65,7 @@ public class Receivablepayable_Fragment extends Fragment {
                     c.moveToFirst();
                     int numberindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
                     String number = c.getString(numberindex);
+                    number = number.replace("+88","").replace(" ","").replace("-","");
                     edtmobile.setText(number);
                     int nameindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                     String name = c.getString(nameindex);
@@ -189,6 +190,8 @@ public class Receivablepayable_Fragment extends Fragment {
         searchUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                l1.setVisibility(View.GONE);
+                l2.setVisibility(View.GONE);
                 findUserbymobile();
             }
         });
@@ -212,23 +215,35 @@ public class Receivablepayable_Fragment extends Fragment {
             try {
                 if (rpvalue == 1) {
                     try {
-                        l1.setVisibility(View.VISIBLE);
                         String crsellsin = new GetCreaditSellsUser().execute().get();
                         String crsellpout = new GetCreaditsellPaid().execute().get();
                         Double re = Double.parseDouble(crsellsin) - Double.parseDouble(crsellpout);
                         previousBalns.setText(String.valueOf(re));
                         customerName.setText(customerContName);
+
+                        if (!customerName.getText().toString().isEmpty() && re != 0.0){
+                            l1.setVisibility(View.VISIBLE);
+                        }else {
+                            Toast.makeText(getContext(), "User Not Found", Toast.LENGTH_SHORT).show();
+                        }
+
                     } catch (Exception e) {
                         Toast.makeText(getContext(), "Error:" + e, Toast.LENGTH_SHORT).show();
                     }
                 } else if (rpvalue == 2) {
                     try {
-                        l1.setVisibility(View.VISIBLE);
                         String crbuysin = new GetCreaditbuysUser().execute().get();
                         String crbuypout = new GetCreaditbuyPaid().execute().get();
                         Double re = Double.parseDouble(crbuysin) - Double.parseDouble(crbuypout);
                         previousBalns.setText(String.valueOf(re));
                         customerName.setText(customerContName);
+
+                        if (!customerName.getText().toString().isEmpty() && re != 0.0){
+                            l1.setVisibility(View.VISIBLE);
+                        }else {
+                            Toast.makeText(getContext(), "User Not Found", Toast.LENGTH_SHORT).show();
+                        }
+
                     } catch (Exception e) {
                         Toast.makeText(getContext(), "Error:" + e, Toast.LENGTH_SHORT).show();
                     }
@@ -251,7 +266,7 @@ public class Receivablepayable_Fragment extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
             String mobilenum = edtmobile.getText().toString().trim();
-            List<AdjustEntity> adjustEntities = duepayrecivedao.getPaidout("Past_Receivable", "PAID-OUT", mobilenum);
+            List<AdjustEntity> adjustEntities = duepayrecivedao.getPaidout("Past Receivable", "PAID-OUT", mobilenum);
             if (adjustEntities != null) {
                 Double total_credit = 0.0;
                 for (int i = 0; i < adjustEntities.size(); i++) {
@@ -271,7 +286,7 @@ public class Receivablepayable_Fragment extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
             String mobilenum = edtmobile.getText().toString().trim();
-            List<AdjustEntity> adjustEntities = duepayrecivedao.getPaidout("Past_Payable", "PAID-OUT", mobilenum);
+            List<AdjustEntity> adjustEntities = duepayrecivedao.getPaidout("Past Payable", "PAID-OUT", mobilenum);
             if (adjustEntities != null) {
                 Double total_credit = 0.0;
                 for (int i = 0; i < adjustEntities.size(); i++) {

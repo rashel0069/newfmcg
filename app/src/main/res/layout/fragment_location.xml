@@ -165,7 +165,7 @@
 
         </RelativeLayout>
         <View
-            android:id="@+id/rectangle_7"
+            android:id="@+id/submit_button"
             android:layout_width="364dp"
             android:layout_height="55dp"
             android:layout_alignParentLeft="true"
@@ -174,7 +174,6 @@
             android:layout_marginTop="610dp"
             android:background="@drawable/button_backgroung" />
         <TextView
-            android:id="@+id/submit_button"
             android:layout_width="364dp"
             android:layout_height="55dp"
             android:layout_alignParentStart="true"

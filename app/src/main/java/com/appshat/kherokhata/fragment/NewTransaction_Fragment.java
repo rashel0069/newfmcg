@@ -65,7 +65,7 @@ public class NewTransaction_Fragment extends Fragment {
     static final int PICK_CONTACT = 1;
     Spinner accspinner, transspinner;
     EditText cnameET, cmblnumET, camountET;
-    TextView cnTV, cmTV, amTV, timedateTV, saveNewContact;
+    TextView cnTV, cmTV, amTV, timedateTV, saveNewContact,accTv, transTv;;
     Button newtransBTN;
     LinearLayout l1, l2;
     ImageView phonecontactSelect;
@@ -94,8 +94,8 @@ public class NewTransaction_Fragment extends Fragment {
                     c.moveToFirst();
                     int numberindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
                     String number = c.getString(numberindex).trim();
+                    number = number.replace(" ","").replace("+88","").replace("-","");
                     cmblnumET.setText(number);
-
                     int nameindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                     String name = c.getString(nameindex);
                     cnameET.setText(name);
@@ -113,8 +113,8 @@ public class NewTransaction_Fragment extends Fragment {
 
         l1 = view.findViewById(R.id.layout_1);
         l2 = view.findViewById(R.id.linearLayout_2);
-        accspinner = view.findViewById(R.id.newaccountspinner_id);
-        transspinner = view.findViewById(R.id.newtransactionspinner_id);
+        accTv = view.findViewById(R.id.newaccounttv_id);
+        transTv = view.findViewById(R.id.newtransactiontv_id);
         timedateTV = view.findViewById(R.id.dateTV_id);
         newtransBTN = view.findViewById(R.id.newtranssave_id);
         amTV = view.findViewById(R.id.amountTV_id);
@@ -125,22 +125,19 @@ public class NewTransaction_Fragment extends Fragment {
         cnameET = view.findViewById(R.id.customernameET_id);
         saveNewContact = view.findViewById(R.id.saveContact_id);
         phonecontactSelect = view.findViewById(R.id.phoneContact_id);
-
         transactionViewModel = ViewModelProviders.of(getActivity()).get(TransactionViewModel.class);
 
         //spinner
-        String[] cas = getResources().getStringArray(R.array.accountType);
-        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-        accspinner.setAdapter(adapter);
+//        String[] cas = getResources().getStringArray(R.array.accountType);
+//        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+//        accspinner.setAdapter(adapter);
 
         //api call
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://103.239.253.160:3666/digi/fmcg/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-
         //
         cmblnumET.addTextChangedListener(new TextWatcher() {
             @Override
@@ -179,7 +176,6 @@ public class NewTransaction_Fragment extends Fragment {
                 }
             }
         });
-
         //language setter
         if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
@@ -211,67 +207,115 @@ public class NewTransaction_Fragment extends Fragment {
         //Current date
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
+        timedateTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
 
+
+                DatePickerDialog dialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
+                        year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+
+            }
+        });
+
+        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month + 1;
+                Log.d(TAG, "onDateSet: dd/mm/yyyy:  " + "/" + day + "/" + month + "/" + year);
+                String date = day + "/" + month + "/" + year;
+                String hour = getResources().getString(R.string.alerm_time_hour);
+                String minutes = getResources().getString(R.string.alerm_time_second);
+                ///set time for alerm notification=============================
+                cal = Calendar.getInstance();
+                cal.setTimeInMillis(System.currentTimeMillis());
+                cal.clear();
+                cal.set(year, month, day, parseInt(hour), parseInt(minutes));
+                timedateTV.setText(date);
+
+            }
+        };
+        //get data from bundel
+        accounttype = getArguments().getString("AccountType");
+        transactiontype = getArguments().getString("TransType");
+        accTv.setText(accounttype);
+        transTv.setText(transactiontype);
+        if (accounttype.matches("Purchase") && transactiontype.matches("Cash")) {
+            cmblnumET.setEnabled(false);
+            cnameET.setEnabled(false);
+            phonecontactSelect.setClickable(false);
+            cnameET.setText("Purchase by Cash");
+            cmblnumET.setText("No Need Mobile Name");
+            l1.setVisibility(View.GONE);
+            l2.setVisibility(View.GONE);
+            timedateTV.setClickable(false);
+            timedateTV.setText(currentdate);
+        }
         //for spinner set position
-        accspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                accounttype = parent.getSelectedItem().toString();
-                if (position == 1) {
-                    String[] cas = getResources().getStringArray(R.array.trans3);
-                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-                    transspinner.setAdapter(adapter);
-                    purchase = false;
-                } else {
-                    String[] cas = getResources().getStringArray(R.array.transactiontype);
-                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-                    transspinner.setAdapter(adapter);
-                    purchase = true;
-                }
-            }
+//        accspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                accounttype = parent.getSelectedItem().toString();
+//                if (position == 1) {
+//                    String[] cas = getResources().getStringArray(R.array.trans3);
+//                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+//                    transspinner.setAdapter(adapter);
+//                    purchase = false;
+//                } else {
+//                    String[] cas = getResources().getStringArray(R.array.transactiontype);
+//                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+//                    transspinner.setAdapter(adapter);
+//                    purchase = true;
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                Toast.makeText(getContext(), "please choose an item", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getContext(), "please choose an item", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        transspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                transactiontype = parent.getSelectedItem().toString();
-                if (purchase == true && position == 1) {
-                    cmblnumET.setEnabled(false);
-                    cnameET.setEnabled(false);
-                    phonecontactSelect.setClickable(false);
-                    cnameET.setText("No Need Customer Name");
-                    cmblnumET.setText("No Need Mobile Name");
-                    l1.setVisibility(View.GONE);
-                    l2.setVisibility(View.GONE);
-                    timedateTV.setClickable(false);
-                    timedateTV.setText(currentdate);
-
-                } else {
-                    cmblnumET.setEnabled(true);
-                    cnameET.setEnabled(true);
-                    phonecontactSelect.setClickable(true);
-                    cnameET.setText("");
-                    cmblnumET.setText("");
-                    l1.setVisibility(View.VISIBLE);
-                    l2.setVisibility(View.VISIBLE);
-                    timedateTV.setClickable(true);
-                    timedateTV.setText("");
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-                Toast.makeText(getContext(), "Please choose an item", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
+//        transspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                transactiontype = parent.getSelectedItem().toString();
+//                if (purchase == true && position == 1) {
+//                    cmblnumET.setEnabled(false);
+//                    cnameET.setEnabled(false);
+//                    phonecontactSelect.setClickable(false);
+//                    cnameET.setText("No Need Customer Name");
+//                    cmblnumET.setText("No Need Mobile Name");
+//                    l1.setVisibility(View.GONE);
+//                    l2.setVisibility(View.GONE);
+//                    timedateTV.setClickable(false);
+//                    timedateTV.setText(currentdate);
+//
+//                } else {
+//                    cmblnumET.setEnabled(true);
+//                    cnameET.setEnabled(true);
+//                    phonecontactSelect.setClickable(true);
+//                    cnameET.setText("");
+//                    cmblnumET.setText("");
+//                    l1.setVisibility(View.VISIBLE);
+//                    l2.setVisibility(View.VISIBLE);
+//                    timedateTV.setClickable(true);
+//                    timedateTV.setText("");
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//                Toast.makeText(getContext(), "Please choose an item", Toast.LENGTH_SHORT).show();
+//            }
+//        });
         newtransBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -328,41 +372,6 @@ public class NewTransaction_Fragment extends Fragment {
             }
 
         });
-        timedateTV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-
-
-                DatePickerDialog dialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
-                        year, month, day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-
-
-            }
-        });
-
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                Log.d(TAG, "onDateSet: dd/mm/yyyy:  " + "/" + day + "/" + month + "/" + year);
-                String date = day + "/" + month + "/" + year;
-                String hour = getResources().getString(R.string.alerm_time_hour);
-                String minutes = getResources().getString(R.string.alerm_time_second);
-                ///set time for alerm notification=============================
-                cal = Calendar.getInstance();
-                cal.setTimeInMillis(System.currentTimeMillis());
-                cal.clear();
-                cal.set(year, month, day, parseInt(hour), parseInt(minutes));
-                timedateTV.setText(date);
-
-            }
-        };
 
         phonecontactSelect.setOnClickListener(new View.OnClickListener() {
             @Override

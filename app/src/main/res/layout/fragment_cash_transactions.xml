@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    tools:context=".fragment.CashTransactions">
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/btn_opencash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_below="@+id/btn_purchaseret"
+            android:text="@string/opening"/>
+        <Button
+            android:id="@+id/btn_cashbox"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/btn_opencash"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+            android:text="@string/dayend_withdrawal_deposit"/>
+        <Button
+            android:id="@+id/btn_cashpurchase"
+            android:layout_width="match_parent"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+            android:text="@string/cash_purchase"/>
+        <Button
+            android:id="@+id/btn_receivepay"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/btn_cashpurchase"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+            android:text="@string/rp"/>
+        <Button
+            android:id="@+id/btn_salesret"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/btn_receivepay"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+            android:text="@string/sales_returns"/>
+        <Button
+            android:id="@+id/btn_purchaseret"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/btn_salesret"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+            android:text="@string/purchase_returns"/>
+        <Button
+            android:id="@+id/btn_expense"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/btn_cashbox"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+            android:text="@string/expense"/>
+
+
+    </RelativeLayout>
+
+</FrameLayout>

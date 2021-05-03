@@ -29,37 +29,41 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/balancetypespinner_id"
+        <LinearLayout
+            android:id="@+id/payrecive"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/edittext_background"
-            android:entries="@array/returndata"
-            android:spinnerMode="dropdown"
-            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/drpTV_id"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintTop_toBottomOf="@+id/drpTV_id">
 
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/transitiontypespinner_id"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/edittext_background"
-            android:entries="@array/trans2"
-            android:spinnerMode="dropdown"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/balancetypespinner_id"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/balancetypetv_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:hint="@string/sales_returns"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/transitiontypetv_id"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:gravity="center"
+                android:hint="@string/cash"
+                android:textColor="@color/black" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout23"
@@ -73,7 +77,7 @@
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/transitiontypespinner_id"
+            app:layout_constraintTop_toBottomOf="@+id/payrecive"
             tools:ignore="MissingConstraints">
 
             <TextView
@@ -139,6 +143,7 @@
                     android:background="@color/white"
                     android:hint="@string/customernumberhint"
                     android:inputType="number"
+                    android:maxLength="11"
                     android:paddingLeft="5dp"
                     android:textColor="@color/black"
                     android:textSize="15sp" />

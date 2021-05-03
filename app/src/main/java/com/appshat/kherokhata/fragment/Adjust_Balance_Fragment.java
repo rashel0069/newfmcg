@@ -43,9 +43,8 @@ import java.util.Locale;
 public class Adjust_Balance_Fragment extends Fragment {
 
     static final int PICK_CONTACT = 1;
-    Spinner accountspinner, transactionspinner;
     EditText adjustamountET, clientmobileET;
-    TextView clientnameTV, cmblTV, duepaydateTV, drpTV, clientnameET, amountTV;
+    TextView clientnameTV, cmblTV, duepaydateTV, drpTV, clientnameET, amountTV,accountTv, transactionTv;;
     Button adjustsaveBtn;
     Context context;
     Resources resources;
@@ -71,6 +70,7 @@ public class Adjust_Balance_Fragment extends Fragment {
                     c.moveToFirst();
                     int numberindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
                     String number = c.getString(numberindex);
+                    number = number.replace(" ","").replace("+88","").replace("-","");
                     clientmobileET.setText(number);
                     int nameindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                     String name = c.getString(nameindex);
@@ -86,8 +86,8 @@ public class Adjust_Balance_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_adjust__balance_, container, false);
 
-        accountspinner = view.findViewById(R.id.balancetypespinner_id);
-        transactionspinner = view.findViewById(R.id.transitiontypespinner_id);
+        accountTv = view.findViewById(R.id.balancetypetv_id);
+        transactionTv = view.findViewById(R.id.transitiontypetv_id);
         adjustamountET = view.findViewById(R.id.adjustamountET_id);
         clientnameTV = view.findViewById(R.id.clientnameTV_id);
         clientnameET = view.findViewById(R.id.clientname_id);
@@ -98,15 +98,20 @@ public class Adjust_Balance_Fragment extends Fragment {
         adjustsaveBtn = view.findViewById(R.id.adjustsaveBtn_id);
         // amountTV = view.findViewById(R.id.amountsTV_id);
         phoneContact = view.findViewById(R.id.phoneContact_id2);
+        //get data from bundle
+        accounttype = getArguments().getString("AccountType");
+        transactiontype = getArguments().getString("TransType");
+        accountTv.setText(accounttype);
+        transactionTv.setText(transactiontype);
 
         //aspinner
-        String[] cas = getResources().getStringArray(R.array.returndata);
-        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-        accountspinner.setAdapter(adapter);
+//        String[] cas = getResources().getStringArray(R.array.returndata);
+//        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
+//        accountspinner.setAdapter(adapter);
 
-        String[] cas2 = getResources().getStringArray(R.array.trans2);
-        ArrayAdapter adapter1 = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas2);
-        transactionspinner.setAdapter(adapter1);
+//        String[] cas2 = getResources().getStringArray(R.array.trans2);
+//        ArrayAdapter adapter1 = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas2);
+//        transactionspinner.setAdapter(adapter1);
 
         //database
         adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
@@ -148,31 +153,31 @@ public class Adjust_Balance_Fragment extends Fragment {
             adjustsaveBtn.setText(resources.getString(R.string.save));
         }
 //for spinner set position
-        accountspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                accounttype = parent.getSelectedItem().toString();
-            }
+//        accountspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                accounttype = parent.getSelectedItem().toString();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//                Toast.makeText(getContext(), "please choose an item", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getContext(), "please choose an item", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        transactionspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                transactiontype = parent.getSelectedItem().toString();
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-                Toast.makeText(getContext(), "Please choose an item", Toast.LENGTH_SHORT).show();
-            }
-        });
+//       transactionspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                transactiontype = parent.getSelectedItem().toString();
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//                Toast.makeText(getContext(), "Please choose an item", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
         adjustsaveBtn.setOnClickListener(new View.OnClickListener() {

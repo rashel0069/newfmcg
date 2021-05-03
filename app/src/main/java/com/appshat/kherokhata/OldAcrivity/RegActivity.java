@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,11 +24,10 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class RegActivity extends AppCompatActivity {
-    TextInputEditText reg_Mobile, reg_password, reg_ConfirmPassword;
-    TextInputLayout reg_Tv1, reg_Tv2, reg_Tv3;
+    EditText reg_Mobile, reg_password, reg_ConfirmPassword;
+    TextView reg_Tv1, reg_Tv2, reg_Tv3;
     TextView reg_now, registered_user;
-    Button confirmButton;
-    TextView loginPage;
+    TextView confirmButton, loginPage;
     UserDao userDBdao;
     Databaseroom userDB;
     String mobile, password, confirmpass;
@@ -38,47 +38,13 @@ public class RegActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reg);
-
-        reg_now = findViewById(R.id.textView4);
+        setContentView(R.layout.signupui);
+        reg_now = findViewById(R.id.cre_text);
         reg_Mobile = findViewById(R.id.reg_phoneNumber_id);
         reg_password = findViewById(R.id.reg_password_Id);
         reg_ConfirmPassword = findViewById(R.id.reg_confirm_password_Id);
-        reg_Tv1 = findViewById(R.id.reg_f1);
-        reg_Tv2 = findViewById(R.id.reg_f2);
-        reg_Tv3 = findViewById(R.id.reg_f3);
         confirmButton = findViewById(R.id.reg_button);
-        registered_user = findViewById(R.id.already_reg);
         loginPage = findViewById(R.id.reg_login);
-
-//language setter
-        if (!Helper.getBangla()) {
-            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(RegActivity.this, "en");
-            resources = context.getResources();
-            reg_now.setText(resources.getString(R.string.registration_now));
-            confirmButton.setText(resources.getString(R.string.confirm));
-            registered_user.setText(resources.getString(R.string.already_to));
-            reg_Tv1.setHint(resources.getString(R.string.hint1));
-            reg_Tv2.setHint(resources.getString(R.string.hint2));
-            reg_Tv3.setHint(resources.getString(R.string.hint3));
-            loginPage.setText(resources.getString(R.string.login));
-
-
-        } else {
-            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(RegActivity.this, "bn");
-            resources = context.getResources();
-            reg_now.setText(resources.getString(R.string.registration_now));
-            confirmButton.setText(resources.getString(R.string.confirm));
-            registered_user.setText(resources.getString(R.string.already_to));
-            reg_Tv1.setHint(resources.getString(R.string.hint1));
-            reg_Tv2.setHint(resources.getString(R.string.hint2));
-            reg_Tv3.setHint(resources.getString(R.string.hint3));
-            loginPage.setText(resources.getString(R.string.login));
-
-
-        }
 
 
         //Database
