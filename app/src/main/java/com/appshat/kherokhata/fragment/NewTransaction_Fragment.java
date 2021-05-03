@@ -364,7 +364,7 @@ public class NewTransaction_Fragment extends Fragment {
                     Toast.makeText(getContext(), "Please fill up the required fields", Toast.LENGTH_SHORT).show();
                 }
 
-                if (transactiontype.equals("Credit")) {
+                if (transactiontype.equals("Credit") && !timedateTV.getText().toString().isEmpty()) {
                     setAlerm(cal);
                 }
 
