@@ -26,25 +26,23 @@
         <activity android:name=".NewUIActivity.TestUI">
 
         </activity>
-        <activity android:name=".NewUIActivity.Start_Activity"/>
+        <activity android:name=".NewUIActivity.Onboarding_Activity">
 
-        <activity android:name=".NewUIActivity.Second_Intro_Activity" />
-
-        <activity android:name=".NewUIActivity.First_Intro_Activity" />
-
+        </activity>
         <activity
-            android:name=".NewUIActivity.First_Splash_Screen"
-            android:theme="@style/noactionbar"/>
-
-        <activity android:name=".OldAcrivity.RegActivity" />
-        <activity
-            android:name=".OldAcrivity.SplashScreen"
+            android:name=".NewUIActivity.Splash_Screen"
             android:theme="@style/noactionbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".OldAcrivity.RegActivity" />
+        <activity
+            android:name=".OldAcrivity.SplashScreen"
+            android:theme="@style/noactionbar">
+
         </activity>
 
         <activity android:name=".OldAcrivity.Broadcast_Activity" />

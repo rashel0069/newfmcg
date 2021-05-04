@@ -6,9 +6,9 @@
 
     <string name="first_splash">Start Managing Your Finance</string>
 
-    <string name="digital_product">A digital product of</string>
+    <string name="digital_product">A digital product of </string>
 
-    <string name="digitalistic">DIGITALISTIC</string>
+    <string name="digitalistic">Digitalistic</string>
 
     <string name="text1">Handle your accounts \n smartly With Khero Khata </string>
 
@@ -20,8 +20,17 @@
 
     <string name="sl">select language</string>
 
+    <string name="gs">Get Started</string>
+
+    <string name="next">Next</string>
+
+    <string name="history">History</string>
 
     <string name="text4">Lorem ipsum, or lipsum as it is sometimes \n known, is dummy text used in laying out print,\n  graphic or web designs</string>
+
+    <string name="text5">Lorem ipsum, or lipsum as \n it is sometimes known </string>
+
+    <string name="text6">Lorem ipsum, or lipsum as it is sometimes \n known, is dummy text used in laying out print,\n graphic or web designs</string>
 
     <string name="intro">স্বাগতম</string>
 
@@ -33,6 +42,12 @@
 
     <string name="login">লগইন</string>
 
+    <string name="historydate">27–9–2020</string>
+
+    <string name="historymonth">April</string>
+
+    <string name="nodata">No Data Found</string>
+
     <string name="creditsales">বাকিতে বিক্রয়</string>
 
     <string name="registration"><u>রেজিস্টার</u></string>
@@ -43,7 +58,7 @@
 
     <string name="amount">টাকার পরিমাণ </string>
 
-    <string name="amounthint">যেমন:৫০০০</string>
+    <string name="amounthint">যেমন: ১০০০</string>
 
     <string name="customerName">ক্রেতার নাম</string>
 
@@ -363,24 +378,43 @@
     <string name="already_to">ইতিমধ্যে নিবন্ধিত! ফিরে যান</string>
 
     <string name="confirm">নিশ্চিত করুন</string>
+
     <string name="phone_numbe">ফোন নাম্বার</string>
+
     <string name="credit_purchase">বাকিতে ক্রয়</string>
+
     <string name="cr_sales">বাকিতে বিক্রয়</string>
+
     <string name="cash_purchase">নগদ ক্রয়</string>
+
     <string name="sales_returns">বিক্রয় ফেরত</string>
+
     <string name="purchase_returns">ক্রয় ফেরত</string>
+
     <string name="dayend_withdrawal_deposit">দিন শেষে হিসাব , উত্তোলন , জমা</string>
+
     <string name="credit_transaction">বাকিতে লেনদেন</string>
+
     <string name="cash_transaction">নগদ লেনদেন</string>
-    <string name="singup">Don’t have an account? <b>Singup</b></string>
+
+    <string name="singup">Don’t have an account? <b>Signup</b></string>
+
     <string name="create_account">Create Account</string>
+
     <string name="enter_your">Enter your credentials to continue</string>
+
     <string name="confirm_password">Confirm Password</string>
+
     <string name="terms">By continuing you agree to our
+
          <font color='#000000'>Terms of Service</font> and <font color = '#000000'>Privacy Policy.</font> </string>
+
     <string name="sign_up">Sign Up</string>
-    <string name="singin">Already have an account? <b>SingIn</b></string>
+
+    <string name="singin">Already have an account? <b>Sign In</b></string>
+
     <string name="password">Password</string>
+
     <string name="log_in">Log In</string>
 
 </resources>

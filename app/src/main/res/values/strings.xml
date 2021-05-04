@@ -4,9 +4,9 @@
 
     <string name="first_splash">Start Managing Your Finance</string>
 
-    <string name="digital_product">A digital product of</string>
+    <string name="digital_product">A digital product of </string>
 
-    <string name="digitalistic">DIGITALISTIC</string>
+    <string name="digitalistic">Digitalistic</string>
 
     <string name="text1">Handle your accounts \n smartly With Khero Khata </string>
 
@@ -14,9 +14,20 @@
 
     <string name="skip">Skip</string>
 
+    <string name="gs">Get Started</string>
+
+    <string name="next">Next</string>
+
+    <string name="history">History</string>
+
+
     <string name="text3">Lorem ipsum, or lipsum as \n it is sometimes known </string>
 
     <string name="text4">Lorem ipsum, or lipsum as it is sometimes \n known, is dummy text used in laying out print,\n graphic or web designs</string>
+
+    <string name="text5">Lorem ipsum, or lipsum as \n it is sometimes known </string>
+
+    <string name="text6">Lorem ipsum, or lipsum as it is sometimes \n known, is dummy text used in laying out print,\n graphic or web designs</string>
 
     <string name="sl">Select Language</string>
 
@@ -41,7 +52,7 @@
 
     <string name="amount">Enter Your Amount</string>
 
-    <string name="amounthint">eg. 5000</string>
+    <string name="amounthint">BDT 23000</string>
 
     <string name="customerName">Customer Name</string>
 
@@ -49,7 +60,7 @@
 
     <string name="duedate">Duedate</string>
 
-    <string name="opening">Opening Amount</string>
+    <string name="opening">Opening Balance</string>
 
     <string name="rent">Rent Expense</string>
 
@@ -143,7 +154,7 @@
 
     <string name="order">Order</string>
 
-    <string name="selector">Language</string>
+    <string name="selector">Select Language</string>
 
     <string name="country">Country</string>
 
@@ -325,13 +336,19 @@
 
     <string name="totalreceivable">Total Receivable</string>
 
-    <string name="closingcash">CLosing Cash</string>
+    <string name="closingcash">CLosing Balance</string>
 
     <string name="from">From:</string>
 
     <string name="to">To:</string>
 
     <string name="datehint">eg:27–9–2020</string>
+
+    <string name="historydate">27–9–2020</string>
+
+    <string name="historymonth">April</string>
+
+    <string name="nodata">No Data Found</string>
 
     <string name="new_customer_save_now">New Customer ? Save Now</string>
 
@@ -370,31 +387,56 @@
     <string name="already_to">Already Registered ! Go back to  </string>
 
     <string name="confirm">Confirm</string>
+
     <string name="select_your" translatable="false">Select Your Location</string>
+
     <string name="lorem_ipsum" translatable="false">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs</string>
+
     <string name="your_zone" translatable="false">Your Zone</string>
+
     <string name="your_area" translatable="false">Your Area</string>
+
     <string name="types_of_yo" translatable="false">Types of your area</string>
+
     <string name="submit" translatable="false">Submit</string>
+
     <string name="enter_your_" translatable="false">Enter your Phone Number and password</string>
+
     <string name="phone_numbe">Phone Number</string>
+
     <string name="credit_purchase">Credit Purchase</string>
+
     <string name="cr_sales">Credit sales</string>
+
     <string name="cash_purchase">Cash Purchase</string>
+
     <string name="sales_returns">Sales Returns</string>
+
     <string name="purchase_returns">Purchase Returns</string>
+
     <string name="dayend_withdrawal_deposit">End of the day , Withdrawal , Deposit</string>
+
     <string name="credit_transaction">Credit Transaction</string>
+
     <string name="cash_transaction">Cash Transaction</string>
+
     <string name="singup">Don’t have an account? <b>Singup</b></string>
+
     <string name="create_account">Create Account</string>
+
     <string name="enter_your">Enter your credentials to continue</string>
+
     <string name="confirm_password">Confirm Password</string>
+
     <string name="terms">By continuing you agree to our
-         <font color='#000000'>Terms of Service </font> and <font color = '#000000'>Privacy Policy.</font> </string>
+         <font color='#000000'>Terms of Service </font> and <font color='#000000'>Privacy Policy.</font> </string>
+
     <string name="sign_up">Sign Up</string>
+
     <string name="singin">Already have an account? <b>SingIn</b></string>
+
     <string name="password">Password</string>
+
     <string name="log_in">Log In</string>
 
 </resources>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".NewUIFragment.About_Fragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/digitalistic_id"
+            android:layout_width="215dp"
+            android:layout_height="215dp"
+            android:layout_marginStart="98dp"
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="98dp"
+            android:layout_marginBottom="633dp"
+            android:background="@drawable/digitalistic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/about_icon_id"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="295dp"
+            android:layout_marginEnd="12.57dp"
+            android:layout_marginBottom="607dp"
+            android:background="@drawable/about_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/aboutTV1_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/aboutTV1_id"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="23.69dp"
+            android:text="@string/about"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#4F4F4F"
+            android:textFontWeight="400"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/digitalistic_id" />
+
+        <TextView
+            android:id="@+id/aboutTV2_id"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="477dp"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="23.69dp"
+            android:text="@string/about2"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#4F4F4F"
+            android:textFontWeight="400"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aboutTV1_id" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
