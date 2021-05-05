@@ -49,7 +49,7 @@
 
     <string name="duedate">Duedate</string>
 
-    <string name="opening">Opening Amount</string>
+    <string name="opening">Opening Balance</string>
 
     <string name="rent">Rent Expense</string>
 
@@ -141,7 +141,7 @@
 
     <string name="newtransaction">New Txn</string>
 
-    <string name="showtransaction">Show Txn</string>
+    <string name="showtransaction">Transaction Book</string>
 
     <string name="order">Order</string>
 

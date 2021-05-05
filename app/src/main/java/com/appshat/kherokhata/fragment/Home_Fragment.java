@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,9 +51,9 @@ public class Home_Fragment<Date> extends Fragment {
 
     public static final String MY_PREF_NAME = "myPrefFile";
     private static final String TAG = "Activity";
-    Button  orderbtn, showtransbtn, cashTrn,creditTrn;
+    LinearLayout orderbtn, showtransbtn, cashTrn,creditTrn;
     TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,
-            openingcashTV, dayendcashTV, receivablecashTV, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
+            openingcashTV, dayendcashTV, receivablecashTV,cashbook,creditbook,orderbook,transbook, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
     String prev, openAmount,opening;
     InformationDao informationDbDao;
     NewtransactionDao newtransactionDao;
@@ -71,7 +72,7 @@ public class Home_Fragment<Date> extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home_, container, false);
+        View view = inflater.inflate(R.layout.home_fragment_ui, container, false);
         historyViewModel = ViewModelProviders.of(getActivity()).get(HistoryViewModel.class);
         cashTrn = view.findViewById(R.id.cashtrnBtn_id);
         creditTrn = view.findViewById(R.id.cretrnBtn_id);
@@ -93,6 +94,10 @@ public class Home_Fragment<Date> extends Fragment {
         expenseCash = view.findViewById(R.id.expenseamountTV_id);
         totalcashTV = view.findViewById(R.id.totalsalesTitle_id);
         totalCash = view.findViewById(R.id.totalsalesamountTV_id);
+        cashbook = view.findViewById(R.id.csbook_tv);
+        creditbook = view.findViewById(R.id.crbook_tv);
+        orderbook = view.findViewById(R.id.orderbook_tv);
+        transbook = view.findViewById(R.id.transbook_tv);
 
 //language setter
         if (!Helper.getBangla()) {
@@ -107,10 +112,10 @@ public class Home_Fragment<Date> extends Fragment {
             purchasecashTV.setText(resources.getString(R.string.purchase));
             expensecashTV.setText(resources.getString(R.string.expense));
             totalcashTV.setText(resources.getString(R.string.totalsales));
-            orderbtn.setText(resources.getString(R.string.order));
-            showtransbtn.setText(resources.getString(R.string.showtransaction));
-            cashTrn.setText(resources.getString(R.string.cash_transaction));
-            creditTrn.setText(resources.getString(R.string.credit_transaction));
+            orderbook.setText(resources.getString(R.string.order));
+            transbook.setText(resources.getString(R.string.showtransaction));
+            cashbook.setText(resources.getString(R.string.cash_transaction));
+            creditbook.setText(resources.getString(R.string.credit_transaction));
 
 
         } else {
@@ -125,10 +130,10 @@ public class Home_Fragment<Date> extends Fragment {
             purchasecashTV.setText(resources.getString(R.string.purchase));
             expensecashTV.setText(resources.getString(R.string.expense));
             totalcashTV.setText(resources.getString(R.string.totalsales));
-            orderbtn.setText(resources.getString(R.string.order));
-            showtransbtn.setText(resources.getString(R.string.showtransaction));
-            cashTrn.setText(resources.getString(R.string.cash_transaction));
-            creditTrn.setText(resources.getString(R.string.credit_transaction));
+            orderbook.setText(resources.getString(R.string.order));
+            transbook.setText(resources.getString(R.string.showtransaction));
+            cashbook.setText(resources.getString(R.string.cash_transaction));
+            creditbook.setText(resources.getString(R.string.credit_transaction));
         }
 
         //creditsells Data
