@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.appshat.kherokhata.R;
 
 public class CreditTransactions extends Fragment {
-    Button btncredit_purch,btncredit_sales;
+    Button btncredit_purch,btncredit_sales,btnrecive_pay;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,6 +49,19 @@ public class CreditTransactions extends Fragment {
                 bundle.putString("TransType","Credit");
                 new_transaction_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, new_transaction_fragment);
+                transaction.addToBackStack("null");
+                transaction.commit();
+            }
+        });
+        //button recive and pay
+        btnrecive_pay = crtv.findViewById(R.id.btn_receivepay);
+        btnrecive_pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //do something
+                Receivablepayable_Fragment receive_balance_fragment = new Receivablepayable_Fragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, receive_balance_fragment);
                 transaction.addToBackStack("null");
                 transaction.commit();
             }

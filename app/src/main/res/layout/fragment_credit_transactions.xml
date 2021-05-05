@@ -23,6 +23,13 @@
             android:textAllCaps="false"
             android:layout_height="wrap_content"
             android:text="@string/credit_purchase"/>
+        <Button
+            android:id="@+id/btn_receivepay"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/btn_creditpurch"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+            android:text="@string/rp"/>
 
 
     </RelativeLayout>

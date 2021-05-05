@@ -15,7 +15,7 @@ import com.appshat.kherokhata.OldAcrivity.ExampleDialog;
 import com.appshat.kherokhata.R;
 
 public class CashTransactions extends Fragment {
-    Button btncash_purch,btnrecive_pay,btnsales_return,btnpurch_return,btnopening_amount,btncash_box,btnexpance;
+    Button btncash_purch,btnsales_return,btnpurch_return,btnopening_amount,btncash_box,btnexpance;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,19 +34,6 @@ public class CashTransactions extends Fragment {
                 bundle.putString("TransType","Cash");
                 new_transaction_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, new_transaction_fragment);
-                transaction.addToBackStack("null");
-                transaction.commit();
-            }
-        });
-        //button recive and pay
-        btnrecive_pay = ctv.findViewById(R.id.btn_receivepay);
-        btnrecive_pay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //do something
-                Receivablepayable_Fragment receive_balance_fragment = new Receivablepayable_Fragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.framelayout_container_id, receive_balance_fragment);
                 transaction.addToBackStack("null");
                 transaction.commit();
             }
