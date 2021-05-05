@@ -11,12 +11,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.appshat.kherokhata.NewUIFragment.Cash_Nav_Fragment;
+import com.appshat.kherokhata.NewUIFragment.History_Nav_Fragment;
+import com.appshat.kherokhata.NewUIFragment.Menu_Nav_Fragment;
+import com.appshat.kherokhata.NewUIFragment.Profile_Nav_Fragment;
 import com.appshat.kherokhata.R;
-import com.appshat.kherokhata.fragment.About_Fragment;
-import com.appshat.kherokhata.fragment.History_Fragment;
 import com.appshat.kherokhata.fragment.Home_Fragment;
 import com.appshat.kherokhata.fragment.Information_Fragment;
-import com.appshat.kherokhata.fragment.Profile_Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -34,14 +35,19 @@ public class HomeActivity extends AppCompatActivity {
                             selectedFragment = new Home_Fragment();
                             break;
                         case R.id.history:
-                            selectedFragment = new History_Fragment();
+                            selectedFragment = new History_Nav_Fragment();
+                            break;
+                        case R.id.cash:
+                            selectedFragment = new Cash_Nav_Fragment();
                             break;
                         case R.id.profile:
-                            selectedFragment = new Profile_Fragment();
+                            selectedFragment = new Profile_Nav_Fragment();
                             break;
-                        case R.id.about:
-                            selectedFragment = new About_Fragment();
+
+                        case R.id.menu:
+                            selectedFragment = new Menu_Nav_Fragment();
                             break;
+
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_container_id,
                             selectedFragment).commit();

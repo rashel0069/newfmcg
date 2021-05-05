@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewUIActivity.Splash_Screen">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/logo_id"
+            android:layout_width="201.5dp"
+            android:layout_height="174.55dp"
+            android:layout_marginStart="105.25dp"
+            android:layout_marginTop="245dp"
+            android:layout_marginEnd="104.25dp"
+            android:layout_marginBottom="311.45dp"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/logotext_TV"
+            android:layout_width="190dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="110dp"
+            android:layout_marginBottom="278.45dp"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="18dp"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#EB222C"
+            android:textFontWeight="600"
+            android:textSize="30sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo_id" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="246dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="82dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="83dp"
+            android:layout_marginBottom="245.45dp"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="18dp"
+            android:text="@string/first_splash"
+            android:textAlignment="center"
+            android:textColor="#828282"
+            android:textFontWeight="500"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logotext_TV" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="155dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="187.15dp"
+            android:layout_marginEnd="128dp"
+            android:layout_marginBottom="22dp"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="18dp"
+            android:text="@string/digital_product"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#BDBDBD"
+            android:textFontWeight="500"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="155dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="128dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="18dp"
+            android:text="@string/digitalistic"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="#EB222C"
+            android:textFontWeight="500"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

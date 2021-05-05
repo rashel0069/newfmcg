@@ -1,7 +1,5 @@
 package com.appshat.kherokhata.NewUIActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -13,21 +11,24 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 
-public class First_Splash_Screen extends AppCompatActivity {
+public class Splash_Screen extends AppCompatActivity {
     Animation toplogoAnim, bottomlogoAnim;
     ImageView spLogo;
     TextView spName;
     Context context;
     Resources resources;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first__splash__screen);
+        setContentView(R.layout.activity_splash__screen);
 
         Helper.setBangla(true);
         toplogoAnim = AnimationUtils.loadAnimation(this, R.anim.top_animator);
@@ -42,7 +43,7 @@ public class First_Splash_Screen extends AppCompatActivity {
         //language setter
         if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(First_Splash_Screen.this, "en");
+            context = Localhelper.setLocale(Splash_Screen.this, "en");
             resources = context.getResources();
 
             spName.setText(resources.getString(R.string.app_name));
@@ -50,7 +51,7 @@ public class First_Splash_Screen extends AppCompatActivity {
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(First_Splash_Screen.this, "bn");
+            context = Localhelper.setLocale(Splash_Screen.this, "bn");
             resources = context.getResources();
             spName.setText(resources.getString(R.string.app_name));
         }
@@ -59,7 +60,7 @@ public class First_Splash_Screen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), First_Intro_Activity.class);
+                Intent intent = new Intent(getApplicationContext(), Onboarding_Activity.class);
                 startActivity(intent);
                 finish();
             }

@@ -369,7 +369,7 @@
     <string name="cash_purchase">নগদ ক্রয়</string>
     <string name="sales_returns">বিক্রয় ফেরত</string>
     <string name="purchase_returns">ক্রয় ফেরত</string>
-    <string name="withdrawal_deposit">উত্তোলন , জমা</string>
+    <string name="dayend_withdrawal_deposit">দিন শেষে হিসাব , উত্তোলন , জমা</string>
     <string name="credit_transaction">বাকিতে লেনদেন</string>
     <string name="cash_transaction">নগদ লেনদেন</string>
     <string name="singup">Don’t have an account? <b>Singup</b></string>
@@ -382,6 +382,5 @@
     <string name="singin">Already have an account? <b>SingIn</b></string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
-    <string name="enter_full_name">Enter Full Name</string>
 
 </resources>

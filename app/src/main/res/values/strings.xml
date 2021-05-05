@@ -383,7 +383,7 @@
     <string name="cash_purchase">Cash Purchase</string>
     <string name="sales_returns">Sales Returns</string>
     <string name="purchase_returns">Purchase Returns</string>
-    <string name="withdrawal_deposit">Withdrawal , Deposit</string>
+    <string name="dayend_withdrawal_deposit">End of the day , Withdrawal , Deposit</string>
     <string name="credit_transaction">Credit Transaction</string>
     <string name="cash_transaction">Cash Transaction</string>
     <string name="singup">Don’t have an account? <b>Singup</b></string>
@@ -396,6 +396,5 @@
     <string name="singin">Already have an account? <b>SingIn</b></string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
-    <string name="enter_full_name">Enter Full Name</string>
 
 </resources>
