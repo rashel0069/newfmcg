@@ -32,6 +32,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                android:padding="22dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profile_img_id"
+                    android:layout_width="89dp"
+                    android:layout_height="89dp"
+                    android:background="@drawable/buttonback"
+                    android:padding="8dp"
+                    android:src="@drawable/nopreview"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <ImageView
+                    android:id="@+id/editphoto_id"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="68dp"
+                    android:background="@drawable/buttonback"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_baseline_cloud_upload_24"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="@+id/profile_img_id"
+                    app:layout_constraintTop_toTopOf="@+id/profile_img_id"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -40,10 +73,10 @@
                 android:layout_marginEnd="58dp">
 
                 <EditText
-                    android:id="@+id/fullname_id"
+                    android:id="@+id/sownername_ET"
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/inputbackground"
                     android:fontFamily="@font/montserrat"
                     android:hint="@string/enter_full_name"
@@ -59,7 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
-                    android:layout_marginTop="23dp"
+                    android:layout_marginTop="12dp"
                     android:background="@color/primary"
                     android:fontFamily="@font/montserrat"
                     android:lineHeight="14.63dp"
@@ -69,17 +102,404 @@
                     android:textColor="@color/white"
                     android:textFontWeight="400"
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toTopOf="@+id/fullname_id"
+                    app:layout_constraintBottom_toTopOf="@+id/sownername_ET"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/fullname_id"
+                    app:layout_constraintStart_toStartOf="@+id/sownername_ET"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
                     tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="58dp"
+                android:layout_marginEnd="58dp">
 
+                <EditText
+                    android:id="@+id/sname_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="@string/shopname"
+                    android:lineHeight="17.07dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="Shop Name"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/sname_ET"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/sname_ET"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="58dp"
+                android:layout_marginEnd="58dp">
+
+                <EditText
+                    android:id="@+id/selectcategory_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="Shop Category"
+                    android:lineHeight="17.07dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="Shop Category"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/selectcategory_id"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/selectcategory_id"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="58dp"
+                android:layout_marginEnd="58dp">
+
+                <EditText
+                    android:id="@+id/saddress_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="696, Shawrapa Dhaka-1216"
+                    android:lineHeight="17.07dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="Shop Address"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/saddress_ET"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/saddress_ET"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="58dp"
+                android:layout_marginEnd="58dp">
+
+                <EditText
+                    android:id="@+id/tradeln_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="9232734"
+                    android:inputType="number"
+                    android:lineHeight="17.07dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="Trade License Number"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tradeln_id"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/tradeln_id"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="58dp"
+                android:layout_marginEnd="58dp">
+
+                <EditText
+                    android:id="@+id/nid_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="1929927268"
+                    android:lineHeight="17.07dp"
+                    android:paddingLeft="25dp"
+                    android:maxLength="17"
+                    android:textColor="@color/white"
+                    android:inputType="number"
+                    android:textFontWeight="600"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="NID Number"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/nid_id"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/nid_id"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="58dp"
+                android:layout_marginEnd="58dp">
+
+                <EditText
+                    android:id="@+id/openingamount_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="eg.50000"
+                    android:lineHeight="17.07dp"
+                    android:paddingLeft="25dp"
+                    android:maxLength="17"
+                    android:textColor="@color/white"
+                    android:inputType="number"
+                    android:textFontWeight="600"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="Opening Balance"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/openingamount_ET"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/openingamount_ET"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="58dp"
+                android:layout_marginEnd="58dp">
+
+                <EditText
+                    android:id="@+id/receivableamount_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="eg. 5000"
+                    android:lineHeight="17.07dp"
+                    android:paddingLeft="25dp"
+                    android:maxLength="17"
+                    android:textColor="@color/white"
+                    android:inputType="number"
+                    android:textFontWeight="600"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="Receivable Balance"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/receivableamount_ET"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/receivableamount_ET"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="58dp"
+                android:layout_marginEnd="58dp">
+
+                <EditText
+                    android:id="@+id/payableamount_ET"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:hint="eg. 5000"
+                    android:lineHeight="17.07dp"
+                    android:paddingLeft="25dp"
+                    android:maxLength="17"
+                    android:textColor="@color/white"
+                    android:inputType="number"
+                    android:textFontWeight="600"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="22dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="Payable Balance"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@+id/payableamount_ET"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/payableamount_ET"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/saved_id"
+                style="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/button_backgroung"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginStart="58dp"
+                android:layout_marginEnd="58dp"
+                android:layout_marginTop="29dp"
+                android:fontFamily="@font/montserrat"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:lineHeight="30dp"
+                android:layout_marginBottom="150dp"
+                android:drawableEnd="@drawable/arrow"
+                android:paddingEnd="9.62dp"
+                android:paddingStart="9.62dp"
+                android:maxLength="11"
+                android:textAlignment="center"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="15sp" />
         </LinearLayout>
+
+
 
 
     </ScrollView>

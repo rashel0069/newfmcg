@@ -5,22 +5,30 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Arrays;
+
 @Entity(tableName = "informations")
 public class InformationEntity {
 
     @PrimaryKey
     @NonNull
-    @ColumnInfo(name = "usermobile")
-    String mobilenumber;
-    @NonNull
-    @ColumnInfo(name = "shopname")
-    String shopname;
+    @ColumnInfo(name = "nid")
+    String nidnumber;
     @NonNull
     @ColumnInfo(name = "shopkeepername")
     String shopkeepername;
     @NonNull
+    @ColumnInfo(name = "shopname")
+    String shopname;
+    @NonNull
+    @ColumnInfo(name = "shopcategory")
+    String shopcategory;
+    @NonNull
     @ColumnInfo(name = "shopaddress")
     String shopaddress;
+    @NonNull
+    @ColumnInfo(name = "tradelicense")
+    String tradelicense;
     @NonNull
     @ColumnInfo(name = "openingamount")
     String openingamount;
@@ -34,27 +42,22 @@ public class InformationEntity {
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     byte[] imageurl;
 
-    public InformationEntity(String mobilenumber, @NonNull String shopname,
-                             @NonNull String shopkeepername, @NonNull String shopaddress,
-                             @NonNull String openingamount, @NonNull String receivableamount,
-                             @NonNull String payableamount, byte[] imageurl) {
-        this.mobilenumber = mobilenumber;
-        this.shopname = shopname;
+    public InformationEntity(@NonNull String nidnumber, @NonNull String shopkeepername, @NonNull String shopname,
+                             @NonNull String shopcategory, @NonNull String shopaddress, @NonNull String tradelicense,
+                             @NonNull String openingamount, @NonNull String receivableamount, @NonNull String payableamount,
+                             byte[] imageurl) {
+        this.nidnumber = nidnumber;
         this.shopkeepername = shopkeepername;
+        this.shopname = shopname;
+        this.shopcategory = shopcategory;
         this.shopaddress = shopaddress;
+        this.tradelicense = tradelicense;
         this.openingamount = openingamount;
         this.receivableamount = receivableamount;
         this.payableamount = payableamount;
         this.imageurl = imageurl;
     }
 
-    public String getMobilenumber() {
-        return mobilenumber;
-    }
-
-    public void setMobilenumber(String mobilenumber) {
-        this.mobilenumber = mobilenumber;
-    }
 
     @NonNull
     public String getShopname() {
@@ -102,6 +105,33 @@ public class InformationEntity {
     }
 
     @NonNull
+    public String getNidnumber() {
+        return nidnumber;
+    }
+
+    public void setNidnumber(@NonNull String nidnumber) {
+        this.nidnumber = nidnumber;
+    }
+
+    @NonNull
+    public String getShopcategory() {
+        return shopcategory;
+    }
+
+    public void setShopcategory(@NonNull String shopcategory) {
+        this.shopcategory = shopcategory;
+    }
+
+    @NonNull
+    public String getTradelicense() {
+        return tradelicense;
+    }
+
+    public void setTradelicense(@NonNull String tradelicense) {
+        this.tradelicense = tradelicense;
+    }
+
+    @NonNull
     public String getPayableamount() {
         return payableamount;
     }
@@ -121,14 +151,16 @@ public class InformationEntity {
     @Override
     public String toString() {
         return "InformationEntity{" +
-                "mobilenumber='" + mobilenumber + '\'' +
-                ", shopname='" + shopname + '\'' +
+                "nidnumber='" + nidnumber + '\'' +
                 ", shopkeepername='" + shopkeepername + '\'' +
+                ", shopname='" + shopname + '\'' +
+                ", shopcategory='" + shopcategory + '\'' +
                 ", shopaddress='" + shopaddress + '\'' +
+                ", tradelicense='" + tradelicense + '\'' +
                 ", openingamount='" + openingamount + '\'' +
                 ", receivableamount='" + receivableamount + '\'' +
                 ", payableamount='" + payableamount + '\'' +
-                ", imageurl='" + imageurl + '\'' +
+                ", imageurl=" + Arrays.toString(imageurl) +
                 '}';
     }
 }

@@ -199,7 +199,6 @@
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
             android:lineHeight="30dp"
-            android:inputType="number"
             android:maxLength="11"
             android:text="@string/login"
             android:textColor="@color/white"

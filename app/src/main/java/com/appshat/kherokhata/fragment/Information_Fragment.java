@@ -45,10 +45,10 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Information_Fragment extends Fragment {
     public static final String MY_PREF_NAME = "myPrefFile";
-    TextView shoppnameTV, ownernameTV, addressTV, phonenumberTV, openingTV, receivableTV, payableTV;
-    EditText shoppnameEt, ownernameET, addressET, phonenumberET, openingET, receivableET, payableET;
-    Button saveBtn;
-    String usermobile, shopname, shopkeepername, shopaddress, opening, receivable, payable, dayend, withdrawal, deposit, datetime, imageuri;
+    TextView shoppnameTV, ownernameTV,categoryTV, addressTV, nidnumberTV, treadlnTV, openingTV, receivableTV, payableTV;
+    EditText shoppnameEt, ownernameET, addressET, nidnumberET, categoryET,tradelnET, openingET, receivableET, payableET;
+    TextView saveBtn;
+    String usernid, shopname, shopkeepername,shopcategory,tradelnc, shopaddress, opening, receivable, payable, dayend, withdrawal, deposit, datetime, imageuri;
     Context context;
     Resources resources;
     ImageView photoUp, profileImage;
@@ -63,24 +63,19 @@ public class Information_Fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_information_, container, false);
+        final View view = inflater.inflate(R.layout.account_info, container, false);
 
 //        //database
         cashBoxViewModel = ViewModelProviders.of(getActivity()).get(CashBoxViewModel.class);
         informationViewModel = ViewModelProviders.of(getActivity()).get(InformationViewModel.class);
-        shoppnameTV = view.findViewById(R.id.sname_TV);
         shoppnameEt = view.findViewById(R.id.sname_ET);
-        ownernameTV = view.findViewById(R.id.sownername_TV);
         ownernameET = view.findViewById(R.id.sownername_ET);
-        addressTV = view.findViewById(R.id.saddress_TV);
+        categoryET = view.findViewById(R.id.selectcategory_id);
+        tradelnET = view.findViewById(R.id.tradeln_id);
         addressET = view.findViewById(R.id.saddress_ET);
-        phonenumberTV = view.findViewById(R.id.smobilenumber_TV);
-        phonenumberET = view.findViewById(R.id.smobilenumber_ET);
-        openingTV = view.findViewById(R.id.openingamount_TV);
+        nidnumberET = view.findViewById(R.id.nid_id);
         openingET = view.findViewById(R.id.openingamount_ET);
-        receivableTV = view.findViewById(R.id.recamnt_TV);
         receivableET = view.findViewById(R.id.receivableamount_ET);
-        payableTV = view.findViewById(R.id.payamnt_TV);
         payableET = view.findViewById(R.id.payableamount_ET);
         saveBtn = view.findViewById(R.id.saved_id);
         photoUp = view.findViewById(R.id.editphoto_id);
@@ -104,60 +99,21 @@ public class Information_Fragment extends Fragment {
         });
 
 //language setter
-        if (!Helper.getBangla()) {
-            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(), "en");
-            resources = context.getResources();
-            shoppnameTV.setText(resources.getString(R.string.shopname));
-            shoppnameEt.setHint(resources.getString(R.string.shopnamehint));
-            ownernameTV.setText(resources.getString(R.string.sownername));
-            ownernameET.setHint(resources.getString(R.string.shopnamehint));
-            addressTV.setText(resources.getString(R.string.saddress));
-            addressET.setHint(resources.getString(R.string.saddresshint));
-            phonenumberTV.setText(resources.getString(R.string.hint1));
-            phonenumberET.setHint(resources.getString(R.string.hint1));
-            payableET.setHint(resources.getString(R.string.hint1));
-            openingTV.setText(resources.getString(R.string.opening));
-            openingET.setHint(resources.getString(R.string.openinghint));
-            receivableTV.setText(resources.getString(R.string.ra));
-            receivableET.setHint(resources.getString(R.string.rahint));
-            payableTV.setText(resources.getString(R.string.pa));
-            payableET.setHint(resources.getString(R.string.pahint));
-            saveBtn.setText(resources.getString(R.string.save));
-
-        } else {
-            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(), "bn");
-            resources = context.getResources();
-            shoppnameTV.setText(resources.getString(R.string.shopname));
-            shoppnameEt.setHint(resources.getString(R.string.shopnamehint));
-            ownernameTV.setText(resources.getString(R.string.sownername));
-            ownernameET.setHint(resources.getString(R.string.shopnamehint));
-            addressTV.setText(resources.getString(R.string.saddress));
-            addressET.setHint(resources.getString(R.string.saddresshint));
-            phonenumberTV.setText(resources.getString(R.string.hint1));
-            phonenumberET.setHint(resources.getString(R.string.hint1));
-            payableET.setHint(resources.getString(R.string.hint1));
-            openingTV.setText(resources.getString(R.string.opening));
-            openingET.setHint(resources.getString(R.string.openinghint));
-            receivableTV.setText(resources.getString(R.string.ra));
-            receivableET.setHint(resources.getString(R.string.rahint));
-            payableTV.setText(resources.getString(R.string.pa));
-            payableET.setHint(resources.getString(R.string.pahint));
-            saveBtn.setText(resources.getString(R.string.save));
-        }
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(shoppnameEt.getText().toString()) && !TextUtils.isEmpty(ownernameET.getText().toString()) &&
-                        !TextUtils.isEmpty(addressET.getText().toString()) && !TextUtils.isEmpty(phonenumberET.getText().toString().trim()) &&
+                        !TextUtils.isEmpty(addressET.getText().toString()) && !TextUtils.isEmpty(nidnumberET.getText().toString().trim())
+                        && !TextUtils.isEmpty(categoryET.getText().toString().trim())  &&
                         !TextUtils.isEmpty(openingET.getText().toString().trim()) && !TextUtils.isEmpty(receivableET.getText().toString().trim())
                         && !TextUtils.isEmpty(payableET.getText().toString().trim())) {
 
                     shopname = shoppnameEt.getText().toString();
                     shopkeepername = ownernameET.getText().toString();
                     shopaddress = addressET.getText().toString();
-                    usermobile = phonenumberET.getText().toString().trim();
+                    usernid = nidnumberET.getText().toString().trim();
+                    shopcategory = shoppnameEt.getText().toString().trim();
+                    tradelnc = tradelnET.getText().toString().trim();
                     opening = openingET.getText().toString().trim();
                     receivable = receivableET.getText().toString().trim();
                     payable = payableET.getText().toString().trim();
@@ -169,7 +125,7 @@ public class Information_Fragment extends Fragment {
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                     byte[] data = baos.toByteArray();
 
-                    InformationEntity informationEntity = new InformationEntity(usermobile, shopname, shopkeepername, shopaddress, opening, receivable, payable, data);
+                    InformationEntity informationEntity = new InformationEntity(usernid, shopkeepername,shopname,shopcategory, shopaddress, tradelnc, opening, receivable, payable, data);
                     informationViewModel.insertInfo(informationEntity);
                     CashboxEntity cashboxEntity = new CashboxEntity(datetime, opening, "0", "0");
                     cashBoxViewModel.insertCashbox(cashboxEntity);
