@@ -79,11 +79,12 @@
 
     <string name="openinghint">Opening Amount eg. 5000</string>
 
-    <string name="ra">Receivable Amount</string>
+    <string name="ra">Receivable</string>
 
     <string name="rahint">Receivable Amount exe. 3000 </string>
 
-    <string name="pa">Payable Amount</string>
+    <string name="pa">Payable</string>
+    <string name="gs" translatable="false">Get Started</string>
 
     <string name="pahint">Payable Amount eg. 1000</string>
 
@@ -92,6 +93,7 @@
     <string name="dayendcash">DayEnd Balance</string>
 
     <string name="dayend">eg: 2000</string>
+    <string name="next" translatable="false">Next</string>
 
     <string name="totalcash">Total Cash</string>
 
@@ -396,5 +398,9 @@
     <string name="singin">Already have an account? <b>SingIn</b></string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
-
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="withdrawal_deposit">Withdrawal, Deposit</string>
+    <string name="history" translatable="false">History</string>
+    <string name="historydate">05-04-2021</string>
+    <string name="nodata">No Data</string>
 </resources>

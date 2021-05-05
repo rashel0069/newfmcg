@@ -37,8 +37,7 @@ public class HomeActivity extends AppCompatActivity {
                         case R.id.history:
                             selectedFragment = new History_Nav_Fragment();
                             break;
-                        case R.id.cash:
-                            selectedFragment = new Cash_Nav_Fragment();
+                        case R.id.placeholder:
                             break;
                         case R.id.profile:
                             selectedFragment = new Profile_Nav_Fragment();
@@ -67,8 +66,8 @@ public class HomeActivity extends AppCompatActivity {
 
         //bottom nav
         bottomNav = findViewById(R.id.b_navigation);
+        bottomNav.getMenu().getItem(2).setOnMenuItemClickListener(MenuItem::isEnabled);
         if (val) {
-            bottomNav.setVisibility(View.VISIBLE);
             bottomNav.setOnNavigationItemSelectedListener(navListener);
         } else {
             Toast.makeText(this, "Information Save First", Toast.LENGTH_SHORT).show();

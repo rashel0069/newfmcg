@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,701 +7,703 @@
     android:background="#EB222C"
     android:orientation="vertical"
     tools:context=".NewUIFragment.History_Nav_Fragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView7"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/dropshedow"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="match_parent"
+                android:gravity="right"
                 android:layout_gravity="center"
-                android:background="#EB222C"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="8dp">
+                android:orientation="horizontal">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/historytitleTV_id"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="right"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/historytitleTV_id"
-                        android:layout_width="411dp"
-                        android:layout_height="50dp"
-                        android:fontFamily="@font/montserrat"
-                        android:lineHeight="21.94dp"
-                        android:text="@string/history"
-                        android:textAllCaps="false"
-                        android:textAlignment="center"
-                        android:layout_marginTop="14dp"
-                        android:textColor="@color/white"
-                        android:textFontWeight="600"
-                        android:textSize="18sp"
-                        android:textStyle="normal"
-                        />
-
-                </LinearLayout>
-
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="21.94dp"
+                    android:text="@string/history"
+                    android:textAllCaps="false"
+                    android:textAlignment="center"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    android:textSize="18sp"
+                    android:textStyle="normal"
+                    />
 
             </LinearLayout>
 
 
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/historyCV1_id"
-            android:layout_width="364dp"
-            android:layout_height="239dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginTop="13dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView7">
-
-            <TextView
-                android:id="@+id/pre_day_historyTV_id"
-                android:layout_width="153dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15.5dp"
-                android:layout_marginEnd="193dp"
-                android:text="@string/previous_day_history"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor=" #333333" />
-
-            <TextView
-                android:id="@+id/last_day_date"
-                android:layout_width="66dp"
-                android:layout_height="15dp"
-                android:layout_marginStart="281dp"
-                android:layout_marginTop="15.5dp"
-                android:layout_marginEnd="17dp"
-                android:text="@string/historydate"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="#828282"
-
-                />
-
-            <View
-                android:id="@+id/historyview1_id"
+    </androidx.cardview.widget.CardView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="19dp"
-                android:layout_marginBottom="19dp"
-                android:background="@drawable/view_gradient" />
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/historyCV1_id"
+                    android:layout_width="364dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_goneMarginTop="15dp"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        android:id="@+id/pre_day_historyTV_id"
+                        android:layout_width="153dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_marginEnd="193dp"
+                        android:text="@string/previous_day_history"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor=" #333333" />
+
+                    <TextView
+                        android:id="@+id/last_day_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:layout_marginStart="281dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_marginEnd="17dp"
+                        android:text="@string/historydate"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="#828282" />
+
+                    <View
+                        android:id="@+id/historyview1_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="19dp"
+                        android:layout_marginBottom="19dp"
+                        android:background="@drawable/view_gradient" />
 
 
-            <TextView
-                android:id="@+id/saleshistoryTV1_id"
-                android:layout_width="40dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="59dp"
-                android:layout_marginEnd="296dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/sales"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/saleshistoryTV1_id"
+                        android:layout_width="40dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="59dp"
+                        android:layout_marginEnd="296dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/sales"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/crsaleshistoryTV1_id"
-                android:layout_width="98dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="59dp"
-                android:layout_marginEnd="53dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/creditsales"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/crsaleshistoryTV1_id"
+                        android:layout_width="98dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="59dp"
+                        android:layout_marginEnd="53dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/creditsales"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/saleshistory_amountTV1_id"
-                android:layout_width="86dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="82dp"
-                android:layout_marginEnd="250dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="15.85dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="13sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/saleshistory_amountTV1_id"
+                        android:layout_width="86dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="82dp"
+                        android:layout_marginEnd="250dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="18.29dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/crsaleshistory_amountTV1_id"
-                android:layout_width="86dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="82dp"
-                android:layout_marginEnd="53dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="18.29dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/crsaleshistory_amountTV1_id"
+                        android:layout_width="86dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="82dp"
+                        android:layout_marginEnd="53dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="18.29dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/rcvhistoryTV1_id"
-                android:layout_width="83dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="118dp"
-                android:layout_marginEnd="253dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/ra"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/rcvhistoryTV1_id"
+                        android:layout_width="83dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="118dp"
+                        android:layout_marginEnd="253dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/ra"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/pasaleshistoryTV1_id"
-                android:layout_width="61dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="118dp"
-                android:layout_marginEnd="90dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/pa"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/pasaleshistoryTV1_id"
+                        android:layout_width="61dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="118dp"
+                        android:layout_marginEnd="90dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/pa"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/raleshistory1_amountTV_id"
-                android:layout_width="86dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="141dp"
-                android:layout_marginEnd="250dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="15.85dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="13sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/raleshistory1_amountTV_id"
+                        android:layout_width="86dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="141dp"
+                        android:layout_marginEnd="250dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="18.29dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/pasaleshistory1_amountTV_id"
-                android:layout_width="86dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="141dp"
-                android:layout_marginEnd="65dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="18.29dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/pasaleshistory1_amountTV_id"
+                        android:layout_width="86dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="141dp"
+                        android:layout_marginEnd="65dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="18.29dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/obvhistoryTV1_id"
-                android:layout_width="133dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="177dp"
-                android:layout_marginEnd="203dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/opening"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/obvhistoryTV1_id"
+                        android:layout_width="133dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="177dp"
+                        android:layout_marginEnd="203dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/opening"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/cbsaleshistoryTV1_id"
-                android:layout_width="123dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="177dp"
-                android:layout_marginEnd="90dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/closingcash"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/cbsaleshistoryTV1_id"
+                        android:layout_width="123dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="177dp"
+                        android:layout_marginEnd="90dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/closingcash"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/obleshistory_amountTV1_id"
-                android:layout_width="86dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="200dp"
-                android:layout_marginEnd="250dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="15.85dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="13sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/obleshistory_amountTV1_id"
+                        android:layout_width="86dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="200dp"
+                        android:layout_marginEnd="250dp"
+                        android:layout_marginBottom="15dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="18.29dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/cbsaleshistory_amountTV1_id"
-                android:layout_width="86dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="200dp"
-                android:layout_marginEnd="65dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="18.29dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/cbsaleshistory_amountTV1_id"
+                        android:layout_width="86dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="200dp"
+                        android:layout_marginEnd="65dp"
+                        android:layout_marginBottom="15dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="18.29dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-        </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/historyCV2_id"
-            android:layout_width="364dp"
-            android:layout_height="276dp"
-            android:layout_marginStart="19dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="24dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/historyCV1_id">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/historyCV2_id"
+                    android:layout_width="364dp"
+                    android:layout_height="276dp"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="24dp"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/historyCV1_id">
 
-            <TextView
-                android:id="@+id/pre_week_historyTV_id"
-                android:layout_width="153dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15.5dp"
-                android:layout_marginEnd="193dp"
-                android:text="@string/previous_week_history"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor=" #333333" />
+                    <TextView
+                        android:id="@+id/pre_week_historyTV_id"
+                        android:layout_width="153dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_marginEnd="193dp"
+                        android:text="@string/previous_week_history"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor=" #333333"/>
 
-            />
+                    <View
+                        android:id="@+id/historyview2_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/view_gradient"
+                        tools:ignore="ExtraText" />
 
-            <View
-                android:id="@+id/historyview2_id"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/view_gradient" />
+                    <TextView
+                        android:layout_width="114dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="55dp"
+                        android:layout_marginEnd="232dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="14.63dp"
+                        android:text="@string/from"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:layout_width="114dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="55dp"
-                android:layout_marginEnd="232dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="14.63dp"
-                android:text="@string/from"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textFontWeight="400"
-                android:textSize="12sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="55dp"
+                        android:layout_marginTop="55dp"
+                        android:layout_marginEnd="232dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/historydate"
+                        android:lineHeight="14.63dp"
+                        android:textAllCaps="false"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        android:textStyle="normal"/>
 
-            <TextView
-                android:layout_width="114dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="55dp"
-                android:layout_marginEnd="232dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/historydate"
-                android:lineHeight="14.63dp"
-                android:textAllCaps="false"
-                android:textFontWeight="400"
-                android:textSize="12sp"
-                android:textStyle="normal"
+                    <TextView
+                        android:id="@+id/hitory_from_id"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="55dp"
+                        android:layout_marginEnd="232dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="14.63dp"
+                        android:text="@string/from"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
 
-                />
+                    <TextView
+                        android:id="@+id/history_fromdate_id"
+                        android:layout_width="114dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="55dp"
+                        android:layout_marginTop="55dp"
+                        android:layout_marginEnd="232dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/historydate"
+                        android:lineHeight="14.63dp"
+                        android:textAllCaps="false"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        android:textStyle="normal"/>
 
-            <TextView
-                android:id="@+id/hitory_from_id"
-                android:layout_width="114dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="55dp"
-                android:layout_marginEnd="232dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="14.63dp"
-                android:text="@string/from"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textFontWeight="400"
-                android:textSize="12sp"
-                android:textStyle="normal" />
+                    <ImageView
+                        android:id="@+id/fromimg_id"
+                        android:layout_width="15dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="144.45dp"
+                        android:layout_marginTop="60.71dp"
+                        android:layout_marginEnd="204.5dp"
+                        android:scaleType="center"
+                        android:src="@drawable/calendar" />
 
-            <TextView
-                android:id="@+id/history_fromdate_id"
-                android:layout_width="114dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="55dp"
-                android:layout_marginEnd="232dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/historydate"
-                android:lineHeight="14.63dp"
-                android:textAllCaps="false"
-                android:textFontWeight="400"
-                android:textSize="12sp"
-                android:textStyle="normal"
+                    <TextView
+                        android:id="@+id/hitory_to_id"
+                        android:layout_width="90dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="227dp"
+                        android:layout_marginTop="55dp"
+                        android:layout_marginEnd="232dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="14.63dp"
+                        android:text="@string/to"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
 
-                />
+                    <TextView
+                        android:id="@+id/history_todate_id"
+                        android:layout_width="90dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="245dp"
+                        android:layout_marginTop="55dp"
+                        android:layout_marginEnd="47dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/historydate"
+                        android:lineHeight="14.63dp"
+                        android:textAllCaps="false"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
 
-            <ImageView
-                android:id="@+id/fromimg_id"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginStart="144.45dp"
-                android:layout_marginTop="61.71dp"
-                android:layout_marginEnd="204.5dp"
-                android:background="@drawable/calendar"
+                        />
 
-                />
+                    <ImageView
+                        android:id="@+id/toimg_id"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_marginStart="329.5dp"
+                        android:layout_marginTop="61.71dp"
+                        android:layout_marginEnd="17dp"
+                        android:background="@drawable/calendar"
 
-            <TextView
-                android:id="@+id/hitory_to_id"
-                android:layout_width="90dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="227dp"
-                android:layout_marginTop="55dp"
-                android:layout_marginEnd="232dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="14.63dp"
-                android:text="@string/to"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textFontWeight="400"
-                android:textSize="12sp"
-                android:textStyle="normal" />
+                        />
 
-            <TextView
-                android:id="@+id/history_todate_id"
-                android:layout_width="90dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="245dp"
-                android:layout_marginTop="55dp"
-                android:layout_marginEnd="47dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/historydate"
-                android:lineHeight="14.63dp"
-                android:textAllCaps="false"
-                android:textFontWeight="400"
-                android:textSize="12sp"
-                android:textStyle="normal"
+                    <TextView
+                        android:id="@+id/saleshistoryTV2_id"
+                        android:layout_width="40dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="96dp"
+                        android:layout_marginEnd="296dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/sales"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-                />
+                    <TextView
+                        android:id="@+id/crsaleshistoryTV2_id"
+                        android:layout_width="98dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="96dp"
+                        android:layout_marginEnd="53dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/creditsales"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <ImageView
-                android:id="@+id/toimg_id"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_marginStart="329.5dp"
-                android:layout_marginTop="61.71dp"
-                android:layout_marginEnd="17dp"
-                android:background="@drawable/calendar"
+                    <TextView
+                        android:id="@+id/saleshistory2_amountTV_id"
+                        android:layout_width="86dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="119dp"
+                        android:layout_marginEnd="250dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="15.85dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
 
-                />
+                    <TextView
+                        android:id="@+id/crsaleshistory2_amountTV_id"
+                        android:layout_width="86dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="119dp"
+                        android:layout_marginEnd="53dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="18.29dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/saleshistoryTV2_id"
-                android:layout_width="40dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="96dp"
-                android:layout_marginEnd="296dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/sales"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/rcvhistoryTV2_id"
+                        android:layout_width="83dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="155dp"
+                        android:layout_marginEnd="253dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/ra"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/crsaleshistoryTV2_id"
-                android:layout_width="98dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="96dp"
-                android:layout_marginEnd="53dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/creditsales"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/pasaleshistoryTV2_id"
+                        android:layout_width="61dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="155dp"
+                        android:layout_marginEnd="90dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/pa"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/saleshistory2_amountTV_id"
-                android:layout_width="86dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="119dp"
-                android:layout_marginEnd="250dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="15.85dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="13sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/raleshistory2_amountTV_id"
+                        android:layout_width="86dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="178dp"
+                        android:layout_marginEnd="250dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="15.85dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/crsaleshistory2_amountTV_id"
-                android:layout_width="86dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="119dp"
-                android:layout_marginEnd="53dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="18.29dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/pasaleshistory2_amountTV_id"
+                        android:layout_width="86dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="178dp"
+                        android:layout_marginEnd="65dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="18.29dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/rcvhistoryTV2_id"
-                android:layout_width="83dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="155dp"
-                android:layout_marginEnd="253dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/ra"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/obvhistoryTV2_id"
+                        android:layout_width="133dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="214dp"
+                        android:layout_marginEnd="203dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/opening"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/pasaleshistoryTV2_id"
-                android:layout_width="61dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="155dp"
-                android:layout_marginEnd="90dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/pa"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/cbsaleshistoryTV2_id"
+                        android:layout_width="123dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="214dp"
+                        android:layout_marginEnd="90dp"
+                        android:fontFamily="@font/montserrat"
+                        android:lineHeight="18.29dp"
+                        android:text="@string/closingcash"
+                        android:textColor="#000000"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/raleshistory2_amountTV_id"
-                android:layout_width="86dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="178dp"
-                android:layout_marginEnd="250dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="15.85dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="13sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/obleshistory2_amountTV_id"
+                        android:layout_width="86dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="237dp"
+                        android:layout_marginEnd="250dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="15.85dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="13sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/pasaleshistory2_amountTV_id"
-                android:layout_width="86dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="178dp"
-                android:layout_marginEnd="65dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="18.29dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/cbsaleshistory2_amountTV_id"
+                        android:layout_width="86dp"
+                        android:layout_height="16dp"
+                        android:layout_marginStart="213dp"
+                        android:layout_marginTop="237dp"
+                        android:layout_marginEnd="65dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="18.29dp"
+                        android:textColor="#828282"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:textStyle="normal" />
 
-            <TextView
-                android:id="@+id/obvhistoryTV2_id"
-                android:layout_width="133dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="214dp"
-                android:layout_marginEnd="203dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/opening"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/cbsaleshistoryTV2_id"
-                android:layout_width="123dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="214dp"
-                android:layout_marginEnd="90dp"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
-                android:text="@string/closingcash"
-                android:textColor="#000000"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/historyCV3_id"
+                    android:layout_width="364dp"
+                    android:layout_height="277dp"
+                    android:layout_marginStart="19dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginEnd="24dp"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/historyCV2_id">
 
-            <TextView
-                android:id="@+id/obleshistory2_amountTV_id"
-                android:layout_width="86dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="237dp"
-                android:layout_marginEnd="250dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="15.85dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="13sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/pre_month_historyTV_id"
+                        android:layout_width="153dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_marginEnd="193dp"
+                        android:text="@string/last_month_history"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor=" #333333" />
 
-            <TextView
-                android:id="@+id/cbsaleshistory2_amountTV_id"
-                android:layout_width="86dp"
-                android:layout_height="16dp"
-                android:layout_marginStart="213dp"
-                android:layout_marginTop="237dp"
-                android:layout_marginEnd="65dp"
-                android:fontFamily="@font/montserrat"
-                android:hint="@string/amounthint"
-                android:lineHeight="18.29dp"
-                android:textColor="#828282"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/last_month_date"
+                        android:layout_width="66dp"
+                        android:layout_height="15dp"
+                        android:layout_marginStart="281dp"
+                        android:layout_marginTop="15.5dp"
+                        android:layout_marginEnd="17dp"
+                        android:text="@string/last_month_history"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="#828282"
 
-        </androidx.cardview.widget.CardView>
+                        />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/historyCV3_id"
-            android:layout_width="364dp"
-            android:layout_height="277dp"
-            android:layout_marginStart="19dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginEnd="24dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/historyCV2_id">
+                    <View
+                        android:id="@+id/historyview3_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/view_gradient" />
 
-            <TextView
-                android:id="@+id/pre_month_historyTV_id"
-                android:layout_width="153dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="15.5dp"
-                android:layout_marginEnd="193dp"
-                android:text="@string/last_month_history"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor=" #333333" />
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="137dp"
+                        android:layout_marginStart="95dp"
+                        android:layout_marginTop="64dp"
+                        android:layout_marginEnd="94dp"
+                        android:background="@drawable/historyimg"
 
-            <TextView
-                android:id="@+id/last_month_date"
-                android:layout_width="66dp"
-                android:layout_height="15dp"
-                android:layout_marginStart="281dp"
-                android:layout_marginTop="15.5dp"
-                android:layout_marginEnd="17dp"
-                android:text="@string/historymonth"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="#828282"
+                        />
 
-                />
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="18dp"
+                        android:text="@string/nodata"
+                        android:layout_marginEnd="127dp"
+                        android:layout_marginStart="127dp"
+                        android:layout_marginTop="223dp"
+                        android:textAllCaps="false"
+                        android:textFontWeight="500"
+                        android:textSize="15sp"
+                        android:lineHeight="18.29dp"
+                        android:textStyle="normal"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        />
+                </androidx.cardview.widget.CardView>
 
-            <View
-                android:id="@+id/historyview3_id"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="17dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/view_gradient" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-            <ImageView
-                android:layout_width="175dp"
-                android:layout_height="137dp"
-                android:layout_marginStart="95dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginEnd="94dp"
-                android:background="@drawable/historyimg"
+    </ScrollView>
 
-                />
-
-            <TextView
-                android:layout_width="110dp"
-                android:layout_height="18dp"
-                android:text="@string/nodata"
-                android:layout_marginEnd="127dp"
-                android:layout_marginStart="127dp"
-                android:layout_marginTop="223dp"
-                android:textAllCaps="false"
-                android:textFontWeight="500"
-                android:textSize="15sp"
-                android:lineHeight="18.29dp"
-                android:textStyle="normal"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                />
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</LinearLayout>
 
 

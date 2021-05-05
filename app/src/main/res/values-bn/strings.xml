@@ -382,5 +382,9 @@
     <string name="singin">Already have an account? <b>SingIn</b></string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
+    <string name="enter_full_name">Enter Full Name</string>
+    <string name="withdrawal_deposit">Withdrawal, Deposit</string>
+    <string name="historydate">05-04-2021</string>
+    <string name="nodata">No Data</string>
 
 </resources>

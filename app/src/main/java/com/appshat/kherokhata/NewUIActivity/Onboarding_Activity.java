@@ -132,8 +132,8 @@ public class Onboarding_Activity extends AppCompatActivity {
         itemtitle.setImage(R.drawable.img2);
 
         OnBoardingItem itemdesc = new OnBoardingItem();
-        itemdesc.setTitle(getString(R.string.text5));
-        itemdesc.setDescription(getString(R.string.text6));
+        itemdesc.setTitle(getString(R.string.text3));
+        itemdesc.setDescription(getString(R.string.text4));
         itemdesc.setImage(R.drawable.img3);
 
         onBoardingItems.add(itemintro);

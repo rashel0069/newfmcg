@@ -8,10 +8,8 @@
         android:id="@+id/history"
         android:icon="@drawable/histr"
         android:title="History" />
-    <item
-        android:id="@+id/cash"
-        android:icon="@drawable/tap"
-        android:title="Cash" />
+    <item android:id="@+id/placeholder"
+        android:title=""/>
     <item
         android:id="@+id/profile"
         android:icon="@drawable/pro"
