@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
-    tools:context=".NewUIFragment.Profile_Nav_Fragment">
+    android:background="@color/primary">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="23dp"
+    android:layout_marginEnd="24dp"
+    android:gravity="center"
     android:orientation="vertical">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="344dp"
@@ -18,7 +20,7 @@
         android:layout_marginEnd="33dp">
 
         <ImageView
-            android:id="@+id/pro_imgnav_id"
+            android:id="@+id/profile_img_id"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginStart="34dp"
@@ -30,22 +32,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <ImageView
-            android:id="@+id/cam_pro_id"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="57dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/buttonback"
-            android:scaleType="center"
-            android:src="@drawable/camera"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="@+id/pro_imgnav_id"
-            app:layout_constraintTop_toTopOf="@+id/pro_imgnav_id"
-            tools:ignore="MissingConstraints" />
+
 
         <TextView
-            android:id="@+id/companyname_id"
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="148dp"
@@ -81,21 +71,22 @@
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/companyname_id"
-            app:layout_constraintTop_toBottomOf="@+id/companyname_id"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
             tools:ignore="MissingConstraints" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
+        android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:layout_marginTop="30dp">
 
         <TextView
-            android:id="@+id/ep_pro_id"
+            android:id="@+id/editprofile_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -120,7 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="left"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="10dp">
         <TextView
             android:id="@+id/changepass_pro_id"
             android:layout_width="match_parent"
@@ -143,13 +134,14 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="left"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="10dp">
 
         <TextView
-            android:id="@+id/changelanguage_pro_id"
+            android:id="@+id/lang_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -173,7 +165,7 @@
         android:layout_width="match_parent"
         android:layout_gravity="left"
         android:layout_height="match_parent"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:id="@+id/help_pro_id"
@@ -195,7 +187,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
         android:layout_gravity="left"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/abk_pro_id"
@@ -218,13 +210,14 @@
         </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/logout_card_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="left"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="10dp">
 
         <TextView
-            android:id="@+id/logout_pro_id"
+            android:id="@+id/logout_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -245,7 +238,7 @@
     </RelativeLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/fbBtn_pro_id"
+        android:id="@+id/cardView5"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="23dp"
@@ -267,12 +260,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/webBtn_pro_id"
+        android:id="@+id/cardView4"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="23dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="90dp"
         android:backgroundTint="@color/black"
         android:drawableLeft="@drawable/web"
         android:fontFamily="@font/montserrat"

@@ -33,7 +33,6 @@ public class Onboarding_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding_);
-
         layoutOnboardingIndicator = findViewById(R.id.layoutOnboardingIndicators);
         buttonOnboardingAction = findViewById(R.id.buttonOnBoardingAction);
         stv = findViewById(R.id.skipTV_id);
@@ -45,6 +44,7 @@ String FirstTime = preferences.getString("FirstTimeInstall","");
 if (FirstTime.equals("Yes")){
     Intent intent = new Intent(Onboarding_Activity.this,MainActivity.class);
     startActivity(intent);
+    finish();
 }else {
     SharedPreferences.Editor editor = preferences.edit();
     editor.putString("FirstTimeInstall","Yes");

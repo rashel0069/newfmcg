@@ -3,7 +3,6 @@ package com.appshat.kherokhata.OldAcrivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,13 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.appshat.kherokhata.NewUIFragment.Cash_Nav_Fragment;
 import com.appshat.kherokhata.NewUIFragment.History_Nav_Fragment;
 import com.appshat.kherokhata.NewUIFragment.Menu_Nav_Fragment;
-import com.appshat.kherokhata.NewUIFragment.Profile_Nav_Fragment;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.fragment.Home_Fragment;
 import com.appshat.kherokhata.fragment.Information_Fragment;
+import com.appshat.kherokhata.fragment.Profile_Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -40,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
                         case R.id.placeholder:
                             break;
                         case R.id.profile:
-                            selectedFragment = new Profile_Nav_Fragment();
+                            selectedFragment = new Profile_Fragment();
                             break;
 
                         case R.id.menu:

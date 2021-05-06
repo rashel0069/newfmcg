@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+    <RelativeLayout
+        android:id="@+id/adt_tittelbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/dropshedow"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/drpTV_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="21.94dp"
+            android:text="Returns Transaction"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/arrowleft" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_below="@+id/adt_tittelbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="150dp"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/balancetypetv_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="37dp"
+                    android:layout_marginEnd="61dp"
+                    android:background="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center"
+                    android:lineHeight="17.07dp"
+                    android:text="@string/sat"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textFontWeight="500"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/transitiontypetv_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="61dp"
+                    android:background="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center"
+                    android:lineHeight="17.07dp"
+                    android:text="@string/stt"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textFontWeight="500"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/balancetypetv_id" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="61dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/transitiontypetv_id"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/clientname_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="58dp"
+                        android:background="@drawable/inputbackground"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/enter_full_name"
+                        android:lineHeight="17.07dp"
+                        android:paddingLeft="25dp"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:textFontWeight="600"
+                        android:textSize="14sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="61dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_1"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/cmblTV_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="58dp"
+                        android:background="@drawable/inputbackground"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/cnumhint"
+                        android:inputType="number"
+                        android:lineHeight="17.07dp"
+                        android:paddingLeft="25dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textFontWeight="600"
+                        android:textSize="14sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="35dp" />
+
+                    <ImageView
+                        android:id="@+id/phoneContact_id2"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:src="@drawable/phnbook"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/cmblTV_id"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/saveContact_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="23dp"
+                        android:layout_marginStart="24dp"
+                        android:fontFamily="@font/montserrat"
+                        android:paddingTop="4dp"
+                        android:text="@string/new_customer_save_now"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@+id/clientmobilenumberET_id"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/clientmobilenumberET_id"
+                        tools:layout_editor_absoluteY="35dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="61dp"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout_2"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/adjustamountET_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="58dp"
+                        android:background="@drawable/inputbackground"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/amounthint"
+                        android:lineHeight="17.07dp"
+                        android:paddingLeft="25dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textFontWeight="600"
+                        android:textSize="14sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/spickdate_id"
+                    android:layout_width="155dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/whiteround"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" >
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="11dp"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginBottom="11dp"
+                        android:src="@drawable/calr"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/currentdateTV_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="11dp"
+                        android:layout_marginBottom="11dp"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/datehint"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView6"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="98dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/camn"
+                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/pickdate_id"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/adjustsaveBtn_id"
+                    android:layout_width="295dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="61dp"
+                    android:backgroundTint="@color/black"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="30dp"
+                    android:text="@string/save"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:cornerRadius="15dp"
+                    android:textFontWeight="600"
+                    android:textStyle="normal"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spickdate_id" />
+
+                <TextView
+                    android:id="@+id/clientmblTV_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:padding="3dp"
+                    android:text="@string/cnum"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout_2"
+                    app:layout_constraintEnd_toEndOf="@+id/linearLayout_2"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/linearLayout_2"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_1"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/clientnameTV_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:padding="3dp"
+                    android:text="Full Name"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/layout_1"
+                    app:layout_constraintEnd_toEndOf="@+id/layout_1"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/layout_1"
+                    app:layout_constraintTop_toBottomOf="@+id/transitiontypetv_id"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="MissingConstraints,NotSibling" />
+
+                <TextView
+                    android:id="@+id/amountsTV_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:padding="4dp"
+                    android:text="@string/amt"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout_2"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

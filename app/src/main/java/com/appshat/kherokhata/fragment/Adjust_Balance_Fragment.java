@@ -35,6 +35,7 @@ import com.appshat.kherokhata.Room.DAO.AdjustDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.AdjustEntity;
 import com.appshat.kherokhata.Room.model.AdjustViewModel;
+import com.google.android.material.button.MaterialButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -45,7 +46,7 @@ public class Adjust_Balance_Fragment extends Fragment {
     static final int PICK_CONTACT = 1;
     EditText adjustamountET, clientmobileET;
     TextView clientnameTV, cmblTV, duepaydateTV, drpTV, clientnameET, amountTV,accountTv, transactionTv;;
-    Button adjustsaveBtn;
+    MaterialButton adjustsaveBtn;
     Context context;
     Resources resources;
     DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -84,7 +85,7 @@ public class Adjust_Balance_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_adjust__balance_, container, false);
+        View view = inflater.inflate(R.layout.adjust_fragment_ui, container, false);
 
         accountTv = view.findViewById(R.id.balancetypetv_id);
         transactionTv = view.findViewById(R.id.transitiontypetv_id);

@@ -457,6 +457,7 @@
     <string name="amt">Amount in Taka</string>
 
     <string name="cnumhint">01780445466</string>
+    <string name="create_account">Create Account</string>
 
 
 </resources>

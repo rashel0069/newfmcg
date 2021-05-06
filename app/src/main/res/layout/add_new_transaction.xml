@@ -32,23 +32,25 @@
             android:src="@drawable/arrowleft" />
     </RelativeLayout>
     <ScrollView
+        android:layout_below="@+id/adt_tittelbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="150dp"
         android:orientation="vertical">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/sat_new_id"
+        android:id="@+id/newaccounttv_id"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginTop="37dp"
         android:layout_marginEnd="61dp"
         android:background="@drawable/inputbackground"
         android:fontFamily="@font/montserrat"
@@ -65,7 +67,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/stt_new_id"
+        android:id="@+id/newtransactiontv_id"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:layout_marginStart="55dp"
@@ -84,12 +86,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sat_new_id" />
+        app:layout_constraintTop_toBottomOf="@+id/newaccounttv_id" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/layout_1"
         android:layout_width="match_parent"
-        android:padding="22dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginStart="55dp"
@@ -97,11 +98,11 @@
         android:layout_marginEnd="61dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stt_new_id"
+        app:layout_constraintTop_toBottomOf="@+id/newtransactiontv_id"
         tools:ignore="MissingConstraints">
 
         <EditText
-            android:id="@+id/cusnew_name_ET"
+            android:id="@+id/customernameET_id"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:background="@drawable/inputbackground"
@@ -116,29 +117,11 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:layout_width="146dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/primary"
-            android:fontFamily="@font/montserrat"
-            android:lineHeight="14.63dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:text="Full Name"
-            android:textColor="@color/white"
-            android:textFontWeight="400"
-            android:textSize="12sp"
-            app:layout_constraintTop_toBottomOf="@+id/stt_new_id"
-            tools:ignore="NotSibling"
-            tools:layout_editor_absoluteX="25dp" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/linearLayout_2"
         android:layout_width="match_parent"
-        android:padding="22dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginStart="55dp"
@@ -146,41 +129,54 @@
         android:layout_marginEnd="61dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/layout_1"
         tools:ignore="MissingConstraints">
 
         <EditText
-            android:id="@+id/cusnew_num_ET"
+            android:id="@+id/clientmobilenumberET_id"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:background="@drawable/inputbackground"
             android:fontFamily="@font/montserrat"
             android:hint="@string/cnumhint"
-            android:textColorHint="@color/white"
+            android:inputType="number"
             android:lineHeight="17.07dp"
             android:paddingLeft="25dp"
             android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textFontWeight="600"
             android:textSize="14sp"
-            android:drawableEnd="@drawable/phnbook"
-            android:padding="5dp"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="35dp" />
+
+        <ImageView
+            android:id="@+id/phoneContact_id"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/phnbook"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/clientmobilenumberET_id"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="146dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/primary"
+            android:id="@+id/saveContact_id"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginStart="24dp"
             android:fontFamily="@font/montserrat"
-            android:lineHeight="14.63dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:text="@string/cnum"
+            android:paddingTop="4dp"
+            android:text="@string/new_customer_save_now"
             android:textColor="@color/white"
-
-            android:textFontWeight="400"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/clientmobilenumberET_id"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/clientmobilenumberET_id"
+            tools:layout_editor_absoluteY="35dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -192,14 +188,13 @@
         android:layout_marginTop="14dp"
         android:layout_marginEnd="61dp"
         android:gravity="center"
-        android:padding="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_2"
         tools:ignore="MissingConstraints">
 
         <EditText
-            android:id="@+id/amt_num_ET"
+            android:id="@+id/amountET_id"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:background="@drawable/inputbackground"
@@ -214,40 +209,48 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:layout_width="146dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/primary"
-            android:fontFamily="@font/montserrat"
-            android:lineHeight="14.63dp"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp"
-            android:text="@string/amt"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textFontWeight="400"
-            android:textSize="12sp"
-            android:textStyle="normal" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/ant_btn_id"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pickdate_id"
+        android:layout_width="155dp"
         android:layout_height="45dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="14dp"
-        android:backgroundTint="@color/white"
-        android:drawableLeft="@drawable/calr"
-        android:fontFamily="@font/montserrat"
-        android:text="@string/datehint"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:cornerRadius="15dp"
+        android:background="@drawable/whiteround"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" >
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="11dp"
+            android:src="@drawable/calr"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dateTV_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="11dp"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/datehint"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <ImageView
@@ -259,11 +262,11 @@
         android:background="@drawable/camn"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/ant_btn_id"
+        app:layout_constraintStart_toEndOf="@+id/pickdate_id"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/saveant_btn"
+        android:id="@+id/newtranssave_id"
         android:layout_width="295dp"
         android:layout_height="55dp"
         android:layout_marginStart="55dp"
@@ -282,7 +285,70 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ant_btn_id" />
+        app:layout_constraintTop_toBottomOf="@+id/pickdate_id" />
+
+    <TextView
+        android:id="@+id/clientmobilenumberTV_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@color/primary"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:padding="3dp"
+        android:text="@string/cnum"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout_2"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout_2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout_2"
+        app:layout_constraintTop_toBottomOf="@+id/layout_1"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/customernameTV_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@color/primary"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:padding="3dp"
+        android:text="Full Name"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_1"
+        app:layout_constraintEnd_toEndOf="@+id/layout_1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/layout_1"
+        app:layout_constraintTop_toBottomOf="@+id/newtransactiontv_id"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints,NotSibling" />
+
+    <TextView
+        android:id="@+id/amountTV_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@color/primary"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="14.63dp"
+        android:padding="4dp"
+        android:text="@string/amt"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_2"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,12 +32,13 @@ import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.InformationEntity;
 import com.appshat.kherokhata.Room.model.InformationViewModel;
 import com.appshat.kherokhata.adapter.DataConverter;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
 
 public class Profile_Fragment extends Fragment {
     public static final String MY_PREFS_NAME = "MyPrefsFile";
-    CardView languageselector;
+    RelativeLayout languageselector;
     TextView editTV, websiteTV, fbTV, langTV, logoutTV, shopkeepName, shopAddress;
     ImageView photoUp, profileImage;
     String shopN, shopAd;
@@ -53,13 +55,13 @@ public class Profile_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile_, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile__nav_, container, false);
         SharedPreferences preferences = getActivity().getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
 
         languageselector = view.findViewById(R.id.cardView3);
         editTV = view.findViewById(R.id.editprofile_id);
-        websiteTV = view.findViewById(R.id.website_id);
-        fbTV = view.findViewById(R.id.fb_id);
+       // websiteTV = view.findViewById(R.id.website_id);
+       // fbTV = view.findViewById(R.id.fb_id);
         langTV = view.findViewById(R.id.lang_id);
         logoutTV = view.findViewById(R.id.logout_id);
         profileImage = view.findViewById(R.id.profile_img_id);
@@ -71,7 +73,7 @@ public class Profile_Fragment extends Fragment {
 
 
         // edit profile
-        CardView edit = view.findViewById(R.id.cardView2);
+        RelativeLayout edit = view.findViewById(R.id.cardView2);
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +85,7 @@ public class Profile_Fragment extends Fragment {
             }
         });
         //website
-        CardView web = view.findViewById(R.id.cardView4);
+        MaterialButton web = view.findViewById(R.id.cardView4);
         web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +95,7 @@ public class Profile_Fragment extends Fragment {
             }
         });
         //facebook
-        CardView fb = view.findViewById(R.id.cardView5);
+        MaterialButton fb = view.findViewById(R.id.cardView5);
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +105,7 @@ public class Profile_Fragment extends Fragment {
             }
         });
         //logout
-        CardView logout = view.findViewById(R.id.logout_card_id);
+        RelativeLayout logout = view.findViewById(R.id.logout_card_id);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,8 +140,8 @@ public class Profile_Fragment extends Fragment {
             resources = context.getResources();
             langTV.setText(resources.getString(R.string.selector));
             editTV.setText(resources.getString(R.string.edit));
-            websiteTV.setText(resources.getString(R.string.website));
-            fbTV.setText(resources.getString(R.string.facebook));
+           // websiteTV.setText(resources.getString(R.string.website));
+            //fbTV.setText(resources.getString(R.string.facebook));
             logoutTV.setText(resources.getString(R.string.logout));
 
         } else {
@@ -148,8 +150,8 @@ public class Profile_Fragment extends Fragment {
             resources = context.getResources();
             langTV.setText(resources.getString(R.string.selector));
             editTV.setText(resources.getString(R.string.edit));
-            websiteTV.setText(resources.getString(R.string.website));
-            fbTV.setText(resources.getString(R.string.facebook));
+           // websiteTV.setText(resources.getString(R.string.website));
+           // fbTV.setText(resources.getString(R.string.facebook));
             logoutTV.setText(resources.getString(R.string.logout));
 
         }

@@ -32,6 +32,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
@@ -46,6 +47,7 @@ import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
 import com.appshat.kherokhata.Room.ENTITY.TransactionEntity;
 import com.appshat.kherokhata.Room.model.TransactionViewModel;
 import com.appshat.kherokhata.adapter.JsonPlaceHolderApi;
+import com.google.android.material.button.MaterialButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -66,8 +68,8 @@ public class NewTransaction_Fragment extends Fragment {
     Spinner accspinner, transspinner;
     EditText cnameET, cmblnumET, camountET;
     TextView cnTV, cmTV, amTV, timedateTV, saveNewContact,accTv, transTv;;
-    Button newtransBTN;
-    LinearLayout l1, l2;
+    MaterialButton newtransBTN;
+    ConstraintLayout l1, l2, datepick;
     ImageView phonecontactSelect;
     NewtransactionDao newtransactionDBdao;
     JsonPlaceHolderApi jsonPlaceHolderApi;
@@ -108,7 +110,7 @@ public class NewTransaction_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_new_transaction_, container, false);
+        View view = inflater.inflate(R.layout.add_new_transaction, container, false);
         // Inflate the layout for this fragment
 
         l1 = view.findViewById(R.id.layout_1);
@@ -118,6 +120,7 @@ public class NewTransaction_Fragment extends Fragment {
         timedateTV = view.findViewById(R.id.dateTV_id);
         newtransBTN = view.findViewById(R.id.newtranssave_id);
         amTV = view.findViewById(R.id.amountTV_id);
+        datepick = view.findViewById(R.id.pickdate_id);
         camountET = view.findViewById(R.id.amountET_id);
         cmTV = view.findViewById(R.id.clientmobilenumberTV_id);
         cmblnumET = view.findViewById(R.id.clientmobilenumberET_id);
@@ -207,7 +210,7 @@ public class NewTransaction_Fragment extends Fragment {
         //Current date
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
-        timedateTV.setOnClickListener(new View.OnClickListener() {
+        datepick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
@@ -255,6 +258,8 @@ public class NewTransaction_Fragment extends Fragment {
             cmblnumET.setText("No Need Mobile Name");
             l1.setVisibility(View.GONE);
             l2.setVisibility(View.GONE);
+            cnTV.setVisibility(View.GONE);
+            cmTV.setVisibility(View.GONE);
             timedateTV.setClickable(false);
             timedateTV.setText(currentdate);
         }

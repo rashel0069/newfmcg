@@ -397,7 +397,6 @@
 
     <string name="singup">Don’t have an account? <b>Signup</b></string>
 
-    <string name="create_account">Create Account</string>
 
     <string name="enter_your">Enter your credentials to continue</string>
 
@@ -433,5 +432,6 @@
     <string name="cnum">Customer Number</string>
 
     <string name="cnumhint">01780445466</string>
+    <string name="create_account">Create Account</string>
 
 </resources>
