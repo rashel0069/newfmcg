@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,73 +7,59 @@
     android:background="@drawable/gradient"
     tools:context=".NewUIActivity.Onboarding_Activity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
+        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/skipTV_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="18.29dp"
+            android:text="@string/skip"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_marginTop="51dp"
+            android:id="@+id/onboardingViewPager"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/skipTV_id"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteY="66dp"/>
+        <LinearLayout
+            android:id="@+id/layoutOnboardingIndicators"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="110dp"
+            android:layout_marginTop="38dp"
+            android:gravity="center"
+            android:layout_below="@+id/onboardingViewPager"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+        </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonOnBoardingAction"
             android:layout_width="316dp"
             android:layout_height="50dp"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="619dp"
             android:layout_marginEnd="47dp"
-            android:layout_marginBottom="62dp"
             android:backgroundTint="@color/black"
             android:drawableRight="@drawable/arrow"
             android:fontFamily="@font/montserrat"
             android:textAllCaps="false"
+            android:layout_below="@+id/layoutOnboardingIndicators"
             android:textColor="@color/white"
             android:textSize="15sp"
-            app:cornerRadius="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:cornerRadius="15dp" />
+
+    </RelativeLayout>
 
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/onboardingViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
-
-        <LinearLayout
-            android:id="@+id/layoutOnboardingIndicators"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="501dp"
-            android:layout_marginBottom="223dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/skipTV_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="329dp"
-            android:layout_marginTop="59dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="654dp"
-            android:fontFamily="@font/montserrat"
-            android:lineHeight="18.29dp"
-            android:text="@string/skip"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</LinearLayout>
+</ScrollView>

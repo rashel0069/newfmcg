@@ -12,15 +12,15 @@
 
     <string name="email">digitalistic98@gmail.com</string>
 
-    <string name="text1">Handle your accounts \n smartly With Khero Khata </string>
+    <string name="text1">Handle your accounts smartly <font color='#000000'>With Khero Khata </font>  </string>
 
-    <string name="text2">No more analog accounts, Now you can \n easily handle your accounts book </string>
+    <string name="text2">No more analog accounts, Now you can easily handle your accounts book </string>
 
     <string name="skip">Skip</string>
 
-    <string name="text3">Lorem ipsum, or lipsum as \n it is sometimes known </string>
+    <string name="text3"> <font color='#000000'>Lorem ipsum,</font> or lipsum as it is sometimes known </string>
 
-    <string name="text4">Lorem ipsum, or lipsum as it is sometimes \n known, is dummy text used in laying out print,\n graphic or web designs</string>
+    <string name="text4">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,  graphic or web designs</string>
 
     <string name="sl">Select Language</string>
 

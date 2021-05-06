@@ -3,6 +3,7 @@ package com.appshat.kherokhata.OldAcrivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,11 +17,15 @@ import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.fragment.Home_Fragment;
 import com.appshat.kherokhata.fragment.Information_Fragment;
 import com.appshat.kherokhata.fragment.Profile_Fragment;
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HomeActivity extends AppCompatActivity {
     public static final String MY_PREF_NAME = "myPrefFile";
     BottomNavigationView bottomNav;
+    FloatingActionButton fab;
+    BottomAppBar bottomApp;
     Boolean val = false;
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -58,6 +63,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        fab = findViewById(R.id.fab);
+        bottomApp = findViewById(R.id.bottomAppBar);
+
         SharedPreferences vals = getSharedPreferences(MY_PREF_NAME, MODE_PRIVATE);
         val = vals.getBoolean("visibility", false);
         loaddefaultfragment();
@@ -66,6 +74,8 @@ public class HomeActivity extends AppCompatActivity {
         bottomNav = findViewById(R.id.b_navigation);
         bottomNav.getMenu().getItem(2).setOnMenuItemClickListener(MenuItem::isEnabled);
         if (val) {
+            fab.setVisibility(View.VISIBLE);
+            bottomApp.setVisibility(View.VISIBLE);
             bottomNav.setOnNavigationItemSelectedListener(navListener);
         } else {
             Toast.makeText(this, "Information Save First", Toast.LENGTH_SHORT).show();
