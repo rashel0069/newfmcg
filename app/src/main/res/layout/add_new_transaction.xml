@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+    <RelativeLayout
+        android:id="@+id/adt_tittelbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/dropshedow"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="21.94dp"
+            android:text="@string/adt"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/arrowleft" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/sat_new_id"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="61dp"
+        android:background="@drawable/inputbackground"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:lineHeight="17.07dp"
+        android:text="@string/sat"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="500"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/stt_new_id"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="61dp"
+        android:background="@drawable/inputbackground"
+        android:fontFamily="@font/montserrat"
+        android:gravity="center"
+        android:lineHeight="17.07dp"
+        android:text="@string/stt"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textFontWeight="500"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sat_new_id" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:padding="22dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="61dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stt_new_id"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/cusnew_name_ET"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/inputbackground"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/enter_full_name"
+            android:lineHeight="17.07dp"
+            android:paddingLeft="25dp"
+            android:textColorHint="@color/white"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="146dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/primary"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="14.63dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="Full Name"
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/stt_new_id"
+            tools:ignore="NotSibling"
+            tools:layout_editor_absoluteX="25dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:padding="22dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="61dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/cusnew_num_ET"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/inputbackground"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/cnumhint"
+            android:textColorHint="@color/white"
+            android:lineHeight="17.07dp"
+            android:paddingLeft="25dp"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="14sp"
+            android:drawableEnd="@drawable/phnbook"
+            android:padding="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="146dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/primary"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="14.63dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="@string/cnum"
+            android:textColor="@color/white"
+
+            android:textFontWeight="400"
+            android:textSize="12sp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="61dp"
+        android:gravity="center"
+        android:padding="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        tools:ignore="MissingConstraints">
+
+        <EditText
+            android:id="@+id/amt_num_ET"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@drawable/inputbackground"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/amounthint"
+            android:lineHeight="17.07dp"
+            android:paddingLeft="25dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textFontWeight="600"
+            android:textSize="14sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="146dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/primary"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="14.63dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="@string/amt"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/ant_btn_id"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="14dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/calr"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/datehint"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:cornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/camn"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ant_btn_id"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/saveant_btn"
+        android:layout_width="295dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="61dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/montserrat"
+        android:lineHeight="30dp"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cornerRadius="15dp"
+        android:textFontWeight="600"
+        android:textStyle="normal"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ant_btn_id" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

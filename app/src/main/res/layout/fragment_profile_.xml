@@ -101,6 +101,7 @@
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             android:layout_gravity="center"
+                            android:background="@color/red_500"
                             android:src="@drawable/edit" />
 
                         <TextView

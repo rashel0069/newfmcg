@@ -27,7 +27,9 @@
 
         </activity>
 
+        <activity android:name=".NewUIActivity.Onboarding_Activity">
 
+        </activity>
         <activity
             android:name=".OldAcrivity.SplashScreen"
             android:theme="@style/noactionbar">

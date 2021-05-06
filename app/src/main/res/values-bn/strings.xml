@@ -35,6 +35,11 @@
 
     <string name="creditsales">বাকিতে বিক্রয়</string>
 
+    <string name="companyname">Digitalistic</string>
+
+    <string name="email">digitalistic98@gmail.com</string>
+
+
     <string name="registration"><u>রেজিস্টার</u></string>
 
     <string name="registration2">এখানে ক্লিক করুন </string>
@@ -293,11 +298,19 @@
 
     <string name="edit">প্রোফাইল সম্পাদনা</string>
 
+    <string name="cp">প্রোফাইল সম্পাদনা</string>
+    <string name="cl">প্রোফাইল সম্পাদনা</string>
+
+    <string name="help">প্রোফাইল সম্পাদনা</string>
+
+    <string name="aboutk">প্রোফাইল সম্পাদনা</string>
+
+    <string name="menu">Menu</string>
     <string name="logout">লগ আউট</string>
 
     <string name="website">ওয়েবসাইট</string>
 
-    <string name="facebook">ফেসবুক</string>
+    <string name="facebook">ফেসhবুক</string>
 
     <string name="about">ডিজিটালিস্টিক মুদি দোকানের আর্থিক তথ্য মুঠোফোনে সংরক্ষন , অর্ডার স্বয়ংক্রিয় ভাবে দেয়ার জন্য একটি মোবাইল এপ্লিকেশন। ডিজিটালিস্টিক এর উদ্দেশ্য মুদি দোকানকে আধুনিকরণ এবং এর মাধ্যমে দোকানদারকে ভবিষ্যতে আর্থিক প্রতিষ্ঠান থেকে ঋণ পাবার ব্যবস্থা করা
  </string>
@@ -363,28 +376,62 @@
     <string name="already_to">ইতিমধ্যে নিবন্ধিত! ফিরে যান</string>
 
     <string name="confirm">নিশ্চিত করুন</string>
+
     <string name="phone_numbe">ফোন নাম্বার</string>
+
     <string name="credit_purchase">বাকিতে ক্রয়</string>
+
     <string name="cr_sales">বাকিতে বিক্রয়</string>
+
     <string name="cash_purchase">নগদ ক্রয়</string>
+
     <string name="sales_returns">বিক্রয় ফেরত</string>
+
     <string name="purchase_returns">ক্রয় ফেরত</string>
+
     <string name="dayend_withdrawal_deposit">দিন শেষে হিসাব , উত্তোলন , জমা</string>
+
     <string name="credit_transaction">বাকিতে লেনদেন</string>
+
     <string name="cash_transaction">নগদ লেনদেন</string>
-    <string name="singup">Don’t have an account? <b>Singup</b></string>
+
+    <string name="singup">Don’t have an account? <b>Signup</b></string>
+
     <string name="create_account">Create Account</string>
+
     <string name="enter_your">Enter your credentials to continue</string>
+
     <string name="confirm_password">Confirm Password</string>
+
     <string name="terms">By continuing you agree to our
          <font color='#000000'>Terms of Service</font> and <font color = '#000000'>Privacy Policy.</font> </string>
+
     <string name="sign_up">Sign Up</string>
+
     <string name="singin">Already have an account? <b>SingIn</b></string>
+
     <string name="password">Password</string>
+
     <string name="log_in">Log In</string>
+
     <string name="enter_full_name">Enter Full Name</string>
+
     <string name="withdrawal_deposit">Withdrawal, Deposit</string>
+
     <string name="historydate">05-04-2021</string>
+
     <string name="nodata">No Data</string>
+
+    <string name="adt">Add New Transaction</string>
+
+    <string name="sat">Select Account Type</string>
+
+    <string name="stt">Select Transaction Type</string>
+
+    <string name="amt">Amount in Taka</string>
+
+    <string name="cnum">Customer Number</string>
+
+    <string name="cnumhint">01780445466</string>
 
 </resources>

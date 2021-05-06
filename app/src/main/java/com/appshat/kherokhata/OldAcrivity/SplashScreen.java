@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.appshat.kherokhata.NewUIActivity.Onboarding_Activity;
 import com.appshat.kherokhata.R;
 
 public class SplashScreen extends AppCompatActivity {
@@ -55,7 +56,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Onboarding_Activity.class);
                 startActivity(intent);
                 finish();
             }

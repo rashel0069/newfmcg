@@ -7,57 +7,31 @@
     android:background="#EB222C"
     android:orientation="vertical"
     tools:context=".NewUIFragment.History_Nav_Fragment">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView7"
+  <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="50dp"
+        android:background="@drawable/dropshedow">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:background="@drawable/dropshedow"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="8dp">
+            android:lineHeight="22dp"
+            android:text="@string/history"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="18sp" />
+    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/historytitleTV_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:lineHeight="21.94dp"
-                    android:text="@string/history"
-                    android:textAllCaps="false"
-                    android:textAlignment="center"
-                    android:layout_marginTop="14dp"
-                    android:textColor="@color/white"
-                    android:textFontWeight="600"
-                    android:textSize="18sp"
-                    android:textStyle="normal"
-                    />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-    </androidx.cardview.widget.CardView>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

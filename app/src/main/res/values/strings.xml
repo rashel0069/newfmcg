@@ -8,6 +8,10 @@
 
     <string name="digitalistic">DIGITALISTIC</string>
 
+    <string name="companyname">Digitalistic</string>
+
+    <string name="email">digitalistic98@gmail.com</string>
+
     <string name="text1">Handle your accounts \n smartly With Khero Khata </string>
 
     <string name="text2">No more analog accounts, Now you can \n easily handle your accounts book </string>
@@ -301,6 +305,14 @@
 
     <string name="edit">Edit Profile</string>
 
+    <string name="cp">Change Password</string>
+
+    <string name="cl">Change Language</string>
+
+    <string name="help">Help</string>
+
+    <string name="aboutk">About Khero Khata</string>
+
     <string name="logout">Logout</string>
 
     <string name="website">Website</string>
@@ -372,35 +384,79 @@
     <string name="already_to">Already Registered ! Go back to  </string>
 
     <string name="confirm">Confirm</string>
+
     <string name="select_your" translatable="false">Select Your Location</string>
+
     <string name="lorem_ipsum" translatable="false">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs</string>
+
     <string name="your_zone" translatable="false">Your Zone</string>
+
     <string name="your_area" translatable="false">Your Area</string>
+
     <string name="types_of_yo" translatable="false">Types of your area</string>
+
     <string name="submit" translatable="false">Submit</string>
+
     <string name="enter_your_" translatable="false">Enter your Phone Number and password</string>
+
     <string name="phone_numbe">Phone Number</string>
+
+    <string name="cnum">Customer Number</string>
+
     <string name="credit_purchase">Credit Purchase</string>
+
     <string name="cr_sales">Credit sales</string>
+
     <string name="cash_purchase">Cash Purchase</string>
+
     <string name="sales_returns">Sales Returns</string>
+
     <string name="purchase_returns">Purchase Returns</string>
+
     <string name="dayend_withdrawal_deposit">End of the day , Withdrawal , Deposit</string>
+
     <string name="credit_transaction">Credit Transaction</string>
+
     <string name="cash_transaction">Cash Transaction</string>
-    <string name="singup">Don’t have an account? <b>Singup</b></string>
-    <string name="create_account">Create Account</string>
+
+    <string name="singup">Dont have an account? <b>Signup</b></string>
+
     <string name="enter_your">Enter your credentials to continue</string>
+
     <string name="confirm_password">Confirm Password</string>
+
     <string name="terms">By continuing you agree to our
          <font color='#000000'>Terms of Service </font> and <font color = '#000000'>Privacy Policy.</font> </string>
+
     <string name="sign_up">Sign Up</string>
+
     <string name="singin">Already have an account? <b>SingIn</b></string>
+
     <string name="password">Password</string>
+
     <string name="log_in">Log In</string>
+
     <string name="enter_full_name">Enter Full Name</string>
+
     <string name="withdrawal_deposit">Withdrawal, Deposit</string>
+
     <string name="history" translatable="false">History</string>
+
     <string name="historydate">05-04-2021</string>
-    <string name="nodata">No Data</string>
+
+    <string name="nodata">No Data Found</string>
+
+    <string name="menu">Menu</string>
+
+    <string name="adt">Add New Transaction</string>
+
+    <string name="sat">Select Account Type</string>
+
+    <string name="stt">Select Transaction Type</string>
+
+    <string name="amt">Amount in Taka</string>
+
+    <string name="cnumhint">01780445466</string>
+
+
 </resources>
