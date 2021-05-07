@@ -25,7 +25,7 @@ public class About_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_about__, container, false);
+        View view = inflater.inflate(R.layout.fragment_about_ui, container, false);
         firstpart = view.findViewById(R.id.textViewJustify);
         secondpart = view.findViewById(R.id.textViewJustify2);
 

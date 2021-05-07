@@ -39,7 +39,7 @@ import java.util.List;
 public class Profile_Fragment extends Fragment {
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     RelativeLayout languageselector;
-    TextView editTV, websiteTV, fbTV, langTV, logoutTV, shopkeepName, shopAddress;
+    TextView editTV, websiteTV, fbTV, langTV, logoutTV, shopkeepName, shopAddress,aboutKh;
     ImageView photoUp, profileImage;
     String shopN, shopAd;
     boolean lang_selected = true;
@@ -71,6 +71,19 @@ public class Profile_Fragment extends Fragment {
         informationDao = databaseroom.getInformationDao();
         informationViewModel = ViewModelProviders.of(getActivity()).get(InformationViewModel.class);
 
+
+        //about Khero Khata
+        aboutKh = view.findViewById(R.id.abk_pro_id);
+        aboutKh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                About_Fragment about_fragment = new About_Fragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, about_fragment);
+                transaction.addToBackStack("null");
+                transaction.commit();
+            }
+        });
 
         // edit profile
         RelativeLayout edit = view.findViewById(R.id.cardView2);
