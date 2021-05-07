@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -32,6 +33,7 @@ import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.AdjustEntity;
 import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
 import com.appshat.kherokhata.Room.model.AdjustViewModel;
+import com.google.android.material.button.MaterialButton;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -41,12 +43,13 @@ public class Receivablepayable_Fragment extends Fragment {
     static final int PICK_CONTACT = 1;
     Spinner spadjust;
     EditText edtmobile, newCash, newProduct, newAdjust;
-    TextView customerName, previousBalns, summPrev, newBalance;
+    TextView customerName, previousBalns, summPrev, newBalance,previbal2,paidammount;
     ImageView contactnumber;
-    Button calculate, saveTrans, searchUser;
+    MaterialButton calculate, saveTrans, searchUser;
     String customerContName, currentdate, accounttype, transtype, cmmobile, cmamount, date;
     NewtransactionDao newtransactionDao;
-    LinearLayout l1, l2;
+    LinearLayout l2;
+    CardView l1;
     AdjustViewModel adjustViewModel;
     AdjustDao duepayrecivedao;
     Databaseroom databaseroom;
@@ -78,7 +81,7 @@ public class Receivablepayable_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_receivablepayable_, container, false);
+        View v = inflater.inflate(R.layout.receivable_payable_ui, container, false);
         //Layout
         l1 = v.findViewById(R.id.l1_id);
         l2 = v.findViewById(R.id.l2_id);
@@ -87,6 +90,8 @@ public class Receivablepayable_Fragment extends Fragment {
         previousBalns = v.findViewById(R.id.viewpreviousblnc_id);
         summPrev = v.findViewById(R.id.summarybalance_id);
         newBalance = v.findViewById(R.id.newBalance_id);
+        previbal2 = v.findViewById(R.id.previousbal_id);
+        paidammount = v.findViewById(R.id.paidamount_id);
         //save change
         saveTrans = v.findViewById(R.id.recivepaybtn_id);
         //spinner
@@ -206,7 +211,10 @@ public class Receivablepayable_Fragment extends Fragment {
                 Double.parseDouble(newProduct.getText().toString().trim()) + Double.parseDouble(newAdjust.getText().toString().trim());
         result = Double.parseDouble(previousBalns.getText().toString().trim()) - cpa;
 
-        summPrev.setText(previousBalns.getText().toString().trim() + " - " + String.valueOf(cpa) + " = " + String.valueOf(result));
+        summPrev.setText( newCash.getText().toString().trim()
+                + " + " + newProduct.getText().toString().trim()
+                + " + " + newAdjust.getText().toString().trim());
+        paidammount.setText(String.valueOf(cpa));
         newBalance.setText(String.valueOf(result));
     }
 
@@ -219,6 +227,7 @@ public class Receivablepayable_Fragment extends Fragment {
                         String crsellpout = new GetCreaditsellPaid().execute().get();
                         Double re = Double.parseDouble(crsellsin) - Double.parseDouble(crsellpout);
                         previousBalns.setText(String.valueOf(re));
+                        previbal2.setText(String.valueOf(re));
                         customerName.setText(customerContName);
 
                         if (!customerName.getText().toString().isEmpty() && re != 0.0){

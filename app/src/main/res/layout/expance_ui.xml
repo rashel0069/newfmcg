@@ -14,12 +14,12 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/cashtitleTV_Id"
+            android:id="@+id/expenseTV_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
             android:lineHeight="21.94dp"
-            android:text="@string/cashtransaction"
+            android:text="@string/expense"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textFontWeight="600"
@@ -63,7 +63,7 @@
                     tools:ignore="MissingConstraints">
 
                     <EditText
-                        android:id="@+id/dayendcashET_id"
+                        android:id="@+id/rentET_id"
                         android:layout_width="match_parent"
                         android:layout_height="58dp"
                         android:layout_marginTop="35dp"
@@ -81,7 +81,7 @@
                         tools:layout_editor_absoluteX="0dp" />
 
                     <TextView
-                        android:id="@+id/dc_Id"
+                        android:id="@+id/rextTV_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
@@ -89,14 +89,14 @@
                         android:fontFamily="@font/montserrat"
                         android:lineHeight="14.63dp"
                         android:padding="3dp"
-                        android:text="@string/dayendcash"
+                        android:text="@string/rent"
                         android:textColor="@color/white"
                         android:textFontWeight="400"
                         android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="@+id/dayendcashET_id"
-                        app:layout_constraintEnd_toEndOf="@+id/dayendcashET_id"
+                        app:layout_constraintBottom_toBottomOf="@+id/rentET_id"
+                        app:layout_constraintEnd_toEndOf="@+id/rentET_id"
                         app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/dayendcashET_id"
+                        app:layout_constraintStart_toStartOf="@+id/rentET_id"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.3"
                         tools:ignore="MissingConstraints,NotSibling" />
@@ -117,7 +117,7 @@
                     tools:ignore="MissingConstraints">
 
                     <EditText
-                        android:id="@+id/withdrawalET_id"
+                        android:id="@+id/salaryET_id"
                         android:layout_width="match_parent"
                         android:layout_height="58dp"
                         android:background="@drawable/inputbackground"
@@ -151,7 +151,7 @@
                     tools:ignore="MissingConstraints">
 
                     <EditText
-                        android:id="@+id/depositET_id"
+                        android:id="@+id/othersET_id"
                         android:layout_width="match_parent"
                         android:layout_height="58dp"
                         android:background="@drawable/inputbackground"
@@ -170,7 +170,7 @@
 
 
                 <TextView
-                    android:id="@+id/wd_id"
+                    android:id="@+id/salaryTV_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -191,7 +191,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/ds_id"
+                    android:id="@+id/otherTV_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -213,7 +213,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/cashsaveBtn_id"
+                android:id="@+id/expensesaveBtn_id"
                 android:layout_width="295dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="55dp"

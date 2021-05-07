@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
@@ -25,6 +26,7 @@ import com.appshat.kherokhata.Room.DAO.InformationDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.CashboxEntity;
 import com.appshat.kherokhata.Room.model.CashBoxViewModel;
+import com.google.android.material.button.MaterialButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -33,7 +35,8 @@ import java.util.Locale;
 public class Cashbox_Fragment extends Fragment {
     EditText dayendET, withdrawalET, depositET;
     TextView cashttile, dayendTV, withdrawalTV, depositTV;
-    Button cashbtn;
+    MaterialButton cashbtn;
+    ConstraintLayout dayendlayout,withdrawlay,depositlay;
     String dayend, withdrawal, deposit, datetime;
     CashboxDao cashboxDBdao;
     InformationDao informationDbDao;
@@ -48,7 +51,7 @@ public class Cashbox_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_cashbox_fragment, container, false);
+        View view = inflater.inflate(R.layout.cashbox_ui, container, false);
         cashbtn = view.findViewById(R.id.cashsaveBtn_id);
         cashttile = view.findViewById(R.id.cashtitleTV_Id);
         dayendTV = view.findViewById(R.id.dc_Id);
@@ -57,8 +60,20 @@ public class Cashbox_Fragment extends Fragment {
         withdrawalET = view.findViewById(R.id.withdrawalET_id);
         depositTV = view.findViewById(R.id.ds_id);
         depositET = view.findViewById(R.id.depositET_id);
+        dayendlayout = view.findViewById(R.id.layout_1);
+        withdrawlay = view.findViewById(R.id.linearLayout_2);
+        depositlay = view.findViewById(R.id.constraintLayout3);
 
+        String checkbutton = getArguments().getString("SelectButton");
+        if (checkbutton.matches("deposit")){
+            dayendlayout.setVisibility(View.GONE);
+        }else {
+            withdrawlay.setVisibility(View.GONE);
+            depositlay.setVisibility(View.GONE);
+            depositTV.setVisibility(View.GONE);
+            withdrawalTV.setVisibility(View.GONE);
 
+        }
         //language setter
         if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));

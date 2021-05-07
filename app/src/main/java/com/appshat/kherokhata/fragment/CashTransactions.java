@@ -15,7 +15,7 @@ import com.appshat.kherokhata.OldAcrivity.ExampleDialog;
 import com.appshat.kherokhata.R;
 
 public class CashTransactions extends Fragment {
-    Button btncash_purch,btnsales_return,btnpurch_return,btnopening_amount,btncash_box,btnexpance;
+    Button btncash_purch,btnsales_return,btnpurch_return,btnopening_amount,btncash_box,btnexpance,dayendbtn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,7 +44,6 @@ public class CashTransactions extends Fragment {
             @Override
             public void onClick(View v) {
                 //do something
-                Toast.makeText(getContext(), "Sales Return", Toast.LENGTH_SHORT).show();
                 Adjust_Balance_Fragment adjust_balance_fragment = new Adjust_Balance_Fragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
@@ -62,7 +61,6 @@ public class CashTransactions extends Fragment {
             @Override
             public void onClick(View v) {
                 //do something
-                Toast.makeText(getContext(), "Purchase Return", Toast.LENGTH_SHORT).show();
                 Adjust_Balance_Fragment adjust_balance_fragment = new Adjust_Balance_Fragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
@@ -80,7 +78,6 @@ public class CashTransactions extends Fragment {
             @Override
             public void onClick(View v) {
                 //do something
-                Toast.makeText(getContext(), "Opening Amount", Toast.LENGTH_SHORT).show();
                 ExampleDialog exampleDialog = new ExampleDialog();
                 exampleDialog.show(getActivity().getSupportFragmentManager(), "Opening amount dialog");
             }
@@ -91,9 +88,11 @@ public class CashTransactions extends Fragment {
             @Override
             public void onClick(View v) {
                 //do something
-                Toast.makeText(getContext(), "Cash Box", Toast.LENGTH_SHORT).show();
                 Cashbox_Fragment cash_box_fragment = new Cashbox_Fragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                Bundle bundle = new Bundle();
+                bundle.putString("SelectButton","deposit");
+                cash_box_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, cash_box_fragment);
                 transaction.addToBackStack("null");
                 transaction.commit();
@@ -105,10 +104,25 @@ public class CashTransactions extends Fragment {
             @Override
             public void onClick(View v) {
                 //do something
-                Toast.makeText(getContext(), "Expance", Toast.LENGTH_SHORT).show();
                 Expense_Fragment expense_fragment = new Expense_Fragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.framelayout_container_id, expense_fragment);
+                transaction.addToBackStack("null");
+                transaction.commit();
+            }
+        });
+
+        //dayend
+        dayendbtn = ctv.findViewById(R.id.btn_dayendcash);
+        dayendbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Cashbox_Fragment cash_box_fragment = new Cashbox_Fragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                Bundle bundle = new Bundle();
+                bundle.putString("SelectButton","dayend");
+                cash_box_fragment.setArguments(bundle);
+                transaction.replace(R.id.framelayout_container_id, cash_box_fragment);
                 transaction.addToBackStack("null");
                 transaction.commit();
             }

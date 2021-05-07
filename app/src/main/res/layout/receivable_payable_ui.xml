@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+    <RelativeLayout
+        android:id="@+id/adt_tittelbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/dropshedow"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="21.94dp"
+            android:text="@string/rp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/arrowleft" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_below="@+id/adt_tittelbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinner_id_payrecive"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="61dp"
+                    android:foreground="@drawable/inputbackground"
+                    android:fontFamily="@font/montserrat"
+                    android:gravity="center"
+                    android:lineHeight="17.07dp"
+                    android:entries="@array/adjustbalance"
+                    android:spinnerMode="dropdown"
+                    android:textAlignment="center"
+                    android:textFontWeight="500"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="61dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_id_payrecive"
+                    tools:ignore="MissingConstraints">
+
+                    <EditText
+                        android:id="@+id/searchmobile_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="58dp"
+                        android:background="@drawable/inputbackground"
+                        android:fontFamily="@font/montserrat"
+                        android:hint="@string/cnumhint"
+                        android:inputType="number"
+                        android:lineHeight="17.07dp"
+                        android:paddingLeft="25dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textFontWeight="600"
+                        android:textSize="14sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="35dp" />
+
+                    <ImageView
+                        android:id="@+id/contact_view_id"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:src="@drawable/phnbook"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/searchmobile_id"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/saveContact_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="23dp"
+                        android:layout_marginStart="24dp"
+                        android:fontFamily="@font/montserrat"
+                        android:paddingTop="4dp"
+                        android:text="@string/new_customer_save_now"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="@+id/clientmobilenumberET_id"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/clientmobilenumberET_id"
+                        tools:layout_editor_absoluteY="35dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/clientmobilenumberTV_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/primary"
+                    android:fontFamily="@font/montserrat"
+                    android:lineHeight="14.63dp"
+                    android:padding="3dp"
+                    android:text="@string/cnum"
+                    android:textColor="@color/white"
+                    android:textFontWeight="400"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/linearLayout_2"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/linearLayout_2"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_id_payrecive"
+                    tools:ignore="MissingConstraints" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/searchUser_id"
+                android:layout_width="295dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="61dp"
+                android:backgroundTint="@color/black"
+                android:fontFamily="@font/montserrat"
+                android:lineHeight="30dp"
+                android:text="@string/search"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                app:cornerRadius="15dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/l1_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="23dp"
+                android:visibility="gone"
+                app:cardCornerRadius="15dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="25dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/montserrat"
+                            android:textSize="15sp"
+                            android:textFontWeight="600"
+                            android:lineHeight="30dp"
+                            android:text="@string/customerName"/>
+                        <TextView
+                            android:id="@+id/viewCustomer_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:textSize="14sp"
+                            android:textFontWeight="500"
+                            android:lineHeight="30dp"
+                            android:text="@string/customerName"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/montserrat"
+                            android:textFontWeight="600"
+                            android:lineHeight="30dp"
+                            android:text="@string/previous"/>
+                        <TextView
+                            android:id="@+id/viewpreviousblnc_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="15dp"
+                            android:fontFamily="@font/montserrat"
+                            android:textSize="14sp"
+                            android:textFontWeight="500"
+                            android:lineHeight="30dp"
+                            android:text="@string/amounthint"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="27dp"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat"
+                            android:textFontWeight="500"
+                            android:lineHeight="14.63dp"
+                            android:text="@string/cash"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat"
+                            android:textFontWeight="500"
+                            android:lineHeight="14.63dp"
+                            android:text="@string/product"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:fontFamily="@font/montserrat"
+                            android:textFontWeight="500"
+                            android:lineHeight="14.63dp"
+                            android:text="@string/adj"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp">
+
+                        <EditText
+                            android:id="@+id/newCash_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat"
+                            android:textFontWeight="700"
+                            android:lineHeight="17.07dp"
+                            android:hint="@string/cashhint"
+                            android:inputType="number"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/newProduct_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:fontFamily="@font/montserrat"
+                            android:textFontWeight="700"
+                            android:lineHeight="17.07dp"
+                            android:hint="@string/cashhint"
+                            android:inputType="number"
+
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/newAdjust_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:gravity="center"
+                            android:hint="@string/cashhint"
+                            android:inputType="number"
+                            android:fontFamily="@font/montserrat"
+                            android:textFontWeight="700"
+                            android:lineHeight="17.07dp"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/calclate_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/gradient"
+                        app:cornerRadius="15sp"
+                        android:textAllCaps="false"
+                        android:text="@string/calculate"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:id="@+id/l2_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginEnd="23dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="142dp"
+                    android:layout_height="35dp"
+                    android:text="@string/summary"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:background="@drawable/inputbackground"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat"
+                    android:textFontWeight="600"
+                    android:lineHeight="30dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="8dp"
+                        android:fontFamily="@font/montserrat"
+                        android:textFontWeight="400"
+                        android:lineHeight="30dp"
+                        android:text="@string/previous"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                    <TextView
+                        android:id="@+id/previousbal_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|end"
+                        android:paddingEnd="8dp"
+                        android:fontFamily="@font/montserrat"
+                        android:textFontWeight="400"
+                        android:lineHeight="30dp"
+                        android:hint="@string/amounthint"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="64dp"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:paddingStart="8dp"
+                        android:fontFamily="@font/montserrat"
+                        android:textFontWeight="400"
+                        android:lineHeight="30dp"
+                        android:text="Paid"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/summarybalance_id"
+                        android:layout_width="200dp"
+                        android:layout_height="30dp"
+                        android:fontFamily="@font/montserrat"
+                        android:gravity="center_vertical"
+                        android:lineHeight="30dp"
+                        android:paddingStart="8dp"
+                        android:text="Paid"
+                        android:textColor="@color/white"
+                        android:textFontWeight="400"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/paidamount_id"
+                        android:layout_width="100dp"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical|end"
+                        android:paddingEnd="8dp"
+
+                        android:fontFamily="@font/montserrat"
+                        android:textFontWeight="400"
+                        android:lineHeight="30dp"
+                        android:hint="@string/amounthint"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/white"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="8dp"
+                        android:fontFamily="@font/montserrat"
+                        android:textFontWeight="400"
+                        android:lineHeight="30dp"
+                        android:text="@string/newbalance"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/newBalance_id"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|end"
+                        android:fontFamily="@font/montserrat"
+                        android:textFontWeight="400"
+                        android:lineHeight="30dp"
+                        android:paddingEnd="8dp"
+                        android:hint="@string/amounthint"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/recivepaybtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/save"
+                    app:cornerRadius="15dp"
+                    android:layout_marginBottom="120dp"
+                    android:backgroundTint="@color/black"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

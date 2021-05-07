@@ -26,6 +26,7 @@ import com.appshat.kherokhata.Room.ENTITY.ExpenseEntity;
 import com.appshat.kherokhata.Room.model.ExpenseViewModel;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.material.button.MaterialButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -33,7 +34,7 @@ import java.util.Locale;
 public class Expense_Fragment extends Fragment {
     EditText rentET, salaryET, otherET;
     TextView expensetitle, re, se, oe;
-    Button expensesaveBtn;
+    MaterialButton expensesaveBtn;
     Context context;
     Resources resources;
     ExpenseDao expenseDBdao;
@@ -47,7 +48,7 @@ public class Expense_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_expense_, container, false);
+        View view = inflater.inflate(R.layout.expance_ui, container, false);
 
 //        //database
 //        expenseDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"expense" ).allowMainThreadQueries().build();
