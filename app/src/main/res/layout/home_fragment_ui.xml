@@ -191,7 +191,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="2dp"
-                                android:hint="65000"
+                                android:hint="0.0"
                                 android:lineHeight="17.07dp"
                                 android:textAlignment="center"
                                 android:textColor="@color/black"

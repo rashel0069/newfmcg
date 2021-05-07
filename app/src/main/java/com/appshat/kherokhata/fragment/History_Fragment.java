@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
@@ -25,6 +26,7 @@ public class History_Fragment extends Fragment {
     public static final String DATE_DIALOG_1 = "datePicker1";
     public static final String DATE_DIALOG_2 = "datePicker2";
     static TextView fromDate, toDate;
+    LinearLayout pickdate1,pickdate2;
     private static int mYear1, mMonth1, mDay1;
     private static int mYear2, mMonth2, mDay2;
     TextView prevDate, prevSales, prevCrSales, prevRecive, prevPay, prevCloaseCash, oprenCash;
@@ -37,7 +39,7 @@ public class History_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_history_, container, false);
+        View view = inflater.inflate(R.layout.fragment_history__nav_, container, false);
         prevDate = view.findViewById(R.id.prev_day_dateId);
         prevSales = view.findViewById(R.id.pre_day_sale);
         prevCrSales = view.findViewById(R.id.pre_day_creSale);
@@ -47,6 +49,8 @@ public class History_Fragment extends Fragment {
         oprenCash = view.findViewById(R.id.pre_day_openingcash);
         fromDate = view.findViewById(R.id.from_date_id);
         toDate = view.findViewById(R.id.to_date_id);
+        pickdate1 = view.findViewById(R.id.date_pick_id1);
+        pickdate2 = view.findViewById(R.id.date_pick_id2);
 
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
@@ -56,7 +60,7 @@ public class History_Fragment extends Fragment {
         cal.clear();
         startDate = Calendar.getInstance();
 
-        fromDate.setOnClickListener(new View.OnClickListener() {
+        pickdate1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogFragment dialogFragment1 = new DatePickerFragment1();
@@ -64,7 +68,7 @@ public class History_Fragment extends Fragment {
             }
         });
 
-        toDate.setOnClickListener(new View.OnClickListener() {
+        pickdate2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DialogFragment dialogFragment2 = new DatePickerFragment2();
