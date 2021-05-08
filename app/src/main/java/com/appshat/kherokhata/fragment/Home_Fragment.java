@@ -73,6 +73,7 @@ public class Home_Fragment<Date> extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.home_fragment_ui, container, false);
+
         historyViewModel = ViewModelProviders.of(getActivity()).get(HistoryViewModel.class);
         cashTrn = view.findViewById(R.id.cashtrnBtn_id);
         creditTrn = view.findViewById(R.id.cretrnBtn_id);

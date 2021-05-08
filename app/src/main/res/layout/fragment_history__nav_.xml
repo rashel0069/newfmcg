@@ -13,6 +13,7 @@
         android:background="@drawable/dropshedow">
 
         <TextView
+            android:id="@+id/hst_title_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/montserrat"
@@ -93,6 +94,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/sales_hstTV_id"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -106,6 +108,7 @@
                                 android:textStyle="normal" />
 
                             <TextView
+                                android:id="@+id/cs_hstTV_id"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="13dp"
@@ -159,6 +162,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/rcv_hstTV_id"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="18dp"
@@ -172,6 +176,7 @@
                                 android:textStyle="normal" />
 
                             <TextView
+                                android:id="@+id/pay_hstTV_id"
                                 android:layout_width="match_parent"
                                 android:layout_height="18dp"
                                 android:layout_marginEnd="13dp"
@@ -225,6 +230,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/op_hstTV_id"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -238,6 +244,7 @@
                                 android:textStyle="normal" />
 
                             <TextView
+                                android:id="@+id/closing_hstTV_id"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="13dp"
@@ -425,6 +432,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/sales_whstTV_id"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -438,6 +446,7 @@
                                 android:textStyle="normal" />
 
                             <TextView
+                                android:id="@+id/cs_whstTV_id"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="13dp"
@@ -456,6 +465,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/pre_week_sale"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -469,6 +479,7 @@
                                 android:textStyle="normal" />
 
                             <TextView
+                                android:id="@+id/pre_week_creditsale"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -489,6 +500,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/rc_whsTV_id"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="18dp"
@@ -502,6 +514,7 @@
                                 android:textStyle="normal" />
 
                             <TextView
+                                android:id="@+id/pa_whstTV_id"
                                 android:layout_width="match_parent"
                                 android:layout_height="18dp"
                                 android:layout_marginEnd="13dp"
@@ -520,6 +533,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/pre_week_ra"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -533,6 +547,7 @@
                                 android:textStyle="normal" />
 
                             <TextView
+                                android:id="@+id/pre_week_pa"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -553,6 +568,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/op_whstTV_id"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -566,6 +582,7 @@
                                 android:textStyle="normal" />
 
                             <TextView
+                                android:id="@+id/cl_whsTV_id"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="13dp"
@@ -584,6 +601,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/pre_week_op"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -597,6 +615,7 @@
                                 android:textStyle="normal" />
 
                             <TextView
+                                android:id="@+id/pre_week_cl"
                                 android:layout_weight="1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -672,6 +691,7 @@
                         android:background="@drawable/historyimg"/>
 
                     <TextView
+                        android:id="@+id/ndt_hsTV_id"
                         android:layout_width="110dp"
                         android:layout_height="18dp"
                         android:text="@string/nodata"

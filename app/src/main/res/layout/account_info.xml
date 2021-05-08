@@ -13,12 +13,13 @@
         android:background="@drawable/dropshedow">
 
         <TextView
+            android:id="@+id/act_TV_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:lineHeight="22dp"
-            android:text="Account info"
+            android:text="@string/acc_info"
             android:textColor="@color/white"
             android:textFontWeight="600"
             android:textSize="18sp" />
@@ -89,6 +90,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/sownername_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -98,7 +100,7 @@
                     android:lineHeight="14.63dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
-                    android:text="Full Name"
+                    android:text="@string/full_name"
                     android:textColor="@color/white"
                     android:textFontWeight="400"
                     android:textSize="12sp"
@@ -133,6 +135,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/sname_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -142,7 +145,7 @@
                     android:lineHeight="14.63dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
-                    android:text="Shop Name"
+                    android:text="@string/shopname"
                     android:textColor="@color/white"
                     android:textFontWeight="400"
                     android:textSize="12sp"
@@ -167,7 +170,7 @@
                     android:layout_marginTop="22dp"
                     android:background="@drawable/inputbackground"
                     android:fontFamily="@font/montserrat"
-                    android:hint="Shop Category"
+                    android:hint="@string/category"
                     android:lineHeight="17.07dp"
                     android:paddingLeft="25dp"
                     android:textColor="@color/white"
@@ -177,6 +180,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/selectcategoryTV_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -186,7 +190,7 @@
                     android:lineHeight="14.63dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
-                    android:text="Shop Category"
+                    android:text="@string/category"
                     android:textColor="@color/white"
                     android:textFontWeight="400"
                     android:textSize="12sp"
@@ -211,7 +215,7 @@
                     android:layout_marginTop="22dp"
                     android:background="@drawable/inputbackground"
                     android:fontFamily="@font/montserrat"
-                    android:hint="696, Shawrapa Dhaka-1216"
+                    android:hint="@string/saddhint"
                     android:lineHeight="17.07dp"
                     android:paddingLeft="25dp"
                     android:textColor="@color/white"
@@ -221,6 +225,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/saddTV_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -230,7 +235,7 @@
                     android:lineHeight="14.63dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
-                    android:text="Shop Address"
+                    android:text="@string/shopaddress"
                     android:textColor="@color/white"
                     android:textFontWeight="400"
                     android:textSize="12sp"
@@ -255,7 +260,7 @@
                     android:layout_marginTop="22dp"
                     android:background="@drawable/inputbackground"
                     android:fontFamily="@font/montserrat"
-                    android:hint="9232734"
+                    android:hint="@string/tradehint"
                     android:inputType="number"
                     android:lineHeight="17.07dp"
                     android:paddingLeft="25dp"
@@ -266,6 +271,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/tradeTV_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -275,7 +281,7 @@
                     android:lineHeight="14.63dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
-                    android:text="Trade License Number"
+                    android:text="@string/trade"
                     android:textColor="@color/white"
                     android:textFontWeight="400"
                     android:textSize="12sp"
@@ -300,7 +306,7 @@
                     android:layout_marginTop="22dp"
                     android:background="@drawable/inputbackground"
                     android:fontFamily="@font/montserrat"
-                    android:hint="1929927268"
+                    android:hint="@string/nid_numberhint"
                     android:lineHeight="17.07dp"
                     android:paddingLeft="25dp"
                     android:maxLength="17"
@@ -312,6 +318,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/nidTV_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -321,7 +328,7 @@
                     android:lineHeight="14.63dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
-                    android:text="NID Number"
+                    android:text="@string/nid_number"
                     android:textColor="@color/white"
                     android:textFontWeight="400"
                     android:textSize="12sp"
@@ -346,7 +353,7 @@
                     android:layout_marginTop="22dp"
                     android:background="@drawable/inputbackground"
                     android:fontFamily="@font/montserrat"
-                    android:hint="eg.50000"
+                    android:hint="@string/amounthint"
                     android:lineHeight="17.07dp"
                     android:paddingLeft="25dp"
                     android:maxLength="17"
@@ -358,6 +365,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/openingamount_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -367,7 +375,7 @@
                     android:lineHeight="14.63dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
-                    android:text="Opening Balance"
+                    android:text="@string/opening"
                     android:textColor="@color/white"
                     android:textFontWeight="400"
                     android:textSize="12sp"
@@ -392,7 +400,7 @@
                     android:layout_marginTop="22dp"
                     android:background="@drawable/inputbackground"
                     android:fontFamily="@font/montserrat"
-                    android:hint="eg. 5000"
+                    android:hint="@string/amounthint"
                     android:lineHeight="17.07dp"
                     android:paddingLeft="25dp"
                     android:maxLength="17"
@@ -404,6 +412,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/rcvblnc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -413,7 +422,7 @@
                     android:lineHeight="14.63dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
-                    android:text="Receivable Balance"
+                    android:text="@string/rcvblnc"
                     android:textColor="@color/white"
                     android:textFontWeight="400"
                     android:textSize="12sp"
@@ -438,7 +447,7 @@
                     android:layout_marginTop="22dp"
                     android:background="@drawable/inputbackground"
                     android:fontFamily="@font/montserrat"
-                    android:hint="eg. 5000"
+                    android:hint="@string/amounthint"
                     android:lineHeight="17.07dp"
                     android:paddingLeft="25dp"
                     android:maxLength="17"
@@ -450,6 +459,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
+                    android:id="@+id/payableblnceTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="25dp"
@@ -459,7 +469,7 @@
                     android:lineHeight="14.63dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
-                    android:text="Payable Balance"
+                    android:text="@string/pay"
                     android:textColor="@color/white"
                     android:textFontWeight="400"
                     android:textSize="12sp"
@@ -472,8 +482,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:layout_gravity="center"
                 android:id="@+id/saved_id"
+                android:layout_gravity="center"
                 style="?android:attr/selectableItemBackground"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

@@ -44,8 +44,8 @@ import java.util.Locale;
 public class Adjust_Balance_Fragment extends Fragment {
 
     static final int PICK_CONTACT = 1;
-    EditText adjustamountET, clientmobileET;
-    TextView clientnameTV, cmblTV, duepaydateTV, drpTV, clientnameET, amountTV,accountTv, transactionTv;;
+    EditText adjustamountET, clientmobileET,amthint;
+    TextView clientnameTV, cmblTV, duepaydateTV, drpTV, clientnameET, amttv, accountTv, transactionTv;
     MaterialButton adjustsaveBtn;
     Context context;
     Resources resources;
@@ -71,7 +71,7 @@ public class Adjust_Balance_Fragment extends Fragment {
                     c.moveToFirst();
                     int numberindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
                     String number = c.getString(numberindex);
-                    number = number.replace(" ","").replace("+88","").replace("-","");
+                    number = number.replace(" ", "").replace("+88", "").replace("-", "");
                     clientmobileET.setText(number);
                     int nameindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                     String name = c.getString(nameindex);
@@ -97,8 +97,9 @@ public class Adjust_Balance_Fragment extends Fragment {
         duepaydateTV = view.findViewById(R.id.currentdateTV_id);
         drpTV = view.findViewById(R.id.drpTV_id);
         adjustsaveBtn = view.findViewById(R.id.adjustsaveBtn_id);
-        // amountTV = view.findViewById(R.id.amountsTV_id);
+        amttv = view.findViewById(R.id.amountsTV_id);
         phoneContact = view.findViewById(R.id.phoneContact_id2);
+        amthint=view.findViewById(R.id.adjustamountET_id);
         //get data from bundle
         accounttype = getArguments().getString("AccountType");
         transactiontype = getArguments().getString("TransType");
@@ -139,7 +140,8 @@ public class Adjust_Balance_Fragment extends Fragment {
             cmblTV.setText(resources.getString(R.string.hint1));
             clientmobileET.setHint(resources.getString(R.string.customernumberhint));
             adjustsaveBtn.setText(resources.getString(R.string.save));
-
+            amttv.setText(resources.getString(R.string.amt));
+            amthint.setHint(resources.getString(R.string.amounthint));
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
@@ -150,6 +152,8 @@ public class Adjust_Balance_Fragment extends Fragment {
             cmblTV.setText(resources.getString(R.string.hint1));
             clientmobileET.setHint(resources.getString(R.string.customernumberhint));
             adjustsaveBtn.setText(resources.getString(R.string.save));
+            amttv.setText(resources.getString(R.string.amt));
+            amthint.setHint(resources.getString(R.string.amounthint));
         }
 //for spinner set position
 //        accountspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

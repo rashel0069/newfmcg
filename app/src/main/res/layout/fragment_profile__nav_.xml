@@ -5,188 +5,189 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="23dp"
-    android:layout_marginEnd="24dp"
-    android:gravity="center"
-    android:orientation="vertical">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="344dp"
-        android:layout_height="94dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="33dp">
 
-        <ImageView
-            android:id="@+id/profile_img_id"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="344dp"
+            android:layout_height="94dp"
             android:layout_marginStart="34dp"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="288dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/nopreview"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginEnd="33dp">
+
+            <ImageView
+                android:id="@+id/profile_img_id"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="34dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="288dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/nopreview"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="148dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="86dp"
-            android:fontFamily="@font/montserrat"
-            android:lineHeight="21.94dp"
-            android:text="@string/sownername"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textFontWeight="600"
-            android:textSize="18sp"
-            android:textStyle="normal"
-            android:gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="148dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="86dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:lineHeight="21.94dp"
+                android:text="@string/sownername"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:singleLine="false"
-            android:text="@string/email"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:lineHeight="18sp"
-            android:textFontWeight="400"
-            android:fontFamily="@font/montserrat"
-            android:textAllCaps="false"
-            android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            tools:ignore="MissingConstraints" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <RelativeLayout
-        android:id="@+id/cardView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:layout_marginTop="30dp">
-
-        <TextView
-            android:id="@+id/editprofile_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/edit"
-            android:drawableLeft="@drawable/edit"
-            android:drawableRight="@drawable/arrow2"
-            android:drawablePadding="10dp"
-            android:padding="10dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:gravity="left"
-            android:textFontWeight="500"
-            android:lineHeight="21.94dp"
-            android:textStyle="normal"
-            android:fontFamily="@font/montserrat"
-            />
-
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat"
+                android:lineHeight="18sp"
+                android:singleLine="false"
+                android:text="@string/shopaddress"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                tools:ignore="MissingConstraints" />
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:layout_marginTop="10dp">
-        <TextView
-            android:id="@+id/changepass_pro_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/cp"
-            android:drawableLeft="@drawable/lock"
-            android:drawableRight="@drawable/arrow2"
-            android:drawablePadding="10dp"
-            android:padding="10dp"
-            android:gravity="left"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textFontWeight="500"
-            android:lineHeight="21.94dp"
-            android:textStyle="normal"
-            android:fontFamily="@font/montserrat"
-            />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/cardView3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:id="@+id/lang_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/cl"
-            android:drawableLeft="@drawable/cl"
-            android:drawableRight="@drawable/arrow2"
-            android:drawablePadding="10dp"
-            android:padding="10dp"
-            android:gravity="left"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textFontWeight="500"
-            android:lineHeight="21.94dp"
-            android:textStyle="normal"
-            android:fontFamily="@font/montserrat"
-            />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_gravity="left"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:id="@+id/help_pro_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/help"
-            android:drawableLeft="@drawable/help"
-            android:drawableRight="@drawable/arrow2"
-            android:drawablePadding="10dp"
-            android:padding="10dp"
-            android:gravity="left"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textFontWeight="500"
-            android:textStyle="normal"/>
-    </RelativeLayout>
-    <RelativeLayout
+        <RelativeLayout
+            android:id="@+id/cardView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        android:layout_gravity="left"
+            android:layout_gravity="left"
+            android:layout_marginTop="30dp">
+
+            <TextView
+                android:id="@+id/editprofile_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/edit"
+                android:drawableRight="@drawable/arrow2"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="left"
+                android:lineHeight="21.94dp"
+                android:padding="10dp"
+                android:text="@string/edit"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/changepass_pro_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/lock"
+                android:drawableRight="@drawable/arrow2"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="left"
+                android:lineHeight="21.94dp"
+                android:padding="10dp"
+                android:text="@string/cp"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cardView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/lang_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/cl"
+                android:drawableRight="@drawable/arrow2"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="left"
+                android:lineHeight="21.94dp"
+                android:padding="10dp"
+                android:text="@string/cl"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/help_pro_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/help"
+                android:drawableRight="@drawable/arrow2"
+                android:drawablePadding="10dp"
+                android:gravity="left"
+                android:padding="10dp"
+                android:text="@string/help"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
             android:layout_marginTop="10dp">
 
             <TextView
@@ -198,8 +199,8 @@
                 android:drawableRight="@drawable/arrow2"
                 android:drawablePadding="10dp"
                 android:fontFamily="@font/montserrat"
-                android:lineHeight="21.94dp"
                 android:gravity="left"
+                android:lineHeight="21.94dp"
                 android:padding="10dp"
                 android:text="@string/aboutk"
                 android:textColor="@color/white"
@@ -209,77 +210,76 @@
 
         </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/logout_card_id"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:id="@+id/logout_id"
+        <RelativeLayout
+            android:id="@+id/logout_card_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/logout_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/lg"
+                android:drawableRight="@drawable/arrow2"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="left"
+                android:lineHeight="21.94dp"
+                android:padding="10dp"
+                android:text="@string/logout"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+        </RelativeLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cardView5"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:text="@string/logout"
-            android:drawableLeft="@drawable/lg"
-            android:drawableRight="@drawable/arrow2"
-            android:drawablePadding="10dp"
-            android:gravity="left"
-            android:padding="10dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textFontWeight="500"
-            android:lineHeight="21.94dp"
-            android:textStyle="normal"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:backgroundTint="#4A66AC"
+            android:drawableLeft="@drawable/fb"
             android:fontFamily="@font/montserrat"
-            />
+            android:text="@string/facebook"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="18sp"
+            app:cornerRadius="19dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/cardView5"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="#4A66AC"
-        android:drawableLeft="@drawable/fb"
-        android:fontFamily="@font/montserrat"
-        android:textAllCaps="false"
-        android:text="@string/facebook"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:cornerRadius="19dp"
-        android:layout_gravity="center"
-        android:textFontWeight="600"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/cardView4"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="90dp"
-        android:backgroundTint="@color/black"
-        android:drawableLeft="@drawable/web"
-        android:fontFamily="@font/montserrat"
-        android:textAllCaps="false"
-        android:text="@string/companyname"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:layout_gravity="center"
-        app:cornerRadius="19dp"
-        android:textFontWeight="600"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cardView4"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="90dp"
+            android:backgroundTint="@color/black"
+            android:drawableLeft="@drawable/web"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/companyname"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="18sp"
+            app:cornerRadius="19dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
 </ScrollView>
