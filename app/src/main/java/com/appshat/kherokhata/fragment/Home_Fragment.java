@@ -255,10 +255,11 @@ public class Home_Fragment<Date> extends Fragment {
                         + Double.parseDouble(cashEX);
                 if (cashsales >= 0){
                     cashSell.setText(String.valueOf(cashsales));
+                    totalCash.setText(String.valueOf(Double.parseDouble(crSells) + cashsales));
                 }else{
                     cashSell.setText("0.0");
                 }
-                totalCash.setText(String.valueOf(Double.parseDouble(crSells) + cashsales));
+
             }
 
             String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
