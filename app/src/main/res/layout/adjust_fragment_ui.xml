@@ -260,6 +260,7 @@
                     android:layout_marginStart="98dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:visibility="gone"
                     android:background="@drawable/camn"
                     app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
                     app:layout_constraintHorizontal_bias="1.0"

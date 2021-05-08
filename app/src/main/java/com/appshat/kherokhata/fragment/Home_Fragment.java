@@ -246,20 +246,18 @@ public class Home_Fragment<Date> extends Fragment {
             String pastreceivable = new GetPastReceviable().execute().get();
             String pastpayable = new GetPastPayable().execute().get();
 
-            if (!dayendCash.getText().toString().isEmpty() && Double.valueOf(dayendCash.getText().toString()) != 0.0) {
-                Double cashseles = (Double.parseDouble(dayend) - Double.parseDouble(opening) + Double.parseDouble(cashPurc) + Double.parseDouble(withdraw) - Double.parseDouble(deposit)
-                        - Double.parseDouble(purchesreturncash) - Double.parseDouble(pastreceivable) + Double.parseDouble(pastpayable) + Double.parseDouble(salesreturncash) + Double.parseDouble(cashEX));
-                if (cashseles >= 0) {
-                    cashSell.setText(String.valueOf(cashseles));
-                } else {
+            if (!dayend.isEmpty() && !opencash.isEmpty()){
+
+                Double cashsales = Double.parseDouble(dayend) - Double.parseDouble(opencash) + Double.parseDouble(cashPurc) +
+                        Double.parseDouble(withdraw) - Double.parseDouble(deposit) - Double.parseDouble(purchesreturncash) -
+                        Double.parseDouble(pastreceivable) + Double.parseDouble(pastpayable) + Double.parseDouble(salesreturncash)
+                        + Double.parseDouble(cashEX);
+                if (cashsales >= 0){
+                    cashSell.setText(String.valueOf(cashsales));
+                }else{
                     cashSell.setText("0.0");
                 }
-                Double tseles = Double.parseDouble(crSells) + cashseles;
-                if (tseles >= 0) {
-                    totalCash.setText(String.valueOf(tseles));
-                } else {
-                    totalCash.setText("0.0");
-                }
+                totalCash.setText(String.valueOf(Double.parseDouble(crSells) + cashsales));
             }
 
             String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
@@ -495,7 +493,7 @@ public class Home_Fragment<Date> extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
             String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-            List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Sales_Return", "Credit", currentdate);
+            List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Sales Return", "Credit", currentdate);
             Double salesreturncredit = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {
                 salesreturncredit = Double.parseDouble(adjustEntities.get(i).getClientamount()) + salesreturncredit;
@@ -511,7 +509,7 @@ public class Home_Fragment<Date> extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
             String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-            List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Purchase_Return", "Cash", currentdate);
+            List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Purchase Return", "Cash", currentdate);
             Double pureturncash = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {
                 pureturncash = Double.parseDouble(adjustEntities.get(i).getClientamount()) + pureturncash;
@@ -526,7 +524,7 @@ public class Home_Fragment<Date> extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
             String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-            List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Purchase_Return", "Credit", currentdate);
+            List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Purchase Return", "Credit", currentdate);
             Double pureturncredit = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {
                 pureturncredit = Double.parseDouble(adjustEntities.get(i).getClientamount()) + pureturncredit;
@@ -541,7 +539,7 @@ public class Home_Fragment<Date> extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
             String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-            List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Past_Receivable", "Cash", currentdate);
+            List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Past Receivable", "PAID-OUT", currentdate);
             Double pastreceivable = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {
                 pastreceivable = Double.parseDouble(adjustEntities.get(i).getClientamount()) + pastreceivable;
@@ -557,7 +555,7 @@ public class Home_Fragment<Date> extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
             String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-            List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Past_Payable", "Cash", currentdate);
+            List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Past Payable", "PAID-OUT", currentdate);
             Double pastpayable = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {
                 pastpayable = Double.parseDouble(adjustEntities.get(i).getClientamount()) + pastpayable;

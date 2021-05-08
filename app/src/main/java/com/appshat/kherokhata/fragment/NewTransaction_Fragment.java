@@ -258,6 +258,7 @@ public class NewTransaction_Fragment extends Fragment {
             cmblnumET.setText("No Need Mobile Name");
             l1.setVisibility(View.GONE);
             l2.setVisibility(View.GONE);
+            datepick.setVisibility(View.GONE);
             cnTV.setVisibility(View.GONE);
             cmTV.setVisibility(View.GONE);
             timedateTV.setClickable(false);

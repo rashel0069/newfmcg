@@ -134,7 +134,6 @@ public class Adjust_Balance_Fragment extends Fragment {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
-            drpTV.setText(resources.getString(R.string.adjust));
             clientnameTV.setText(resources.getString(R.string.customerName));
             clientnameET.setHint(resources.getString(R.string.customernamehint));
             cmblTV.setText(resources.getString(R.string.hint1));
@@ -146,7 +145,6 @@ public class Adjust_Balance_Fragment extends Fragment {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
-            drpTV.setText(resources.getString(R.string.adjust));
             clientnameTV.setText(resources.getString(R.string.customerName));
             clientnameET.setHint(resources.getString(R.string.customernamehint));
             cmblTV.setText(resources.getString(R.string.hint1));

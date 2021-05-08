@@ -68,6 +68,7 @@ public class Cashbox_Fragment extends Fragment {
         if (checkbutton.matches("deposit")){
             dayendlayout.setVisibility(View.GONE);
         }else {
+            cashttile.setText(R.string.dayend);
             withdrawlay.setVisibility(View.GONE);
             depositlay.setVisibility(View.GONE);
             depositTV.setVisibility(View.GONE);
