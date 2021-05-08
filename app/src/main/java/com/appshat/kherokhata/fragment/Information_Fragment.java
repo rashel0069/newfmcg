@@ -133,12 +133,12 @@ public class Information_Fragment extends Fragment {
             tradelnET.setHint(resources.getString(R.string.tradehint));
             nidnumberTV.setText(resources.getString(R.string.nid_number));
             nidnumberET.setHint(resources.getString(R.string.nid_numberhint));
-            openingTV.setText(resources.getString(R.string.opening));
-            openingET.setHint(resources.getString(R.string.amounthint));
-            receivableTV.setText(resources.getString(R.string.rcvblnc));
-            receivableET.setHint(resources.getString(R.string.amounthint));
-            payableTV.setText(resources.getString(R.string.pay));
-            payableET.setHint(resources.getString(R.string.amounthint));
+//            openingTV.setText(resources.getString(R.string.opening));
+//            openingET.setHint(resources.getString(R.string.amounthint));
+//            receivableTV.setText(resources.getString(R.string.rcvblnc));
+//            receivableET.setHint(resources.getString(R.string.amounthint));
+//            payableTV.setText(resources.getString(R.string.pay));
+//            payableET.setHint(resources.getString(R.string.amounthint));
             saveBtn.setText(resources.getString(R.string.submit));
 
         } else {
@@ -158,13 +158,13 @@ public class Information_Fragment extends Fragment {
             tradelnET.setHint(resources.getString(R.string.tradehint));
             nidnumberTV.setText(resources.getString(R.string.nid_number));
             nidnumberET.setHint(resources.getString(R.string.nid_numberhint));
-            openingTV.setText(resources.getString(R.string.opening));
-            openingET.setHint(resources.getString(R.string.amounthint));
-            receivableTV.setText(resources.getString(R.string.rcvblnc));
-            receivableET.setHint(resources.getString(R.string.amounthint));
-            payableTV.setText(resources.getString(R.string.pay));
-            payableET.setHint(resources.getString(R.string.amounthint));
-            saveBtn.setText(resources.getString(R.string.submit));
+//            openingTV.setText(resources.getString(R.string.opening));
+//            openingET.setHint(resources.getString(R.string.amounthint));
+//            receivableTV.setText(resources.getString(R.string.rcvblnc));
+//            receivableET.setHint(resources.getString(R.string.amounthint));
+//            payableTV.setText(resources.getString(R.string.pay));
+//            payableET.setHint(resources.getString(R.string.amounthint));
+           saveBtn.setText(resources.getString(R.string.submit));
 
         }
 
@@ -172,10 +172,11 @@ public class Information_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(shoppnameEt.getText().toString()) && !TextUtils.isEmpty(ownernameET.getText().toString()) &&
-                        !TextUtils.isEmpty(addressET.getText().toString()) && !TextUtils.isEmpty(nidnumberET.getText().toString().trim())
-                        && !TextUtils.isEmpty(categoryET.getText().toString().trim()) &&
-                        !TextUtils.isEmpty(openingET.getText().toString().trim()) && !TextUtils.isEmpty(receivableET.getText().toString().trim())
-                        && !TextUtils.isEmpty(payableET.getText().toString().trim())) {
+                       !TextUtils.isEmpty(addressET.getText().toString())){
+                    //&& !TextUtils.isEmpty(nidnumberET.getText().toString().trim())
+//                        && !TextUtils.isEmpty(categoryET.getText().toString().trim()) &&
+//                        !TextUtils.isEmpty(openingET.getText().toString().trim()) && !TextUtils.isEmpty(receivableET.getText().toString().trim())
+//                        && !TextUtils.isEmpty(payableET.getText().toString().trim())) {
 
                     shopname = shoppnameEt.getText().toString();
                     shopkeepername = ownernameET.getText().toString();

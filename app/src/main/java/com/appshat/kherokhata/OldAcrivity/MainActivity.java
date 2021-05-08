@@ -152,7 +152,9 @@ public class MainActivity extends AppCompatActivity {
             loginTV.setText(resources.getString(R.string.login));
             logTV.setText(resources.getString(R.string.login));
             passTV.setText(resources.getString(R.string.password));
+            userMobile.setHint(resources.getString(R.string.mobile));
             phnTV.setText(resources.getString(R.string.phone_number));
+            userPassword.setHint(resources.getString(R.string.enterpassword));
             passforgot.setText(resources.getText(R.string.forgot_password));
             registration.setText(resources.getText(R.string.sign_up));
 
@@ -165,7 +167,9 @@ public class MainActivity extends AppCompatActivity {
             infoTV.setText(resources.getString(R.string.enter_your_));
             loginTV.setText(resources.getString(R.string.login));
             logTV.setText(resources.getString(R.string.login));
+            userMobile.setHint(resources.getString(R.string.mobile));
             passTV.setText(resources.getString(R.string.password));
+            userPassword.setHint(resources.getString(R.string.enterpassword));
             phnTV.setText(resources.getString(R.string.phone_number));
             passforgot.setText(resources.getText(R.string.forgot_password));
             registration.setText(resources.getText(R.string.sign_up));
