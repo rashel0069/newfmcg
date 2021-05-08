@@ -70,8 +70,8 @@ public class Profile_Fragment extends Fragment {
         cpTV=view.findViewById(R.id.changepass_pro_id);
         helpTV=view.findViewById(R.id.help_pro_id);
         about=view.findViewById(R.id.abk_pro_id);
-        webBtn=view.findViewById(R.id.cardView5);
-        fbBtn=view.findViewById(R.id.cardView4);
+        webBtn=view.findViewById(R.id.cardView4);
+        fbBtn=view.findViewById(R.id.cardView5);
 
         databaseroom = Databaseroom.getDatabaseroomref(getActivity());
         informationDao = databaseroom.getInformationDao();
