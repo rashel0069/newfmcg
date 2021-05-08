@@ -72,6 +72,8 @@
             android:name=".OldAcrivity.AlarmReceiver"
             android:enabled="true"
             android:process=":remote" />
+
+        <receiver android:name= ".fragment.MyNotificationPublisher" />
     </application>
 
 </manifest>

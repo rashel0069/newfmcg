@@ -68,8 +68,11 @@ public class RegActivity extends AppCompatActivity {
             reg_now.setText(resources.getString(R.string.create_account));
             reg_Tv1.setText(resources.getString(R.string.enter_your_cr));
             reg_Tv2.setText(resources.getString(R.string.phone_number));
+            reg_Mobile.setHint(resources.getString(R.string.mobile));
+            reg_password.setHint(resources.getString(R.string.password));
             reg_Tv3.setText(resources.getString(R.string.password));
             reg_Tv4.setText(resources.getString(R.string.confirm_password));
+            reg_ConfirmPassword.setHint(resources.getString(R.string.confirm_password_again));
             registered_user.setText(resources.getString(R.string.terms));
             confirmButton.setText(resources.getString(R.string.sign_up));
             loginPage.setText(resources.getString(R.string.signin));
@@ -81,8 +84,11 @@ public class RegActivity extends AppCompatActivity {
             reg_now.setText(resources.getString(R.string.create_account));
             reg_Tv1.setText(resources.getString(R.string.enter_your_cr));
             reg_Tv2.setText(resources.getString(R.string.phone_number));
+            reg_Mobile.setHint(resources.getString(R.string.mobile));
+            reg_password.setHint(resources.getString(R.string.password));
             reg_Tv3.setText(resources.getString(R.string.password));
             reg_Tv4.setText(resources.getString(R.string.confirm_password));
+            reg_ConfirmPassword.setHint(resources.getString(R.string.confirm_password_again));
             registered_user.setText(resources.getString(R.string.terms));
             confirmButton.setText(resources.getString(R.string.sign_up));
             loginPage.setText(resources.getString(R.string.signin));

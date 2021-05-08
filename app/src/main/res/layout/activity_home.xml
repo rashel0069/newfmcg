@@ -15,17 +15,17 @@
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
         android:visibility="gone"
+        android:layout_height="40dp"
         android:layout_gravity="bottom"
         android:theme="@style/Theme.Fab_Bottom_app_bar"
         app:fabCradleMargin="10dp"
-        app:fabCradleRoundedCornerRadius="25dp"
-        app:fabCradleVerticalOffset="15dp">
+        app:fabCradleRoundedCornerRadius="15dp"
+        app:fabCradleVerticalOffset="5dp">
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/b_navigation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginEnd="16dp"
             android:background="@drawable/background_transparent"
             app:menu="@menu/bottom_nav_menu" />
@@ -34,9 +34,9 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="69dp"
+        android:layout_width="49dp"
+        android:layout_height="40dp"
         android:visibility="gone"
-        android:layout_height="69dp"
         android:contentDescription="@string/app_name"
         android:foreground="@drawable/fmcg"
         app:backgroundTint="@color/black"

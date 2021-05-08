@@ -33,7 +33,7 @@
 
     <string name="hint1">Mobile Number</string>
 
-    <string name="mobile">+88-01700111222</string>
+    <string name="mobile">Enter Mobile Number</string>
 
     <string name="hint2">Password</string>
 
@@ -445,6 +445,8 @@
 
     <string name="confirm_password">Confirm Password</string>
 
+    <string name="confirm_password_again">Retype Password </string>
+
     <string name="terms">By continuing you agree to our
          <font color='#000000'>Terms of Service </font> and <font color='#000000'>Privacy Policy.</font> </string>
 
@@ -453,6 +455,8 @@
     <string name="signin">Already have an account? <b>SingIn</b></string>
 
     <string name="password">Password</string>
+
+    <string name="enterpassword"> Enter Password</string>
 
     <string name="log_in">Log In</string>
 

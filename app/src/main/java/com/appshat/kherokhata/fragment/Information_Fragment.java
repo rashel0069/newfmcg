@@ -85,6 +85,12 @@ public class Information_Fragment extends Fragment {
         tradelnET=view.findViewById(R.id.tradeln_id);
         nidnumberTV=view.findViewById(R.id.nidTV_id);
         nidnumberET=view.findViewById(R.id.nid_id);
+        openingTV=view.findViewById(R.id.openingamount_TV);
+        openingET=view.findViewById(R.id.openingamount_ET);
+        receivableTV=view.findViewById(R.id.rcvblnc);
+        receivableET=view.findViewById(R.id.receivableamount_ET);
+        payableTV=view.findViewById(R.id.payableblnceTV);
+        payableET=view.findViewById(R.id.payableamount_ET);
         saveBtn = view.findViewById(R.id.saved_id);
         photoUp = view.findViewById(R.id.editphoto_id);
         profileImage = view.findViewById(R.id.profile_img_id);
@@ -127,6 +133,12 @@ public class Information_Fragment extends Fragment {
             tradelnET.setHint(resources.getString(R.string.tradehint));
             nidnumberTV.setText(resources.getString(R.string.nid_number));
             nidnumberET.setHint(resources.getString(R.string.nid_numberhint));
+//            openingTV.setText(resources.getString(R.string.opening));
+//            openingET.setHint(resources.getString(R.string.amounthint));
+//            receivableTV.setText(resources.getString(R.string.rcvblnc));
+//            receivableET.setHint(resources.getString(R.string.amounthint));
+//            payableTV.setText(resources.getString(R.string.pay));
+//            payableET.setHint(resources.getString(R.string.amounthint));
             saveBtn.setText(resources.getString(R.string.submit));
 
         } else {
@@ -146,8 +158,13 @@ public class Information_Fragment extends Fragment {
             tradelnET.setHint(resources.getString(R.string.tradehint));
             nidnumberTV.setText(resources.getString(R.string.nid_number));
             nidnumberET.setHint(resources.getString(R.string.nid_numberhint));
-            payableET.setHint(resources.getString(R.string.amounthint));
-            saveBtn.setText(resources.getString(R.string.submit));
+//            openingTV.setText(resources.getString(R.string.opening));
+//            openingET.setHint(resources.getString(R.string.amounthint));
+//            receivableTV.setText(resources.getString(R.string.rcvblnc));
+//            receivableET.setHint(resources.getString(R.string.amounthint));
+//            payableTV.setText(resources.getString(R.string.pay));
+//            payableET.setHint(resources.getString(R.string.amounthint));
+           saveBtn.setText(resources.getString(R.string.submit));
 
         }
 
@@ -155,8 +172,11 @@ public class Information_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(shoppnameEt.getText().toString()) && !TextUtils.isEmpty(ownernameET.getText().toString()) &&
-                        !TextUtils.isEmpty(addressET.getText().toString()) && !TextUtils.isEmpty(nidnumberET.getText().toString().trim())
-                        && !TextUtils.isEmpty(categoryET.getText().toString().trim())) {
+                       !TextUtils.isEmpty(addressET.getText().toString())){
+                    //&& !TextUtils.isEmpty(nidnumberET.getText().toString().trim())
+//                        && !TextUtils.isEmpty(categoryET.getText().toString().trim()) &&
+//                        !TextUtils.isEmpty(openingET.getText().toString().trim()) && !TextUtils.isEmpty(receivableET.getText().toString().trim())
+//                        && !TextUtils.isEmpty(payableET.getText().toString().trim())) {
 
                     shopname = shoppnameEt.getText().toString();
                     shopkeepername = ownernameET.getText().toString();
@@ -164,6 +184,9 @@ public class Information_Fragment extends Fragment {
                     usernid = nidnumberET.getText().toString().trim();
                     shopcategory = shoppnameEt.getText().toString().trim();
                     tradelnc = tradelnET.getText().toString().trim();
+                    opening = openingET.getText().toString().trim();
+                    receivable = receivableET.getText().toString().trim();
+                    payable = payableET.getText().toString().trim();
                     profileImage.setDrawingCacheEnabled(true);
                     profileImage.buildDrawingCache();
 

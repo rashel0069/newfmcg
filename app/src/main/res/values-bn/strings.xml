@@ -442,9 +442,10 @@
 
     <string name="confirm_password">পাসওয়ার্ড নিশ্চিত করুন</string>
 
+    <string name="confirm_password_again">পাসওয়ার্ড পুনরায় লিখুন</string>
     <string name="acc_info">হিসাবের তথ্য</string>
 
-    <string name="mobile">+88-01700111222</string>
+    <string name="mobile">মোবাইল নম্বর লিখুন</string>
 
     <string name="terms">আপনি আমাদের  এবং
          <font color='#000000'>পরিষেবার শর্তাদি</font> এবং <font color = '#000000'>গোপনীয়তা নীতিতে সম্মত হয়েছেন</font> </string>
@@ -455,7 +456,9 @@
 
     <string name="password">পাসওয়ার্ড</string>
 
-    <string name="log_in">Log In</string>
+    <string name="enterpassword">পাসওয়ার্ড লিখুন</string>
+
+    <string name="log_in">লগইন</string>
 
     <string name="enter_full_name">সম্পূর্ণ নাম লিখুন</string>
 
