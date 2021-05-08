@@ -7,6 +7,7 @@
     android:background="@color/primary"
     android:fillViewport="true"
     tools:context="com.appshat.kherokhata.OldAcrivity.HomeActivity">
+
     <FrameLayout
         android:id="@+id/framelayout_container_id"
         android:layout_width="match_parent"
@@ -15,13 +16,14 @@
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_height="40dp"
+        android:layout_height="70dp"
         android:layout_gravity="bottom"
         android:theme="@style/Theme.Fab_Bottom_app_bar"
+        android:visibility="gone"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="15dp"
         app:fabCradleVerticalOffset="5dp">
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/b_navigation"
             android:layout_width="match_parent"
@@ -34,11 +36,11 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:layout_width="49dp"
-        android:layout_height="40dp"
-        android:visibility="gone"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:contentDescription="@string/app_name"
         android:foreground="@drawable/fmcg"
+        android:visibility="gone"
         app:backgroundTint="@color/black"
         app:layout_anchor="@id/bottomAppBar" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
