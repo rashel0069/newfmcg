@@ -1,26 +1,61 @@
 package com.appshat.kherokhata.fragment;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.appshat.kherokhata.OldAcrivity.Helper;
+import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 
 public class CreditTransactions extends Fragment {
     Button btncredit_purch,btncredit_sales,btnrecive_pay;
+    Context context;
+    Resources resources;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View crtv =  inflater.inflate(R.layout.fragment_credit_transactions, container, false);
-        //button Credit Sales
+
         btncredit_sales = crtv.findViewById(R.id.btn_creditsales);
+        btncredit_purch = crtv.findViewById(R.id.btn_creditpurch);
+        btnrecive_pay = crtv.findViewById(R.id.btn_receivepay);
+
+        //language setter
+        if (!Helper.getBangla()) {
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(), "en");
+            resources = context.getResources();
+
+          btncredit_purch.setText(resources.getString(R.string.credit_purchase));
+          btncredit_sales.setText(resources.getString(R.string.credit_sales));
+          btnrecive_pay.setText(resources.getString(R.string.rp));
+
+
+        } else {
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(), "bn");
+            resources = context.getResources();
+
+            btncredit_purch.setText(resources.getString(R.string.credit_purchase));
+            btncredit_sales.setText(resources.getString(R.string.credit_sales));
+            btnrecive_pay.setText(resources.getString(R.string.rp));
+
+
+        }
+
+        //button Credit Sales
+
         btncredit_sales.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,7 +72,7 @@ public class CreditTransactions extends Fragment {
             }
         });
         //button Credit purches
-        btncredit_purch = crtv.findViewById(R.id.btn_creditpurch);
+
         btncredit_purch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +89,7 @@ public class CreditTransactions extends Fragment {
             }
         });
         //button recive and pay
-        btnrecive_pay = crtv.findViewById(R.id.btn_receivepay);
+
         btnrecive_pay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

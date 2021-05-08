@@ -4,24 +4,24 @@
 
     <string name="app_name">খেরো খাতা</string>
 
-    <string name="first_splash">Start Managing Your Finance</string>
+    <string name="first_splash">আপনার লেনদেন পরিচালনা করুন</string>
 
-    <string name="digital_product">A digital product of</string>
+    <string name="digital_product">আপনার হাতে ব্যবসায়ের লেনদেন </string>
 
-    <string name="digitalistic">DIGITALISTIC</string>
+    <string name="digitalistic">ডিজিটালিস্টিক</string>
 
-    <string name="text1">Handle your accounts \n smartly With Khero Khata </string>
+    <string name="text1">আপনার লেনদেনগুলি সহজেই পরিচালনা করুন <font color ="#000000">খেরো খাতা এর সাথে</font></string>
 
-    <string name="text2">No more analog accounts,Now you can \n easily handle your accounts book </string>
+    <string name="text2">আর কোনও অ্যানালগ অ্যাকাউন্ট না, এখন আপনি \n <font color ="#000000">সহজেই আপনার অ্যাকাউন্ট বইটি পরিচালনা করতে পারেন</font> </string>
 
-    <string name="skip">Skip</string>
+    <string name="skip">বাতিল</string>
 
-    <string name="text3">Lorem ipsum, or lipsum as \n it is sometimes known </string>
+    <string name="text3">চ্যাটবোটের মাধ্যমে অনলাইন অর্ডার </string>
 
     <string name="sl">select language</string>
 
 
-    <string name="text4">Lorem ipsum, or lipsum as it is sometimes \n known, is dummy text used in laying out print,\n  graphic or web designs</string>
+    <string name="text4">এটি প্রয়োজনীয় ব্যবসায়ের পণ্যগুলি অর্ডার \n  <font color ="#000000"> করা সহজ করে</font></string>
 
     <string name="intro">স্বাগতম</string>
 
@@ -35,7 +35,7 @@
 
     <string name="creditsales">বাকিতে বিক্রয়</string>
 
-    <string name="companyname">Digitalistic</string>
+    <string name="companyname">ডিজিটালিস্টিক</string>
 
     <string name="email">digitalistic98@gmail.com</string>
 
@@ -53,6 +53,10 @@
     <string name="customerName">ক্রেতার নাম</string>
 
     <string name="titletv">আপনার আজকের গ্রহণযোগ্য / প্রদানযোগ্য অনুস্মারক: </string>
+
+    <string name="text5">লেনদেন শুরু করুন  \n <font color ="#000000"> খেরো খাতার সাথে</font></string>
+
+    <string name="text6">it make easier to order \n <font color ="#000000">necessary business products</font></string>
 
     <string name="duedate">নির্দিষ্ট তারিখ</string>
 
@@ -74,6 +78,28 @@
 
     <string name="saddress">ঠিকানা</string>
 
+    <string name="saddhint">৭১,শ্যামলী,ঢাকা</string>
+
+    <string name="shopaddress">দোকানের ঠিকানা</string>
+
+    <string name="tradehint">৯২৩২৭৩৪</string>
+
+    <string name="trade">ট্রেড লাইসেন্স নম্বর</string>
+
+    <string name="nid_number">এনআইডি নম্বর</string>
+
+    <string name="nid_numberhint">১৯২৯৯২৭২৬৮</string>
+
+    <string name="rcvblnc">গ্রহণযোগ্য পরিমাণ</string>
+
+    <string name="pay">প্রদেয় পরিমাণ</string>
+
+    <string name="category">দোকানের ধরণ</string>
+
+    <string name="submit">জমা দিন</string>
+
+    <string name="pay_info">প্রদেয়</string>
+
     <string name="sownername">দোকানদারের নাম</string>
 
     <string name="shopnamehint">দোকানের নাম লিখুন</string>
@@ -90,7 +116,7 @@
 
     <string name="rahint">প্রাপ্তির পরিমাণ যেমন: ৫০০০ </string>
 
-    <string name="pa">প্রদেয় পরিমান</string>
+    <string name="amountnum">৬৫০০০</string>
 
     <string name="pahint">প্রদেয় পরিমান যেমন: ১০০০ </string>
 
@@ -169,6 +195,10 @@
     <string name="customernumberhint">ক্রেতার মোবাইল নম্বর</string>
 
     <string name="amounts">পরিমাণ</string>
+
+    <string name="next">পরবর্তী</string>
+
+    <string name="gs" >প্রবেশ করুন</string>
 
     <string name="date" tools:ignore="TypographyDashes">তারিখ নির্বাচন করুন যেমন: ২৭-৯-২০২০</string>
 
@@ -298,19 +328,23 @@
 
     <string name="edit">প্রোফাইল সম্পাদনা</string>
 
-    <string name="cp">প্রোফাইল সম্পাদনা</string>
-    <string name="cl">প্রোফাইল সম্পাদনা</string>
+    <string name="cp">পাসওয়ার্ড পরিবর্তন </string>
 
-    <string name="help">প্রোফাইল সম্পাদনা</string>
+    <string name="cl">ভাষা পরিবর্তন</string>
 
-    <string name="aboutk">প্রোফাইল সম্পাদনা</string>
+    <string name="help">সহায়তা</string>
 
-    <string name="menu">Menu</string>
+    <string name="aboutk">ডিজিটালিস্টিক সম্পর্কে</string>
+
+    <string name="menu">মেনু</string>
+
+    <string name="pa">প্রদেয়</string>
+
     <string name="logout">লগ আউট</string>
 
     <string name="website">ওয়েবসাইট</string>
 
-    <string name="facebook">ফেসhবুক</string>
+    <string name="facebook">ফেসবুক</string>
 
     <string name="about">ডিজিটালিস্টিক মুদি দোকানের আর্থিক তথ্য মুঠোফোনে সংরক্ষন , অর্ডার স্বয়ংক্রিয় ভাবে দেয়ার জন্য একটি মোবাইল এপ্লিকেশন। ডিজিটালিস্টিক এর উদ্দেশ্য মুদি দোকানকে আধুনিকরণ এবং এর মাধ্যমে দোকানদারকে ভবিষ্যতে আর্থিক প্রতিষ্ঠান থেকে ঋণ পাবার ব্যবস্থা করা
  </string>
@@ -335,7 +369,10 @@
 
     <string name="from">থেকে</string>
 
-    <string name="to">প্রতি</string>
+    <string name="to">পর্যন্ত</string>
+
+
+    <string name="last_month">গত মাস</string>
 
     <string name="datehint">যেমন: ২৭-৯-২০২০</string>
 
@@ -351,7 +388,7 @@
 
     <string name="s1">বিক্রয়: </string>
 
-    <string name="credit_sales">বাকিতে বিক্রয়:</string>
+    <string name="credit_sales">বাকিতে বিক্রয়</string>
 
     <string name="r1">পাওনা:</string>
 
@@ -377,7 +414,7 @@
 
     <string name="confirm">নিশ্চিত করুন</string>
 
-    <string name="phone_numbe">ফোন নাম্বার</string>
+    <string name="phone_number">ফোন নাম্বার</string>
 
     <string name="credit_purchase">বাকিতে ক্রয়</string>
 
@@ -387,6 +424,8 @@
 
     <string name="sales_returns">বিক্রয় ফেরত</string>
 
+    <string name="full_name">সম্পূর্ণ নাম</string>
+
     <string name="purchase_returns">ক্রয় ফেরত</string>
 
     <string name="dayend_withdrawal_deposit">দিন শেষে হিসাব , উত্তোলন , জমা</string>
@@ -395,43 +434,49 @@
 
     <string name="cash_transaction">নগদ লেনদেন</string>
 
-    <string name="singup">Don’t have an account? <b>Signup</b></string>
+    <string name="signup">অ্যাকাউন্ট নেই? <b> সাইনআপ </b></string>
 
+    <string name="enter_your_" >আপনার ফোন নম্বর এবং পাসওয়ার্ড লিখুন</string>
 
-    <string name="enter_your">Enter your credentials to continue</string>
+    <string name="enter_your_cr">আপনার তথ্য লিখুন</string>
 
-    <string name="confirm_password">Confirm Password</string>
+    <string name="confirm_password">পাসওয়ার্ড নিশ্চিত করুন</string>
 
-    <string name="terms">By continuing you agree to our
-         <font color='#000000'>Terms of Service</font> and <font color = '#000000'>Privacy Policy.</font> </string>
+    <string name="acc_info">হিসাবের তথ্য</string>
 
-    <string name="sign_up">Sign Up</string>
+    <string name="mobile">+88-01700111222</string>
 
-    <string name="singin">Already have an account? <b>SingIn</b></string>
+    <string name="terms">আপনি আমাদের  এবং
+         <font color='#000000'>পরিষেবার শর্তাদি</font> এবং <font color = '#000000'>গোপনীয়তা নীতিতে সম্মত হয়েছেন</font> </string>
 
-    <string name="password">Password</string>
+    <string name="sign_up">নিবন্ধন করুন</string>
+
+    <string name="signin">ইতিমধ্যে একটি অ্যাকাউন্ট আছে? <b>প্রবেশ করুন</b></string>
+
+    <string name="password">পাসওয়ার্ড</string>
 
     <string name="log_in">Log In</string>
 
-    <string name="enter_full_name">Enter Full Name</string>
+    <string name="enter_full_name">সম্পূর্ণ নাম লিখুন</string>
 
-    <string name="withdrawal_deposit">Withdrawal, Deposit</string>
+    <string name="withdrawal_deposit">উত্তোলন,জমা</string>
 
     <string name="historydate">05-04-2021</string>
 
-    <string name="nodata">No Data</string>
+    <string name="nodata">কোনও ডেটা নেই</string>
 
-    <string name="adt">Add New Transaction</string>
+    <string name="adt">নতুন লেনদেন </string>
 
-    <string name="sat">Select Account Type</string>
+    <string name="sat">অ্যাকাউন্টের ধরণ</string>
 
-    <string name="stt">Select Transaction Type</string>
+    <string name="stt">লেনদেনের ধরণ</string>
 
-    <string name="amt">Amount in Taka</string>
+    <string name="amt">টাকার পরিমাণ</string>
 
-    <string name="cnum">Customer Number</string>
+    <string name="cnum">ক্রেতার মোবাইল নাম্বার</string>
 
-    <string name="cnumhint">01780445466</string>
-    <string name="create_account">Create Account</string>
+    <string name="cnumhint">০১৭৮০৪৪৫৪৬৬</string>
+
+    <string name="create_account">অ্যাকাউন্ট তৈরি করুন </string>
 
 </resources>

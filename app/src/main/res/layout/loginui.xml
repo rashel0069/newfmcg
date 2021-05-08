@@ -23,6 +23,7 @@
             android:background="@drawable/loginimage" />
 
         <TextView
+            android:id="@+id/loginTV_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -60,7 +61,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="top"
             android:lineSpacingExtra="9sp"
-            android:text="@string/phone_numbe"
+            android:text="@string/phone_number"
             android:textColor="@color/white"
             android:textFontWeight="500"
             android:textSize="16sp"/>
@@ -100,7 +101,7 @@
                     android:inputType="number"
                     android:maxLength="11"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                   />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -149,7 +150,8 @@
                 app:boxBackgroundMode="none"
                 app:hintEnabled="false"
                 app:passwordToggleEnabled="true"
-                app:passwordToggleTint="@color/white">
+                app:passwordToggleTint="@color/white"
+                >
 
                 <EditText
                     android:id="@+id/password_Id"
@@ -160,8 +162,9 @@
                     android:imeOptions="actionNext"
                     android:inputType="textPassword"
                     android:padding="8dp"
+
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                    />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -214,7 +217,7 @@
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat"
             android:lineHeight="17.07dp"
-            android:text="@string/singup"
+            android:text="@string/signup"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textFontWeight="500"

@@ -19,7 +19,7 @@ import com.appshat.kherokhata.R;
 public class SplashScreen extends AppCompatActivity {
     Animation topAnim, bottomAnim;
     ImageView spImage;
-    TextView spText;
+    TextView spText,tv5,tv6,tv7;
     Context context;
     Resources resources;
 
@@ -33,6 +33,9 @@ public class SplashScreen extends AppCompatActivity {
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
         spImage = findViewById(R.id.splashImage);
         spText = findViewById(R.id.splashText);
+        tv5 = findViewById(R.id.textView5);
+        tv6 = findViewById(R.id.textView6);
+        tv7= findViewById(R.id.dgtv_id);
 
         spImage.setAnimation(topAnim);
         spText.setAnimation(bottomAnim);
@@ -42,8 +45,10 @@ public class SplashScreen extends AppCompatActivity {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(SplashScreen.this, "en");
             resources = context.getResources();
-
             spText.setText(resources.getString(R.string.app_name));
+            tv5.setText(resources.getString(R.string.first_splash));
+            tv6.setText(resources.getString(R.string.digital_product));
+            tv7.setText(resources.getString(R.string.digitalistic));
 
 
         } else {
@@ -51,6 +56,10 @@ public class SplashScreen extends AppCompatActivity {
             context = Localhelper.setLocale(SplashScreen.this, "bn");
             resources = context.getResources();
             spText.setText(resources.getString(R.string.app_name));
+            tv5.setText(resources.getString(R.string.first_splash));
+            tv6.setText(resources.getString(R.string.digital_product));
+            tv7.setText(resources.getString(R.string.digitalistic));
+
         }
 
         new Handler().postDelayed(new Runnable() {

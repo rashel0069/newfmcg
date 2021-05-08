@@ -2,9 +2,9 @@
 
     <string name="app_name">Khero Khata</string>
 
-    <string name="first_splash">Start Managing Your Finance</string>
+    <string name="first_splash">Start Managing  Your Business Transactions</string>
 
-    <string name="digital_product">A digital product of</string>
+    <string name="digital_product">Business transactions on your palate by </string>
 
     <string name="digitalistic">DIGITALISTIC</string>
 
@@ -12,22 +12,28 @@
 
     <string name="email">digitalistic98@gmail.com</string>
 
-    <string name="text1">Handle your accounts smartly <font color='#000000'>With Khero Khata </font>  </string>
+    <string name="text1"> Handle your accounts \n smartly <font color="#000000">With Khero Khata </font></string>
 
-    <string name="text2">No more analog accounts, Now you can easily handle your accounts book </string>
+    <string name="text2">No more analog accounts, Now you can \n easily handle your accounts book </string>
 
     <string name="skip">Skip</string>
 
-    <string name="text3"> <font color='#000000'>Lorem ipsum,</font> or lipsum as it is sometimes known </string>
+    <string name="text3">An online order through Chatbot </string>
 
-    <string name="text4">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print,  graphic or web designs</string>
+    <string name="text4">it make easier to order \n <font color="#000000"> necessary business products</font></string>
+
+    <string name="text5">Lets Begin The Transaction \n <font color="#000000"> With Khero Khata</font></string>
+
+    <string name="text6">it make easier to order \n <font color="#000000">necessary business products</font></string>
+
 
     <string name="sl">Select Language</string>
 
     <string name="intro">Welcome</string>
 
     <string name="hint1">Mobile Number</string>
-    <string name="mobile" translatable="false" tools:ignore="TypographyDashes">+88-01700111222</string>
+
+    <string name="mobile">+88-01700111222</string>
 
     <string name="hint2">Password</string>
 
@@ -87,17 +93,25 @@
 
     <string name="rahint">Receivable Amount exe. 3000 </string>
 
+    <string name="pay">Payable Balance</string>
+
     <string name="pa">Payable</string>
-    <string name="gs" translatable="false">Get Started</string>
+
+
+    <string name="category">Shop Category</string>
+
+
+    <string name="gs">Get Started</string>
 
     <string name="pahint">Payable Amount eg. 1000</string>
 
     <string name="note">Note</string>
 
-    <string name="dayendcash">DayEnd Balance</string>
+    <string name="dayendcash">DayEnd Cash</string>
 
     <string name="dayend">eg: 2000</string>
-    <string name="next" translatable="false">Next</string>
+
+    <string name="next">Next</string>
 
     <string name="totalcash">Total Cash</string>
 
@@ -339,7 +353,7 @@
 
     <string name="totalreceivable">Total Receivable</string>
 
-    <string name="closingcash">CLosing Cash</string>
+    <string name="closingcash">Closing Cash</string>
 
     <string name="from">From:</string>
 
@@ -359,7 +373,7 @@
 
     <string name="s1">Sales:</string>
 
-    <string name="credit_sales">Credit Sales:</string>
+    <string name="credit_sales">Credit Sales</string>
 
     <string name="r1">Receivable:</string>
 
@@ -372,6 +386,8 @@
     <string name="previous_week_history">Previous Week History</string>
 
     <string name="last_month_history">Last Month History</string>
+
+    <string name="last_month">Last Month</string>
 
     <string name="n_a">N/A</string>
 
@@ -395,11 +411,15 @@
 
     <string name="types_of_yo" translatable="false">Types of your area</string>
 
-    <string name="submit" translatable="false">Submit</string>
+    <string name="submit">Submit</string>
 
-    <string name="enter_your_" translatable="false">Enter your Phone Number and password</string>
+    <string name="pay_info">Payable</string>
 
-    <string name="phone_numbe">Phone Number</string>
+    <string name="amountnum">65000</string>
+
+    <string name="enter_your_">Enter your Phone Number and password</string>
+
+    <string name="phone_number">Phone Number</string>
 
     <string name="cnum">Customer Number</string>
 
@@ -419,24 +439,40 @@
 
     <string name="cash_transaction">Cash Transaction</string>
 
-    <string name="singup">Dont have an account? <b>Signup</b></string>
+    <string name="signup">Dont have an account? <b>Signup</b></string>
 
-    <string name="enter_your">Enter your credentials to continue</string>
+    <string name="enter_your_cr">Enter your credentials to continue</string>
 
     <string name="confirm_password">Confirm Password</string>
 
     <string name="terms">By continuing you agree to our
-         <font color='#000000'>Terms of Service </font> and <font color = '#000000'>Privacy Policy.</font> </string>
+         <font color='#000000'>Terms of Service </font> and <font color='#000000'>Privacy Policy.</font> </string>
 
     <string name="sign_up">Sign Up</string>
 
-    <string name="singin">Already have an account? <b>SingIn</b></string>
+    <string name="signin">Already have an account? <b>SingIn</b></string>
 
     <string name="password">Password</string>
 
     <string name="log_in">Log In</string>
 
     <string name="enter_full_name">Enter Full Name</string>
+
+    <string name="full_name">Full Name</string>
+
+    <string name="saddhint">71,Shamoly,Dhaka</string>
+
+    <string name="shopaddress">Shop Address</string>
+
+    <string name="tradehint">9232734</string>
+
+    <string name="trade">Trade License Number</string>
+
+    <string name="nid_number">NID Number</string>
+
+    <string name="nid_numberhint">1929927268</string>
+
+    <string name="rcvblnc">Receivable Balance</string>
 
     <string name="withdrawal_deposit">Withdrawal, Deposit</string>
 
@@ -457,6 +493,10 @@
     <string name="amt">Amount in Taka</string>
 
     <string name="cnumhint">01780445466</string>
+
+    <string name="acc_info">Account Information</string>
+
+
     <string name="create_account">Create Account</string>
 
 

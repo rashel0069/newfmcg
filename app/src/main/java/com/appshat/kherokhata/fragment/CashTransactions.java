@@ -1,10 +1,13 @@
 package com.appshat.kherokhata.fragment;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +15,61 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.appshat.kherokhata.OldAcrivity.ExampleDialog;
+import com.appshat.kherokhata.OldAcrivity.Helper;
+import com.appshat.kherokhata.OldAcrivity.Localhelper;
+import com.appshat.kherokhata.OldAcrivity.MainActivity;
 import com.appshat.kherokhata.R;
+import com.bumptech.glide.load.engine.Resource;
 
 public class CashTransactions extends Fragment {
     Button btncash_purch,btnsales_return,btnpurch_return,btnopening_amount,btncash_box,btnexpance,dayendbtn;
+    Context context;
+    Resources resources;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View ctv = inflater.inflate(R.layout.fragment_cash_transactions, container, false);
-        //button cash purchase
+
         btncash_purch = ctv.findViewById(R.id.btn_cashpurchase);
+        btnsales_return = ctv.findViewById(R.id.btn_salesret);
+        btnpurch_return = ctv.findViewById(R.id.btn_purchaseret);
+        btnopening_amount = ctv.findViewById(R.id.btn_opencash);
+        btncash_box = ctv.findViewById(R.id.btn_cashbox);
+        btnexpance = ctv.findViewById(R.id.btn_expense);
+        dayendbtn = ctv.findViewById(R.id.btn_dayendcash);
+
+
+
+
+        //language setter
+        if (!Helper.getBangla()) {
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+
+            context = Localhelper.setLocale(getActivity(), "en");
+            resources = context.getResources();
+            btncash_purch.setText(resources.getString(R.string.cash_purchase));
+            btnsales_return.setText(resources.getString(R.string.sales_returns));
+            btnpurch_return.setText(resources.getString(R.string.purchase_returns));
+            btnopening_amount.setText(resources.getString(R.string.opening));
+            btncash_box.setText(resources.getString(R.string.withdrawal_deposit));
+            btnexpance.setText(resources.getString(R.string.expense));
+            dayendbtn.setText(resources.getString(R.string.dayendcash));
+
+        } else {
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(),"bn");
+            resources = context.getResources();
+            btncash_purch.setText(resources.getString(R.string.cash_purchase));
+            btnsales_return.setText(resources.getString(R.string.sales_returns));
+            btnpurch_return.setText(resources.getString(R.string.purchase_returns));
+            btnopening_amount.setText(resources.getString(R.string.opening));
+            btncash_box.setText(resources.getString(R.string.withdrawal_deposit));
+            btnexpance.setText(resources.getString(R.string.expense));
+            dayendbtn.setText(resources.getString(R.string.dayendcash));
+        }
+        //button cash purchase
+
         btncash_purch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +86,7 @@ public class CashTransactions extends Fragment {
             }
         });
         //button sales return
-        btnsales_return = ctv.findViewById(R.id.btn_salesret);
+
         btnsales_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +103,7 @@ public class CashTransactions extends Fragment {
             }
         });
         //button Purchase return
-        btnpurch_return = ctv.findViewById(R.id.btn_purchaseret);
+
         btnpurch_return.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +120,7 @@ public class CashTransactions extends Fragment {
             }
         });
         //button Opening Amount
-        btnopening_amount = ctv.findViewById(R.id.btn_opencash);
+
         btnopening_amount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +130,7 @@ public class CashTransactions extends Fragment {
             }
         });
         //button Cash Box
-        btncash_box = ctv.findViewById(R.id.btn_cashbox);
+
         btncash_box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +146,7 @@ public class CashTransactions extends Fragment {
             }
         });
         //button Expance
-        btnexpance = ctv.findViewById(R.id.btn_expense);
+
         btnexpance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +160,7 @@ public class CashTransactions extends Fragment {
         });
 
         //dayend
-        dayendbtn = ctv.findViewById(R.id.btn_dayendcash);
+
         dayendbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

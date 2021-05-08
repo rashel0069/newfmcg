@@ -35,8 +35,6 @@ import com.appshat.kherokhata.Room.DAO.UserDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.UserEntity;
 import com.appshat.kherokhata.Room.model.UserViewModel;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -47,9 +45,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static final String MY_PREFS_NAME = "MyPrefsFile";
-    TextView registration, welcome, languagetv, regTV, passforgot;
+    TextView registration, regTV, passforgot, loginTV, infoTV, phnTV, passTV, logTV;
     EditText userMobile, userPassword;
-    TextView logintv,f1TV, f2TV;
+    TextView logintv, f1TV, f2TV;
     ImageButton languageImg;
     boolean lang_selected = true;
     Context context;
@@ -102,10 +100,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         passforgot = findViewById(R.id.forgotepassword_id);
+        phnTV = findViewById(R.id.phone_tv);
         userMobile = findViewById(R.id.phoneNumber_id);
         userPassword = findViewById(R.id.password_Id);
+        passTV = findViewById(R.id.password_tv);
         registration = findViewById(R.id.registrationTV_id);
+        loginTV = findViewById(R.id.login_btn);
+        logTV = findViewById(R.id.loginTV_id);
+        infoTV = findViewById(R.id.enter_text);
+
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         userDB = Databaseroom.getDatabaseroomref(getApplication());
         userDBdao = userDB.getUserDao();
@@ -130,80 +135,140 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
                         builder.cancel();
-                    } catch(android.content.ActivityNotFoundException e) {
+                    } catch (android.content.ActivityNotFoundException e) {
                     }
                 }
             });
         }
 
 
-        if (Helper.getEnglish()) {
-            Helper.setEnglish(true);
-            Helper.setBangla(false);
+        //language setter
+        if (!Helper.getBangla()) {
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+
+            context = Localhelper.setLocale(MainActivity.this, "en");
+            resources = context.getResources();
+            infoTV.setText(resources.getString(R.string.enter_your_));
+            loginTV.setText(resources.getString(R.string.login));
+            logTV.setText(resources.getString(R.string.login));
+            passTV.setText(resources.getString(R.string.password));
+            phnTV.setText(resources.getString(R.string.phone_number));
+            passforgot.setText(resources.getText(R.string.forgot_password));
+            registration.setText(resources.getText(R.string.sign_up));
+
+
         } else {
-            Helper.setEnglish(false);
-            Helper.setBangla(true);
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(MainActivity.this, "bn");
+            resources = context.getResources();
+
+            infoTV.setText(resources.getString(R.string.enter_your_));
+            loginTV.setText(resources.getString(R.string.login));
+            logTV.setText(resources.getString(R.string.login));
+            passTV.setText(resources.getString(R.string.password));
+            phnTV.setText(resources.getString(R.string.phone_number));
+            passforgot.setText(resources.getText(R.string.forgot_password));
+            registration.setText(resources.getText(R.string.sign_up));
         }
-
-
-        Log.e("Bangla", String.valueOf(Helper.getBangla()));
-
-
-// language
+//        if (Helper.getEnglish()) {
+//            Helper.setEnglish(true);
+//          Helper.setBangla(false);
+//       } else {
+//            Helper.setEnglish(false);
+//           Helper.setBangla(true);
+//      }
+//
+//
+//        Log.e("Bangla", String.valueOf(Helper.getBangla()));
+//
+//
+////// language
+//
+//        //language setter
+//        if (!Helper.getBangla()) {
+//            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+//
+//            context = Localhelper.setLocale(MainActivity.this, "en");
+//            resources = context.getResources();
+//
+//            infoTV.setText(resources.getString(R.string.enter_your_));
+//            loginTV.setText(resources.getString(R.string.login));
+//            logTV.setText(resources.getString(R.string.login));
+//            passTV.setText(resources.getString(R.string.password));
+//            phnTV.setText(resources.getString(R.string.phone_number));
+//            passforgot.setText(resources.getText(R.string.forgot_password));
+//            registration.setText(resources.getText(R.string.sign_up));
+//
+//        } else {
+//            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+//            context = Localhelper.setLocale(MainActivity.this, "bn");
+//            resources = context.getResources();
+//            infoTV.setText(resources.getString(R.string.enter_your_));
+//            loginTV.setText(resources.getString(R.string.login));
+//            logTV.setText(resources.getString(R.string.login));
+//            passTV.setText(resources.getString(R.string.password));
+//            phnTV.setText(resources.getString(R.string.phone_number));
+//            passforgot.setText(resources.getText(R.string.forgot_password));
+//            registration.setText(resources.getText(R.string.sign_up));
+//
+//        }
+//
 //        languageImg.setOnClickListener(new View.OnClickListener() {
 //            @Override
-//            public void onClick(View v) {
-//                final String[] language = {"English", "Bangla"};
-//                int checkeditem;
-//                if (Helper.getBangla()) {
-//                    checkeditem = 1;
-//                } else {
-//                    checkeditem = 0;
-//                }
+//           public void onClick(View v) { final String[] language = {"English", "Bangla"};
+//              int checkeditem;
+//               if (Helper.getBangla()) {
+//                  checkeditem = 1;
+//               } else {
+//                   checkeditem = 0;
+//               }
 //
-//                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-//                builder.setTitle("Select a language").setSingleChoiceItems(language, checkeditem, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        languagetv.setText(language[which]);
-//                        if (language[which].equals("English")) {
-//                            Helper.setEnglish(true);
-//                            Helper.setBangla(false);
-//                            context = Localhelper.setLocale(MainActivity.this, "en");
-//                            resources = context.getResources();
-//                            languagetv.setText(resources.getString(R.string.selector));
-//                            welcome.setText(resources.getString(R.string.intro));
-//                            loginButton.setText(resources.getString(R.string.login));
-//                            regTV.setText(resources.getString(R.string.registration2));
-//                            registration.setText(resources.getString(R.string.registration));
-//                            passforgot.setText(resources.getText(R.string.forgot_password));
+//               final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//               builder.setTitle("Select a language").setSingleChoiceItems(language, checkeditem, new DialogInterface.OnClickListener() {
+//                   @Override
+//                   public void onClick(DialogInterface dialog, int which) {
+//                       languagetv.setText(language[which]);
+//                       if (language[which].equals("English")) {
+//                          Helper.setEnglish(true);
+//                          Helper.setBangla(false);
+//                           context = Localhelper.setLocale(MainActivity.this, "en");
+//                      resources = context.getResources();
+////                            loginTV.setText(R.string.log_in);
+////                            infoTV.setText(R.string.enter_your_);
+////                            loginTV.setText(resources.getString(R.string.login));
+////                            phnTV.setText(resources.getString((R.string.phone_number)));
+////                            passTV.setText(resources.getString(R.string.password));
+////                            regTV.setText(resources.getString(R.string.registration2));
+////                            registration.setText(resources.getString(R.string.registration));
+////                            passforgot.setText(resources.getText(R.string.forgot_password));
 //
 //                        }
-//
-//                        if (language[which].equals("Bangla")) {
-//                            Helper.setBangla(true);
+//                       if (language[which].equals("Bangla")) {
+//                           Helper.setBangla(true);
 //                            Helper.setEnglish(false);
-//                            context = Localhelper.setLocale(MainActivity.this, "bn");
-//                            resources = context.getResources();
-//                            languagetv.setText(resources.getString(R.string.selector));
-//                            welcome.setText(resources.getString(R.string.intro));
-//                            loginButton.setText(resources.getString(R.string.login));
-//                            regTV.setText(resources.getString(R.string.registration2));
-//                            registration.setText(resources.getString(R.string.registration));
-//                            passforgot.setText(resources.getText(R.string.forgot_password));
-//                        }
-//                    }
+//                          context = Localhelper.setLocale(MainActivity.this, "bn");
+//                           resources = context.getResources();
+////                            loginTV.setText(R.string.log_in);
+////                            infoTV.setText(R.string.enter_your_);
+////                            loginTV.setText(resources.getString(R.string.login));
+////                            phnTV.setText(resources.getString((R.string.phone_number)));
+// //                         passTV.setText(resources.getString(R.string.password));
+//     //                    regTV.setText(resources.getString(R.string.registration2));
+//         //                  registration.setText(resources.getString(R.string.registration));
+//        //                   passforgot.setText(resources.getText(R.string.forgot_password));
+//                      }
+//                   }
 //                }).setPositiveButton("ok", new DialogInterface.OnClickListener() {
 //                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.dismiss();
-//                    }
-//                });
+//                   public void onClick(DialogInterface dialog, int which) {
+//                       dialog.dismiss();
+//                   }
+//               });
 //
 //                builder.create().show();
 //            }
 //        });
-
+//
 
         //sharedpref
         SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();

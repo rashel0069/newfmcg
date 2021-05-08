@@ -67,7 +67,8 @@ public class NewTransaction_Fragment extends Fragment {
     static final int PICK_CONTACT = 1;
     Spinner accspinner, transspinner;
     EditText cnameET, cmblnumET, camountET;
-    TextView cnTV, cmTV, amTV, timedateTV, saveNewContact,accTv, transTv;;
+    TextView cnTV, cmTV, amTV, timedateTV, saveNewContact, accTv, transTv, adtv;
+    ;
     MaterialButton newtransBTN;
     ConstraintLayout l1, l2, datepick;
     ImageView phonecontactSelect;
@@ -96,7 +97,7 @@ public class NewTransaction_Fragment extends Fragment {
                     c.moveToFirst();
                     int numberindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
                     String number = c.getString(numberindex).trim();
-                    number = number.replace(" ","").replace("+88","").replace("-","");
+                    number = number.replace(" ", "").replace("+88", "").replace("-", "");
                     cmblnumET.setText(number);
                     int nameindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                     String name = c.getString(nameindex);
@@ -128,6 +129,8 @@ public class NewTransaction_Fragment extends Fragment {
         cnameET = view.findViewById(R.id.customernameET_id);
         saveNewContact = view.findViewById(R.id.saveContact_id);
         phonecontactSelect = view.findViewById(R.id.phoneContact_id);
+        adtv = view.findViewById(R.id.adtTV_tittelbar);
+
         transactionViewModel = ViewModelProviders.of(getActivity()).get(TransactionViewModel.class);
 
         //spinner
@@ -184,7 +187,10 @@ public class NewTransaction_Fragment extends Fragment {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
-            //timedateTV.setHint(resources.getString(R.string.date));
+
+
+            accTv.setText(resources.getString(R.string.sat));
+            transTv.setText(resources.getString(R.string.stt));
             cnTV.setText(resources.getString(R.string.customerName));
             cnameET.setHint(resources.getString(R.string.customernamehint));
             cmTV.setText(resources.getString(R.string.hint1));
@@ -192,12 +198,15 @@ public class NewTransaction_Fragment extends Fragment {
             amTV.setText(resources.getString(R.string.amounts));
             camountET.setHint(resources.getString(R.string.amounthint));
             newtransBTN.setText(resources.getString(R.string.save));
+           adtv.setText(resources.getString(R.string.adt));
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
-            //timedateTV.setHint(resources.getString(R.string.date));
+
+            accTv.setText(resources.getString(R.string.sat));
+            transTv.setText(resources.getString(R.string.stt));
             cnTV.setText(resources.getString(R.string.customerName));
             cnameET.setHint(resources.getString(R.string.customernamehint));
             amTV.setText(resources.getString(R.string.amounts));
@@ -205,6 +214,7 @@ public class NewTransaction_Fragment extends Fragment {
             cmTV.setText(resources.getString(R.string.hint1));
             cmblnumET.setHint(resources.getString(R.string.customernumberhint));
             newtransBTN.setText(resources.getString(R.string.save));
+            adtv.setText(resources.getString(R.string.adt));
 
         }
         //Current date

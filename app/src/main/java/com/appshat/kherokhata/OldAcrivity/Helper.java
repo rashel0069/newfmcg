@@ -96,6 +96,7 @@ public class Helper {
     public static void setEnglish(Boolean status) {
         setPreferenceBool(english, status);
 
+
     }
 }
 

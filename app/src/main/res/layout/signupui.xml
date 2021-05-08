@@ -40,7 +40,7 @@
             android:layout_marginTop="9dp"
             android:fontFamily="@font/montserrat"
             android:lineHeight="15dp"
-            android:text="@string/enter_your"
+            android:text="@string/enter_your_cr"
             android:textColor="@color/white"
             android:textFontWeight="400"
             android:textSize="16sp" />
@@ -54,7 +54,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="top"
             android:lineHeight="29dp"
-            android:text="@string/phone_numbe"
+            android:text="@string/phone_number"
             android:textColor="@color/white"
             android:textFontWeight="500"
             android:textSize="16sp" />
@@ -94,7 +94,7 @@
                     android:maxLength="11"
                     android:padding="8dp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                  />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -156,7 +156,7 @@
                     android:maxLength="16"
                     android:padding="8dp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                  />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -218,7 +218,7 @@
                     android:maxLength="16"
                     android:padding="8dp"
                     android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                  />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -268,7 +268,7 @@
             android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat"
             android:lineHeight="17.07dp"
-            android:text="@string/singin"
+            android:text="@string/signin"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textFontWeight="500"

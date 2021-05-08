@@ -39,7 +39,8 @@ import java.util.List;
 public class Profile_Fragment extends Fragment {
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     RelativeLayout languageselector;
-    TextView editTV, websiteTV, fbTV, langTV, logoutTV, shopkeepName, shopAddress,aboutKh;
+    TextView editTV, langTV, logoutTV, shopkeepName, shopAddress,about,cpTV,helpTV;
+    MaterialButton webBtn,fbBtn;
     ImageView photoUp, profileImage;
     String shopN, shopAd;
     boolean lang_selected = true;
@@ -58,32 +59,24 @@ public class Profile_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile__nav_, container, false);
         SharedPreferences preferences = getActivity().getSharedPreferences(MY_PREFS_NAME, Context.MODE_PRIVATE);
 
+
         languageselector = view.findViewById(R.id.cardView3);
         editTV = view.findViewById(R.id.editprofile_id);
-       // websiteTV = view.findViewById(R.id.website_id);
-       // fbTV = view.findViewById(R.id.fb_id);
         langTV = view.findViewById(R.id.lang_id);
         logoutTV = view.findViewById(R.id.logout_id);
         profileImage = view.findViewById(R.id.profile_img_id);
         shopkeepName = view.findViewById(R.id.textView3);
         shopAddress = view.findViewById(R.id.textView2);
+        cpTV=view.findViewById(R.id.changepass_pro_id);
+        helpTV=view.findViewById(R.id.help_pro_id);
+        about=view.findViewById(R.id.abk_pro_id);
+        webBtn=view.findViewById(R.id.cardView5);
+        fbBtn=view.findViewById(R.id.cardView4);
+
         databaseroom = Databaseroom.getDatabaseroomref(getActivity());
         informationDao = databaseroom.getInformationDao();
         informationViewModel = ViewModelProviders.of(getActivity()).get(InformationViewModel.class);
 
-
-        //about Khero Khata
-        aboutKh = view.findViewById(R.id.abk_pro_id);
-        aboutKh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                About_Fragment about_fragment = new About_Fragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.framelayout_container_id, about_fragment);
-                transaction.addToBackStack("null");
-                transaction.commit();
-            }
-        });
 
         // edit profile
         RelativeLayout edit = view.findViewById(R.id.cardView2);
@@ -117,6 +110,17 @@ public class Profile_Fragment extends Fragment {
                 Toast.makeText(context, "Open Facebook", Toast.LENGTH_SHORT).show();
             }
         });
+
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                About_Fragment about_fragment = new About_Fragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, about_fragment);
+                transaction.addToBackStack("null");
+                transaction.commit();
+            }
+        });
         //logout
         RelativeLayout logout = view.findViewById(R.id.logout_card_id);
         logout.setOnClickListener(new View.OnClickListener() {
@@ -146,16 +150,25 @@ public class Profile_Fragment extends Fragment {
         }
 
         // using login swtiching the language
+
         //language setter
         if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
             langTV.setText(resources.getString(R.string.selector));
+            langTV.setText(resources.getString(R.string.selector));
             editTV.setText(resources.getString(R.string.edit));
-           // websiteTV.setText(resources.getString(R.string.website));
-            //fbTV.setText(resources.getString(R.string.facebook));
+            shopkeepName.setText(resources.getString(R.string.sownername));
+            shopAddress.setText(resources.getString(R.string.shopaddress));
             logoutTV.setText(resources.getString(R.string.logout));
+            cpTV.setText(resources.getString(R.string.cp));
+            helpTV.setText(resources.getString(R.string.help));
+            about.setText(resources.getString(R.string.aboutk));
+            webBtn.setText(resources.getString(R.string.digitalistic));
+            fbBtn.setText(resources.getString(R.string.facebook));
+
+
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
@@ -163,9 +176,14 @@ public class Profile_Fragment extends Fragment {
             resources = context.getResources();
             langTV.setText(resources.getString(R.string.selector));
             editTV.setText(resources.getString(R.string.edit));
-           // websiteTV.setText(resources.getString(R.string.website));
-           // fbTV.setText(resources.getString(R.string.facebook));
+            shopkeepName.setText(resources.getString(R.string.sownername));
+            shopAddress.setText(resources.getString(R.string.shopaddress));
             logoutTV.setText(resources.getString(R.string.logout));
+            cpTV.setText(resources.getString(R.string.cp));
+            helpTV.setText(resources.getString(R.string.help));
+            about.setText(resources.getString(R.string.aboutk));
+            webBtn.setText(resources.getString(R.string.digitalistic));
+            fbBtn.setText(resources.getString(R.string.facebook));
 
         }
 // from in this fragment switching the language
@@ -174,6 +192,7 @@ public class Profile_Fragment extends Fragment {
             public void onClick(View v) {
                 final String[] language = {"English", "Bangla"};
                 int checkeditem;
+
                 if (Helper.getBangla()) {
                     checkeditem = 1;
                 } else {
@@ -189,11 +208,18 @@ public class Profile_Fragment extends Fragment {
                             Helper.setBangla(false);
                             context = Localhelper.setLocale(getActivity(), "en");
                             resources = context.getResources();
+
                             langTV.setText(resources.getString(R.string.selector));
                             editTV.setText(resources.getString(R.string.edit));
-                            websiteTV.setText(resources.getString(R.string.website));
-                            fbTV.setText(resources.getString(R.string.facebook));
+                            shopkeepName.setText(resources.getString(R.string.sownername));
+                            shopAddress.setText(resources.getString(R.string.shopaddress));
                             logoutTV.setText(resources.getString(R.string.logout));
+                            cpTV.setText(resources.getString(R.string.cp));
+                            helpTV.setText(resources.getString(R.string.help));
+                            about.setText(resources.getString(R.string.aboutk));
+                            webBtn.setText(resources.getString(R.string.digitalistic));
+                            fbBtn.setText(resources.getString(R.string.facebook));
+
 
                         }
 
@@ -203,11 +229,17 @@ public class Profile_Fragment extends Fragment {
                             resources = context.getResources();
                             langTV.setText(resources.getString(R.string.selector));
                             editTV.setText(resources.getString(R.string.edit));
-                            websiteTV.setText(resources.getString(R.string.website));
-                            fbTV.setText(resources.getString(R.string.facebook));
+                            shopkeepName.setText(resources.getString(R.string.sownername));
+                            shopAddress.setText(resources.getString(R.string.shopaddress));
                             logoutTV.setText(resources.getString(R.string.logout));
+                            cpTV.setText(resources.getString(R.string.cp));
+                            helpTV.setText(resources.getString(R.string.help));
+                            about.setText(resources.getString(R.string.aboutk));
+                            webBtn.setText(resources.getString(R.string.digitalistic));
+                            fbBtn.setText(resources.getString(R.string.facebook));
 
                         }
+
                     }
                 }).setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
@@ -241,6 +273,7 @@ public class Profile_Fragment extends Fragment {
             }
             return null;
         }
+
     }
 
 }
