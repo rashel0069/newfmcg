@@ -8,30 +8,25 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginStart="23dp"
         android:layout_marginEnd="24dp"
         android:gravity="center"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="344dp"
-            android:layout_height="94dp"
-            android:layout_marginStart="34dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginEnd="33dp">
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:layout_marginTop="25dp">
 
             <ImageView
                 android:id="@+id/profile_img_id"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:layout_marginStart="34dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginEnd="288dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/nopreview"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,10 +66,10 @@
                 android:textFontWeight="400"
                 android:textSize="15sp"
                 android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView3"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:layout_constraintVertical_bias="0.0"
                 tools:ignore="MissingConstraints" />
 
 
@@ -239,12 +234,10 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/cardView5"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
             android:layout_gravity="center"
-            android:layout_marginStart="23dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="24dp"
             android:backgroundTint="#4A66AC"
             android:drawableLeft="@drawable/fb"
             android:fontFamily="@font/montserrat"
@@ -253,7 +246,7 @@
             android:textColor="@color/white"
             android:textFontWeight="600"
             android:textSize="18sp"
-            app:cornerRadius="19dp"
+            app:cornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -261,13 +254,11 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/cardView4"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
             android:layout_gravity="center"
-            android:layout_marginStart="23dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="90dp"
+            android:layout_marginBottom="120dp"
             android:backgroundTint="@color/black"
             android:drawableLeft="@drawable/web"
             android:fontFamily="@font/montserrat"
@@ -276,7 +267,7 @@
             android:textColor="@color/white"
             android:textFontWeight="600"
             android:textSize="18sp"
-            app:cornerRadius="19dp"
+            app:cornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
