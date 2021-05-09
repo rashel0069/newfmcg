@@ -186,11 +186,11 @@ public class Home_Fragment<Date> extends Fragment {
         creditTrn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               CreditTransactions creditTransactions = new CreditTransactions();
-               FragmentTransaction transaction = getFragmentManager().beginTransaction();
-               transaction.replace(R.id.framelayout_container_id, creditTransactions);
-               transaction.addToBackStack("null");
-               transaction.commit();
+                CreditTransactions creditTransactions = new CreditTransactions();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, creditTransactions);
+                transaction.addToBackStack("null");
+                transaction.commit();
             }
         });
         cashTrn.setOnClickListener(new View.OnClickListener() {
@@ -570,8 +570,6 @@ public class Home_Fragment<Date> extends Fragment {
 
 
 }
-
-
 
 
 
