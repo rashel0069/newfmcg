@@ -161,10 +161,10 @@ public class Cashbox_Fragment extends Fragment {
         cashBoxViewModel.insertCashbox(cashboxEntity);
         Toast.makeText(getContext(), "Insert Successfully", Toast.LENGTH_SHORT).show();
 
-        Home_Fragment fragment1 = new Home_Fragment();
         FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
-        ft1.replace(R.id.framelayout_container_id, fragment1);
+        ft1.remove(Cashbox_Fragment.this);
         ft1.commit();
+        getActivity().getSupportFragmentManager().popBackStack();
     }
 
 }

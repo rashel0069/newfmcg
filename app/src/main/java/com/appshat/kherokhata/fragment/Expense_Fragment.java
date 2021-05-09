@@ -139,12 +139,11 @@ public class Expense_Fragment extends Fragment {
         ExpenseEntity expenseEntity = new ExpenseEntity(rent, salary, others, currentdate);
         expenseViewModel.insertExpense(expenseEntity);
 
-        Home_Fragment fragment1 = new Home_Fragment();
         FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
-        ft1.replace(R.id.framelayout_container_id, fragment1);
+        ft1.remove(Expense_Fragment.this);
         ft1.commit();
+        getActivity().getSupportFragmentManager().popBackStack();
 
-        Toast.makeText(getContext(), "successfully insert", Toast.LENGTH_SHORT).show();
 
     }
 }

@@ -88,6 +88,7 @@
                         android:inputType="number"
                         android:lineHeight="17.07dp"
                         android:paddingLeft="25dp"
+                        android:maxLength="11"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
                         android:textFontWeight="600"
@@ -108,21 +109,6 @@
                         app:layout_constraintEnd_toEndOf="@+id/searchmobile_id"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/saveContact_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="23dp"
-                        android:layout_marginStart="24dp"
-                        android:fontFamily="@font/montserrat"
-                        android:paddingTop="4dp"
-                        android:text="@string/new_customer_save_now"
-                        android:textColor="@color/white"
-                        android:textSize="12sp"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="@+id/clientmobilenumberET_id"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/clientmobilenumberET_id"
-                        tools:layout_editor_absoluteY="35dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
