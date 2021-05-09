@@ -318,11 +318,13 @@ public class NewTransaction_Fragment extends Fragment {
                         }
                     });
 
-
-                    Home_Fragment fragment1 = new Home_Fragment();
                     FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
-                    ft1.replace(R.id.framelayout_container_id, fragment1);
+                    ft1.remove(NewTransaction_Fragment.this);
                     ft1.commit();
+                    getActivity().getSupportFragmentManager().popBackStack();
+
+
+
                     Toast.makeText(getContext(), "Insert Sucessfully", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), "Please fill up the required fields", Toast.LENGTH_SHORT).show();

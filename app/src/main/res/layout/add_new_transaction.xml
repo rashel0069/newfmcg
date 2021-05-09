@@ -143,6 +143,7 @@
             android:inputType="number"
             android:lineHeight="17.07dp"
             android:paddingLeft="25dp"
+            android:maxLength="11"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textFontWeight="600"
@@ -174,10 +175,10 @@
             android:textColor="@color/white"
             android:textSize="12sp"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/clientmobilenumberET_id"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/clientmobilenumberET_id"
-            tools:layout_editor_absoluteY="35dp" />
+            app:layout_constraintStart_toStartOf="@+id/clientmobilenumberET_id" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

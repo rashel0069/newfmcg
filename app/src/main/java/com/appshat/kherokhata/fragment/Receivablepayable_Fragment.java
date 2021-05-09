@@ -24,6 +24,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.appshat.kherokhata.R;
@@ -127,6 +128,10 @@ public class Receivablepayable_Fragment extends Fragment {
                 Toast.makeText(getContext(), "Update TransactionEntity", Toast.LENGTH_SHORT).show();
                 l1.setVisibility(View.GONE);
                 l2.setVisibility(View.GONE);
+                FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
+                ft1.remove(Receivablepayable_Fragment.this);
+                ft1.commit();
+                getActivity().getSupportFragmentManager().popBackStack();
 
             }
         });

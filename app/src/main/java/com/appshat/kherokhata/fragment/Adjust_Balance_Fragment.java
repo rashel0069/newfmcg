@@ -198,10 +198,14 @@ public class Adjust_Balance_Fragment extends Fragment {
                     AdjustEntity adjustEntity = new AdjustEntity(accounttype, transactiontype, clientname, clientmobile, clientamount, date, currentdate);
                     adjustViewModel.insertAdjust(adjustEntity);
 
-                    Home_Fragment fragment1 = new Home_Fragment();
+//                    Home_Fragment fragment1 = new Home_Fragment();
+//                    FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
+//                    ft1.replace(R.id.framelayout_container_id, fragment1);
+//                    ft1.commit();
                     FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
-                    ft1.replace(R.id.framelayout_container_id, fragment1);
+                    ft1.remove(Adjust_Balance_Fragment.this);
                     ft1.commit();
+                    getActivity().getSupportFragmentManager().popBackStack();
 
                     Toast.makeText(getContext(), "Insert Sucessfully", Toast.LENGTH_SHORT).show();
                 } else {

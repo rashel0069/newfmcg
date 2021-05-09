@@ -28,209 +28,200 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/cashmenu_id"
-        android:layout_width="wrap_content"
+        android:layout_width="341dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:weightSum="2">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView7"
-        android:layout_width="105dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/ctm_id"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:background="@drawable/money" />
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/ctmenu_TV_id"
-        android:layout_width="94dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="29.5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/cashtransaction"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        android:fontFamily="@font/montserrat"
-        android:textStyle="normal"
-        android:textAllCaps="false"
-        android:textFontWeight="500"
-        android:lineHeight="18.29dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView7" />
-</androidx.constraintlayout.widget.ConstraintLayout>
-<LinearLayout
-    android:id="@+id/ct_id"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/cashmenu_id"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView8"
-                android:layout_width="105dp"
-                android:layout_height="105dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:id="@+id/cash_proimg_id"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#E5E5E5"
+                app:cardCornerRadius="15dp">
 
-                <ImageView
-                    android:id="@+id/cbm_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/creditcard" />
+                <LinearLayout
+                    android:id="@+id/cashtrnBtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/money" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/ctmenu_TV_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
+                android:text="@string/cashtransaction"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ct_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#E5E5E5"
+                app:cardCornerRadius="15dp">
+
+                <LinearLayout
+                    android:id="@+id/cretrnBtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/creditcard" />
+
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/credit_menuTV"
-                android:layout_width="94dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="29.5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="29.5dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
                 android:text="@string/credit_transaction"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textFontWeight="500"
                 android:textSize="15sp"
-                android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView8" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+                android:textStyle="normal" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
+
     <LinearLayout
-        android:id="@+id/order_id"
-        android:layout_width="wrap_content"
+        android:layout_width="341dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="120dp"
+        android:gravity="center"
+        android:weightSum="2">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+            android:id="@+id/order_id"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="wrap_content">
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView9"
-                android:layout_width="105dp"
-                android:layout_height="105dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#E5E5E5"
+                app:cardCornerRadius="15dp">
 
-                <ImageView
-                    android:id="@+id/ormimg_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/shoppingcart" />
+                <LinearLayout
+                    android:id="@+id/orderBtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/shoppingcart" />
+
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
-
             <TextView
                 android:id="@+id/orm_menuTV"
-                android:layout_width="94dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="29.5dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat"
+                android:gravity="center"
                 android:text="@string/order"
                 android:textAlignment="center"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="15sp"
-                android:fontFamily="@font/montserrat"
-                android:textStyle="normal"
-                android:textAllCaps="false"
-                android:textFontWeight="500"
-                android:lineHeight="18.29dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView9" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textStyle="normal" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/stmenu_id"
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView10"
-                android:layout_width="105dp"
-                android:layout_height="105dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#E5E5E5"
+                app:cardCornerRadius="15dp">
 
-                <ImageView
-                    android:id="@+id/stb_id"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/transaction" />
+                <LinearLayout
+                    android:id="@+id/showtransactionBtn_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
+                    <ImageView
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:src="@drawable/transaction" />
+
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/stb_menuTV"
-                android:layout_width="94dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="29.5dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="29.5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/montserrat"
-                android:lineHeight="18.29dp"
+                android:gravity="center"
                 android:text="@string/showtransaction"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textFontWeight="500"
                 android:textSize="15sp"
-                android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView10" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textStyle="normal" />
         </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

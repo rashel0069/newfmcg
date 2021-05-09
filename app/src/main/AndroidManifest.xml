@@ -47,7 +47,8 @@
 
         <activity android:name=".Kotlin.ui.ChatBot" />
 
-        <activity android:name=".OldAcrivity.HomeActivity" />
+        <activity android:name=".OldAcrivity.HomeActivity"
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".OldAcrivity.MapActivity" />
 
