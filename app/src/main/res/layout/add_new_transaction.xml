@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
             android:lineHeight="21.94dp"
-            android:text="@string/adt"
+            android:hint="@string/adt"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textFontWeight="600"
@@ -207,6 +207,7 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textFontWeight="600"
+            android:inputType="number"
             android:textSize="14sp"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
@@ -270,7 +271,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/newtranssave_id"
-        android:layout_width="295dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="131dp"

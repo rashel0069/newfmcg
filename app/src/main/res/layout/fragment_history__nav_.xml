@@ -33,10 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
-
-                <androidx.cardview.widget.CardView
+            <androidx.cardview.widget.CardView
                     android:id="@+id/historyCV1_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,25 +47,28 @@
                     app:layout_goneMarginTop="15dp"
                     tools:ignore="MissingConstraints">
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
+                        android:padding="8dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <LinearLayout
+                            android:weightSum="2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:layout_weight="1"
                                 android:id="@+id/pre_day_historyTV_id"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="18dp"
                                 android:layout_marginTop="15.5dp"
                                 android:text="@string/previous_day_history"
-                                android:textAlignment="center"
                                 android:textAllCaps="false"
                                 android:textColor="#333333" />
                             <TextView
+                                android:layout_weight="1"
                                 android:id="@+id/prev_day_dateId"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15.5dp"
                                 android:layout_marginStart="10dp"
@@ -259,8 +259,7 @@
                         <LinearLayout
                             android:weightSum="2"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp">
+                            android:layout_height="wrap_content">
                             <TextView
                                 android:id="@+id/pre_day_openingcash"
                                 android:layout_weight="1"
@@ -294,12 +293,11 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
+            <androidx.cardview.widget.CardView
                     android:id="@+id/historyCV2_id"
                     android:layout_width="wrap_content"
-                    android:layout_height="276dp"
-                    android:layout_marginStart="19dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
                     android:layout_marginTop="13dp"
                     android:layout_marginEnd="24dp"
                     app:cardCornerRadius="15dp"
@@ -309,19 +307,18 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
+                        android:padding="8dp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
                             android:id="@+id/pre_week_historyTV_id"
-                            android:layout_width="153dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="18dp"
                             android:layout_marginTop="15.5dp"
-                            android:layout_marginEnd="193dp"
                             android:text="@string/previous_week_history"
-                            android:textAlignment="center"
                             android:textAllCaps="false"
-                            android:textColor=" #333333"/>
+                            android:textColor="#333333"/>
 
                         <View
                             android:id="@+id/historyview2_id"
@@ -341,6 +338,7 @@
                             <LinearLayout
                                 android:id="@+id/date_pick_id1"
                                 android:layout_weight="1"
+
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                                 <TextView
@@ -382,15 +380,14 @@
                             <LinearLayout
                                 android:id="@+id/date_pick_id2"
                                 android:paddingEnd="17dp"
-                                android:gravity="end"
                                 android:layout_weight="1"
+                                android:gravity="center"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:id="@+id/hitory_to_id"
                                     android:layout_width="wrap_content"
                                     android:layout_height="18dp"
-                                    android:layout_marginStart="18dp"
                                     android:fontFamily="@font/montserrat"
                                     android:lineHeight="14.63dp"
                                     android:text="@string/to"
@@ -633,79 +630,93 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/historyCV3_id"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/historyCV3_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                app:cardCornerRadius="15dp"
+                android:layout_marginBottom="120dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginTop="15dp"
+                tools:ignore="MissingConstraints">
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="277dp"
-                    android:layout_marginStart="19dp"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="120dp"
-                    app:cardCornerRadius="15dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/historyCV2_id">
-
-                    <TextView
-                        android:id="@+id/pre_month_historyTV_id"
-                        android:layout_width="153dp"
-                        android:layout_height="18dp"
-                        android:layout_marginStart="18dp"
-                        android:layout_marginTop="15.5dp"
-                        android:layout_marginEnd="193dp"
-                        android:text="@string/last_month_history"
-                        android:textAlignment="center"
-                        android:textAllCaps="false"
-                        android:textColor=" #333333" />
-
-                    <TextView
-                        android:id="@+id/last_month_date"
-                        android:layout_width="66dp"
-                        android:layout_height="15dp"
-                        android:layout_marginStart="281dp"
-                        android:layout_marginTop="15.5dp"
-                        android:layout_marginEnd="17dp"
-                        android:text="@string/last_month_history"
-                        android:textAlignment="center"
-                        android:textAllCaps="false"
-                        android:textColor="#828282"
-
-                        />
+                    android:padding="8dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_weight="1"
+                            android:id="@+id/pre_month_historyTV_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="15.5dp"
+                            android:text="@string/previous_day_history"
+                            android:textAllCaps="false"
+                            android:textColor="#333333" />
+                        <TextView
+                            android:layout_weight="1"
+                            android:id="@+id/last_month_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15.5dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="19dp"
+                            android:textAlignment="textEnd"
+                            android:text="@string/last_month"
+                            android:textAllCaps="false"
+                            android:textColor="#828282" />
+                    </LinearLayout>
 
                     <View
-                        android:id="@+id/historyview3_id"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:layout_marginStart="17dp"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginEnd="18dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="19dp"
                         android:background="@drawable/view_gradient" />
+                    <LinearLayout
+                        android:layout_marginTop="19dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="175dp"
+                            android:layout_height="137dp"
+                            android:layout_marginTop="25dp"
+                            android:background="@drawable/historyimg"/>
+                        <TextView
+                            android:id="@+id/ndt_hsTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="18dp"
+                            android:text="@string/nodata"
+                            android:layout_marginTop="23dp"
+                            android:textAllCaps="false"
+                            android:textFontWeight="500"
+                            android:layout_marginBottom="15dp"
+                            android:textSize="15sp"
+                            android:lineHeight="18.29dp"
+                            android:textStyle="normal"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"/>
 
-                    <ImageView
-                        android:layout_width="175dp"
-                        android:layout_height="137dp"
-                        android:layout_marginStart="95dp"
-                        android:layout_marginTop="64dp"
-                        android:layout_marginEnd="94dp"
-                        android:background="@drawable/historyimg"/>
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/ndt_hsTV_id"
-                        android:layout_width="110dp"
-                        android:layout_height="18dp"
-                        android:text="@string/nodata"
-                        android:layout_marginEnd="127dp"
-                        android:layout_marginStart="127dp"
-                        android:layout_marginTop="223dp"
-                        android:textAllCaps="false"
-                        android:textFontWeight="500"
-                        android:textSize="15sp"
-                        android:lineHeight="18.29dp"
-                        android:textStyle="normal"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        />
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
 
         </LinearLayout>
 

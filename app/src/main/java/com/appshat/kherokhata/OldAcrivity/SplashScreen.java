@@ -16,6 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.appshat.kherokhata.NewUIActivity.Onboarding_Activity;
 import com.appshat.kherokhata.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class SplashScreen extends AppCompatActivity {
     Animation topAnim, bottomAnim;
     ImageView spImage;
@@ -28,7 +32,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        Helper.setBangla(true);
+        //Helper.setBangla(true);
         topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animator);
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
         spImage = findViewById(R.id.splashImage);
@@ -39,6 +43,20 @@ public class SplashScreen extends AppCompatActivity {
 
         spImage.setAnimation(topAnim);
         spText.setAnimation(bottomAnim);
+        if (!Helper.getcomefirsttime()) {
+            Helper.setcomefirsttime(true);
+            Helper.setBangla(true);
+            Helper.setEnglish(false);
+        }
+
+        Log.e("ChekingBangla", String.valueOf(Helper.getBangla()));
+        Log.e("ChekingEnglish", String.valueOf(Helper.getEnglish()));
+        try {
+            Log.e("Duedatefromserver",Helper.getDuetiem());
+            Log.e("Duedatefromlocal", new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         //language setter
         if (!Helper.getBangla()) {

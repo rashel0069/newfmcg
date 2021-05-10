@@ -52,10 +52,9 @@ public class Home_Fragment<Date> extends Fragment {
     public static final String MY_PREF_NAME = "myPrefFile";
     private static final String TAG = "Activity";
     LinearLayout orderbtn, showtransbtn, cashTrn,creditTrn;
-    TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,
+    TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,shopName,
             openingcashTV, dayendcashTV, receivablecashTV,cashbook,creditbook,orderbook,transbook, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
-    String prev, openAmount,opening;
-    InformationDao informationDbDao;
+    String prev, openAmount,opening,sname;
     NewtransactionDao newtransactionDao;
     HistoryDao historyDao;
     InformationViewModel informationViewModel;
@@ -63,6 +62,7 @@ public class Home_Fragment<Date> extends Fragment {
     ExpenseDao expenseDao;
     CashboxDao cashboxDao;
     AdjustDao adjustDao;
+    InformationDao informationDao;
     Databaseroom databaseroom;
     Context context;
     Resources resources;
@@ -99,6 +99,7 @@ public class Home_Fragment<Date> extends Fragment {
         creditbook = view.findViewById(R.id.crbook_tv);
         orderbook = view.findViewById(R.id.orderbook_tv);
         transbook = view.findViewById(R.id.transbook_tv);
+        shopName = view.findViewById(R.id.shopname_title);
 
 //language setter
         if (!Helper.getBangla()) {
@@ -144,7 +145,7 @@ public class Home_Fragment<Date> extends Fragment {
         expenseDao = databaseroom.getExpenseDao();
         cashboxDao = databaseroom.getCashboxDao();
         adjustDao = databaseroom.getduepayandreceive();
-        informationDbDao = databaseroom.getInformationDao();
+        informationDao = databaseroom.getInformationDao();
         informationViewModel = ViewModelProviders.of(getActivity()).get(InformationViewModel.class);
         //historyViewModel = ViewModelProviders.of( getActivity()).get( HistoryViewModel.class );
 
@@ -186,11 +187,11 @@ public class Home_Fragment<Date> extends Fragment {
         creditTrn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               CreditTransactions creditTransactions = new CreditTransactions();
-               FragmentTransaction transaction = getFragmentManager().beginTransaction();
-               transaction.replace(R.id.framelayout_container_id, creditTransactions);
-               transaction.addToBackStack("null");
-               transaction.commit();
+                CreditTransactions creditTransactions = new CreditTransactions();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, creditTransactions);
+                transaction.addToBackStack("null");
+                transaction.commit();
             }
         });
         cashTrn.setOnClickListener(new View.OnClickListener() {
@@ -224,6 +225,10 @@ public class Home_Fragment<Date> extends Fragment {
 
         try {
             //others data load
+            String s = new GetInformation().execute().get();
+            if (sname != null){
+                shopName.setText(sname);
+            }
             String crSells = new GetCreditSells().execute().get();
             creditSell.setText(crSells);
             String cashEX = new GetExpense().execute().get();
@@ -340,11 +345,16 @@ public class Home_Fragment<Date> extends Fragment {
     public class GetInformation extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... voids) {
-            List<InformationEntity> informationEntities = informationDbDao.findAllInfo();
-            Double openamount = 0.0;
-            if (informationEntities != null) {
-                openamount = Double.parseDouble(informationEntities.get(0).getOpeningamount());
-                return openamount.toString().trim();
+            List<InformationEntity> informationEntities = informationDao.findAllInfo();
+            try {
+                if (informationEntities != null) {
+                    for (int i = 0; i <= informationEntities.size(); i++) {
+                        sname = informationEntities.get(i).getShopname();
+                    }
+                }
+
+            } catch (Exception e) {
+
             }
             return null;
         }
@@ -570,8 +580,6 @@ public class Home_Fragment<Date> extends Fragment {
 
 
 }
-
-
 
 
 

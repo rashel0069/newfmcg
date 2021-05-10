@@ -206,6 +206,7 @@ public class Profile_Fragment extends Fragment {
                         langTV.setText(language[which]);
                         if (language[which].equals("English")) {
                             Helper.setBangla(false);
+                            Helper.setEnglish(true);
                             context = Localhelper.setLocale(getActivity(), "en");
                             resources = context.getResources();
 
@@ -225,6 +226,7 @@ public class Profile_Fragment extends Fragment {
 
                         if (language[which].equals("Bangla")) {
                             Helper.setBangla(true);
+                            Helper.setEnglish(false);
                             context = Localhelper.setLocale(getActivity(), "bn");
                             resources = context.getResources();
                             langTV.setText(resources.getString(R.string.selector));

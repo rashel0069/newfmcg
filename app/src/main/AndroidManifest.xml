@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.appshat.kherokhata">
-
+    <uses-permission android:name = "android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -69,10 +69,10 @@
             </intent-filter>
         </service>
 
-        <receiver
-            android:name=".OldAcrivity.AlarmReceiver"
-            android:enabled="true"
-            android:process=":remote" />
+<!--        <receiver-->
+<!--            android:name=".OldAcrivity.AlarmReceiver"-->
+<!--            android:enabled="true"-->
+<!--            android:process=":remote" />-->
 
         <receiver android:name= ".fragment.MyNotificationPublisher" />
     </application>
