@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary">
     <RelativeLayout
-        android:id="@+id/adt_tittelbar"
+        android:id="@+id/adjust_tittelbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/dropshedow"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
             android:lineHeight="21.94dp"
-            android:text="Returns Transaction"
+            android:text="@string/sales_returns"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textFontWeight="600"
@@ -33,7 +33,7 @@
             android:src="@drawable/arrowleft" />
     </RelativeLayout>
     <ScrollView
-        android:layout_below="@+id/adt_tittelbar"
+        android:layout_below="@+id/adjust_tittelbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -254,7 +254,7 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/adjustsaveBtn_id"
-                    android:layout_width="295dp"
+                    android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="14dp"

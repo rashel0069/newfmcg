@@ -100,11 +100,15 @@ public class Adjust_Balance_Fragment extends Fragment {
         amttv = view.findViewById(R.id.amountsTV_id);
         phoneContact = view.findViewById(R.id.phoneContact_id2);
         amthint=view.findViewById(R.id.adjustamountET_id);
+
+        drpTV.setText(getArguments().getString("Title"));
         //get data from bundle
         accounttype = getArguments().getString("AccountType");
         transactiontype = getArguments().getString("TransType");
         accountTv.setText(accounttype);
         transactionTv.setText(transactiontype);
+
+
 
         //aspinner
 //        String[] cas = getResources().getStringArray(R.array.returndata);
@@ -142,6 +146,7 @@ public class Adjust_Balance_Fragment extends Fragment {
             adjustsaveBtn.setText(resources.getString(R.string.save));
             amttv.setText(resources.getString(R.string.amt));
             amthint.setHint(resources.getString(R.string.amounthint));
+            //drpTV.setText(resources.getString(R.string.sales_returns));
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
@@ -154,6 +159,8 @@ public class Adjust_Balance_Fragment extends Fragment {
             adjustsaveBtn.setText(resources.getString(R.string.save));
             amttv.setText(resources.getString(R.string.amt));
             amthint.setHint(resources.getString(R.string.amounthint));
+           // drpTV.setText(resources.getString(R.string.sales_returns));
+
         }
 //for spinner set position
 //        accountspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
