@@ -25,7 +25,10 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.AdjustDao;
@@ -34,9 +37,12 @@ import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.AdjustEntity;
 import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
 import com.appshat.kherokhata.Room.model.AdjustViewModel;
+import com.appshat.kherokhata.Room.model.TransactionViewModel;
+import com.appshat.kherokhata.adapter.TransactionListAdapter;
 import com.google.android.material.button.MaterialButton;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -51,11 +57,16 @@ public class Receivablepayable_Fragment extends Fragment {
     NewtransactionDao newtransactionDao;
     LinearLayout l2;
     CardView l1;
+    RecyclerView recyclerView;
+    TransactionViewModel transactionViewModel;
+    TransactionListAdapter transactionListAdapter;
     AdjustViewModel adjustViewModel;
     AdjustDao duepayrecivedao;
     Databaseroom databaseroom;
     Double cpa, result;
     int rpvalue = 0;
+
+    List<NewtransactionEntity> mRecivePay;
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -87,6 +98,7 @@ public class Receivablepayable_Fragment extends Fragment {
         l1 = v.findViewById(R.id.l1_id);
         l2 = v.findViewById(R.id.l2_id);
         //cstomer name
+        recyclerView = v.findViewById(R.id.payrecive_cycle);
         customerName = v.findViewById(R.id.viewCustomer_id);
         previousBalns = v.findViewById(R.id.viewpreviousblnc_id);
         summPrev = v.findViewById(R.id.summarybalance_id);
@@ -101,11 +113,28 @@ public class Receivablepayable_Fragment extends Fragment {
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
         spadjust.setAdapter(adapter);
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
+
+        transactionViewModel = ViewModelProviders.of(this).get(TransactionViewModel.class);
+
+
         spadjust.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 rpvalue = position;
                 accounttype = parent.getSelectedItem().toString();
+
+                if (rpvalue == 1){
+                    recyclerView.setVisibility(View.VISIBLE);
+                    reciveableTrans();
+                }else if(rpvalue == 2){
+                    recyclerView.setVisibility(View.VISIBLE);
+                    payableTrans();
+                }else {
+                    recyclerView.setVisibility(View.GONE);
+                }
             }
 
             @Override
@@ -113,6 +142,7 @@ public class Receivablepayable_Fragment extends Fragment {
 
             }
         });
+
         saveTrans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -209,8 +239,35 @@ public class Receivablepayable_Fragment extends Fragment {
 
         return v;
     }
+    //get past recivable data
+    private void reciveableTrans(){
+        mRecivePay = new ArrayList<>();
+        transactionListAdapter = new TransactionListAdapter(mRecivePay);
+        transactionViewModel.getmRecivable().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
+            @Override
+            public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
+                transactionListAdapter.setTrans(newtransactionEntities);
+            }
+        });
+        recyclerView.setAdapter(transactionListAdapter);
+    }
+
+    //get past payable data
+    private void payableTrans(){
+        mRecivePay = new ArrayList<>();
+        mRecivePay.clear();
+        transactionListAdapter = new TransactionListAdapter(mRecivePay);
+        transactionViewModel.getmPaytrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
+            @Override
+            public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
+                transactionListAdapter.setTrans(newtransactionEntities);
+            }
+        });
+        recyclerView.setAdapter(transactionListAdapter);
+    }
 
     private void calculatenow() {
+        recyclerView.setVisibility(View.GONE);
         l2.setVisibility(View.VISIBLE);
         cpa = Double.parseDouble(newCash.getText().toString().trim()) +
                 Double.parseDouble(newProduct.getText().toString().trim()) + Double.parseDouble(newAdjust.getText().toString().trim());

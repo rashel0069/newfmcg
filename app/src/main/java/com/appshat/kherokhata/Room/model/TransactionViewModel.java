@@ -20,6 +20,8 @@ public class TransactionViewModel extends AndroidViewModel {
     private Databaseroom databaseroom;
     private LiveData<List<NewtransactionEntity>> mAllTrans;
     private LiveData<List<NewtransactionEntity>> mtodayTrans;
+    private LiveData<List<NewtransactionEntity>> mRecivetrans;
+    private LiveData<List<NewtransactionEntity>> mPaytrans;
 
     public TransactionViewModel(@NonNull Application application) {
         super(application);
@@ -28,6 +30,8 @@ public class TransactionViewModel extends AndroidViewModel {
         newtransactionDao = databaseroom.getnewtransaction();
         mAllTrans = newtransactionDao.getTodayTrans();
         mtodayTrans = newtransactionDao.getTransDate(currentdate);
+        mRecivetrans = newtransactionDao.getreceivepayData("Sales", "Credit");
+        mPaytrans = newtransactionDao.getreceivepayData("Purchase", "Credit");
 
     }
 
@@ -46,6 +50,13 @@ public class TransactionViewModel extends AndroidViewModel {
 
     public LiveData<List<NewtransactionEntity>> getmTodayTrans() {
         return mtodayTrans;
+    }
+
+    public LiveData<List<NewtransactionEntity>> getmRecivable(){
+        return mRecivetrans;
+    }
+    public LiveData<List<NewtransactionEntity>> getmPaytrans(){
+        return mPaytrans;
     }
 
     private class InsertAsyncTask extends AsyncTask<NewtransactionEntity, Void, Void> {
