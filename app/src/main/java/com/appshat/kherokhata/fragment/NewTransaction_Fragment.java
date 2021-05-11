@@ -206,7 +206,6 @@ public class NewTransaction_Fragment extends Fragment {
             amTV.setText(resources.getString(R.string.amounts));
             camountET.setHint(resources.getString(R.string.amounthint));
             newtransBTN.setText(resources.getString(R.string.save));
-            adtv.setText(resources.getString(R.string.adt));
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
@@ -222,7 +221,7 @@ public class NewTransaction_Fragment extends Fragment {
             cmTV.setText(resources.getString(R.string.hint1));
             cmblnumET.setHint(resources.getString(R.string.customernumberhint));
             newtransBTN.setText(resources.getString(R.string.save));
-            adtv.setText(resources.getString(R.string.adt));
+
 
         }
         //Current date
@@ -266,6 +265,7 @@ public class NewTransaction_Fragment extends Fragment {
         //get data from bundel
         accounttype = getArguments().getString("AccountType");
         transactiontype = getArguments().getString("TransType");
+        adtv.setText(getArguments().getString("Title"));
         accTv.setText(accounttype);
         transTv.setText(transactiontype);
         if (accounttype.matches("Purchase") && transactiontype.matches("Cash")) {
@@ -282,64 +282,6 @@ public class NewTransaction_Fragment extends Fragment {
             timedateTV.setClickable(false);
             timedateTV.setText(currentdate);
         }
-        //for spinner set position
-//        accspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                accounttype = parent.getSelectedItem().toString();
-//                if (position == 1) {
-//                    String[] cas = getResources().getStringArray(R.array.trans3);
-//                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-//                    transspinner.setAdapter(adapter);
-//                    purchase = false;
-//                } else {
-//                    String[] cas = getResources().getStringArray(R.array.transactiontype);
-//                    ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-//                    transspinner.setAdapter(adapter);
-//                    purchase = true;
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//                Toast.makeText(getContext(), "please choose an item", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-//        transspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                transactiontype = parent.getSelectedItem().toString();
-//                if (purchase == true && position == 1) {
-//                    cmblnumET.setEnabled(false);
-//                    cnameET.setEnabled(false);
-//                    phonecontactSelect.setClickable(false);
-//                    cnameET.setText("No Need Customer Name");
-//                    cmblnumET.setText("No Need Mobile Name");
-//                    l1.setVisibility(View.GONE);
-//                    l2.setVisibility(View.GONE);
-//                    timedateTV.setClickable(false);
-//                    timedateTV.setText(currentdate);
-//
-//                } else {
-//                    cmblnumET.setEnabled(true);
-//                    cnameET.setEnabled(true);
-//                    phonecontactSelect.setClickable(true);
-//                    cnameET.setText("");
-//                    cmblnumET.setText("");
-//                    l1.setVisibility(View.VISIBLE);
-//                    l2.setVisibility(View.VISIBLE);
-//                    timedateTV.setClickable(true);
-//                    timedateTV.setText("");
-//                }
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//                Toast.makeText(getContext(), "Please choose an item", Toast.LENGTH_SHORT).show();
-//            }
-//        });
         newtransBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

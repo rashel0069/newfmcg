@@ -78,77 +78,6 @@ public class Profile_Fragment extends Fragment {
         informationViewModel = ViewModelProviders.of(getActivity()).get(InformationViewModel.class);
 
 
-        // edit profile
-        RelativeLayout edit = view.findViewById(R.id.cardView2);
-        edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Information_Fragment information_fragment = new Information_Fragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.framelayout_container_id, information_fragment);
-                transaction.addToBackStack("null");
-                transaction.commit();
-            }
-        });
-        //website
-        MaterialButton web = view.findViewById(R.id.cardView4);
-        web.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserInt = new Intent(Intent.ACTION_VIEW, Uri.parse("http://digitalistic.net/"));
-                startActivity(browserInt);
-                Toast.makeText(context, "Open WebSite", Toast.LENGTH_SHORT).show();
-            }
-        });
-        //facebook
-        MaterialButton fb = view.findViewById(R.id.cardView5);
-        fb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserInt = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/digitalistic7"));
-                startActivity(browserInt);
-                Toast.makeText(context, "Open Facebook", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                About_Fragment about_fragment = new About_Fragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.framelayout_container_id, about_fragment);
-                transaction.addToBackStack("null");
-                transaction.commit();
-            }
-        });
-        //logout
-        RelativeLayout logout = view.findViewById(R.id.logout_card_id);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                preferences.edit().clear().clear().commit();
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                startActivity(intent);
-                getActivity().finish();
-            }
-        });
-
-        try {
-            String s = new GetInformation().execute().get();
-            if (shopN != null && shopAd != null) {
-                shopkeepName.setText(shopN);
-                shopAddress.setText(shopAd);
-                profileImage.setImageBitmap(DataConverter.convertByteArrayToImage(imageUrl));
-//                if (imageUrl.length > 0){
-//                    profileImage.setImageBitmap( DataConverter.convertByteArrayToImage( imageUrl ) );
-//                }else{
-//                    profileImage.setImageDrawable( R.drawable.nopreview );
-//                }
-            }
-        } catch (Exception e) {
-            Toast.makeText(getContext(), "Error" + e, Toast.LENGTH_SHORT).show();
-        }
-
         // using login swtiching the language
 
         //language setter
@@ -211,15 +140,12 @@ public class Profile_Fragment extends Fragment {
 
                             langTV.setText(resources.getString(R.string.selector));
                             editTV.setText(resources.getString(R.string.edit));
-                            shopkeepName.setText(resources.getString(R.string.sownername));
-                            shopAddress.setText(resources.getString(R.string.shopaddress));
                             logoutTV.setText(resources.getString(R.string.logout));
                             cpTV.setText(resources.getString(R.string.cp));
                             helpTV.setText(resources.getString(R.string.help));
                             about.setText(resources.getString(R.string.aboutk));
                             webBtn.setText(resources.getString(R.string.digitalistic));
                             fbBtn.setText(resources.getString(R.string.facebook));
-
 
                         }
 
@@ -229,8 +155,6 @@ public class Profile_Fragment extends Fragment {
                             resources = context.getResources();
                             langTV.setText(resources.getString(R.string.selector));
                             editTV.setText(resources.getString(R.string.edit));
-                            shopkeepName.setText(resources.getString(R.string.sownername));
-                            shopAddress.setText(resources.getString(R.string.shopaddress));
                             logoutTV.setText(resources.getString(R.string.logout));
                             cpTV.setText(resources.getString(R.string.cp));
                             helpTV.setText(resources.getString(R.string.help));
@@ -251,6 +175,78 @@ public class Profile_Fragment extends Fragment {
                 builder.create().show();
             }
         });
+
+        // edit profile
+        RelativeLayout edit = view.findViewById(R.id.cardView2);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Information_Fragment information_fragment = new Information_Fragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, information_fragment);
+                transaction.addToBackStack("null");
+                transaction.commit();
+            }
+        });
+        //website
+        MaterialButton web = view.findViewById(R.id.cardView4);
+        web.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserInt = new Intent(Intent.ACTION_VIEW, Uri.parse("http://digitalistic.co/"));
+                startActivity(browserInt);
+                Toast.makeText(context, "Open WebSite", Toast.LENGTH_SHORT).show();
+            }
+        });
+        //facebook
+        MaterialButton fb = view.findViewById(R.id.cardView5);
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserInt = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/digitalistic7"));
+                startActivity(browserInt);
+                Toast.makeText(context, "Open Facebook", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                About_Fragment about_fragment = new About_Fragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, about_fragment);
+                transaction.addToBackStack("null");
+                transaction.commit();
+            }
+        });
+        //logout
+        RelativeLayout logout = view.findViewById(R.id.logout_card_id);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preferences.edit().clear().clear().commit();
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
+        try {
+            String s = new GetInformation().execute().get();
+            if (shopN != null && shopAd != null) {
+                shopkeepName.setText(shopN);
+                shopAddress.setText(shopAd);
+                profileImage.setImageBitmap(DataConverter.convertByteArrayToImage(imageUrl));
+//                if (imageUrl.length > 0){
+//                    profileImage.setImageBitmap( DataConverter.convertByteArrayToImage( imageUrl ) );
+//                }else{
+//                    profileImage.setImageDrawable( R.drawable.nopreview );
+//                }
+            }
+        } catch (Exception e) {
+            Toast.makeText(getContext(), "Error" + e, Toast.LENGTH_SHORT).show();
+        }
+
 
         return view;
     }

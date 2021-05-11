@@ -93,7 +93,7 @@ public class Information_Fragment extends Fragment {
         payableET=view.findViewById(R.id.payableamount_ET);
         saveBtn = view.findViewById(R.id.saved_id);
         photoUp = view.findViewById(R.id.editphoto_id);
-        profileImage = view.findViewById(R.id.profile_img_id);
+        profileImage = view.findViewById(R.id.profile_img_id2);
 
 
         //Date time

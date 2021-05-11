@@ -101,21 +101,12 @@ public class Adjust_Balance_Fragment extends Fragment {
         phoneContact = view.findViewById(R.id.phoneContact_id2);
         amthint=view.findViewById(R.id.adjustamountET_id);
         //get data from bundle
+        drpTV.setText(getArguments().getString("Title"));
         accounttype = getArguments().getString("AccountType");
         transactiontype = getArguments().getString("TransType");
         accountTv.setText(accounttype);
         transactionTv.setText(transactiontype);
 
-        //aspinner
-//        String[] cas = getResources().getStringArray(R.array.returndata);
-//        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-//        accountspinner.setAdapter(adapter);
-
-//        String[] cas2 = getResources().getStringArray(R.array.trans2);
-//        ArrayAdapter adapter1 = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas2);
-//        transactionspinner.setAdapter(adapter1);
-
-        //database
         adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
         //Date time
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
@@ -155,32 +146,6 @@ public class Adjust_Balance_Fragment extends Fragment {
             amttv.setText(resources.getString(R.string.amt));
             amthint.setHint(resources.getString(R.string.amounthint));
         }
-//for spinner set position
-//        accountspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                accounttype = parent.getSelectedItem().toString();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//                Toast.makeText(getContext(), "please choose an item", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-//       transactionspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                transactiontype = parent.getSelectedItem().toString();
-//
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//                Toast.makeText(getContext(), "Please choose an item", Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
 
         adjustsaveBtn.setOnClickListener(new View.OnClickListener() {

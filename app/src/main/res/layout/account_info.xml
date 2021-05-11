@@ -42,13 +42,14 @@
                 android:padding="22dp">
 
                 <ImageView
-                    android:id="@+id/profile_img_id"
+                    android:id="@+id/profile_img_id2"
                     android:layout_width="89dp"
                     android:layout_height="89dp"
                     android:background="@drawable/buttonback"
                     android:padding="8dp"
                     android:src="@drawable/nopreview"
                     android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     tools:ignore="MissingConstraints" />
@@ -58,13 +59,13 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="68dp"
-                    android:layout_marginTop="68dp"
+                    android:layout_marginTop="64dp"
                     android:background="@drawable/buttonback"
                     android:scaleType="center"
                     android:src="@drawable/ic_baseline_cloud_upload_24"
                     android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="@+id/profile_img_id"
-                    app:layout_constraintTop_toTopOf="@+id/profile_img_id"
+                    app:layout_constraintStart_toStartOf="@+id/profile_img_id2"
+                    app:layout_constraintTop_toTopOf="@+id/profile_img_id2"
                     tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

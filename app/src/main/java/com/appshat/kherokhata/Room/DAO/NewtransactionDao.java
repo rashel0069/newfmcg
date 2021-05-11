@@ -38,6 +38,9 @@ public interface NewtransactionDao {
     @Query("SELECT * FROM newtransaction WHERE currentdate LIKE :currentdate")
     LiveData<List<NewtransactionEntity>> getTransDate(String currentdate);
 
+    @Query("SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transactiontype")
+    LiveData<List<NewtransactionEntity>> getreceivepayData(String accounttype, String transactiontype);
+
     //get user info past reciveable
     @Query("SELECT * FROM newtransaction WHERE accoounttype LIKE :accounttype AND transactiontype LIKE :transactiontype AND clientmobile LIKE :mobile")
     List<NewtransactionEntity> getCerditSellinfo(String accounttype, String transactiontype, String mobile);

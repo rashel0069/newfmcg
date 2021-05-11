@@ -65,10 +65,10 @@ public class Cashbox_Fragment extends Fragment {
         depositlay = view.findViewById(R.id.constraintLayout3);
 
         String checkbutton = getArguments().getString("SelectButton");
+        cashttile.setText(getArguments().getString("Title"));
         if (checkbutton.matches("deposit")){
             dayendlayout.setVisibility(View.GONE);
         }else {
-            cashttile.setText(R.string.dayend);
             withdrawlay.setVisibility(View.GONE);
             depositlay.setVisibility(View.GONE);
             depositTV.setVisibility(View.GONE);
@@ -80,7 +80,6 @@ public class Cashbox_Fragment extends Fragment {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
-            cashttile.setText(resources.getString(R.string.cashtransaction));
             dayendTV.setText(resources.getString(R.string.dayendcash));
             withdrawalTV.setText(resources.getString(R.string.withdrawal));
             depositTV.setText(resources.getString(R.string.depositcash));
@@ -90,7 +89,6 @@ public class Cashbox_Fragment extends Fragment {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
-            cashttile.setText(resources.getString(R.string.cashtransaction));
             dayendTV.setText(resources.getString(R.string.dayendcash));
             withdrawalTV.setText(resources.getString(R.string.withdrawal));
             depositTV.setText(resources.getString(R.string.depositcash));

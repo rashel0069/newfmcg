@@ -25,7 +25,10 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.AdjustDao;
@@ -34,9 +37,12 @@ import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.AdjustEntity;
 import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
 import com.appshat.kherokhata.Room.model.AdjustViewModel;
+import com.appshat.kherokhata.Room.model.TransactionViewModel;
+import com.appshat.kherokhata.adapter.TransactionListAdapter;
 import com.google.android.material.button.MaterialButton;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -44,18 +50,22 @@ public class Receivablepayable_Fragment extends Fragment {
     static final int PICK_CONTACT = 1;
     Spinner spadjust;
     EditText edtmobile, newCash, newProduct, newAdjust;
-    TextView customerName, previousBalns, summPrev, newBalance,previbal2,paidammount;
+    TextView customerName, previousBalns, summPrev, newBalance,previbal2,paidammount,rpTv;
     ImageView contactnumber;
     MaterialButton calculate, saveTrans, searchUser;
     String customerContName, currentdate, accounttype, transtype, cmmobile, cmamount, date;
     NewtransactionDao newtransactionDao;
     LinearLayout l2;
     CardView l1;
+    RecyclerView recyclerView;
+    TransactionListAdapter transactionListAdapter;
+    TransactionViewModel transactionViewModel;
     AdjustViewModel adjustViewModel;
     AdjustDao duepayrecivedao;
     Databaseroom databaseroom;
     Double cpa, result;
     int rpvalue = 0;
+    List<NewtransactionEntity> mRecivePay;
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -93,19 +103,48 @@ public class Receivablepayable_Fragment extends Fragment {
         newBalance = v.findViewById(R.id.newBalance_id);
         previbal2 = v.findViewById(R.id.previousbal_id);
         paidammount = v.findViewById(R.id.paidamount_id);
+        rpTv = v.findViewById(R.id.rpTV_id);
         //save change
         saveTrans = v.findViewById(R.id.recivepaybtn_id);
+        //recyler view
+        recyclerView = v.findViewById(R.id.payrecive_cycle);
         //spinner
         spadjust = v.findViewById(R.id.spinner_id_payrecive);
+
+        //data get
+        rpTv.setText(getArguments().getString("Title"));
+
+        //database
+        databaseroom = Databaseroom.getDatabaseroomref(getActivity());
+        newtransactionDao = databaseroom.getnewtransaction();
+        duepayrecivedao = databaseroom.getduepayandreceive();
+
         String[] cas = getResources().getStringArray(R.array.adjustbalance);
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
         spadjust.setAdapter(adapter);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
+
+        adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
+        transactionViewModel = ViewModelProviders.of(this).get(TransactionViewModel.class);
 
         spadjust.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 rpvalue = position;
                 accounttype = parent.getSelectedItem().toString();
+
+                if (rpvalue == 1) {
+                    recyclerView.setVisibility(View.VISIBLE);
+                    reciveableTrans();
+                } else if (rpvalue == 2) {
+                    recyclerView.setVisibility(View.VISIBLE);
+                    payableTrans();
+                } else {
+                    recyclerView.setVisibility(View.GONE);
+                }
             }
 
             @Override
@@ -135,14 +174,10 @@ public class Receivablepayable_Fragment extends Fragment {
 
             }
         });
-        //database
-        adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
+
         //Date time
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-        //database
-        databaseroom = Databaseroom.getDatabaseroomref(getActivity());
-        newtransactionDao = databaseroom.getnewtransaction();
-        duepayrecivedao = databaseroom.getduepayandreceive();
+
 
         //edit new trans
         newCash = v.findViewById(R.id.newCash_id);
@@ -353,4 +388,32 @@ public class Receivablepayable_Fragment extends Fragment {
             }
         }
     }
+
+    //get past recivable data
+    private void reciveableTrans() {
+        mRecivePay = new ArrayList<>();
+        transactionListAdapter = new TransactionListAdapter(mRecivePay);
+        transactionViewModel.getmRecivable().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
+            @Override
+            public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
+                transactionListAdapter.setTrans(newtransactionEntities);
+            }
+        });
+        recyclerView.setAdapter(transactionListAdapter);
+    }
+    //get past payable data
+    private void payableTrans() {
+        mRecivePay = new ArrayList<>();
+        mRecivePay.clear();
+        transactionListAdapter = new TransactionListAdapter(mRecivePay);
+        transactionViewModel.getmPaytrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
+            @Override
+            public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
+                transactionListAdapter.setTrans(newtransactionEntities);
+            }
+        });
+        recyclerView.setAdapter(transactionListAdapter);
+    }
+
+
 }

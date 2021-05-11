@@ -33,8 +33,7 @@ import java.util.List;
 
 public class Onboarding_Activity extends AppCompatActivity {
 
-    private OnboardingAdapter onboardingAdapter;
-    private LinearLayout layoutOnboardingIndicator;
+
     private MaterialButton buttonOnboardingAction;
 
     TextView introtv1, introtv2, stv, languagetv;
@@ -48,7 +47,8 @@ public class Onboarding_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding_);
-        layoutOnboardingIndicator = findViewById(R.id.layoutOnboardingIndicators);
+
+
         buttonOnboardingAction = findViewById(R.id.buttonOnBoardingAction);
         stv = findViewById(R.id.skipTV_id);
         introtv1 = findViewById(R.id.textTitle);
@@ -56,8 +56,9 @@ public class Onboarding_Activity extends AppCompatActivity {
         languageImg = findViewById(R.id.languageBtn_Id);
         languagetv = findViewById(R.id.languageTV_id);
 
-        setOnboardingItem();
-
+        // language setter
+        Log.e("ChekingBangla", String.valueOf(Helper.getBangla()));
+        Log.e("ChekingEnglish", String.valueOf(Helper.getEnglish()));
         if (Helper.getEnglish()) {
             Helper.setEnglish(true);
             Helper.setBangla(false);
@@ -71,8 +72,6 @@ public class Onboarding_Activity extends AppCompatActivity {
         Log.e("Bangla", String.valueOf(Helper.getBangla()));
 
 
-//// language
-
         //language setter
         if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
@@ -81,8 +80,9 @@ public class Onboarding_Activity extends AppCompatActivity {
             resources = context.getResources();
 
             stv.setText(resources.getString(R.string.skip));
-            buttonOnboardingAction.setText(resources.getString(R.string.next));
             buttonOnboardingAction.setText(resources.getString(R.string.gs));
+            introtv1.setText(resources.getString(R.string.text1));
+            introtv2.setText(resources.getString(R.string.text2));
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
@@ -90,8 +90,9 @@ public class Onboarding_Activity extends AppCompatActivity {
             resources = context.getResources();
 
             stv.setText(resources.getString(R.string.skip));
-            buttonOnboardingAction.setText(resources.getString(R.string.next));
             buttonOnboardingAction.setText(resources.getString(R.string.gs));
+            introtv1.setText(resources.getString(R.string.text1));
+            introtv2.setText(resources.getString(R.string.text2));
 
         }
 
@@ -118,7 +119,6 @@ public class Onboarding_Activity extends AppCompatActivity {
                             resources = context.getResources();
 
                             stv.setText(resources.getString(R.string.skip));
-                            buttonOnboardingAction.setText(resources.getString(R.string.next));
                             buttonOnboardingAction.setText(resources.getString(R.string.gs));
 
                         }
@@ -128,7 +128,6 @@ public class Onboarding_Activity extends AppCompatActivity {
                             context = Localhelper.setLocale(Onboarding_Activity.this, "bn");
                             resources = context.getResources();
                             stv.setText(resources.getString(R.string.skip));
-                            buttonOnboardingAction.setText(resources.getString(R.string.next));
                             buttonOnboardingAction.setText(resources.getString(R.string.gs));
                         }
                     }
@@ -144,7 +143,7 @@ public class Onboarding_Activity extends AppCompatActivity {
         });
 
 
-     Log.e("Bangla", String.valueOf(Helper.getBangla()));
+        Log.e("Bangla", String.valueOf(Helper.getBangla()));
 
         SharedPreferences preferences = getSharedPreferences("PREFERENCE", MODE_PRIVATE);
         String FirstTime = preferences.getString("FirstTimeInstall", "");
@@ -159,110 +158,21 @@ public class Onboarding_Activity extends AppCompatActivity {
             editor.apply();
         }
 
-        //viewpager
-        ViewPager2 onboardingViewPager = findViewById(R.id.onboardingViewPager);
-        onboardingViewPager.setAdapter(onboardingAdapter);
-        setOnboadingIndicator();
-        setCurrentOnboardingIndicators(0);
 
-        onboardingViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                setCurrentOnboardingIndicators(position);
-            }
-        });
-
-        buttonOnboardingAction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (onboardingViewPager.getCurrentItem() + 1 < onboardingAdapter.getItemCount()) {
-                    onboardingViewPager.setCurrentItem(onboardingViewPager.getCurrentItem() + 1);
-                } else {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    finish();
-                }
-
-            }
-
-        });
         stv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (onboardingViewPager.getCurrentItem() + 1 < onboardingAdapter.getItemCount()) {
-                    onboardingViewPager.setCurrentItem(onboardingViewPager.getCurrentItem() + 1);
-                } else {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    finish();
-                }
-
+                Intent intent = new Intent(Onboarding_Activity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }); buttonOnboardingAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Onboarding_Activity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
-
-
-    private void setOnboadingIndicator() {
-        ImageView[] indicators = new ImageView[onboardingAdapter.getItemCount()];
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
-        );
-        layoutParams.setMargins(10, 0, 10, 0);
-        for (int i = 0; i < indicators.length; i++) {
-            indicators[i] = new ImageView(getApplicationContext());
-            indicators[i].setImageDrawable(ContextCompat.getDrawable(
-                    getApplicationContext(), R.drawable.onboarding_indicator_inactive
-            ));
-            indicators[i].setLayoutParams(layoutParams);
-            layoutOnboardingIndicator.addView(indicators[i]);
-        }
-    }
-
-    @SuppressLint("SetTextI18n")
-    private void setCurrentOnboardingIndicators(int index) {
-        int childCount = layoutOnboardingIndicator.getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            ImageView imageView = (ImageView) layoutOnboardingIndicator.getChildAt(i);
-            if (i == index) {
-                imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.onboarding_indicator_active));
-            } else {
-                imageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.onboarding_indicator_inactive));
-            }
-        }
-        if (index == onboardingAdapter.getItemCount() - 1) {
-            buttonOnboardingAction.setText(getString(R.string.gs));
-        } else {
-            buttonOnboardingAction.setText(getString(R.string.next));
-        }
-
-    }
-
-    private void setOnboardingItem() {
-        List<OnBoardingItem> onBoardingItems = new ArrayList<>();
-
-        OnBoardingItem itemintro = new OnBoardingItem();
-        itemintro.setTitle(getString(R.string.text1));
-        itemintro.setDescription(getString(R.string.text2));
-        itemintro.setImage(R.drawable.img1);
-
-        OnBoardingItem itemtitle = new OnBoardingItem();
-        itemtitle.setTitle(getString(R.string.text3));
-        itemtitle.setDescription(getString(R.string.text4));
-        itemtitle.setImage(R.drawable.img2);
-
-        OnBoardingItem itemdesc = new OnBoardingItem();
-        itemdesc.setTitle(getString(R.string.text5));
-        itemdesc.setDescription(getString(R.string.text6));
-        itemdesc.setImage(R.drawable.img3);
-
-        onBoardingItems.add(itemintro);
-        onBoardingItems.add(itemtitle);
-        onBoardingItems.add(itemdesc);
-
-
-        onboardingAdapter = new OnboardingAdapter(onBoardingItems);
-
-
-    }
-
-
 }

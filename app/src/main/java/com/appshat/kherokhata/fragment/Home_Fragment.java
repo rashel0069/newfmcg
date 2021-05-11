@@ -53,8 +53,8 @@ public class Home_Fragment<Date> extends Fragment {
     private static final String TAG = "Activity";
     LinearLayout orderbtn, showtransbtn, cashTrn,creditTrn;
     TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,
-            openingcashTV, dayendcashTV, receivablecashTV,cashbook,creditbook,orderbook,transbook, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
-    String prev, openAmount,opening;
+            openingcashTV, dayendcashTV, shopName, receivablecashTV,cashbook,creditbook,orderbook,transbook, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
+    String prev, openAmount,opening,shname;
     InformationDao informationDbDao;
     NewtransactionDao newtransactionDao;
     HistoryDao historyDao;
@@ -99,6 +99,7 @@ public class Home_Fragment<Date> extends Fragment {
         creditbook = view.findViewById(R.id.crbook_tv);
         orderbook = view.findViewById(R.id.orderbook_tv);
         transbook = view.findViewById(R.id.transbook_tv);
+        shopName = view.findViewById(R.id.shop_name_id);
 
 //language setter
         if (!Helper.getBangla()) {
@@ -246,8 +247,11 @@ public class Home_Fragment<Date> extends Fragment {
             String purchesreturncredit = new GetSelesreturnCredit().execute().get();
             String pastreceivable = new GetPastReceviable().execute().get();
             String pastpayable = new GetPastPayable().execute().get();
+            String sh = new GetShopNmae().execute().get();
+            shopName.setText(shname);
 
-            if (!dayend.isEmpty() && !opencash.isEmpty()){
+            if ( Double.parseDouble(dayend) != 0.0
+                    && Double.parseDouble(opencash) != 0.0){
 
                 Double cashsales = Double.parseDouble(dayend) - Double.parseDouble(opencash) + Double.parseDouble(cashPurc) +
                         Double.parseDouble(withdraw) - Double.parseDouble(deposit) - Double.parseDouble(purchesreturncash) -
@@ -333,6 +337,24 @@ public class Home_Fragment<Date> extends Fragment {
             }
 
             return cash_purchaes.toString().trim();
+        }
+    }
+    //get Shop name
+    public class GetShopNmae extends AsyncTask<Void,Void,String>{
+        @Override
+        protected String doInBackground(Void... voids) {
+            List<InformationEntity> informationEntities = informationDbDao.findAllInfo();
+            try {
+                if (informationEntities != null) {
+                    for (int i = 0; i< informationEntities.size(); i++){
+                        shname = informationEntities.get(i).getShopname().toString();
+                    }
+                }
+
+            } catch (Exception e) {
+
+            }
+            return null;
         }
     }
 

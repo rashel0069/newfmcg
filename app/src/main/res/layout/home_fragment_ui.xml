@@ -14,11 +14,13 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/shop_name_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
             android:lineHeight="21.94dp"
-            android:text="Shop Name"
+            android:hint="Shop Name"
+            android:textColorHint="@color/white"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textFontWeight="600"

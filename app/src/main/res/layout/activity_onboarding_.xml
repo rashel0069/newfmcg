@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,23 +6,75 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     tools:context=".NewUIActivity.Onboarding_Activity">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/imageOnboarding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="86.3dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="85.3dp"
+            android:background="@drawable/img3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/skipTV_id" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="42dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:lineHeight="32.5dp"
+            android:text="@string/text1"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageOnboarding" />
+
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="42dp"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:lineHeight="18.96dp"
+            android:text="@string/text2"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonOnBoardingAction"
-            android:layout_width="316dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="619dp"
             android:layout_marginEnd="47dp"
             android:layout_marginBottom="62dp"
             android:backgroundTint="@color/black"
             android:drawableRight="@drawable/arrow"
             android:fontFamily="@font/montserrat"
+            android:text="@string/gs"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="15sp"
@@ -30,52 +82,25 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/onboardingViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
-        <LinearLayout
-            android:id="@+id/layoutOnboardingIndicators"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="501dp"
-            android:layout_marginBottom="223dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </LinearLayout>
+            app:layout_constraintTop_toBottomOf="@+id/textDescription" />
 
         <TextView
             android:id="@+id/skipTV_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="329dp"
-            android:layout_marginTop="59dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="654dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/montserrat"
             android:lineHeight="18.29dp"
             android:text="@string/skip"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/languageBtn_Id"
-            android:visibility="invisible"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
@@ -83,24 +108,26 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_baseline_language_24"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/languageTV_id"
-            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/selector"
             android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/languageBtn_Id"
             app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="@+id/languageBtn_Id"
             app:layout_constraintTop_toBottomOf="@+id/languageBtn_Id"
             tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
