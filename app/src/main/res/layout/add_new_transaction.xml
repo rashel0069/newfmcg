@@ -270,7 +270,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/newtranssave_id"
-        android:layout_width="295dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginStart="55dp"
         android:layout_marginTop="131dp"
