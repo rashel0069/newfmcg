@@ -39,6 +39,7 @@ import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
 import com.appshat.kherokhata.Room.model.AdjustViewModel;
 import com.appshat.kherokhata.Room.model.TransactionViewModel;
 import com.appshat.kherokhata.adapter.TransactionListAdapter;
+import com.appshat.kherokhata.adapter.TransactionListAdapter2;
 import com.google.android.material.button.MaterialButton;
 
 import java.text.SimpleDateFormat;
@@ -58,7 +59,7 @@ public class Receivablepayable_Fragment extends Fragment {
     LinearLayout l2;
     CardView l1;
     RecyclerView recyclerView;
-    TransactionListAdapter transactionListAdapter;
+    TransactionListAdapter2 transactionListAdapter;
     TransactionViewModel transactionViewModel;
     AdjustViewModel adjustViewModel;
     AdjustDao duepayrecivedao;
@@ -123,7 +124,9 @@ public class Receivablepayable_Fragment extends Fragment {
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
         spadjust.setAdapter(adapter);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setReverseLayout(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
 
@@ -392,7 +395,7 @@ public class Receivablepayable_Fragment extends Fragment {
     //get past recivable data
     private void reciveableTrans() {
         mRecivePay = new ArrayList<>();
-        transactionListAdapter = new TransactionListAdapter(mRecivePay);
+        transactionListAdapter = new TransactionListAdapter2(mRecivePay);
         transactionViewModel.getmRecivable().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
             @Override
             public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
@@ -405,7 +408,7 @@ public class Receivablepayable_Fragment extends Fragment {
     private void payableTrans() {
         mRecivePay = new ArrayList<>();
         mRecivePay.clear();
-        transactionListAdapter = new TransactionListAdapter(mRecivePay);
+        transactionListAdapter = new TransactionListAdapter2(mRecivePay);
         transactionViewModel.getmPaytrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
             @Override
             public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
