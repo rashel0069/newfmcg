@@ -29,7 +29,7 @@
                 android:id="@+id/splashImage"
                 android:layout_width="300dp"
                 android:layout_height="200dp"
-                android:src="@drawable/logo"
+                android:src="@drawable/fmcg3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

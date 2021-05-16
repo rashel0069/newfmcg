@@ -19,7 +19,7 @@
         android:layout_height="70dp"
         android:layout_gravity="bottom"
         android:theme="@style/Theme.Fab_Bottom_app_bar"
-        android:visibility="visible"
+        android:visibility="gone"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="15dp"
         app:fabCradleVerticalOffset="5dp">

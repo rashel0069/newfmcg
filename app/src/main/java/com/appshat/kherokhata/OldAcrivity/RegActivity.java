@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,14 +14,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.appshat.kherokhata.NewUIActivity.Splash_Screen;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.UserDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.UserEntity;
 import com.appshat.kherokhata.Room.model.UserViewModel;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 public class RegActivity extends AppCompatActivity {
     EditText reg_Mobile, reg_password, reg_ConfirmPassword;
