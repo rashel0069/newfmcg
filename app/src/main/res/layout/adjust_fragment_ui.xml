@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary">
+
     <RelativeLayout
         android:id="@+id/adt_tittelbar"
         android:layout_width="match_parent"
@@ -18,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
-            android:lineHeight="21.94dp"
             android:hint="Returns Transaction"
+            android:lineHeight="21.94dp"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textFontWeight="600"
@@ -32,16 +32,18 @@
             android:layout_marginStart="24dp"
             android:src="@drawable/arrowleft" />
     </RelativeLayout>
+
     <ScrollView
-        android:layout_below="@+id/adt_tittelbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/adt_tittelbar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="150dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="150dp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -93,10 +95,10 @@
                     android:id="@+id/layout_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="14dp"
                     android:layout_marginEnd="61dp"
+                    android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/transitiontypetv_id"
@@ -111,8 +113,8 @@
                         android:hint="@string/enter_full_name"
                         android:lineHeight="17.07dp"
                         android:paddingLeft="25dp"
-                        android:textColorHint="@color/white"
                         android:textColor="@color/white"
+                        android:textColorHint="@color/white"
                         android:textFontWeight="600"
                         android:textSize="14sp"
                         app:layout_constraintTop_toTopOf="parent"
@@ -124,10 +126,10 @@
                     android:id="@+id/linearLayout_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="14dp"
                     android:layout_marginEnd="61dp"
+                    android:gravity="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/layout_1"
@@ -142,8 +144,8 @@
                         android:hint="@string/cnumhint"
                         android:inputType="number"
                         android:lineHeight="17.07dp"
-                        android:paddingLeft="25dp"
                         android:maxLength="11"
+                        android:paddingLeft="25dp"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
                         android:textFontWeight="600"
@@ -186,9 +188,9 @@
                         android:background="@drawable/inputbackground"
                         android:fontFamily="@font/montserrat"
                         android:hint="@string/amounthint"
+                        android:inputType="number"
                         android:lineHeight="17.07dp"
                         android:paddingLeft="25dp"
-                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
                         android:textFontWeight="600"
@@ -206,7 +208,7 @@
                     android:layout_marginTop="14dp"
                     android:background="@drawable/whiteround"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" >
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
                     <ImageView
                         android:id="@+id/imageView6"
@@ -246,8 +248,8 @@
                     android:layout_marginStart="98dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:visibility="gone"
                     android:background="@drawable/camn"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/pickdate_id"
@@ -264,13 +266,13 @@
                     android:fontFamily="@font/montserrat"
                     android:lineHeight="30dp"
                     android:text="@string/save"
+                    android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="18sp"
-                    app:cornerRadius="15dp"
                     android:textFontWeight="600"
+                    android:textSize="18sp"
                     android:textStyle="normal"
-                    android:textAlignment="center"
+                    app:cornerRadius="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/spickdate_id" />

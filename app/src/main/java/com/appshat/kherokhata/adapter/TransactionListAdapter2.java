@@ -105,7 +105,12 @@ public class TransactionListAdapter2 extends RecyclerView.Adapter<TransactionLis
     }
 
     public class TransViewHolder extends RecyclerView.ViewHolder {
-        private TextView dataName, dataMobile, dataTranType, dataAcetype, dataAmoyunt, dataDate;
+        private final TextView dataName;
+        private final TextView dataMobile;
+        private TextView dataTranType;
+        private final TextView dataAcetype;
+        private TextView dataAmoyunt;
+        private TextView dataDate;
 
         public TransViewHolder(@NonNull View itemView) {
             super(itemView);

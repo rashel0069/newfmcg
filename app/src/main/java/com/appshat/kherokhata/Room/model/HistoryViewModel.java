@@ -13,8 +13,8 @@ import com.appshat.kherokhata.Room.ENTITY.HistoryEntity;
 import java.util.List;
 
 public class HistoryViewModel extends AndroidViewModel {
-    private HistoryDao historyDao;
-    private Databaseroom databaseroom;
+    private final HistoryDao historyDao;
+    private final Databaseroom databaseroom;
     private List<HistoryEntity> mHistory;
 
 

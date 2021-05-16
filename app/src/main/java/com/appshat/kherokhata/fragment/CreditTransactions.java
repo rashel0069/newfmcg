@@ -3,29 +3,28 @@ package com.appshat.kherokhata.fragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 
 public class CreditTransactions extends Fragment {
-    Button btncredit_purch,btncredit_sales,btnrecive_pay;
+    Button btncredit_purch, btncredit_sales, btnrecive_pay;
     Context context;
     Resources resources;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View crtv =  inflater.inflate(R.layout.fragment_credit_transactions, container, false);
+        View crtv = inflater.inflate(R.layout.fragment_credit_transactions, container, false);
 
         btncredit_sales = crtv.findViewById(R.id.btn_creditsales);
         btncredit_purch = crtv.findViewById(R.id.btn_creditpurch);
@@ -37,9 +36,9 @@ public class CreditTransactions extends Fragment {
             context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
 
-          btncredit_purch.setText(resources.getString(R.string.credit_purchase));
-          btncredit_sales.setText(resources.getString(R.string.credit_sales));
-          btnrecive_pay.setText(resources.getString(R.string.rp));
+            btncredit_purch.setText(resources.getString(R.string.credit_purchase));
+            btncredit_sales.setText(resources.getString(R.string.credit_sales));
+            btnrecive_pay.setText(resources.getString(R.string.rp));
 
 
         } else {
@@ -64,8 +63,8 @@ public class CreditTransactions extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
                 bundle.putString("AccountType", "Sales");
-                bundle.putString("TransType","Credit");
-                bundle.putString("Title",btncredit_sales.getText().toString());
+                bundle.putString("TransType", "Credit");
+                bundle.putString("Title", btncredit_sales.getText().toString());
                 new_transaction_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, new_transaction_fragment);
                 transaction.addToBackStack("null");
@@ -82,8 +81,8 @@ public class CreditTransactions extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
                 bundle.putString("AccountType", "Purchase");
-                bundle.putString("TransType","Credit");
-                bundle.putString("Title",btncredit_purch.getText().toString());
+                bundle.putString("TransType", "Credit");
+                bundle.putString("Title", btncredit_purch.getText().toString());
                 new_transaction_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, new_transaction_fragment);
                 transaction.addToBackStack("null");
@@ -99,7 +98,7 @@ public class CreditTransactions extends Fragment {
                 Receivablepayable_Fragment receive_balance_fragment = new Receivablepayable_Fragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
-                bundle.putString("Title",btnrecive_pay.getText().toString());
+                bundle.putString("Title", btnrecive_pay.getText().toString());
                 receive_balance_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, receive_balance_fragment);
                 transaction.addToBackStack("null");

@@ -18,7 +18,6 @@ import androidx.fragment.app.Fragment;
 
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
-import com.appshat.kherokhata.OldAcrivity.MainActivity;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.HistoryEntity;
@@ -30,12 +29,12 @@ public class History_Fragment extends Fragment {
     public static final String DATE_DIALOG_1 = "datePicker1";
     public static final String DATE_DIALOG_2 = "datePicker2";
     static TextView fromDate, toDate;
-    LinearLayout pickdate1, pickdate2;
     private static int mYear1, mMonth1, mDay1;
     private static int mYear2, mMonth2, mDay2;
-    TextView hstt,preday,shst,chst,rhst,phst,ohst,clhst, prevDate, prevSales, prevCrSales, prevRecive, prevPay, prevCloaseCash, oprenCash,
-     preweek,shwst,chwst,rhwst,phwst,ohwst,clwhst, prevwSales, prevwCrSales, prevwRecive, prevwPay, prevwCloaseCash, openwCash,from,to,
-    lastmonth,last,nd;
+    LinearLayout pickdate1, pickdate2;
+    TextView hstt, preday, shst, chst, rhst, phst, ohst, clhst, prevDate, prevSales, prevCrSales, prevRecive, prevPay, prevCloaseCash, oprenCash,
+            preweek, shwst, chwst, rhwst, phwst, ohwst, clwhst, prevwSales, prevwCrSales, prevwRecive, prevwPay, prevwCloaseCash, openwCash, from, to,
+            lastmonth, last, nd;
 
     String previousday;
     Context context;
@@ -49,13 +48,13 @@ public class History_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_history__nav_, container, false);
 
         hstt = view.findViewById(R.id.hst_title_id);
-        preday=view.findViewById(R.id.pre_day_historyTV_id);
-        shst=view.findViewById(R.id.sales_hstTV_id);
-        chst=view.findViewById(R.id.cs_hstTV_id);
-        rhst=view.findViewById(R.id.rcv_hstTV_id);
-        phst=view.findViewById(R.id.pay_hstTV_id);
-        ohst=view.findViewById(R.id.op_hstTV_id);
-        clhst=view.findViewById(R.id.closing_hstTV_id);
+        preday = view.findViewById(R.id.pre_day_historyTV_id);
+        shst = view.findViewById(R.id.sales_hstTV_id);
+        chst = view.findViewById(R.id.cs_hstTV_id);
+        rhst = view.findViewById(R.id.rcv_hstTV_id);
+        phst = view.findViewById(R.id.pay_hstTV_id);
+        ohst = view.findViewById(R.id.op_hstTV_id);
+        clhst = view.findViewById(R.id.closing_hstTV_id);
         prevDate = view.findViewById(R.id.prev_day_dateId);
         prevSales = view.findViewById(R.id.pre_day_sale);
         prevCrSales = view.findViewById(R.id.pre_day_creSale);
@@ -67,15 +66,15 @@ public class History_Fragment extends Fragment {
         toDate = view.findViewById(R.id.to_date_id);
         pickdate1 = view.findViewById(R.id.date_pick_id1);
         pickdate2 = view.findViewById(R.id.date_pick_id2);
-        preweek=view.findViewById(R.id.pre_week_historyTV_id);
-        from=view.findViewById(R.id.hitory_from_id);
-        to=view.findViewById(R.id.hitory_to_id);
-        shwst=view.findViewById(R.id.sales_whstTV_id);
-        chwst=view.findViewById(R.id.cs_whstTV_id);
-        rhwst=view.findViewById(R.id.rc_whsTV_id);
-        phwst=view.findViewById(R.id.pa_whstTV_id);
-        ohwst=view.findViewById(R.id.op_whstTV_id);
-        clwhst=view.findViewById(R.id.cl_whsTV_id);
+        preweek = view.findViewById(R.id.pre_week_historyTV_id);
+        from = view.findViewById(R.id.hitory_from_id);
+        to = view.findViewById(R.id.hitory_to_id);
+        shwst = view.findViewById(R.id.sales_whstTV_id);
+        chwst = view.findViewById(R.id.cs_whstTV_id);
+        rhwst = view.findViewById(R.id.rc_whsTV_id);
+        phwst = view.findViewById(R.id.pa_whstTV_id);
+        ohwst = view.findViewById(R.id.op_whstTV_id);
+        clwhst = view.findViewById(R.id.cl_whsTV_id);
         prevwSales = view.findViewById(R.id.pre_week_sale);
         prevwCrSales = view.findViewById(R.id.pre_week_creditsale);
         prevwRecive = view.findViewById(R.id.pre_week_ra);
@@ -83,9 +82,9 @@ public class History_Fragment extends Fragment {
         prevwCloaseCash = view.findViewById(R.id.pre_week_cl);
         openwCash = view.findViewById(R.id.pre_week_op);
 
-        lastmonth=view.findViewById(R.id.pre_month_historyTV_id);
-        last=view.findViewById(R.id.last_month_date);
-        nd=view.findViewById(R.id.ndt_hsTV_id);
+        lastmonth = view.findViewById(R.id.pre_month_historyTV_id);
+        last = view.findViewById(R.id.last_month_date);
+        nd = view.findViewById(R.id.ndt_hsTV_id);
 
 
         Calendar cal = Calendar.getInstance();
@@ -119,7 +118,7 @@ public class History_Fragment extends Fragment {
             preweek.setText(resources.getString(R.string.previous_week_history));
             from.setText(resources.getString(R.string.from));
             to.setText(resources.getString(R.string.to));
-            shwst.setText(resources.getString(R.string.sales));;
+            shwst.setText(resources.getString(R.string.sales));
             chwst.setText(resources.getString(R.string.creditsales));
             rhwst.setText(resources.getString(R.string.ra));
             phwst.setText(resources.getString(R.string.pa));
@@ -157,7 +156,7 @@ public class History_Fragment extends Fragment {
             preweek.setText(resources.getString(R.string.previous_week_history));
             from.setText(resources.getString(R.string.from));
             to.setText(resources.getString(R.string.to));
-            shwst.setText(resources.getString(R.string.sales));;
+            shwst.setText(resources.getString(R.string.sales));
             chwst.setText(resources.getString(R.string.creditsales));
             rhwst.setText(resources.getString(R.string.ra));
             phwst.setText(resources.getString(R.string.pa));
@@ -204,12 +203,12 @@ public class History_Fragment extends Fragment {
             public void run() {
                 try {
                     HistoryEntity mhistory = Databaseroom.getDatabaseroomref(getContext()).getHistory().findbyId(previousday);
-                    prevSales.setText(mhistory.getTotalsales().toString());
-                    prevCrSales.setText(mhistory.getCreditsales().toString());
-                    prevRecive.setText(mhistory.getCreditsales().toString());
-                    prevPay.setText(mhistory.getCreditpurchase().toString());
-                    prevCloaseCash.setText(mhistory.getDayendbalance().toString());
-                    oprenCash.setText(mhistory.getOpeningammount().toString());
+                    prevSales.setText(mhistory.getTotalsales());
+                    prevCrSales.setText(mhistory.getCreditsales());
+                    prevRecive.setText(mhistory.getCreditsales());
+                    prevPay.setText(mhistory.getCreditpurchase());
+                    prevCloaseCash.setText(mhistory.getDayendbalance());
+                    oprenCash.setText(mhistory.getOpeningammount());
                 } catch (Exception e) {
 
                 }

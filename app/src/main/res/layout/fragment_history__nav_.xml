@@ -7,7 +7,8 @@
     android:background="#EB222C"
     android:orientation="vertical"
     tools:context=".NewUIFragment.History_Nav_Fragment">
-  <LinearLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/dropshedow">
@@ -33,604 +34,633 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <androidx.cardview.widget.CardView
-                    android:id="@+id/historyCV1_id"
-                    android:layout_width="wrap_content"
+                android:id="@+id/historyCV1_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginTop="15dp"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="23dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="24dp"
-                    app:cardCornerRadius="15dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_goneMarginTop="15dp"
-                    tools:ignore="MissingConstraints">
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/pre_day_historyTV_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="18dp"
+                            android:layout_marginTop="15.5dp"
+                            android:text="@string/previous_day_history"
+                            android:textAlignment="center"
+                            android:textAllCaps="false"
+                            android:textColor="#333333" />
+
+                        <TextView
+                            android:id="@+id/prev_day_dateId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15.5dp"
+                            android:layout_marginEnd="19dp"
+                            android:text="@string/historydate"
+                            android:textAlignment="textEnd"
+                            android:textAllCaps="false"
+                            android:textColor="#828282" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="19dp"
+                        android:background="@drawable/view_gradient" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:orientation="vertical">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/pre_day_historyTV_id"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="18dp"
-                                android:layout_marginTop="15.5dp"
-                                android:text="@string/previous_day_history"
-                                android:textAlignment="center"
-                                android:textAllCaps="false"
-                                android:textColor="#333333" />
-                            <TextView
-                                android:id="@+id/prev_day_dateId"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="15.5dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginEnd="19dp"
-                                android:textAlignment="textEnd"
-                                android:text="@string/historydate"
-                                android:textAllCaps="false"
-                                android:textColor="#828282" />
-                        </LinearLayout>
+                        android:layout_marginTop="19dp"
+                        android:weightSum="2">
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginStart="17dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginEnd="19dp"
-                            android:background="@drawable/view_gradient" />
-                        <LinearLayout
-                            android:layout_marginTop="19dp"
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/sales_hstTV_id"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/sales"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/cs_hstTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/creditsales"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/pre_day_sale"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="15.85dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/pre_day_creSale"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="18.29dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/rcv_hstTV_id"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="18dp"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/ra"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/pay_hstTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="18dp"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/pa"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/pre_day_receivable"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="15.85dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/pre_day_payable"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="18.29dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/op_hstTV_id"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/opening"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/closing_hstTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/closingcash"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:weightSum="2"
+                        <TextView
+                            android:id="@+id/sales_hstTV_id"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp">
-                            <TextView
-                                android:id="@+id/pre_day_openingcash"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="15.85dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/sales"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
 
-                            <TextView
-                                android:id="@+id/pre_day_closecash"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="18.29dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/cs_hstTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/creditsales"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
                     </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                    android:id="@+id/historyCV2_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="276dp"
-                    android:layout_marginStart="23dp"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginEnd="24dp"
-                    app:cardCornerRadius="15dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/historyCV1_id">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:orientation="vertical">
+                        android:weightSum="2">
+
                         <TextView
-                            android:id="@+id/pre_week_historyTV_id"
+                            android:id="@+id/pre_day_sale"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="17dp"
-                            android:layout_marginTop="15.5dp"
-                            android:text="@string/previous_week_history"
-                            android:textAllCaps="false"
-                            android:textColor=" #333333"/>
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="15.85dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
 
-                        <View
-                            android:id="@+id/historyview2_id"
+                        <TextView
+                            android:id="@+id/pre_day_creSale"
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginStart="17dp"
-                            android:layout_marginEnd="18dp"
-                            android:background="@drawable/view_gradient"
-                            tools:ignore="ExtraText" />
-
-                        <LinearLayout
-                            android:layout_marginTop="14dp"
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <LinearLayout
-                                android:id="@+id/date_pick_id1"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:id="@+id/hitory_from_id"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="18dp"
-                                    android:layout_marginStart="18dp"
-                                    android:fontFamily="@font/montserrat"
-                                    android:lineHeight="14.63dp"
-                                    android:text="@string/from"
-                                    android:textAllCaps="false"
-                                    android:textColor="@color/black"
-                                    android:textFontWeight="400"
-                                    android:textSize="12sp"
-                                    android:textStyle="normal" />
-
-                                <TextView
-                                    android:id="@+id/from_date_id"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="5dp"
-                                    android:fontFamily="@font/montserrat"
-                                    android:hint="@string/historydate"
-                                    android:lineHeight="14.63dp"
-                                    android:textAllCaps="false"
-                                    android:textFontWeight="400"
-                                    android:textSize="12sp"
-                                    android:textStyle="normal"/>
-
-                                <ImageView
-                                    android:layout_gravity="center"
-                                    android:id="@+id/fromimg_id"
-                                    android:layout_width="15dp"
-                                    android:layout_height="16dp"
-                                    android:layout_marginStart="5dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/calendar" />
-                            </LinearLayout>
-                            <LinearLayout
-                                android:id="@+id/date_pick_id2"
-                                android:paddingEnd="17dp"
-                                android:gravity="end"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:id="@+id/hitory_to_id"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="18dp"
-                                    android:layout_marginStart="18dp"
-                                    android:fontFamily="@font/montserrat"
-                                    android:lineHeight="14.63dp"
-                                    android:text="@string/to"
-                                    android:textAllCaps="false"
-                                    android:textColor="@color/black"
-                                    android:textFontWeight="400"
-                                    android:textSize="12sp"
-                                    android:textStyle="normal" />
-
-                                <TextView
-                                    android:id="@+id/to_date_id"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="5dp"
-                                    android:fontFamily="@font/montserrat"
-                                    android:hint="@string/historydate"
-                                    android:lineHeight="14.63dp"
-                                    android:textAllCaps="false"
-                                    android:textFontWeight="400"
-                                    android:textSize="12sp"
-                                    android:textStyle="normal"/>
-
-                                <ImageView
-                                    android:layout_gravity="center"
-                                    android:id="@+id/toimg_id"
-                                    android:layout_width="15dp"
-                                    android:layout_height="16dp"
-                                    android:layout_marginStart="5dp"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/calendar" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_marginTop="23dp"
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/sales_whstTV_id"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/sales"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/cs_whstTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/creditsales"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/pre_week_sale"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="15.85dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/pre_week_creditsale"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="18.29dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/rc_whsTV_id"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="18dp"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/ra"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/pa_whstTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="18dp"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/pa"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/pre_week_ra"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="15.85dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/pre_week_pa"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="18.29dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_marginTop="20dp"
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/op_whstTV_id"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/opening"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/cl_whsTV_id"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/montserrat"
-                                android:lineHeight="18.29dp"
-                                android:text="@string/closingcash"
-                                android:textColor="#000000"
-                                android:textFontWeight="500"
-                                android:textSize="15sp"
-                                android:textStyle="normal" />
-                        </LinearLayout>
-                        <LinearLayout
-                            android:weightSum="2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:id="@+id/pre_week_op"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="28dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="15.85dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                            <TextView
-                                android:id="@+id/pre_week_cl"
-                                android:layout_weight="1"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="13dp"
-                                android:layout_marginStart="10dp"
-                                android:fontFamily="@font/montserrat"
-                                android:hint="@string/amounthint"
-                                android:lineHeight="18.29dp"
-                                android:textColor="#828282"
-                                android:textFontWeight="500"
-                                android:textSize="13sp"
-                                android:textStyle="normal" />
-
-                        </LinearLayout>
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="18.29dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/rcv_hstTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/ra"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/pay_hstTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/pa"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/pre_day_receivable"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="15.85dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/pre_day_payable"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="18.29dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/op_hstTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/opening"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/closing_hstTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/closingcash"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/pre_day_openingcash"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="15.85dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/pre_day_closecash"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="18.29dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
-                android:id="@+id/historyCV3_id"
+                android:layout_width="wrap_content"
+                android:layout_height="276dp"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="24dp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/historyCV1_id">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/pre_week_historyTV_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="15.5dp"
+                        android:text="@string/previous_week_history"
+                        android:textAllCaps="false"
+                        android:textColor=" #333333" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="17dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/view_gradient"
+                        tools:ignore="ExtraText" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:id="@+id/date_pick_id1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/hitory_from_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="18dp"
+                                android:layout_marginStart="18dp"
+                                android:fontFamily="@font/montserrat"
+                                android:lineHeight="14.63dp"
+                                android:text="@string/from"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"
+                                android:textFontWeight="400"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/from_date_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:fontFamily="@font/montserrat"
+                                android:hint="@string/historydate"
+                                android:lineHeight="14.63dp"
+                                android:textAllCaps="false"
+                                android:textFontWeight="400"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/calendar" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/date_pick_id2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:paddingEnd="17dp">
+
+                            <TextView
+                                android:id="@+id/hitory_to_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="18dp"
+                                android:layout_marginStart="18dp"
+                                android:fontFamily="@font/montserrat"
+                                android:lineHeight="14.63dp"
+                                android:text="@string/to"
+                                android:textAllCaps="false"
+                                android:textColor="@color/black"
+                                android:textFontWeight="400"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/to_date_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:fontFamily="@font/montserrat"
+                                android:hint="@string/historydate"
+                                android:lineHeight="14.63dp"
+                                android:textAllCaps="false"
+                                android:textFontWeight="400"
+                                android:textSize="12sp"
+                                android:textStyle="normal" />
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="16dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="5dp"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/calendar" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="23dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/sales_whstTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/sales"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/cs_whstTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/creditsales"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/pre_week_sale"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="15.85dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/pre_week_creditsale"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="18.29dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/rc_whsTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/ra"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/pa_whstTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="18dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/pa"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/pre_week_ra"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="15.85dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/pre_week_pa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="18.29dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/op_whstTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/opening"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/cl_whsTV_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:lineHeight="18.29dp"
+                            android:text="@string/closingcash"
+                            android:textColor="#000000"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/pre_week_op"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="28dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="15.85dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/pre_week_cl"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="13dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="18.29dp"
+                            android:textColor="#828282"
+                            android:textFontWeight="500"
+                            android:textSize="13sp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
@@ -643,34 +673,37 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_goneMarginTop="15dp"
                 tools:ignore="MissingConstraints">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:weightSum="2">
+
                         <TextView
-                            android:layout_weight="1"
                             android:id="@+id/pre_month_historyTV_id"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="18dp"
                             android:layout_marginTop="15.5dp"
+                            android:layout_weight="1"
                             android:text="@string/last_month_history"
                             android:textAlignment="center"
                             android:textAllCaps="false"
                             android:textColor=" #333333" />
 
                         <TextView
-                            android:layout_weight="1"
                             android:id="@+id/last_month_date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15.5dp"
                             android:layout_marginEnd="17dp"
+                            android:layout_weight="1"
                             android:text="@string/last_month"
                             android:textAlignment="textEnd"
                             android:textAllCaps="false"
@@ -684,32 +717,34 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="19dp"
                         android:background="@drawable/view_gradient" />
+
                     <LinearLayout
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <ImageView
-                            android:layout_marginTop="19dp"
                             android:layout_width="200dp"
                             android:layout_height="160dp"
-                            android:background="@drawable/historyimg"/>
+                            android:layout_marginTop="19dp"
+                            android:background="@drawable/historyimg" />
 
                         <TextView
                             android:id="@+id/ndt_hsTV_id"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/nodata"
-                            android:textAllCaps="false"
-                            android:textFontWeight="500"
-                            android:textSize="15sp"
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="20dp"
                             android:lineHeight="18.29dp"
-                            android:textStyle="normal"
+                            android:text="@string/nodata"
                             android:textAlignment="center"
-                            android:textColor="@color/black"/>
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="15sp"
+                            android:textStyle="normal" />
                     </LinearLayout>
 
                 </LinearLayout>

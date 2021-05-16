@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary">
+
     <RelativeLayout
         android:id="@+id/adt_tittelbar"
         android:layout_width="match_parent"
@@ -18,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
-            android:lineHeight="21.94dp"
             android:hint="@string/cashtransaction"
+            android:lineHeight="21.94dp"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textFontWeight="600"
@@ -32,22 +32,23 @@
             android:layout_marginStart="24dp"
             android:src="@drawable/arrowleft" />
     </RelativeLayout>
+
     <ScrollView
-        android:layout_below="@+id/adt_tittelbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/adt_tittelbar">
 
         <LinearLayout
-            android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="55dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content">
+                android:layout_marginTop="55dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layout_1"
@@ -158,9 +159,9 @@
                         android:background="@drawable/inputbackground"
                         android:fontFamily="@font/montserrat"
                         android:hint="@string/amounthint"
+                        android:inputType="number"
                         android:lineHeight="17.07dp"
                         android:paddingLeft="25dp"
-                        android:inputType="number"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
                         android:textFontWeight="600"
@@ -214,13 +215,14 @@
                     tools:ignore="MissingConstraints" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/cashsaveBtn_id"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginStart="55dp"
-                android:layout_marginEnd="61dp"
                 android:layout_marginTop="36dp"
+                android:layout_marginEnd="61dp"
                 android:layout_marginBottom="120dp"
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/montserrat"

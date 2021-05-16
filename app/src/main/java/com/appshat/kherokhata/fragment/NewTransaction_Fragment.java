@@ -21,13 +21,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,17 +60,17 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static android.content.ContentValues.TAG;
-import static androidx.core.content.ContextCompat.getSystemService;
 import static java.lang.Integer.parseInt;
 
 
-
 public class NewTransaction_Fragment extends Fragment {
+    public static final String NOTIFICATION_CHANNEL_ID = "10001";
     static final int PICK_CONTACT = 1;
+    private final static String default_notification_channel_id = "default";
+    final Calendar myCalendar = Calendar.getInstance();
     Spinner accspinner, transspinner;
     EditText cnameET, cmblnumET, camountET;
     TextView cnTV, cmTV, amTV, timedateTV, saveNewContact, accTv, transTv, adtv;
-    ;
     MaterialButton newtransBTN;
     ConstraintLayout l1, l2, datepick;
     ImageView phonecontactSelect;
@@ -87,11 +84,17 @@ public class NewTransaction_Fragment extends Fragment {
     TransactionViewModel transactionViewModel;
     String accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate;
     boolean purchase = false;
+    Button btnDate;
+    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            myCalendar.set(Calendar.YEAR, year);
+            myCalendar.set(Calendar.MONTH, monthOfYear);
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabel();
+        }
+    };
 
-    public static final String NOTIFICATION_CHANNEL_ID = "10001" ;
-    private final static String default_notification_channel_id = "default" ;
-    Button btnDate ;
-    final Calendar myCalendar = Calendar. getInstance () ;
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -326,7 +329,6 @@ public class NewTransaction_Fragment extends Fragment {
                     getActivity().getSupportFragmentManager().popBackStack();
 
 
-
                     Toast.makeText(getContext(), "Insert Sucessfully", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getContext(), "Please fill up the required fields", Toast.LENGTH_SHORT).show();
@@ -355,7 +357,6 @@ public class NewTransaction_Fragment extends Fragment {
         return view;
     }
 
-
     private void setAlerm(Calendar cal) {
         AlarmManager alarmMgr = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getActivity(), AlarmReceiver.class);
@@ -373,49 +374,41 @@ public class NewTransaction_Fragment extends Fragment {
 
     }
 
-    private void scheduleNotification (Notification notification , long delay) {
-        Intent notificationIntent = new Intent( getActivity(), MyNotificationPublisher. class ) ;
-        notificationIntent.putExtra(MyNotificationPublisher. NOTIFICATION_ID , 1 ) ;
-        notificationIntent.putExtra(MyNotificationPublisher. NOTIFICATION , notification) ;
-        PendingIntent pendingIntent = PendingIntent. getBroadcast ( getActivity(), 0 , notificationIntent , PendingIntent. FLAG_UPDATE_CURRENT ) ;
-        AlarmManager alarmManager = (AlarmManager)getActivity(). getSystemService(Context. ALARM_SERVICE ) ;
+    private void scheduleNotification(Notification notification, long delay) {
+        Intent notificationIntent = new Intent(getActivity(), MyNotificationPublisher.class);
+        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 1);
+        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         assert alarmManager != null;
-        alarmManager.set(AlarmManager. ELAPSED_REALTIME_WAKEUP , delay , pendingIntent) ;
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, delay, pendingIntent);
     }
 
-
-    private Notification getNotification (String content) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder( getActivity(), default_notification_channel_id ) ;
-        builder.setContentTitle( "Scheduled Notification" ) ;
-        builder.setContentText(content) ;
-        builder.setSmallIcon(R.drawable. ic_launcher_foreground ) ;
-        builder.setAutoCancel( true ) ;
-        builder.setChannelId( NOTIFICATION_CHANNEL_ID ) ;
-        return builder.build() ;
+    private Notification getNotification(String content) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), default_notification_channel_id);
+        builder.setContentTitle("Scheduled Notification");
+        builder.setContentText(content);
+        builder.setSmallIcon(R.drawable.ic_launcher_foreground);
+        builder.setAutoCancel(true);
+        builder.setChannelId(NOTIFICATION_CHANNEL_ID);
+        return builder.build();
     }
-    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet (DatePicker view , int year , int monthOfYear , int dayOfMonth) {
-            myCalendar .set(Calendar. YEAR , year) ;
-            myCalendar .set(Calendar. MONTH , monthOfYear) ;
-            myCalendar .set(Calendar. DAY_OF_MONTH , dayOfMonth) ;
-            updateLabel() ;
-        }
-    } ;
-    public void setDate (View view) {
+
+    public void setDate(View view) {
         new DatePickerDialog(
-                getActivity(), date ,
-                myCalendar .get(Calendar. YEAR ) ,
-                myCalendar .get(Calendar. MONTH ) ,
-                myCalendar .get(Calendar. DAY_OF_MONTH )
-        ).show() ;
+                getActivity(), date,
+                myCalendar.get(Calendar.YEAR),
+                myCalendar.get(Calendar.MONTH),
+                myCalendar.get(Calendar.DAY_OF_MONTH)
+        ).show();
     }
-    private void updateLabel () {
-        String myFormat = "dd/MM/yy" ; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat , Locale. getDefault ()) ;
-        Date date = myCalendar .getTime() ;
-        btnDate .setText(sdf.format(date)) ;
-        scheduleNotification(getNotification( btnDate .getText().toString()) , date.getTime()) ;
+
+    private void updateLabel() {
+        String myFormat = "dd/MM/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.getDefault());
+        Date date = myCalendar.getTime();
+        btnDate.setText(sdf.format(date));
+        scheduleNotification(getNotification(btnDate.getText().toString()), date.getTime());
     }
 
 }

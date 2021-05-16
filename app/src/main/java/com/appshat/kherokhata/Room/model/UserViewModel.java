@@ -11,8 +11,8 @@ import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.UserEntity;
 
 public class UserViewModel extends AndroidViewModel {
-    private UserDao userDao;
-    private Databaseroom databaseroom;
+    private final UserDao userDao;
+    private final Databaseroom databaseroom;
     private UserEntity mAllUsers;
 
     public UserViewModel(@NonNull Application application) {

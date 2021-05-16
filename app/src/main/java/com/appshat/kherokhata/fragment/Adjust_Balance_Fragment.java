@@ -14,12 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,7 +40,7 @@ import java.util.Locale;
 public class Adjust_Balance_Fragment extends Fragment {
 
     static final int PICK_CONTACT = 1;
-    EditText adjustamountET, clientmobileET,amthint;
+    EditText adjustamountET, clientmobileET, amthint;
     TextView clientnameTV, cmblTV, duepaydateTV, drpTV, clientnameET, amttv, accountTv, transactionTv;
     MaterialButton adjustsaveBtn;
     Context context;
@@ -99,7 +95,7 @@ public class Adjust_Balance_Fragment extends Fragment {
         adjustsaveBtn = view.findViewById(R.id.adjustsaveBtn_id);
         amttv = view.findViewById(R.id.amountsTV_id);
         phoneContact = view.findViewById(R.id.phoneContact_id2);
-        amthint=view.findViewById(R.id.adjustamountET_id);
+        amthint = view.findViewById(R.id.adjustamountET_id);
         //get data from bundle
         drpTV.setText(getArguments().getString("Title"));
         accounttype = getArguments().getString("AccountType");

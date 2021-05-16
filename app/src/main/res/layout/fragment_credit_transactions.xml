@@ -7,29 +7,32 @@
     tools:context=".fragment.CreditTransactions">
 
     <RelativeLayout
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center">
+
         <Button
             android:id="@+id/btn_creditsales"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:text="@string/cr_sales"/>
+            android:text="@string/cr_sales"
+            android:textAllCaps="false" />
+
         <Button
             android:id="@+id/btn_creditpurch"
             android:layout_width="match_parent"
-            android:layout_below="@+id/btn_creditsales"
-            android:textAllCaps="false"
             android:layout_height="wrap_content"
-            android:text="@string/credit_purchase"/>
+            android:layout_below="@+id/btn_creditsales"
+            android:text="@string/credit_purchase"
+            android:textAllCaps="false" />
+
         <Button
             android:id="@+id/btn_receivepay"
             android:layout_width="match_parent"
-            android:layout_below="@+id/btn_creditpurch"
-            android:textAllCaps="false"
             android:layout_height="wrap_content"
-            android:text="@string/rp"/>
+            android:layout_below="@+id/btn_creditpurch"
+            android:text="@string/rp"
+            android:textAllCaps="false" />
 
 
     </RelativeLayout>

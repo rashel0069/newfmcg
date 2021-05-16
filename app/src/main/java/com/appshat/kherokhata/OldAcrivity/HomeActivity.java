@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.appshat.kherokhata.NewUIFragment.History_Nav_Fragment;
 import com.appshat.kherokhata.NewUIFragment.Menu_Nav_Fragment;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.fragment.History_Fragment;
@@ -28,7 +27,7 @@ public class HomeActivity extends AppCompatActivity {
     FloatingActionButton fab;
     BottomAppBar bottomApp;
     Boolean val = false;
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+    private final BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {

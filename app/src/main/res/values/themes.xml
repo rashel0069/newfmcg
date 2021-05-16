@@ -34,11 +34,4 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="DatePicker1" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorAccent">@android:color/holo_red_dark</item>
-    </style>
-
-    <style name="DatePicker2" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorAccent">@android:color/black</item>
-    </style>
 </resources>

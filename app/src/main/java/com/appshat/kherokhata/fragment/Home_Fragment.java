@@ -5,23 +5,19 @@ import android.content.res.Resources;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.appshat.kherokhata.OldAcrivity.ExampleDialog;
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
@@ -43,7 +39,6 @@ import com.appshat.kherokhata.Room.model.InformationViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -51,10 +46,10 @@ public class Home_Fragment<Date> extends Fragment {
 
     public static final String MY_PREF_NAME = "myPrefFile";
     private static final String TAG = "Activity";
-    LinearLayout orderbtn, showtransbtn, cashTrn,creditTrn;
+    LinearLayout orderbtn, showtransbtn, cashTrn, creditTrn;
     TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,
-            openingcashTV, dayendcashTV, shopName, receivablecashTV,cashbook,creditbook,orderbook,transbook, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
-    String prev, openAmount,opening,shname;
+            openingcashTV, dayendcashTV, shopName, receivablecashTV, cashbook, creditbook, orderbook, transbook, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
+    String prev, openAmount, opening, shname;
     InformationDao informationDbDao;
     NewtransactionDao newtransactionDao;
     HistoryDao historyDao;
@@ -159,7 +154,7 @@ public class Home_Fragment<Date> extends Fragment {
 //                startActivityForResult(myIntent, 0);
 
                 NetworkConnect();
-                if (connect == true){
+                if (connect == true) {
 //                    Intent browserInt = new Intent(Intent.ACTION_VIEW, Uri.parse("http://103.108.140.234:3000/s/fmcg"));
 //                    startActivity(browserInt);
 
@@ -169,7 +164,7 @@ public class Home_Fragment<Date> extends Fragment {
                     transaction.addToBackStack("null");
                     transaction.commit();
 
-                }else {
+                } else {
                     Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -187,11 +182,11 @@ public class Home_Fragment<Date> extends Fragment {
         creditTrn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               CreditTransactions creditTransactions = new CreditTransactions();
-               FragmentTransaction transaction = getFragmentManager().beginTransaction();
-               transaction.replace(R.id.framelayout_container_id, creditTransactions);
-               transaction.addToBackStack("null");
-               transaction.commit();
+                CreditTransactions creditTransactions = new CreditTransactions();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.framelayout_container_id, creditTransactions);
+                transaction.addToBackStack("null");
+                transaction.commit();
             }
         });
         cashTrn.setOnClickListener(new View.OnClickListener() {
@@ -212,12 +207,8 @@ public class Home_Fragment<Date> extends Fragment {
 
     private void NetworkConnect() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            connect = true;
-        }else {
-            connect = false;
-        }
+        connect = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED;
     }
 
 
@@ -250,17 +241,17 @@ public class Home_Fragment<Date> extends Fragment {
             String sh = new GetShopNmae().execute().get();
             shopName.setText(shname);
 
-            if ( Double.parseDouble(dayend) != 0.0
-                    && Double.parseDouble(opencash) != 0.0){
+            if (Double.parseDouble(dayend) != 0.0
+                    && Double.parseDouble(opencash) != 0.0) {
 
                 Double cashsales = Double.parseDouble(dayend) - Double.parseDouble(opencash) + Double.parseDouble(cashPurc) +
                         Double.parseDouble(withdraw) - Double.parseDouble(deposit) - Double.parseDouble(purchesreturncash) -
                         Double.parseDouble(pastreceivable) + Double.parseDouble(pastpayable) + Double.parseDouble(salesreturncash)
                         + Double.parseDouble(cashEX);
-                if (cashsales >= 0){
+                if (cashsales >= 0) {
                     cashSell.setText(String.valueOf(cashsales));
                     totalCash.setText(String.valueOf(Double.parseDouble(crSells) + cashsales));
-                }else{
+                } else {
                     cashSell.setText("0.0");
                 }
 
@@ -309,7 +300,6 @@ public class Home_Fragment<Date> extends Fragment {
     }
 
 
-
     public class GetUid extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... voids) {
@@ -339,15 +329,16 @@ public class Home_Fragment<Date> extends Fragment {
             return cash_purchaes.toString().trim();
         }
     }
+
     //get Shop name
-    public class GetShopNmae extends AsyncTask<Void,Void,String>{
+    public class GetShopNmae extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... voids) {
             List<InformationEntity> informationEntities = informationDbDao.findAllInfo();
             try {
                 if (informationEntities != null) {
-                    for (int i = 0; i< informationEntities.size(); i++){
-                        shname = informationEntities.get(i).getShopname().toString();
+                    for (int i = 0; i < informationEntities.size(); i++) {
+                        shname = informationEntities.get(i).getShopname();
                     }
                 }
 
@@ -434,6 +425,7 @@ public class Home_Fragment<Date> extends Fragment {
             return dayend.toString();
         }
     }
+
     public class GetCreditSells extends AsyncTask<Void, Void, String> {
 
         @Override
@@ -448,7 +440,8 @@ public class Home_Fragment<Date> extends Fragment {
             return total_credit.toString().trim();
         }
     }
-    public class GetOpeningCash extends AsyncTask<Void,Void,String>{
+
+    public class GetOpeningCash extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... voids) {
             Calendar cal = Calendar.getInstance();
@@ -457,7 +450,7 @@ public class Home_Fragment<Date> extends Fragment {
             prev = s.format(cal.getTime());
             List<CashboxEntity> cashboxEntities = cashboxDao.getCashboxinfo(prev);
             Double cashop = 0.0;
-            for (int i = 0; i< cashboxEntities.size(); i++){
+            for (int i = 0; i < cashboxEntities.size(); i++) {
                 cashop = Double.parseDouble(cashboxEntities.get(i).getDayend());
 
             }

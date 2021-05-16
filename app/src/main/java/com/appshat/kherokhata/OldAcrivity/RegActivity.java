@@ -22,7 +22,7 @@ import com.appshat.kherokhata.Room.model.UserViewModel;
 
 public class RegActivity extends AppCompatActivity {
     EditText reg_Mobile, reg_password, reg_ConfirmPassword;
-    TextView reg_Tv1, reg_Tv2, reg_Tv3,reg_Tv4;
+    TextView reg_Tv1, reg_Tv2, reg_Tv3, reg_Tv4;
     TextView reg_now, registered_user;
     TextView confirmButton, loginPage;
     UserDao userDBdao;
@@ -38,14 +38,14 @@ public class RegActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signupui);
         reg_now = findViewById(R.id.cre_text);
-        reg_Tv1=findViewById(R.id.cre_text2);
-        reg_Tv2=findViewById(R.id.phone_tv);
+        reg_Tv1 = findViewById(R.id.cre_text2);
+        reg_Tv2 = findViewById(R.id.phone_tv);
         reg_Mobile = findViewById(R.id.reg_phoneNumber_id);
-        reg_Tv3=findViewById(R.id.password_tv);
-        reg_Tv4=findViewById(R.id.confirm_password_tv);
+        reg_Tv3 = findViewById(R.id.password_tv);
+        reg_Tv4 = findViewById(R.id.confirm_password_tv);
         reg_password = findViewById(R.id.reg_password_Id);
         reg_ConfirmPassword = findViewById(R.id.reg_confirm_password_Id);
-        registered_user= findViewById(R.id.terms);
+        registered_user = findViewById(R.id.terms);
         confirmButton = findViewById(R.id.reg_button);
         loginPage = findViewById(R.id.reg_login);
 

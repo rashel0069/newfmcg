@@ -11,8 +11,8 @@ import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.InformationEntity;
 
 public class InformationViewModel extends AndroidViewModel {
-    private InformationDao informationDao;
-    private Databaseroom databaseroom;
+    private final InformationDao informationDao;
+    private final Databaseroom databaseroom;
 
     public InformationViewModel(@NonNull Application application) {
         super(application);

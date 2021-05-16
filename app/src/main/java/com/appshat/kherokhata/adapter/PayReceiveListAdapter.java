@@ -52,7 +52,12 @@ public class PayReceiveListAdapter extends RecyclerView.Adapter<PayReceiveListAd
     }
 
     public class PayReciveViewHolder extends RecyclerView.ViewHolder {
-        private TextView dataName, dataMobile, dataTranType, dataAcetype, dataAmoyunt, dataDate;
+        private final TextView dataName;
+        private final TextView dataMobile;
+        private final TextView dataTranType;
+        private final TextView dataAcetype;
+        private final TextView dataAmoyunt;
+        private final TextView dataDate;
 
         public PayReciveViewHolder(@NonNull View itemView) {
             super(itemView);

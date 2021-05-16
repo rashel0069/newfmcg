@@ -4,7 +4,7 @@
     style="?attr/spinnerDropDownItemStyle"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:gravity="center"
     android:background="@color/primary"
-    android:textColor="@color/white"
-    android:singleLine="true" />
+    android:gravity="center"
+    android:singleLine="true"
+    android:textColor="@color/white" />

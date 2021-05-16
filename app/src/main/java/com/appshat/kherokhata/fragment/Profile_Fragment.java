@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
@@ -39,8 +38,8 @@ import java.util.List;
 public class Profile_Fragment extends Fragment {
     public static final String MY_PREFS_NAME = "MyPrefsFile";
     RelativeLayout languageselector;
-    TextView editTV, langTV, logoutTV, shopkeepName, shopAddress,about,cpTV,helpTV;
-    MaterialButton webBtn,fbBtn;
+    TextView editTV, langTV, logoutTV, shopkeepName, shopAddress, about, cpTV, helpTV;
+    MaterialButton webBtn, fbBtn;
     ImageView photoUp, profileImage;
     String shopN, shopAd;
     boolean lang_selected = true;
@@ -67,11 +66,11 @@ public class Profile_Fragment extends Fragment {
         profileImage = view.findViewById(R.id.profile_img_id);
         shopkeepName = view.findViewById(R.id.textView3);
         shopAddress = view.findViewById(R.id.textView2);
-        cpTV=view.findViewById(R.id.changepass_pro_id);
-        helpTV=view.findViewById(R.id.help_pro_id);
-        about=view.findViewById(R.id.abk_pro_id);
-        webBtn=view.findViewById(R.id.cardView4);
-        fbBtn=view.findViewById(R.id.cardView5);
+        cpTV = view.findViewById(R.id.changepass_pro_id);
+        helpTV = view.findViewById(R.id.help_pro_id);
+        about = view.findViewById(R.id.abk_pro_id);
+        webBtn = view.findViewById(R.id.cardView4);
+        fbBtn = view.findViewById(R.id.cardView5);
 
         databaseroom = Databaseroom.getDatabaseroomref(getActivity());
         informationDao = databaseroom.getInformationDao();
@@ -96,7 +95,6 @@ public class Profile_Fragment extends Fragment {
             about.setText(resources.getString(R.string.aboutk));
             webBtn.setText(resources.getString(R.string.digitalistic));
             fbBtn.setText(resources.getString(R.string.facebook));
-
 
 
         } else {

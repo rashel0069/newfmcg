@@ -1,25 +1,23 @@
 package com.appshat.kherokhata.fragment;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.net.http.*;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+import androidx.fragment.app.Fragment;
+
 import com.appshat.kherokhata.R;
+
 public class BoatFragment extends Fragment {
     WebView webView;
     ProgressBar progressBar;
-    private String webUrl = "http://digitalistic.co:3000/lite/kherokhata---akkas/?m=channel-web&v=Fullscreen&options=%7B%22hideWidget%22%3Atrue%2C%22config%22%3A%7B%22enableReset%22%3Atrue%2C%22enableTranscriptDownload%22%3Atrue%7D%7D";
+    private final String webUrl = "http://digitalistic.co:3000/lite/kherokhata---akkas/?m=channel-web&v=Fullscreen&options=%7B%22hideWidget%22%3Atrue%2C%22config%22%3A%7B%22enableReset%22%3Atrue%2C%22enableTranscriptDownload%22%3Atrue%7D%7D";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,9 +37,11 @@ public class BoatFragment extends Fragment {
 
         return view;
     }
-    public class AppWebViewClints extends WebViewClient{
-        private ProgressBar progressBar;
-        public AppWebViewClints(ProgressBar progressBar){
+
+    public class AppWebViewClints extends WebViewClient {
+        private final ProgressBar progressBar;
+
+        public AppWebViewClints(ProgressBar progressBar) {
             this.progressBar = progressBar;
             progressBar.setVisibility(View.VISIBLE);
         }

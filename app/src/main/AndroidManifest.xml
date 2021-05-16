@@ -27,7 +27,7 @@
 
         </activity>
 
-        <activity android:name=".NewUIActivity.Onboarding_Activity"/>
+        <activity android:name=".NewUIActivity.Onboarding_Activity" />
 
         <activity
             android:name=".OldAcrivity.SplashScreen"
@@ -46,8 +46,9 @@
 
         <activity android:name=".Kotlin.ui.ChatBot" />
 
-        <activity android:name=".OldAcrivity.HomeActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".OldAcrivity.HomeActivity"
+            android:screenOrientation="portrait" />
 
         <activity android:name=".OldAcrivity.MapActivity" />
 
@@ -73,7 +74,7 @@
             android:enabled="true"
             android:process=":remote" />
 
-        <receiver android:name= ".fragment.MyNotificationPublisher" />
+        <receiver android:name=".fragment.MyNotificationPublisher" />
     </application>
 
 </manifest>

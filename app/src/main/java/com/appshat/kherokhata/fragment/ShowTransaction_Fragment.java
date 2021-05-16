@@ -135,7 +135,7 @@ public class ShowTransaction_Fragment extends Fragment {
         transallBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              todayTrans();
+                todayTrans();
             }
         });
         expBtn.setOnClickListener(new View.OnClickListener() {
@@ -190,6 +190,7 @@ public class ShowTransaction_Fragment extends Fragment {
             }
         });
     }
+
     //show pay recive
     private void showPayrecive() {
 
@@ -201,6 +202,7 @@ public class ShowTransaction_Fragment extends Fragment {
         });
 
     }
+
     private void todayTrans() {
         mTodayTrans = new ArrayList<>();
         transactionListAdapter = new TransactionListAdapter(mTodayTrans);

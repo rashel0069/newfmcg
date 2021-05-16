@@ -1,8 +1,8 @@
 package com.appshat.kherokhata.NewUIActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.appshat.kherokhata.R;
 

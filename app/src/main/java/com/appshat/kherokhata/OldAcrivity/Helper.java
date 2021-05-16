@@ -3,8 +3,6 @@ package com.appshat.kherokhata.OldAcrivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.appshat.kherokhata.OldAcrivity.Fmcg;
-
 public class Helper {
     private static final String PREFS_NAME = "fcm";
     private static final String name = "asdasd";

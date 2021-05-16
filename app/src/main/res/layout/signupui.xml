@@ -67,7 +67,6 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/calling"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="bottom"
@@ -93,8 +92,7 @@
                     android:inputType="number"
                     android:maxLength="11"
                     android:padding="8dp"
-                    android:textColor="@color/white"
-                  />
+                    android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -127,7 +125,6 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/password"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="bottom"
@@ -155,8 +152,7 @@
                     android:inputType="textPassword"
                     android:maxLength="16"
                     android:padding="8dp"
-                    android:textColor="@color/white"
-                  />
+                    android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
@@ -189,7 +185,6 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/conf_password"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="bottom"
@@ -217,8 +212,7 @@
                     android:inputType="textPassword"
                     android:maxLength="16"
                     android:padding="8dp"
-                    android:textColor="@color/white"
-                  />
+                    android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 

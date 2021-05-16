@@ -16,12 +16,12 @@ import java.util.List;
 import java.util.Locale;
 
 public class TransactionViewModel extends AndroidViewModel {
-    private NewtransactionDao newtransactionDao;
-    private Databaseroom databaseroom;
-    private LiveData<List<NewtransactionEntity>> mAllTrans;
-    private LiveData<List<NewtransactionEntity>> mtodayTrans;
-    private LiveData<List<NewtransactionEntity>> mRecivetrans;
-    private LiveData<List<NewtransactionEntity>> mPaytrans;
+    private final NewtransactionDao newtransactionDao;
+    private final Databaseroom databaseroom;
+    private final LiveData<List<NewtransactionEntity>> mAllTrans;
+    private final LiveData<List<NewtransactionEntity>> mtodayTrans;
+    private final LiveData<List<NewtransactionEntity>> mRecivetrans;
+    private final LiveData<List<NewtransactionEntity>> mPaytrans;
 
     public TransactionViewModel(@NonNull Application application) {
         super(application);
@@ -51,10 +51,12 @@ public class TransactionViewModel extends AndroidViewModel {
     public LiveData<List<NewtransactionEntity>> getmTodayTrans() {
         return mtodayTrans;
     }
-    public LiveData<List<NewtransactionEntity>> getmRecivable(){
+
+    public LiveData<List<NewtransactionEntity>> getmRecivable() {
         return mRecivetrans;
     }
-    public LiveData<List<NewtransactionEntity>> getmPaytrans(){
+
+    public LiveData<List<NewtransactionEntity>> getmPaytrans() {
         return mPaytrans;
     }
 

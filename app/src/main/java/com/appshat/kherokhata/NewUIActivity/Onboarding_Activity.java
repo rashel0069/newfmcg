@@ -1,6 +1,5 @@
 package com.appshat.kherokhata.NewUIActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,39 +8,28 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.viewpager2.widget.ViewPager2;
 
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.OldAcrivity.MainActivity;
-import com.appshat.kherokhata.OldAcrivity.SplashScreen;
 import com.appshat.kherokhata.R;
 import com.google.android.material.button.MaterialButton;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Onboarding_Activity extends AppCompatActivity {
 
-
-    private MaterialButton buttonOnboardingAction;
 
     TextView introtv1, introtv2, stv, languagetv;
     ImageButton languageImg;
     boolean lang_selected = true;
     Context context;
     Resources resources;
-
+    private MaterialButton buttonOnboardingAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +50,7 @@ public class Onboarding_Activity extends AppCompatActivity {
         if (Helper.getEnglish()) {
             Helper.setEnglish(true);
             Helper.setBangla(false);
-        } else  {
+        } else {
             Helper.setEnglish(false);
             Helper.setBangla(true);
 
@@ -166,7 +154,8 @@ public class Onboarding_Activity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }); buttonOnboardingAction.setOnClickListener(new View.OnClickListener() {
+        });
+        buttonOnboardingAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Onboarding_Activity.this, MainActivity.class);

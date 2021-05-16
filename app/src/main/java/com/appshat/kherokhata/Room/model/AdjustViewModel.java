@@ -16,8 +16,8 @@ import java.util.List;
 
 public class AdjustViewModel extends AndroidViewModel {
     LiveData<List<AdjustEntity>> allAdjust;
-    private AdjustDao adjustDao;
-    private Databaseroom databaseroom;
+    private final AdjustDao adjustDao;
+    private final Databaseroom databaseroom;
 
     public AdjustViewModel(@NonNull Application application) {
         super(application);

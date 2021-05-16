@@ -11,8 +11,8 @@ import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.CashboxEntity;
 
 public class CashBoxViewModel extends AndroidViewModel {
-    private CashboxDao cashboxDao;
-    private Databaseroom databaseroom;
+    private final CashboxDao cashboxDao;
+    private final Databaseroom databaseroom;
 
     public CashBoxViewModel(@NonNull Application application) {
         super(application);

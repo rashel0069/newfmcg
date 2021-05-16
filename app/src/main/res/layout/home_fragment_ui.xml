@@ -194,7 +194,6 @@
                         </LinearLayout>
 
                         <View
-                            android:id="@+id/view4"
                             android:layout_width="1dp"
                             android:layout_height="45dp"
                             android:layout_centerInParent="true"
@@ -233,7 +232,6 @@
                         </LinearLayout>
 
                         <View
-                            android:id="@+id/view5"
                             android:layout_width="1dp"
                             android:layout_height="45dp"
                             android:layout_gravity="center"
@@ -434,7 +432,6 @@
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cash_proimg_id"
                         android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:backgroundTint="#E5E5E5"

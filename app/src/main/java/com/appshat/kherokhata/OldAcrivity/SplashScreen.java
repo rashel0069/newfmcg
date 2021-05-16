@@ -19,7 +19,7 @@ import com.appshat.kherokhata.R;
 public class SplashScreen extends AppCompatActivity {
     Animation topAnim, bottomAnim;
     ImageView spImage;
-    TextView spText,tv5,tv6,tv7;
+    TextView spText, tv5, tv6, tv7;
     Context context;
     Resources resources;
 
@@ -35,7 +35,7 @@ public class SplashScreen extends AppCompatActivity {
         spText = findViewById(R.id.splashText);
         tv5 = findViewById(R.id.textView5);
         tv6 = findViewById(R.id.textView6);
-        tv7= findViewById(R.id.dgtv_id);
+        tv7 = findViewById(R.id.dgtv_id);
 
         spImage.setAnimation(topAnim);
         spText.setAnimation(bottomAnim);

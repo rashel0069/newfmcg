@@ -14,9 +14,9 @@ import com.appshat.kherokhata.Room.ENTITY.ExpenseEntity;
 import java.util.List;
 
 public class ExpenseViewModel extends AndroidViewModel {
-    private ExpenseDao expenseDao;
-    private Databaseroom databaseroom;
-    private LiveData<List<ExpenseEntity>> mAllExpence;
+    private final ExpenseDao expenseDao;
+    private final Databaseroom databaseroom;
+    private final LiveData<List<ExpenseEntity>> mAllExpence;
 
 
     public ExpenseViewModel(@NonNull Application application) {

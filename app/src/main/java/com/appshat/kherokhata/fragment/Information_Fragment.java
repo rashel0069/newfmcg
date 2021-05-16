@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,7 +25,6 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
-import com.appshat.kherokhata.OldAcrivity.RegActivity;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.CashboxDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
@@ -74,23 +72,23 @@ public class Information_Fragment extends Fragment {
 
         acttitle = view.findViewById(R.id.act_TV_id);
         ownernameET = view.findViewById(R.id.sownername_ET);
-        ownernameTV=view.findViewById(R.id.sownername_TV);
-        shoppnameTV=view.findViewById(R.id.sname_TV);
+        ownernameTV = view.findViewById(R.id.sownername_TV);
+        shoppnameTV = view.findViewById(R.id.sname_TV);
         shoppnameEt = view.findViewById(R.id.sname_ET);
-        categoryET=view.findViewById(R.id.selectcategory_id);
-        categoryTV=view.findViewById(R.id.selectcategoryTV_id);
-        addressTV=view.findViewById(R.id.saddTV_id);
-        addressET=view.findViewById(R.id.saddress_ET);
-        treadlnTV=view.findViewById(R.id.tradeTV_id);
-        tradelnET=view.findViewById(R.id.tradeln_id);
-        nidnumberTV=view.findViewById(R.id.nidTV_id);
-        nidnumberET=view.findViewById(R.id.nid_id);
-        openingTV=view.findViewById(R.id.openingamount_TV);
-        openingET=view.findViewById(R.id.openingamount_ET);
-        receivableTV=view.findViewById(R.id.rcvblnc);
-        receivableET=view.findViewById(R.id.receivableamount_ET);
-        payableTV=view.findViewById(R.id.payableblnceTV);
-        payableET=view.findViewById(R.id.payableamount_ET);
+        categoryET = view.findViewById(R.id.selectcategory_id);
+        categoryTV = view.findViewById(R.id.selectcategoryTV_id);
+        addressTV = view.findViewById(R.id.saddTV_id);
+        addressET = view.findViewById(R.id.saddress_ET);
+        treadlnTV = view.findViewById(R.id.tradeTV_id);
+        tradelnET = view.findViewById(R.id.tradeln_id);
+        nidnumberTV = view.findViewById(R.id.nidTV_id);
+        nidnumberET = view.findViewById(R.id.nid_id);
+        openingTV = view.findViewById(R.id.openingamount_TV);
+        openingET = view.findViewById(R.id.openingamount_ET);
+        receivableTV = view.findViewById(R.id.rcvblnc);
+        receivableET = view.findViewById(R.id.receivableamount_ET);
+        payableTV = view.findViewById(R.id.payableblnceTV);
+        payableET = view.findViewById(R.id.payableamount_ET);
         saveBtn = view.findViewById(R.id.saved_id);
         photoUp = view.findViewById(R.id.editphoto_id);
         profileImage = view.findViewById(R.id.profile_img_id2);
@@ -124,7 +122,7 @@ public class Information_Fragment extends Fragment {
             ownernameTV.setText(resources.getString(R.string.full_name));
             ownernameET.setHint(resources.getString(R.string.enter_full_name));
             shoppnameTV.setText(resources.getString(R.string.shopname));
-            shoppnameEt .setHint(resources.getString(R.string.shopname));
+            shoppnameEt.setHint(resources.getString(R.string.shopname));
             categoryTV.setText(resources.getString(R.string.category));
             categoryET.setHint(resources.getString(R.string.category));
             addressTV.setText(resources.getString(R.string.shopaddress));
@@ -149,7 +147,7 @@ public class Information_Fragment extends Fragment {
             ownernameTV.setText(resources.getString(R.string.full_name));
             ownernameET.setHint(resources.getString(R.string.enter_full_name));
             shoppnameTV.setText(resources.getString(R.string.shopname));
-            shoppnameEt .setHint(resources.getString(R.string.shopname));
+            shoppnameEt.setHint(resources.getString(R.string.shopname));
             categoryTV.setText(resources.getString(R.string.category));
             categoryET.setHint(resources.getString(R.string.category));
             addressTV.setText(resources.getString(R.string.shopaddress));
@@ -164,7 +162,7 @@ public class Information_Fragment extends Fragment {
 //            receivableET.setHint(resources.getString(R.string.amounthint));
 //            payableTV.setText(resources.getString(R.string.pay));
 //            payableET.setHint(resources.getString(R.string.amounthint));
-           saveBtn.setText(resources.getString(R.string.submit));
+            saveBtn.setText(resources.getString(R.string.submit));
 
         }
 
@@ -172,7 +170,7 @@ public class Information_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(shoppnameEt.getText().toString()) && !TextUtils.isEmpty(ownernameET.getText().toString()) &&
-                       !TextUtils.isEmpty(addressET.getText().toString())){
+                        !TextUtils.isEmpty(addressET.getText().toString())) {
                     //&& !TextUtils.isEmpty(nidnumberET.getText().toString().trim())
 //                        && !TextUtils.isEmpty(categoryET.getText().toString().trim()) &&
 //                        !TextUtils.isEmpty(openingET.getText().toString().trim()) && !TextUtils.isEmpty(receivableET.getText().toString().trim())

@@ -10,54 +10,28 @@
 
     <string name="companyname">Digitalistic</string>
 
-    <string name="email">digitalistic98@gmail.com</string>
-
     <string name="text1"> Handle your accounts \n smartly <font color="#000000">With Khero Khata </font></string>
 
     <string name="text2">No more analog accounts, Now you can \n easily handle your accounts book </string>
 
     <string name="skip">Skip</string>
 
-    <string name="text3">An online order through Chatbot </string>
-
-    <string name="text4">it make easier to order \n <font color="#000000"> necessary business products</font></string>
-
-    <string name="text5">Lets Begin The Transaction \n <font color="#000000"> With Khero Khata</font></string>
-
-    <string name="text6">it make easier to order \n <font color="#000000">necessary business products</font></string>
-
-
-    <string name="sl">Select Language</string>
-
-    <string name="intro">Welcome</string>
 
     <string name="hint1">Mobile Number</string>
 
     <string name="mobile">Enter Mobile Number</string>
 
-    <string name="hint2">Password</string>
-
-    <string name="hint3"> Confirm Password</string>
-
     <string name="login">Log in</string>
 
     <string name="creditsales">Credit Sales</string>
 
-    <string name="registration"><u>Register</u></string>
-
-    <string name="registration2">New User? Click Here to </string>
-
     <string name="save">Save</string>
-
-    <string name="amount">Enter Your Amount</string>
 
     <string name="amounthint">eg. 5000</string>
 
     <string name="customerName">Customer Name</string>
 
     <string name="titletv">Your today\'s receivable/payable Reminder : </string>
-
-    <string name="duedate">Duedate</string>
 
     <string name="opening">Opening Balance</string>
 
@@ -75,23 +49,11 @@
 
     <string name="shopname">Shop Name</string>
 
-    <string name="saddress">Address</string>
-
     <string name="sownername">Shopkeeper Name</string>
-
-    <string name="shopnamehint"> Enter Your Shop Name</string>
-
-    <string name="saddresshint">Enter Your Shop Address</string>
 
     <string name="scontacthint">Enter Your Mobile Number</string>
 
-    <string name="sownernamehint">Enter Your Shopkeeper Name</string>
-
-    <string name="openinghint">Opening Amount eg. 5000</string>
-
     <string name="ra">Receivable</string>
-
-    <string name="rahint">Receivable Amount exe. 3000 </string>
 
     <string name="pay">Payable Balance</string>
 
@@ -103,61 +65,29 @@
 
     <string name="gs">Get Started</string>
 
-    <string name="pahint">Payable Amount eg. 1000</string>
-
-    <string name="note">Note</string>
-
     <string name="dayendcash">DayEnd Cash</string>
 
     <string name="dayend">eg: 2000</string>
-
-    <string name="next">Next</string>
-
-    <string name="totalcash">Total Cash</string>
-
-    <string name="totalcashhint">0.0</string>
-
-    <string name="receivable">Receivable</string>
 
     <string name="cashsales">Cash Sales</string>
 
     <string name="totalsales">Total Sales</string>
 
-    <string name="spe">Sells / Purchase / Expense</string>
-
     <string name="search">Search</string>
-
-    <string name="sar">Show all receivable</string>
-
-    <string name="showall">Show All</string>
-
-    <string name="sap">Show all payable</string>
 
     <string name="rp"> Receivable &amp; Payable</string>
 
-    <string name="location">Location</string>
-
     <string name="currentlocation">Current Location</string>
-
-    <string name="withdrawalhint">eg: 500</string>
 
     <string name="withdrawal"> Withdrawal Cash</string>
 
     <string name="expense">Expense</string>
 
-    <string name="adjusttv">Adjust Balance</string>
-
     <string name="depositcash">Deposit Cash</string>
-
-    <string name="deposithint">eg: 1000</string>
 
     <string name="payable">Credit Purchase</string>
 
     <string name="purchase">Cash Purchase</string>
-
-    <string name="cashBox">Cash Balance</string>
-
-    <string name="newtransaction">New Txn</string>
 
     <string name="showtransaction">Transaction Book</string>
 
@@ -173,10 +103,6 @@
 
     <string name="city">City</string>
 
-    <string name="account">Account Types</string>
-
-
-    <string name="trans">Transaction Types</string>
 
     <string name="customernamehint">Enter Customer Name</string>
 
@@ -184,26 +110,12 @@
 
     <string name="amounts">Amount</string>
 
-    <string name="date" tools:ignore="TypographyDashes">Pick a date eg:27-9-2020</string>
-
-    <string name="adjust">Payable / Receivable</string>
-
     <string name="cashtransaction">Cash Transaction</string>
 
     <string name="expensetransaction">Expense</string>
 
 
     <string name="reminder">Your today reminder.....</string>
-
-    <string-array name="date">
-
-        <item>*  Enter DueDate / PayDate </item>
-
-        <item>Duedate</item>
-
-        <item>Paydate</item>
-
-    </string-array>
 
     <string-array name="adjustbalance">
 
@@ -215,62 +127,6 @@
 
     </string-array>
 
-    <string-array name="trans">
-
-        <item>*  Select Types of Balance</item>
-
-        <item>Cash</item>
-
-        <item>Product</item>
-
-    </string-array>
-    <string-array name="trans2">
-
-        <item>*  Select Transaction Type</item>
-        <item>Cash</item>
-
-    </string-array>
-
-    <string-array name="trans3">
-
-        <item>*  Select Transaction Type</item>
-
-        <item>Credit</item>
-
-    </string-array>
-
-
-    <string-array name="transactiontype">
-
-        <item>*  Select Transaction Type </item>
-
-        <item>Cash</item>
-
-        <item>Credit</item>
-
-    </string-array>
-
-
-    <string-array name="accountType">
-
-        <item>*  Select Account Type</item>
-
-        <item>Sales</item>
-
-        <item>Purchase</item>
-
-    </string-array>
-
-    <string-array name="returndata">
-
-        <item>*  Select Account Type</item>
-
-        <item>Sales Return</item>
-
-        <item>Purchase Return</item>
-
-
-    </string-array>
 
     <string name="alerm_time_hour">3</string>
 
@@ -287,27 +143,13 @@
 
     <string name="forgot_password">Forgot Password?</string>
 
-    <string name="pr">Payable / Receiveable </string>
-
     <string name="cash">Cash</string>
 
     <string name="cashhint">eg. 1000</string>
 
     <string name="product">Product</string>
 
-    <string name="producthint">eg. 500</string>
-
     <string name="adj">Adjust</string>
-
-    <string name="adjusthint">eg. 50</string>
-
-    <string name="cs">Current Status</string>
-
-    <string name="cshint">0.00</string>
-
-    <string name="prhint">eg. 1000</string>
-
-    <string name="cashreturn">Cash Return</string>
 
     <string name="previous">Previous Balance</string>
 
@@ -329,8 +171,6 @@
 
     <string name="logout">Logout</string>
 
-    <string name="website">Website</string>
-
     <string name="facebook">Facebook</string>
 
     <string name="about" tools:ignore="StringEscaping">Khero khata is a cross functional retail store app for transaction processing.
@@ -339,19 +179,7 @@
     <string name="about2">Its
         aims to disrupt traditional retail space by digitizing financial data recording, ordering and providing data analytics</string>
 
-    <string name="previousday">Previous Day</string>
-
-    <string name="lastweek">Last Week</string>
-
-    <string name="lastmonth">Last Month</string>
-
-    <string name="edit_photo">Edit Photo</string>
-
-    <string name="datehistory">Date:</string>
-
     <string name="sales">Sales</string>
-
-    <string name="totalreceivable">Total Receivable</string>
 
     <string name="closingcash">Closing Cash</string>
 
@@ -365,41 +193,15 @@
 
     <string name="previous_day_history">Previous Day History</string>
 
-    <string name="upload_picture">Upload Picture</string>
-
     <string name="new_opening_balance">New Opening Balance</string>
 
-    <string name="d1">Date:</string>
-
-    <string name="s1">Sales:</string>
-
     <string name="credit_sales">Credit Sales</string>
-
-    <string name="r1">Receivable:</string>
-
-    <string name="p1">Payable:</string>
-
-    <string name="o1">Op.Cash:</string>
-
-    <string name="c1">Cl.Cash:</string>
 
     <string name="previous_week_history">Previous Week History</string>
 
     <string name="last_month_history">Last Month History</string>
 
     <string name="last_month">Last Month</string>
-
-    <string name="n_a">N/A</string>
-
-    <string name="january">January</string>
-
-    <string name="name_of_the_month">Name of the month:</string>
-
-    <string name="registration_now">Registration Now</string>
-
-    <string name="already_to">Already Registered ! Go back to  </string>
-
-    <string name="confirm">Confirm</string>
 
     <string name="select_your" translatable="false">Select Your Location</string>
 
@@ -412,10 +214,6 @@
     <string name="types_of_yo" translatable="false">Types of your area</string>
 
     <string name="submit">Submit</string>
-
-    <string name="pay_info">Payable</string>
-
-    <string name="amountnum">65000</string>
 
     <string name="enter_your_">Enter your Phone Number and password</string>
 
@@ -432,8 +230,6 @@
     <string name="sales_returns">Sales Returns</string>
 
     <string name="purchase_returns">Purchase Returns</string>
-
-    <string name="dayend_withdrawal_deposit">End of the day , Withdrawal , Deposit</string>
 
     <string name="credit_transaction">Credit Transaction</string>
 
@@ -457,8 +253,6 @@
     <string name="password">Password</string>
 
     <string name="enterpassword"> Enter Password</string>
-
-    <string name="log_in">Log In</string>
 
     <string name="enter_full_name">Enter Full Name</string>
 

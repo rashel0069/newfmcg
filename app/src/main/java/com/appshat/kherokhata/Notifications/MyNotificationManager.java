@@ -13,7 +13,7 @@ import com.appshat.kherokhata.R;
 
 public class MyNotificationManager {
     private static MyNotificationManager mInstance;
-    private Context mctx;
+    private final Context mctx;
 
     private MyNotificationManager(Context context) {
 

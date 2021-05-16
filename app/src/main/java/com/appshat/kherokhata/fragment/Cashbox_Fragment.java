@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,7 +35,7 @@ public class Cashbox_Fragment extends Fragment {
     EditText dayendET, withdrawalET, depositET;
     TextView cashttile, dayendTV, withdrawalTV, depositTV;
     MaterialButton cashbtn;
-    ConstraintLayout dayendlayout,withdrawlay,depositlay;
+    ConstraintLayout dayendlayout, withdrawlay, depositlay;
     String dayend, withdrawal, deposit, datetime;
     CashboxDao cashboxDBdao;
     InformationDao informationDbDao;
@@ -66,9 +65,9 @@ public class Cashbox_Fragment extends Fragment {
 
         String checkbutton = getArguments().getString("SelectButton");
         cashttile.setText(getArguments().getString("Title"));
-        if (checkbutton.matches("deposit")){
+        if (checkbutton.matches("deposit")) {
             dayendlayout.setVisibility(View.GONE);
-        }else {
+        } else {
             withdrawlay.setVisibility(View.GONE);
             depositlay.setVisibility(View.GONE);
             depositTV.setVisibility(View.GONE);
