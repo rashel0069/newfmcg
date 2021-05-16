@@ -10,6 +10,7 @@ import com.appshat.kherokhata.R;
 public class Broadcast_Activity extends AppCompatActivity {
     TextView tv1, tv2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

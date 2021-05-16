@@ -10,14 +10,26 @@
 
     <string name="digitalistic">ডিজিটালিস্টিক</string>
 
-    <string name="text1">আপনার লেনদেনগুলি সহজেই পরিচালনা করুন <font color="#000000">খেরো খাতা এর সাথে</font></string>
+    <string name="text1">আপনার লেনদেনগুলি \n সহজেই  পরিচালনা করুন <font color ="#000000">খেরো খাতা এর সাথে</font></string>
 
-    <string name="text2">আর কোনও অ্যানালগ অ্যাকাউন্ট না, এখন আপনি \n <font color="#000000">সহজেই আপনার অ্যাকাউন্ট বইটি পরিচালনা করতে পারেন</font> </string>
+    <string name="text2">আর কোনও অ্যানালগ অ্যাকাউন্ট না, এখন আপনি \n <font color ="#000000">সহজেই আপনার অ্যাকাউন্ট বইটি পরিচালনা করতে পারেন</font> </string>
 
     <string name="skip">বাতিল</string>
 
+    <string name="text3">চ্যাটবোটের মাধ্যমে অনলাইন অর্ডার </string>
+
+    <string name="sl">select language</string>
+
+
+    <string name="text4">এটি প্রয়োজনীয় ব্যবসায়ের পণ্যগুলি অর্ডার \n  <font color ="#000000"> করা সহজ করে</font></string>
+
+    <string name="intro">স্বাগতম</string>
 
     <string name="hint1">মোবাইল নম্বর</string>
+
+    <string name="hint2">পাসওয়ার্ড</string>
+
+    <string name="hint3">পাসওয়ার্ড নিশ্চিত করুন</string>
 
     <string name="login">লগইন</string>
 
@@ -25,14 +37,28 @@
 
     <string name="companyname">ডিজিটালিস্টিক</string>
 
+    <string name="email">digitalistic98@gmail.com</string>
+
+
+    <string name="registration"><u>রেজিস্টার</u></string>
+
+    <string name="registration2">এখানে ক্লিক করুন </string>
 
     <string name="save">সংরক্ষণ করুন</string>
+
+    <string name="amount">টাকার পরিমাণ </string>
 
     <string name="amounthint">যেমন:৫০০০</string>
 
     <string name="customerName">ক্রেতার নাম</string>
 
     <string name="titletv">আপনার আজকের গ্রহণযোগ্য / প্রদানযোগ্য অনুস্মারক: </string>
+
+    <string name="text5">লেনদেন শুরু করুন  \n <font color ="#000000"> খেরো খাতার সাথে</font></string>
+
+    <string name="text6">it make easier to order \n <font color ="#000000">necessary business products</font></string>
+
+    <string name="duedate">নির্দিষ্ট তারিখ</string>
 
     <string name="opening">শুরুর পরিমাণ</string>
 
@@ -49,6 +75,8 @@
     <string name="otherhint">যেমন:৫০০</string>
 
     <string name="shopname">দোকানের নাম</string>
+
+    <string name="saddress">ঠিকানা</string>
 
     <string name="saddhint">৭১,শ্যামলী,ঢাকা</string>
 
@@ -70,35 +98,79 @@
 
     <string name="submit">জমা দিন</string>
 
+    <string name="pay_info">প্রদেয়</string>
+
     <string name="sownername">দোকানদারের নাম</string>
+
+    <string name="shopnamehint">দোকানের নাম লিখুন</string>
+
+    <string name="saddresshint">দোকানের ঠিকানা লিখুন</string>
 
     <string name="scontacthint">মোবাইল নাম্বার লিখুন</string>
 
+    <string name="sownernamehint">দোকানদারের নাম</string>
+
+    <string name="openinghint">শুরুর পরিমাণ যেমন:৫০০০ </string>
+
     <string name="ra">প্রাপ্তির পরিমাণ</string>
+
+    <string name="rahint">প্রাপ্তির পরিমাণ যেমন: ৫০০০ </string>
+
+    <string name="amountnum">৬৫০০০</string>
+
+    <string name="pahint">প্রদেয় পরিমান যেমন: ১০০০ </string>
+
+    <string name="note">টীকা</string>
 
     <string name="dayendcash">দিনশেষের হিসাব</string>
 
     <string name="dayend">যেমন:২০০০</string>
 
+    <string name="totalcash">মোট টাকা</string>
+
+    <string name="totalcashhint">০.০</string>
+
+    <string name="receivable">প্রাপ্য টাকা</string>
+
     <string name="cashsales">নগদে বিক্রয়</string>
 
     <string name="totalsales">মোট বিক্রয়</string>
 
+    <string name="spe"> ক্রয়/ বিক্রয় / ব্যয়</string>
+
     <string name="search">অনুসন্ধান করুন</string>
+
+    <string name="sar">পাওনা হিসাব দেখুন</string>
+
+    <string name="showall">সকল লেনদেন দেখুন</string>
+
+    <string name="sap">সমস্ত দেনা দেখুন</string>
 
     <string name="rp">দেনা / পাওনা</string>
 
+    <string name="location">অবস্থান</string>
+
     <string name="currentlocation">বর্তমান অবস্থান</string>
+
+    <string name="withdrawalhint">যেমন: ৫০০</string>
 
     <string name="withdrawal">উত্তোলনের পরিমাণ</string>
 
     <string name="expense">ব্যয়</string>
 
+    <string name="adjusttv">নিস্পত্তি হিসাব</string>
+
     <string name="depositcash">জমা টাকা</string>
+
+    <string name="deposithint">যেমন: ১০০০</string>
 
     <string name="payable">বাকিতে ক্রয়</string>
 
     <string name="purchase">নগদ ক্রয়</string>
+
+    <string name="cashBox">ক্যাশবাক্স</string>
+
+    <string name="newtransaction">নতুন লেনদেন</string>
 
     <string name="showtransaction">লেনদেনের বই</string>
 
@@ -114,19 +186,39 @@
 
     <string name="city">শহর</string>
 
+    <string name="account">হিসাবের প্রকার</string>
+
+    <string name="trans">লেনদেনের প্রকার</string>
+
     <string name="customernamehint">ক্রেতার নাম লিখুন </string>
 
     <string name="customernumberhint">ক্রেতার মোবাইল নম্বর</string>
 
     <string name="amounts">পরিমাণ</string>
 
-    <string name="gs">প্রবেশ করুন</string>
+    <string name="next">পরবর্তী</string>
+
+    <string name="gs" >প্রবেশ করুন</string>
+
+    <string name="date" tools:ignore="TypographyDashes">তারিখ নির্বাচন করুন যেমন: ২৭-৯-২০২০</string>
+
+    <string name="adjust">বকেয়া প্রদেয় / প্রাপ্য</string>
 
     <string name="cashtransaction">নগদ লেনদেন</string>
 
     <string name="expensetransaction">ব্যয়</string>
 
     <string name="reminder">আপনার আজকের অনুস্মারক .....</string>
+
+    <string-array name="date">
+
+        <item>*পরিশোধ / প্রাপ্তির তারিখ </item>
+
+        <item>নির্দিষ্ট তারিখ</item>
+
+        <item>পরিশোধের তারিখ</item>
+
+    </string-array>
 
     <string-array name="adjustbalance">
 
@@ -138,7 +230,58 @@
 
     </string-array>
 
+    <string-array name="trans">
 
+        <item>*হিসাবের প্রকার</item>
+
+        <item>নগদ টাকা</item>
+
+        <item>পণ্য</item>
+    </string-array>
+
+    <string-array name="trans2">
+
+        <item>* লেনদেনের প্রকার</item>
+
+        <item>নগদ টাকা</item>
+
+    </string-array>
+
+
+    <string-array name="trans3">
+
+        <item>* লেনদেনের প্রকার</item>
+
+        <item>বাকি</item>
+
+    </string-array>
+
+    <string-array name="transactiontype">
+
+        <item>*লেনদেনের প্রকার</item>
+
+        <item>নগদ টাকা</item>
+
+        <item>বাকি</item>
+
+    </string-array>
+    <string-array name="accountType">
+
+        <item>*হিসাবের প্রকার</item>
+
+        <item>বিক্রয়</item>
+
+        <item>ক্রয়</item>
+    </string-array>
+
+    <string-array name="returndata">
+
+        <item>*হিসাবের প্রকার</item>
+
+        <item>বিক্রয় ফেরত</item>
+
+        <item>ক্রয় ফেরত</item>
+    </string-array>
     <string name="alerm_time_hour">3</string>
 
     <string name="alerm_time_second">8</string>
@@ -153,13 +296,27 @@
 
     <string name="forgot_password">পাসওয়ার্ড ভুলে গেছেন?</string>
 
+    <string name="pr">পূর্ববর্তী প্রাপ্তিযোগ্য </string>
+
     <string name="cash">নগদ টাকা</string>
 
     <string name="cashhint">যেমন:১০০০</string>
 
     <string name="product">পণ্য</string>
 
+    <string name="producthint">যেমন: ৫০০</string>
+
     <string name="adj">পাত্তনা মেটান</string>
+
+    <string name="adjusthint">যেমন: ৫০</string>
+
+    <string name="cs">বর্তমান অবস্থা</string>
+
+    <string name="cshint"> ০.০০</string>
+
+    <string name="prhint">যেমন: ১০০০০ </string>
+
+    <string name="cashreturn">পণ্য ফেরত</string>
 
     <string name="previous">পূর্ববর্তী হিসাব</string>
 
@@ -185,6 +342,8 @@
 
     <string name="logout">লগ আউট</string>
 
+    <string name="website">ওয়েবসাইট</string>
+
     <string name="facebook">ফেসবুক</string>
 
     <string name="about">ডিজিটালিস্টিক মুদি দোকানের আর্থিক তথ্য মুঠোফোনে সংরক্ষন , অর্ডার স্বয়ংক্রিয় ভাবে দেয়ার জন্য একটি মোবাইল এপ্লিকেশন। ডিজিটালিস্টিক এর উদ্দেশ্য মুদি দোকানকে আধুনিকরণ এবং এর মাধ্যমে দোকানদারকে ভবিষ্যতে আর্থিক প্রতিষ্ঠান থেকে ঋণ পাবার ব্যবস্থা করা
@@ -192,7 +351,19 @@
 
     <string name="about2">ডিজিটালিস্টিক এর উদ্দেশ্য মুদি দোকানকে আধুনিকরণ এবং এর মাধ্যমে দোকানদারকে ভবিষ্যতে আর্থিক প্রতিষ্ঠান থেকে ঋণ পাবার ব্যবস্থা করা</string>
 
+    <string name="previousday">আগের দিন</string>
+
+    <string name="lastweek">গত সপ্তাহে</string>
+
+    <string name="lastmonth">গত মাসে</string>
+
+    <string name="edit_photo">ছবি সম্পাদনা</string>
+
+    <string name="datehistory">তারিখ:  </string>
+
     <string name="sales">বিক্রয়</string>
+
+    <string name="totalreceivable">মোট প্রাপ্য</string>
 
     <string name="closingcash">সর্বমোট নগদ </string>
 
@@ -209,13 +380,39 @@
 
     <string name="previous_day_history">পূর্ববর্তী দিনের হিসাব</string>
 
+    <string name="upload_picture">ছবি আপলোড </string>
+
     <string name="new_opening_balance">নতুন উদ্বোধনের বিবরণ</string>
 
+    <string name="d1">তারিখ: </string>
+
+    <string name="s1">বিক্রয়: </string>
+
     <string name="credit_sales">বাকিতে বিক্রয়</string>
+
+    <string name="r1">পাওনা:</string>
+
+    <string name="p1">দেনা: </string>
+
+    <string name="o1">শুরুর পরিমাণ:</string>
+
+    <string name="c1">দিনের শেষ:</string>
 
     <string name="previous_week_history">পূর্ববর্তী সপ্তাহের হিসাব</string>
 
     <string name="last_month_history">পূর্ববর্তী মাসের হিসাব</string>
+
+    <string name="n_a">N/A</string>
+
+    <string name="january">জানুয়ারী</string>
+
+    <string name="name_of_the_month">মাসের নাম:</string>
+
+    <string name="registration_now">নিবন্ধকরণ</string>
+
+    <string name="already_to">ইতিমধ্যে নিবন্ধিত! ফিরে যান</string>
+
+    <string name="confirm">নিশ্চিত করুন</string>
 
     <string name="phone_number">ফোন নাম্বার</string>
 
@@ -231,13 +428,15 @@
 
     <string name="purchase_returns">ক্রয় ফেরত</string>
 
+    <string name="dayend_withdrawal_deposit">দিন শেষে হিসাব , উত্তোলন , জমা</string>
+
     <string name="credit_transaction">বাকিতে লেনদেন</string>
 
     <string name="cash_transaction">নগদ লেনদেন</string>
 
     <string name="signup">অ্যাকাউন্ট নেই? <b> সাইনআপ </b></string>
 
-    <string name="enter_your_">আপনার ফোন নম্বর এবং পাসওয়ার্ড লিখুন</string>
+    <string name="enter_your_" >আপনার ফোন নম্বর এবং পাসওয়ার্ড লিখুন</string>
 
     <string name="enter_your_cr">আপনার তথ্য লিখুন</string>
 
@@ -249,7 +448,7 @@
     <string name="mobile">মোবাইল নম্বর লিখুন</string>
 
     <string name="terms">আপনি আমাদের  এবং
-         <font color='#000000'>পরিষেবার শর্তাদি</font> এবং <font color='#000000'>গোপনীয়তা নীতিতে সম্মত হয়েছেন</font> </string>
+         <font color='#000000'>পরিষেবার শর্তাদি</font> এবং <font color = '#000000'>গোপনীয়তা নীতিতে সম্মত হয়েছেন</font> </string>
 
     <string name="sign_up">নিবন্ধন করুন</string>
 
@@ -258,6 +457,8 @@
     <string name="password">পাসওয়ার্ড</string>
 
     <string name="enterpassword">পাসওয়ার্ড লিখুন</string>
+
+    <string name="log_in">লগইন</string>
 
     <string name="enter_full_name">সম্পূর্ণ নাম লিখুন</string>
 

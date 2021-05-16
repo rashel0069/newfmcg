@@ -1,72 +1,341 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary"
     android:padding="8dp"
     tools:context=".fragment.CashTransactions">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/primary"
         android:gravity="center">
 
-        <Button
-            android:id="@+id/btn_opencash"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_purchaseret"
-            android:text="@string/opening"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_cashbox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_opencash"
-            android:text="@string/withdrawal_deposit"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_cashpurchase"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/cash_purchase"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_salesret"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_cashpurchase"
-            android:text="@string/sales_returns"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_purchaseret"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_salesret"
-            android:text="@string/purchase_returns"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_expense"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_cashbox"
-            android:text="@string/expense"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_dayendcash"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_expense"
-            android:text="@string/dayendcash"
-            android:textAllCaps="false" />
+            android:layout_height="match_parent"
+            android:background="@color/primary">
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="80dp"
+                            android:layout_marginEnd="5dp"
+                            app:cardCornerRadius="15dp">
+
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                android:gravity="center"
+                                android:padding="10dp">
+
+                                <TextView
+                                    android:id="@+id/btn_opencash"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat"
+                                    android:lineHeight="14.63dp"
+                                    android:text="@string/opening"
+                                    android:textAlignment="center"
+                                    android:drawableLeft="@drawable/arrowup"
+                                    android:drawablePadding="5dp"
+                                    android:textColor="@color/black"
+                                    android:textFontWeight="500"
+                                    android:textSize="12sp" />
+
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="80dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_weight="1"
+                                    app:cardCornerRadius="15dp">
+
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:gravity="center"
+                                        android:padding="10dp">
+
+                                        <TextView
+                                            android:id="@+id/btn_cashpurchase"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/montserrat"
+                                            android:lineHeight="14.63dp"
+                                            android:text="@string/cash_purchase"
+                                            android:textAlignment="center"
+                                            android:drawableLeft="@drawable/cash"
+                                            android:drawablePadding="5dp"
+                                            android:textColor="@color/black"
+                                            android:textFontWeight="500"
+                                            android:textSize="12sp" />
+
+                                    </RelativeLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_weight="1"
+                                    app:cardCornerRadius="15dp">
+
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:gravity="center"
+                                        android:padding="10dp">
+
+                                        <TextView
+                                            android:id="@+id/btn_salesret"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/montserrat"
+                                            android:lineHeight="14.63dp"
+                                            android:text="@string/sales_returns"
+                                            android:drawableLeft="@drawable/slr"
+                                            android:drawablePadding="5dp"
+                                            android:textAlignment="center"
+                                            android:textColor="@color/black"
+                                            android:textFontWeight="500"
+                                            android:textSize="12sp" />
+
+                                    </RelativeLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="80dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_weight="1"
+                                    app:cardCornerRadius="15dp">
+
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:gravity="center"
+                                        android:padding="10dp">
+
+                                        <TextView
+                                            android:id="@+id/btn_purchaseret"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/montserrat"
+                                            android:lineHeight="14.63dp"
+                                            android:text="@string/purchase_returns"
+                                            android:textAlignment="center"
+                                            android:textColor="@color/black"
+                                            android:drawableLeft="@drawable/pr"
+                                            android:drawablePadding="5dp"
+                                            android:textFontWeight="500"
+                                            android:textSize="12sp" />
+
+                                    </RelativeLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_weight="1"
+                                    app:cardCornerRadius="15dp">
+
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:gravity="center"
+                                        android:padding="10dp">
+
+                                        <TextView
+                                            android:id="@+id/btn_cashbox"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/montserrat"
+                                            android:lineHeight="14.63dp"
+                                            android:text="@string/withdrawal_deposit"
+                                            android:textAlignment="center"
+                                            android:textColor="@color/black"
+                                            android:drawableLeft="@drawable/wd"
+                                            android:drawablePadding="5dp"
+                                            android:textFontWeight="500"
+                                            android:textSize="12sp" />
+
+                                    </RelativeLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="15dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="80dp"
+                                    android:layout_marginEnd="5dp"
+                                    android:layout_weight="1"
+                                    app:cardCornerRadius="15dp">
+
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:gravity="center"
+                                        android:padding="10dp">
+
+                                        <TextView
+                                            android:id="@+id/btn_expense"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/montserrat"
+                                            android:lineHeight="14.63dp"
+                                            android:text="@string/expense"
+                                            android:drawableLeft="@drawable/budget"
+                                            android:padding="5dp"
+                                            android:textAlignment="center"
+                                            android:textColor="@color/black"
+                                            android:textFontWeight="500"
+                                            android:textSize="12sp" />
+
+                                    </RelativeLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="80dp"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_weight="1"
+                                    app:cardCornerRadius="15dp">
+
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="10dp"
+                                        android:gravity="center"
+                                        android:padding="10dp">
+
+                                        <TextView
+                                            android:id="@+id/btn_dayendcash"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/montserrat"
+                                            android:lineHeight="14.63dp"
+                                            android:text="@string/dayendcash"
+                                            android:textAlignment="center"
+                                            android:drawableLeft="@drawable/arrowdown"
+                                            android:drawablePadding="5dp"
+                                            android:textColor="@color/black"
+                                            android:textFontWeight="500"
+                                            android:textSize="12sp" />
+
+                                    </RelativeLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
 
 </FrameLayout>
