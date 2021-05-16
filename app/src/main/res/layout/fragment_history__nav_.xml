@@ -47,28 +47,26 @@
                     app:layout_goneMarginTop="15dp"
                     tools:ignore="MissingConstraints">
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:padding="8dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="8dp"
                         android:orientation="vertical">
                         <LinearLayout
-                            android:weightSum="2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
-                                android:layout_weight="1"
                                 android:id="@+id/pre_day_historyTV_id"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="18dp"
                                 android:layout_marginTop="15.5dp"
                                 android:text="@string/previous_day_history"
+                                android:textAlignment="center"
                                 android:textAllCaps="false"
                                 android:textColor="#333333" />
                             <TextView
-                                android:layout_weight="1"
                                 android:id="@+id/prev_day_dateId"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15.5dp"
                                 android:layout_marginStart="10dp"
@@ -259,7 +257,8 @@
                         <LinearLayout
                             android:weightSum="2"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp">
                             <TextView
                                 android:id="@+id/pre_day_openingcash"
                                 android:layout_weight="1"
@@ -293,10 +292,11 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                     android:id="@+id/historyCV2_id"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="276dp"
                     android:layout_marginStart="23dp"
                     android:layout_marginTop="13dp"
                     android:layout_marginEnd="24dp"
@@ -307,18 +307,18 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:padding="8dp"
                         android:layout_height="wrap_content"
+                        android:padding="8dp"
                         android:orientation="vertical">
                         <TextView
                             android:id="@+id/pre_week_historyTV_id"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="18dp"
+                            android:layout_marginStart="17dp"
                             android:layout_marginTop="15.5dp"
                             android:text="@string/previous_week_history"
                             android:textAllCaps="false"
-                            android:textColor="#333333"/>
+                            android:textColor=" #333333"/>
 
                         <View
                             android:id="@+id/historyview2_id"
@@ -338,7 +338,6 @@
                             <LinearLayout
                                 android:id="@+id/date_pick_id1"
                                 android:layout_weight="1"
-
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                                 <TextView
@@ -380,14 +379,15 @@
                             <LinearLayout
                                 android:id="@+id/date_pick_id2"
                                 android:paddingEnd="17dp"
+                                android:gravity="end"
                                 android:layout_weight="1"
-                                android:gravity="center"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
                                 <TextView
                                     android:id="@+id/hitory_to_id"
                                     android:layout_width="wrap_content"
                                     android:layout_height="18dp"
+                                    android:layout_marginStart="18dp"
                                     android:fontFamily="@font/montserrat"
                                     android:lineHeight="14.63dp"
                                     android:text="@string/to"
@@ -629,7 +629,6 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/historyCV3_id"
                 android:layout_width="wrap_content"
@@ -637,42 +636,43 @@
                 android:layout_marginStart="23dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
-                app:cardCornerRadius="15dp"
                 android:layout_marginBottom="120dp"
+                app:cardCornerRadius="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_goneMarginTop="15dp"
                 tools:ignore="MissingConstraints">
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:padding="8dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="8dp"
                     android:orientation="vertical">
                     <LinearLayout
-                        android:weightSum="2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
                         <TextView
                             android:layout_weight="1"
                             android:id="@+id/pre_month_historyTV_id"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="18dp"
                             android:layout_marginTop="15.5dp"
-                            android:text="@string/previous_day_history"
+                            android:text="@string/last_month_history"
+                            android:textAlignment="center"
                             android:textAllCaps="false"
-                            android:textColor="#333333" />
+                            android:textColor=" #333333" />
+
                         <TextView
                             android:layout_weight="1"
                             android:id="@+id/last_month_date"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15.5dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="19dp"
-                            android:textAlignment="textEnd"
+                            android:layout_marginEnd="17dp"
                             android:text="@string/last_month"
+                            android:textAlignment="textEnd"
                             android:textAllCaps="false"
                             android:textColor="#828282" />
                     </LinearLayout>
@@ -685,37 +685,36 @@
                         android:layout_marginEnd="19dp"
                         android:background="@drawable/view_gradient" />
                     <LinearLayout
-                        android:layout_marginTop="19dp"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:orientation="vertical">
                         <ImageView
-                            android:layout_gravity="center"
-                            android:layout_width="175dp"
-                            android:layout_height="137dp"
-                            android:layout_marginTop="25dp"
+                            android:layout_marginTop="19dp"
+                            android:layout_width="200dp"
+                            android:layout_height="160dp"
                             android:background="@drawable/historyimg"/>
+
                         <TextView
                             android:id="@+id/ndt_hsTV_id"
                             android:layout_width="match_parent"
-                            android:layout_height="18dp"
+                            android:layout_height="wrap_content"
                             android:text="@string/nodata"
-                            android:layout_marginTop="23dp"
                             android:textAllCaps="false"
                             android:textFontWeight="500"
-                            android:layout_marginBottom="15dp"
                             android:textSize="15sp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
                             android:lineHeight="18.29dp"
                             android:textStyle="normal"
                             android:textAlignment="center"
                             android:textColor="@color/black"/>
-
                     </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
 
         </LinearLayout>

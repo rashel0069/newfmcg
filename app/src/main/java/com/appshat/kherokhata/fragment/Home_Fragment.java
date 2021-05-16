@@ -52,9 +52,10 @@ public class Home_Fragment<Date> extends Fragment {
     public static final String MY_PREF_NAME = "myPrefFile";
     private static final String TAG = "Activity";
     LinearLayout orderbtn, showtransbtn, cashTrn,creditTrn;
-    TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,shopName,
-            openingcashTV, dayendcashTV, receivablecashTV,cashbook,creditbook,orderbook,transbook, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
-    String prev, openAmount,opening,sname;
+    TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,
+            openingcashTV, dayendcashTV, shopName, receivablecashTV,cashbook,creditbook,orderbook,transbook, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
+    String prev, openAmount,opening,shname;
+    InformationDao informationDbDao;
     NewtransactionDao newtransactionDao;
     HistoryDao historyDao;
     InformationViewModel informationViewModel;
@@ -62,7 +63,6 @@ public class Home_Fragment<Date> extends Fragment {
     ExpenseDao expenseDao;
     CashboxDao cashboxDao;
     AdjustDao adjustDao;
-    InformationDao informationDao;
     Databaseroom databaseroom;
     Context context;
     Resources resources;
@@ -99,7 +99,7 @@ public class Home_Fragment<Date> extends Fragment {
         creditbook = view.findViewById(R.id.crbook_tv);
         orderbook = view.findViewById(R.id.orderbook_tv);
         transbook = view.findViewById(R.id.transbook_tv);
-        shopName = view.findViewById(R.id.shopname_title);
+        shopName = view.findViewById(R.id.shop_name_id);
 
 //language setter
         if (!Helper.getBangla()) {
@@ -145,7 +145,7 @@ public class Home_Fragment<Date> extends Fragment {
         expenseDao = databaseroom.getExpenseDao();
         cashboxDao = databaseroom.getCashboxDao();
         adjustDao = databaseroom.getduepayandreceive();
-        informationDao = databaseroom.getInformationDao();
+        informationDbDao = databaseroom.getInformationDao();
         informationViewModel = ViewModelProviders.of(getActivity()).get(InformationViewModel.class);
         //historyViewModel = ViewModelProviders.of( getActivity()).get( HistoryViewModel.class );
 
@@ -187,11 +187,11 @@ public class Home_Fragment<Date> extends Fragment {
         creditTrn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CreditTransactions creditTransactions = new CreditTransactions();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.framelayout_container_id, creditTransactions);
-                transaction.addToBackStack("null");
-                transaction.commit();
+               CreditTransactions creditTransactions = new CreditTransactions();
+               FragmentTransaction transaction = getFragmentManager().beginTransaction();
+               transaction.replace(R.id.framelayout_container_id, creditTransactions);
+               transaction.addToBackStack("null");
+               transaction.commit();
             }
         });
         cashTrn.setOnClickListener(new View.OnClickListener() {
@@ -225,10 +225,6 @@ public class Home_Fragment<Date> extends Fragment {
 
         try {
             //others data load
-            String s = new GetInformation().execute().get();
-            if (sname != null){
-                shopName.setText(sname);
-            }
             String crSells = new GetCreditSells().execute().get();
             creditSell.setText(crSells);
             String cashEX = new GetExpense().execute().get();
@@ -251,8 +247,11 @@ public class Home_Fragment<Date> extends Fragment {
             String purchesreturncredit = new GetSelesreturnCredit().execute().get();
             String pastreceivable = new GetPastReceviable().execute().get();
             String pastpayable = new GetPastPayable().execute().get();
+            String sh = new GetShopNmae().execute().get();
+            shopName.setText(shname);
 
-            if (!dayend.isEmpty() && !opencash.isEmpty()){
+            if ( Double.parseDouble(dayend) != 0.0
+                    && Double.parseDouble(opencash) != 0.0){
 
                 Double cashsales = Double.parseDouble(dayend) - Double.parseDouble(opencash) + Double.parseDouble(cashPurc) +
                         Double.parseDouble(withdraw) - Double.parseDouble(deposit) - Double.parseDouble(purchesreturncash) -
@@ -340,21 +339,34 @@ public class Home_Fragment<Date> extends Fragment {
             return cash_purchaes.toString().trim();
         }
     }
-
-    //dayend
-    public class GetInformation extends AsyncTask<Void, Void, String> {
+    //get Shop name
+    public class GetShopNmae extends AsyncTask<Void,Void,String>{
         @Override
         protected String doInBackground(Void... voids) {
-            List<InformationEntity> informationEntities = informationDao.findAllInfo();
+            List<InformationEntity> informationEntities = informationDbDao.findAllInfo();
             try {
                 if (informationEntities != null) {
-                    for (int i = 0; i <= informationEntities.size(); i++) {
-                        sname = informationEntities.get(i).getShopname();
+                    for (int i = 0; i< informationEntities.size(); i++){
+                        shname = informationEntities.get(i).getShopname().toString();
                     }
                 }
 
             } catch (Exception e) {
 
+            }
+            return null;
+        }
+    }
+
+    //dayend
+    public class GetInformation extends AsyncTask<Void, Void, String> {
+        @Override
+        protected String doInBackground(Void... voids) {
+            List<InformationEntity> informationEntities = informationDbDao.findAllInfo();
+            Double openamount = 0.0;
+            if (informationEntities != null) {
+                openamount = Double.parseDouble(informationEntities.get(0).getOpeningamount());
+                return openamount.toString().trim();
             }
             return null;
         }
@@ -580,6 +592,8 @@ public class Home_Fragment<Date> extends Fragment {
 
 
 }
+
+
 
 
 

@@ -65,7 +65,7 @@ public class CreditTransactions extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("AccountType", "Sales");
                 bundle.putString("TransType","Credit");
-                bundle.putString("Title",btncredit_sales.getText().toString());;
+                bundle.putString("Title",btncredit_sales.getText().toString());
                 new_transaction_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, new_transaction_fragment);
                 transaction.addToBackStack("null");
@@ -83,7 +83,7 @@ public class CreditTransactions extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("AccountType", "Purchase");
                 bundle.putString("TransType","Credit");
-                bundle.putString("Title",btncredit_purch.getText().toString());;
+                bundle.putString("Title",btncredit_purch.getText().toString());
                 new_transaction_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, new_transaction_fragment);
                 transaction.addToBackStack("null");
@@ -98,7 +98,9 @@ public class CreditTransactions extends Fragment {
                 //do something
                 Receivablepayable_Fragment receive_balance_fragment = new Receivablepayable_Fragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
+                Bundle bundle = new Bundle();
+                bundle.putString("Title",btnrecive_pay.getText().toString());
+                receive_balance_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, receive_balance_fragment);
                 transaction.addToBackStack("null");
                 transaction.commit();

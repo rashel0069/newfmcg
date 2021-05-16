@@ -51,6 +51,12 @@ public class TransactionViewModel extends AndroidViewModel {
     public LiveData<List<NewtransactionEntity>> getmTodayTrans() {
         return mtodayTrans;
     }
+    public LiveData<List<NewtransactionEntity>> getmRecivable(){
+        return mRecivetrans;
+    }
+    public LiveData<List<NewtransactionEntity>> getmPaytrans(){
+        return mPaytrans;
+    }
 
     public LiveData<List<NewtransactionEntity>> getmRecivable(){
         return mRecivetrans;

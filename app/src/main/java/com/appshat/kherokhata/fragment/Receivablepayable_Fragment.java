@@ -1,16 +1,13 @@
 package com.appshat.kherokhata.fragment;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +30,6 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.appshat.kherokhata.OldAcrivity.Helper;
-import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.AdjustDao;
 import com.appshat.kherokhata.Room.DAO.NewtransactionDao;
@@ -44,7 +39,7 @@ import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
 import com.appshat.kherokhata.Room.model.AdjustViewModel;
 import com.appshat.kherokhata.Room.model.TransactionViewModel;
 import com.appshat.kherokhata.adapter.TransactionListAdapter;
-import com.bumptech.glide.load.engine.Resource;
+import com.appshat.kherokhata.adapter.TransactionListAdapter2;
 import com.google.android.material.button.MaterialButton;
 
 import java.text.SimpleDateFormat;
@@ -55,8 +50,8 @@ import java.util.Locale;
 public class Receivablepayable_Fragment extends Fragment {
     static final int PICK_CONTACT = 1;
     Spinner spadjust;
-    EditText edtmobile, newCash, newProduct, newAdjust,snum;
-    TextView customerName, previousBalns, summPrev, newBalance, previbal2, paidammount, rp, numTV;
+    EditText edtmobile, newCash, newProduct, newAdjust;
+    TextView customerName, previousBalns, summPrev, newBalance,previbal2,paidammount,rpTv;
     ImageView contactnumber;
     MaterialButton calculate, saveTrans, searchUser;
     String customerContName, currentdate, accounttype, transtype, cmmobile, cmamount, date;
@@ -64,17 +59,13 @@ public class Receivablepayable_Fragment extends Fragment {
     LinearLayout l2;
     CardView l1;
     RecyclerView recyclerView;
+    TransactionListAdapter2 transactionListAdapter;
     TransactionViewModel transactionViewModel;
-    TransactionListAdapter transactionListAdapter;
     AdjustViewModel adjustViewModel;
     AdjustDao duepayrecivedao;
     Databaseroom databaseroom;
     Double cpa, result;
     int rpvalue = 0;
-
-    Context context;
-    Resources resources;
-
     List<NewtransactionEntity> mRecivePay;
 
     @Override
@@ -89,7 +80,7 @@ public class Receivablepayable_Fragment extends Fragment {
                     c.moveToFirst();
                     int numberindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
                     String number = c.getString(numberindex);
-                    number = number.replace("+88", "").replace(" ", "").replace("-", "");
+                    number = number.replace("+88","").replace(" ","").replace("-","");
                     edtmobile.setText(number);
                     int nameindex = c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
                     String name = c.getString(nameindex);
@@ -107,50 +98,40 @@ public class Receivablepayable_Fragment extends Fragment {
         l1 = v.findViewById(R.id.l1_id);
         l2 = v.findViewById(R.id.l2_id);
         //cstomer name
-        recyclerView = v.findViewById(R.id.payrecive_cycle);
         customerName = v.findViewById(R.id.viewCustomer_id);
         previousBalns = v.findViewById(R.id.viewpreviousblnc_id);
         summPrev = v.findViewById(R.id.summarybalance_id);
         newBalance = v.findViewById(R.id.newBalance_id);
         previbal2 = v.findViewById(R.id.previousbal_id);
         paidammount = v.findViewById(R.id.paidamount_id);
-        rp = v.findViewById(R.id.rpTV_id);
-        numTV = v.findViewById(R.id.clientmobilenumberTV_id);
+        rpTv = v.findViewById(R.id.rpTV_id);
         //save change
         saveTrans = v.findViewById(R.id.recivepaybtn_id);
+        //recyler view
+        recyclerView = v.findViewById(R.id.payrecive_cycle);
         //spinner
         spadjust = v.findViewById(R.id.spinner_id_payrecive);
-        snum=v.findViewById(R.id.searchmobile_id);
 
+        //data get
+        rpTv.setText(getArguments().getString("Title"));
 
-        //language setter
-        if (!Helper.getBangla()) {
-            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(), "en");
-            resources = context.getResources();
-          rp.setText(resources.getString(R.string.rp));
-            numTV.setText(resources.getString(R.string.cnum));
-            snum.setText(resources.getString(R.string.mobile));
-
-        } else {
-            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(), "bn");
-            resources = context.getResources();
-            rp.setText(resources.getString(R.string.rp));
-            numTV.setText(resources.getString(R.string.cnum));
-            snum.setText(resources.getString(R.string.mobile));
-        }
+        //database
+        databaseroom = Databaseroom.getDatabaseroomref(getActivity());
+        newtransactionDao = databaseroom.getnewtransaction();
+        duepayrecivedao = databaseroom.getduepayandreceive();
 
         String[] cas = getResources().getStringArray(R.array.adjustbalance);
         ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
         spadjust.setAdapter(adapter);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setReverseLayout(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
 
+        adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
         transactionViewModel = ViewModelProviders.of(this).get(TransactionViewModel.class);
-
 
         spadjust.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -174,7 +155,6 @@ public class Receivablepayable_Fragment extends Fragment {
 
             }
         });
-
         saveTrans.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,14 +177,10 @@ public class Receivablepayable_Fragment extends Fragment {
 
             }
         });
-        //database
-        adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
+
         //Date time
         currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-        //database
-        databaseroom = Databaseroom.getDatabaseroomref(getActivity());
-        newtransactionDao = databaseroom.getnewtransaction();
-        duepayrecivedao = databaseroom.getduepayandreceive();
+
 
         //edit new trans
         newCash = v.findViewById(R.id.newCash_id);
@@ -272,41 +248,13 @@ public class Receivablepayable_Fragment extends Fragment {
         return v;
     }
 
-    //get past recivable data
-    private void reciveableTrans() {
-        mRecivePay = new ArrayList<>();
-        transactionListAdapter = new TransactionListAdapter(mRecivePay);
-        transactionViewModel.getmRecivable().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
-            @Override
-            public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
-                transactionListAdapter.setTrans(newtransactionEntities);
-            }
-        });
-        recyclerView.setAdapter(transactionListAdapter);
-    }
-
-    //get past payable data
-    private void payableTrans() {
-        mRecivePay = new ArrayList<>();
-        mRecivePay.clear();
-        transactionListAdapter = new TransactionListAdapter(mRecivePay);
-        transactionViewModel.getmPaytrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
-            @Override
-            public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
-                transactionListAdapter.setTrans(newtransactionEntities);
-            }
-        });
-        recyclerView.setAdapter(transactionListAdapter);
-    }
-
     private void calculatenow() {
-        recyclerView.setVisibility(View.GONE);
         l2.setVisibility(View.VISIBLE);
         cpa = Double.parseDouble(newCash.getText().toString().trim()) +
                 Double.parseDouble(newProduct.getText().toString().trim()) + Double.parseDouble(newAdjust.getText().toString().trim());
         result = Double.parseDouble(previousBalns.getText().toString().trim()) - cpa;
 
-        summPrev.setText(newCash.getText().toString().trim()
+        summPrev.setText( newCash.getText().toString().trim()
                 + " + " + newProduct.getText().toString().trim()
                 + " + " + newAdjust.getText().toString().trim());
         paidammount.setText(String.valueOf(cpa));
@@ -325,9 +273,9 @@ public class Receivablepayable_Fragment extends Fragment {
                         previbal2.setText(String.valueOf(re));
                         customerName.setText(customerContName);
 
-                        if (!customerName.getText().toString().isEmpty() && re != 0.0) {
+                        if (!customerName.getText().toString().isEmpty() && re != 0.0){
                             l1.setVisibility(View.VISIBLE);
-                        } else {
+                        }else {
                             Toast.makeText(getContext(), "User Not Found", Toast.LENGTH_SHORT).show();
                         }
 
@@ -342,9 +290,9 @@ public class Receivablepayable_Fragment extends Fragment {
                         previousBalns.setText(String.valueOf(re));
                         customerName.setText(customerContName);
 
-                        if (!customerName.getText().toString().isEmpty() && re != 0.0) {
+                        if (!customerName.getText().toString().isEmpty() && re != 0.0){
                             l1.setVisibility(View.VISIBLE);
-                        } else {
+                        }else {
                             Toast.makeText(getContext(), "User Not Found", Toast.LENGTH_SHORT).show();
                         }
 
@@ -443,4 +391,32 @@ public class Receivablepayable_Fragment extends Fragment {
             }
         }
     }
+
+    //get past recivable data
+    private void reciveableTrans() {
+        mRecivePay = new ArrayList<>();
+        transactionListAdapter = new TransactionListAdapter2(mRecivePay);
+        transactionViewModel.getmRecivable().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
+            @Override
+            public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
+                transactionListAdapter.setTrans(newtransactionEntities);
+            }
+        });
+        recyclerView.setAdapter(transactionListAdapter);
+    }
+    //get past payable data
+    private void payableTrans() {
+        mRecivePay = new ArrayList<>();
+        mRecivePay.clear();
+        transactionListAdapter = new TransactionListAdapter2(mRecivePay);
+        transactionViewModel.getmPaytrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
+            @Override
+            public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
+                transactionListAdapter.setTrans(newtransactionEntities);
+            }
+        });
+        recyclerView.setAdapter(transactionListAdapter);
+    }
+
+
 }

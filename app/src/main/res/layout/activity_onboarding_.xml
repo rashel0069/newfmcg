@@ -6,25 +6,21 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     tools:context=".NewUIActivity.Onboarding_Activity">
-
-
-    -
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/imageOnboarding"
-            android:layout_width="239.39dp"
-            android:layout_height="178dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="86.3dp"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="85.3dp"
             android:background="@drawable/img3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/skipTV_id" />
 
         <TextView
             android:id="@+id/textTitle"
@@ -70,10 +66,10 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonOnBoardingAction"
-            android:layout_width="316dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="47dp"
             android:layout_marginBottom="62dp"
             android:backgroundTint="@color/black"
@@ -93,17 +89,14 @@
             android:id="@+id/skipTV_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="329dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="654dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/montserrat"
             android:lineHeight="18.29dp"
             android:text="@string/skip"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -116,7 +109,7 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_baseline_language_24"
-            android:visibility="invisible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
@@ -129,7 +122,7 @@
             android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:visibility="invisible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/languageBtn_Id"
             app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="@+id/languageBtn_Id"

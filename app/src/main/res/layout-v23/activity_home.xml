@@ -38,9 +38,9 @@
         android:id="@+id/fab"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:backgroundTint="@color/black"
         android:contentDescription="@string/app_name"
+        android:foreground="@drawable/fmcg"
         android:visibility="gone"
-        android:backgroundTint="@color/white"
-        android:src="@drawable/logo"
         app:layout_anchor="@id/bottomAppBar" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

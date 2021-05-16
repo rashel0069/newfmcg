@@ -66,7 +66,10 @@ public class ShowTransaction_Fragment extends Fragment {
         expBtn = view.findViewById(R.id.expBtn_id);
         recpayBtn = view.findViewById(R.id.payrecBtn_id);
         search = view.findViewById(R.id.search_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setReverseLayout(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
 
