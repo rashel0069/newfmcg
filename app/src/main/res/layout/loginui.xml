@@ -16,10 +16,9 @@
         <ImageView
             android:layout_width="151dp"
             android:layout_height="195dp"
-            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="130dp"
             android:layout_marginTop="27dp"
+            android:layout_centerInParent="true"
             android:background="@drawable/loginimage" />
 
         <TextView

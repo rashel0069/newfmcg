@@ -81,7 +81,6 @@ public class History_Fragment extends Fragment {
         prevwPay = view.findViewById(R.id.pre_week_pa);
         prevwCloaseCash = view.findViewById(R.id.pre_week_cl);
         openwCash = view.findViewById(R.id.pre_week_op);
-
         lastmonth = view.findViewById(R.id.pre_month_historyTV_id);
         last = view.findViewById(R.id.last_month_date);
         nd = view.findViewById(R.id.ndt_hsTV_id);

@@ -84,16 +84,15 @@ public class NewTransaction_Fragment extends Fragment {
     TransactionViewModel transactionViewModel;
     String accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate;
     boolean purchase = false;
-    Button btnDate;
-    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            myCalendar.set(Calendar.YEAR, year);
-            myCalendar.set(Calendar.MONTH, monthOfYear);
-            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            updateLabel();
-        }
-    };
+//    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+//        @Override
+//        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//            myCalendar.set(Calendar.YEAR, year);
+//            myCalendar.set(Calendar.MONTH, monthOfYear);
+//            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//            Toast.makeText(context, ""+ myCalendar, Toast.LENGTH_SHORT).show();
+//        }
+//    };
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -254,13 +253,11 @@ public class NewTransaction_Fragment extends Fragment {
                 month = month + 1;
                 Log.d(TAG, "onDateSet: dd/mm/yyyy:  " + "/" + day + "/" + month + "/" + year);
                 String date = day + "/" + month + "/" + year;
-                String hour = getResources().getString(R.string.alerm_time_hour);
-                String minutes = getResources().getString(R.string.alerm_time_second);
                 ///set time for alerm notification=============================
                 cal = Calendar.getInstance();
                 cal.setTimeInMillis(System.currentTimeMillis());
                 cal.clear();
-                cal.set(year, month, day, parseInt(hour), parseInt(minutes));
+                cal.set(year, month, day);
                 timedateTV.setText(date);
 
             }
@@ -373,44 +370,6 @@ public class NewTransaction_Fragment extends Fragment {
         //Toast.makeText(getActivity().getApplicationContext(), "successfully set alerm", Toast.LENGTH_LONG).show();
 
     }
-
-    private void scheduleNotification(Notification notification, long delay) {
-        Intent notificationIntent = new Intent(getActivity(), MyNotificationPublisher.class);
-        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 1);
-        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        assert alarmManager != null;
-        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, delay, pendingIntent);
-    }
-
-    private Notification getNotification(String content) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), default_notification_channel_id);
-        builder.setContentTitle("Scheduled Notification");
-        builder.setContentText(content);
-        builder.setSmallIcon(R.drawable.ic_launcher_foreground);
-        builder.setAutoCancel(true);
-        builder.setChannelId(NOTIFICATION_CHANNEL_ID);
-        return builder.build();
-    }
-
-    public void setDate(View view) {
-        new DatePickerDialog(
-                getActivity(), date,
-                myCalendar.get(Calendar.YEAR),
-                myCalendar.get(Calendar.MONTH),
-                myCalendar.get(Calendar.DAY_OF_MONTH)
-        ).show();
-    }
-
-    private void updateLabel() {
-        String myFormat = "dd/MM/yy"; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.getDefault());
-        Date date = myCalendar.getTime();
-        btnDate.setText(sdf.format(date));
-        scheduleNotification(getNotification(btnDate.getText().toString()), date.getTime());
-    }
-
 }
 
 
