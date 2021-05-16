@@ -40,6 +40,7 @@
             android:weightSum="2">
 
             <androidx.cardview.widget.CardView
+              android:id="@+id/credittrans1_id"
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:layout_marginEnd="5dp"
@@ -73,6 +74,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/credittrans2_id"
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:layout_marginStart="5dp"
@@ -129,6 +131,7 @@
                         android:orientation="horizontal">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/credittrans3_id"
                             android:layout_width="match_parent"
                             android:layout_height="80dp"
                             android:layout_marginEnd="5dp"

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -20,6 +21,8 @@ import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 
 public class CreditTransactions extends Fragment {
+
+    CardView cr1,cr2,cr3;
     TextView btncredit_purch,btncredit_sales,btnrecive_pay;
     Context context;
     Resources resources;
@@ -31,6 +34,9 @@ public class CreditTransactions extends Fragment {
         btncredit_sales = crtv.findViewById(R.id.btn_creditsales);
         btncredit_purch = crtv.findViewById(R.id.btn_creditpurch);
         btnrecive_pay = crtv.findViewById(R.id.btn_receivepay);
+        cr1=crtv.findViewById(R.id.credittrans1_id);
+        cr2=crtv.findViewById(R.id.credittrans2_id);
+        cr3=crtv.findViewById(R.id.credittrans3_id);
 
         //language setter
         if (!Helper.getBangla()) {
@@ -57,7 +63,7 @@ public class CreditTransactions extends Fragment {
 
         //button Credit Sales
 
-        btncredit_sales.setOnClickListener(new View.OnClickListener() {
+        cr1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //do something
@@ -75,7 +81,7 @@ public class CreditTransactions extends Fragment {
         });
         //button Credit purches
 
-        btncredit_purch.setOnClickListener(new View.OnClickListener() {
+        cr2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //do something
@@ -93,7 +99,7 @@ public class CreditTransactions extends Fragment {
         });
         //button recive and pay
 
-        btnrecive_pay.setOnClickListener(new View.OnClickListener() {
+        cr3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //do something
