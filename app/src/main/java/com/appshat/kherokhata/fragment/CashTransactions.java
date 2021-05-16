@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -21,6 +22,8 @@ import com.appshat.kherokhata.R;
 
 
 public class CashTransactions extends Fragment {
+
+    CardView cash1,cash2,cash3,cash4,cash5,cash6,cash7;
     TextView btncash_purch,btnsales_return,btnpurch_return,btnopening_amount,btncash_box,btnexpance,dayendbtn;
     Context context;
     Resources resources;
@@ -37,6 +40,13 @@ public class CashTransactions extends Fragment {
         btncash_box = ctv.findViewById(R.id.btn_cashbox);
         btnexpance = ctv.findViewById(R.id.btn_expense);
         dayendbtn = ctv.findViewById(R.id.btn_dayendcash);
+        cash1=ctv.findViewById(R.id.cashtrans1_id);
+        cash2=ctv.findViewById(R.id.cashtrans2_id);
+        cash3=ctv.findViewById(R.id.cashtrans3_id);
+        cash4=ctv.findViewById(R.id.cashtrans4_id);
+        cash5 = ctv.findViewById(R.id.cashtrans5_id);
+        cash6=ctv.findViewById(R.id.cashtrans6_id);
+        cash7=ctv.findViewById(R.id.cashtrans7_id);
 
 
 
@@ -69,7 +79,7 @@ public class CashTransactions extends Fragment {
         }
         //button cash purchase
 
-        btncash_purch.setOnClickListener(new View.OnClickListener() {
+        cash2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //do something
@@ -88,7 +98,7 @@ public class CashTransactions extends Fragment {
         });
         //button sales return
 
-        btnsales_return.setOnClickListener(new View.OnClickListener() {
+        cash3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //do something
@@ -106,7 +116,7 @@ public class CashTransactions extends Fragment {
         });
         //button Purchase return
 
-        btnpurch_return.setOnClickListener(new View.OnClickListener() {
+        cash4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //do something
@@ -124,7 +134,7 @@ public class CashTransactions extends Fragment {
         });
         //button Opening Amount
 
-        btnopening_amount.setOnClickListener(new View.OnClickListener() {
+        cash1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //do something
@@ -134,7 +144,7 @@ public class CashTransactions extends Fragment {
         });
         //button Cash Box
 
-        btncash_box.setOnClickListener(new View.OnClickListener() {
+        cash5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //do something
@@ -151,7 +161,7 @@ public class CashTransactions extends Fragment {
         });
         //button Expance
 
-        btnexpance.setOnClickListener(new View.OnClickListener() {
+        cash6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //do something
@@ -165,7 +175,7 @@ public class CashTransactions extends Fragment {
 
         //dayend
 
-        dayendbtn.setOnClickListener(new View.OnClickListener() {
+        cash7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Cashbox_Fragment cash_box_fragment = new Cashbox_Fragment();
@@ -181,4 +191,5 @@ public class CashTransactions extends Fragment {
         });
         return ctv;
     }
+
 }
