@@ -8,6 +8,8 @@ public class Helper {
     private static final String name = "asdasd";
     private static final String bangla = "fdsdf";
     private static final String english = "english";
+    private static final String comefirsttime = "comefirsttime";
+    private static final String duetime = "duetime";
     Context context;
 
     public static boolean setPreference(String key, String value) {
@@ -94,6 +96,27 @@ public class Helper {
     public static void setEnglish(Boolean status) {
         setPreferenceBool(english, status);
 
+
+    }
+
+    //==============================setting comefirsttime============================================
+
+    public static boolean getcomefirsttime() {
+        return getPreferenceBool(comefirsttime);
+    }
+
+    public static void setcomefirsttime(Boolean status) {
+        setPreferenceBool(comefirsttime, status);
+
+    }
+
+
+    public static String getDuetiem() {
+        return getPreference(duetime);
+    }
+
+    public static void setDuetime(String status) {
+        setPreference(duetime, status);
 
     }
 }

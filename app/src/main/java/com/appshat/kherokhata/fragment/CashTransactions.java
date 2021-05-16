@@ -3,22 +3,25 @@ package com.appshat.kherokhata.fragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 import com.appshat.kherokhata.OldAcrivity.ExampleDialog;
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
+
 import com.appshat.kherokhata.R;
 
+
 public class CashTransactions extends Fragment {
-    Button btncash_purch, btnsales_return, btnpurch_return, btnopening_amount, btncash_box, btnexpance, dayendbtn;
+    TextView btncash_purch,btnsales_return,btnpurch_return,btnopening_amount,btncash_box,btnexpance,dayendbtn;
     Context context;
     Resources resources;
 
@@ -34,6 +37,8 @@ public class CashTransactions extends Fragment {
         btncash_box = ctv.findViewById(R.id.btn_cashbox);
         btnexpance = ctv.findViewById(R.id.btn_expense);
         dayendbtn = ctv.findViewById(R.id.btn_dayendcash);
+
+
 
 
         //language setter
@@ -52,7 +57,7 @@ public class CashTransactions extends Fragment {
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(), "bn");
+            context = Localhelper.setLocale(getActivity(),"bn");
             resources = context.getResources();
             btncash_purch.setText(resources.getString(R.string.cash_purchase));
             btnsales_return.setText(resources.getString(R.string.sales_returns));
@@ -72,9 +77,9 @@ public class CashTransactions extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
                 bundle.putString("AccountType", "Purchase");
-                bundle.putString("TransType", "Cash");
-                bundle.putString("TransType", "Cash");
-                bundle.putString("Title", btncash_purch.getText().toString());
+                bundle.putString("TransType","Cash");
+                bundle.putString("TransType","Cash");
+                bundle.putString("Title",btncash_purch.getText().toString());
                 new_transaction_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, new_transaction_fragment);
                 transaction.addToBackStack("null");
@@ -91,8 +96,8 @@ public class CashTransactions extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
                 bundle.putString("AccountType", "Sales Return");
-                bundle.putString("TransType", "Cash");
-                bundle.putString("Title", btnsales_return.getText().toString());
+                bundle.putString("TransType","Cash");
+                bundle.putString("Title",btnsales_return.getText().toString());
                 adjust_balance_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, adjust_balance_fragment);
                 transaction.addToBackStack("null");
@@ -109,8 +114,8 @@ public class CashTransactions extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
                 bundle.putString("AccountType", "Purchase Return");
-                bundle.putString("TransType", "Cash");
-                bundle.putString("Title", btnpurch_return.getText().toString());
+                bundle.putString("TransType","Cash");
+                bundle.putString("Title",btnpurch_return.getText().toString());
                 adjust_balance_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, adjust_balance_fragment);
                 transaction.addToBackStack("null");
@@ -136,8 +141,8 @@ public class CashTransactions extends Fragment {
                 Cashbox_Fragment cash_box_fragment = new Cashbox_Fragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
-                bundle.putString("SelectButton", "deposit");
-                bundle.putString("Title", btncash_box.getText().toString());
+                bundle.putString("SelectButton","deposit");
+                bundle.putString("Title",btncash_box.getText().toString());
                 cash_box_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, cash_box_fragment);
                 transaction.addToBackStack("null");
@@ -166,8 +171,8 @@ public class CashTransactions extends Fragment {
                 Cashbox_Fragment cash_box_fragment = new Cashbox_Fragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 Bundle bundle = new Bundle();
-                bundle.putString("SelectButton", "dayend");
-                bundle.putString("Title", dayendbtn.getText().toString());
+                bundle.putString("SelectButton","dayend");
+                bundle.putString("Title",dayendbtn.getText().toString());
                 cash_box_fragment.setArguments(bundle);
                 transaction.replace(R.id.framelayout_container_id, cash_box_fragment);
                 transaction.addToBackStack("null");

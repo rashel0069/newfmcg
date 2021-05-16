@@ -60,6 +60,8 @@ public class TransactionViewModel extends AndroidViewModel {
         return mPaytrans;
     }
 
+
+
     private class InsertAsyncTask extends AsyncTask<NewtransactionEntity, Void, Void> {
         NewtransactionDao mNewtransactionDao;
 
