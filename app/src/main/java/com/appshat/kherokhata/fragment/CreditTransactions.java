@@ -11,15 +11,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
+
+import android.widget.TextView;
+
 
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 
 public class CreditTransactions extends Fragment {
-    Button btncredit_purch,btncredit_sales,btnrecive_pay;
+    TextView btncredit_purch,btncredit_sales,btnrecive_pay;
     Context context;
     Resources resources;
     @Override

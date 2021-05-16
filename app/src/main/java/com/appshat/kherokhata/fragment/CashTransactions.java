@@ -11,18 +11,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.appshat.kherokhata.OldAcrivity.ExampleDialog;
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
-import com.appshat.kherokhata.OldAcrivity.MainActivity;
+
 import com.appshat.kherokhata.R;
-import com.bumptech.glide.load.engine.Resource;
+
 
 public class CashTransactions extends Fragment {
-    Button btncash_purch,btnsales_return,btnpurch_return,btnopening_amount,btncash_box,btnexpance,dayendbtn;
+    TextView btncash_purch,btnsales_return,btnpurch_return,btnopening_amount,btncash_box,btnexpance,dayendbtn;
     Context context;
     Resources resources;
 

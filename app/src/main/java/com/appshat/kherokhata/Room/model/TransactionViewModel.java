@@ -58,12 +58,7 @@ public class TransactionViewModel extends AndroidViewModel {
         return mPaytrans;
     }
 
-    public LiveData<List<NewtransactionEntity>> getmRecivable(){
-        return mRecivetrans;
-    }
-    public LiveData<List<NewtransactionEntity>> getmPaytrans(){
-        return mPaytrans;
-    }
+
 
     private class InsertAsyncTask extends AsyncTask<NewtransactionEntity, Void, Void> {
         NewtransactionDao mNewtransactionDao;
