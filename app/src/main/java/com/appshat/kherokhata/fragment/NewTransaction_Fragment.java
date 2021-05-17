@@ -91,7 +91,7 @@ public class NewTransaction_Fragment extends Fragment {
             myCalendar.set(Calendar.YEAR, year);
             myCalendar.set(Calendar.MONTH, monthOfYear);
             myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            updateLabel();
+            //updateLabel();
         }
     };
 
@@ -374,42 +374,36 @@ public class NewTransaction_Fragment extends Fragment {
 
     }
 
-    private void scheduleNotification(Notification notification, long delay) {
-        Intent notificationIntent = new Intent(getActivity(), MyNotificationPublisher.class);
-        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 1);
-        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        assert alarmManager != null;
-        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, delay, pendingIntent);
-    }
+//    private void scheduleNotification(Notification notification, long delay) {
+//        Intent notificationIntent = new Intent(getActivity(), MyNotificationPublisher.class);
+//        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION_ID, 1);
+//        notificationIntent.putExtra(MyNotificationPublisher.NOTIFICATION, notification);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+//        assert alarmManager != null;
+//        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, delay, pendingIntent);
+//    }
+//
+//    private Notification getNotification(String content) {
+//        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), default_notification_channel_id);
+//        builder.setContentTitle("Scheduled Notification");
+//        builder.setContentText(content);
+//        builder.setSmallIcon(R.drawable.ic_launcher_foreground);
+//        builder.setAutoCancel(true);
+//        builder.setChannelId(NOTIFICATION_CHANNEL_ID);
+//        return builder.build();
+//    }
+//
+//    public void setDate(View view) {
+//        new DatePickerDialog(
+//                getActivity(), date,
+//                myCalendar.get(Calendar.YEAR),
+//                myCalendar.get(Calendar.MONTH),
+//                myCalendar.get(Calendar.DAY_OF_MONTH)
+//        ).show();
+//    }
 
-    private Notification getNotification(String content) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity(), default_notification_channel_id);
-        builder.setContentTitle("Scheduled Notification");
-        builder.setContentText(content);
-        builder.setSmallIcon(R.drawable.ic_launcher_foreground);
-        builder.setAutoCancel(true);
-        builder.setChannelId(NOTIFICATION_CHANNEL_ID);
-        return builder.build();
-    }
 
-    public void setDate(View view) {
-        new DatePickerDialog(
-                getActivity(), date,
-                myCalendar.get(Calendar.YEAR),
-                myCalendar.get(Calendar.MONTH),
-                myCalendar.get(Calendar.DAY_OF_MONTH)
-        ).show();
-    }
-
-    private void updateLabel() {
-        String myFormat = "dd/MM/yy"; //In which you need put here
-        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.getDefault());
-        Date date = myCalendar.getTime();
-        btnDate.setText(sdf.format(date));
-        scheduleNotification(getNotification(btnDate.getText().toString()), date.getTime());
-    }
 
 }
 

@@ -189,6 +189,7 @@
                                 android:lineHeight="17.07dp"
                                 android:textAlignment="center"
                                 android:textColor="@color/black"
+                                android:textColorHint="@color/black"
                                 android:textFontWeight="700"
                                 android:textSize="14sp" />
                         </LinearLayout>

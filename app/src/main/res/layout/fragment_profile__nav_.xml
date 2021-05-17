@@ -12,6 +12,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginEnd="24dp"
         android:gravity="center"
+        android:layout_gravity="center"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -122,6 +123,7 @@
 
             <TextView
                 android:id="@+id/changepass_pro_id"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -178,6 +180,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:visibility="gone"
                 android:drawableLeft="@drawable/help"
                 android:drawableRight="@drawable/arrow2"
                 android:drawablePadding="10dp"
@@ -248,7 +251,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:backgroundTint="#4A66AC"
             android:drawableLeft="@drawable/fb"
             android:fontFamily="@font/montserrat"
