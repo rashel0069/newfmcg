@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -86,12 +87,17 @@ public class History_Fragment extends Fragment {
         nd = view.findViewById(R.id.ndt_hsTV_id);
 
 
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
-        cal.add(Calendar.DAY_OF_YEAR, -1);
-        previousday = s.format(cal.getTime());
+//        Calendar cal = Calendar.getInstance();
+//        SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
+//        cal.add(Calendar.DAY_OF_YEAR, -1);
+//        previousday = s.format(cal.getTime());
+        Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int mon = today.month +1;
+        int day = today.monthDay -1;
+        previousday = day + "-"+mon +"-"+today.year;
         prevDate.setText(previousday);
-        cal.clear();
+        //cal.clear();
         startDate = Calendar.getInstance();
 
 

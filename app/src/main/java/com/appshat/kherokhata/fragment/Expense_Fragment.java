@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +40,7 @@ public class Expense_Fragment extends Fragment {
     ExpenseDao expenseDBdao;
     Databaseroom expenseDB;
     ExpenseViewModel expenseViewModel;
-    String rent, salary, others;
+    String rent, salary, others,currentdate;
     AdView mLogAdview;
     InterstitialAd interstitialAd;
 
@@ -53,7 +54,11 @@ public class Expense_Fragment extends Fragment {
 //        expenseDB = Room.databaseBuilder( getActivity(), Databaseroom.class,"expense" ).allowMainThreadQueries().build();
 //        expenseDBdao = expenseDB.getExpenseDao();
         expenseViewModel = ViewModelProviders.of(getActivity()).get(ExpenseViewModel.class);
-        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+//        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+        Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int mon = today.month +1;
+        currentdate = today.monthDay +"-0"+String.valueOf(mon)+"-"+today.year;
 
         expensetitle = view.findViewById(R.id.expenseTV_id);
         re = view.findViewById(R.id.rextTV_id);
@@ -133,7 +138,7 @@ public class Expense_Fragment extends Fragment {
     }
 
     private void expensecalcu() {
-        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+//        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
 
         ExpenseEntity expenseEntity = new ExpenseEntity(rent, salary, others, currentdate);
         expenseViewModel.insertExpense(expenseEntity);

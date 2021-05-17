@@ -10,7 +10,9 @@
         android:id="@+id/webView_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="100dp"></WebView>
+        android:layout_marginBottom="120dp"/>
+
+
 
     <ProgressBar
         android:id="@+id/progressBar_id"

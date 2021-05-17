@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +54,7 @@ public class Home_Fragment<Date> extends Fragment {
     InformationDao informationDbDao;
     NewtransactionDao newtransactionDao;
     HistoryDao historyDao;
+    String currentdate;
     InformationViewModel informationViewModel;
     HistoryViewModel historyViewModel;
     ExpenseDao expenseDao;
@@ -68,6 +70,11 @@ public class Home_Fragment<Date> extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.home_fragment_ui, container, false);
+        //current date
+        Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int mon = today.month +1;
+        currentdate = today.monthDay +"-0"+String.valueOf(mon)+"-"+today.year;
 
         historyViewModel = ViewModelProviders.of(getActivity()).get(HistoryViewModel.class);
         cashTrn = view.findViewById(R.id.cashtrnBtn_id);
@@ -268,6 +275,7 @@ public class Home_Fragment<Date> extends Fragment {
             css = cashSell.getText().toString().trim();
             crs = creditSell.getText().toString().trim();
             toc = totalCash.getText().toString().trim();
+
             if (st.matches(currentdate)) {
                 new Thread(new Runnable() {
                     @Override
@@ -319,7 +327,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<NewtransactionEntity> newtransactionEntities = newtransactionDao.getCerditSell("Purchase", "Cash", currentdate);
             Double cash_purchaes = 0.0;
             for (int i = 0; i < newtransactionEntities.size(); i++) {
@@ -367,7 +375,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<NewtransactionEntity> newtransactionEntities = newtransactionDao.getCerditSell("Purchase", "Credit", currentdate);
             Double credit_purchaes = 0.0;
             for (int i = 0; i < newtransactionEntities.size(); i++) {
@@ -382,7 +390,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<NewtransactionEntity> newtransactionEntities = newtransactionDao.getAllSell("Sales", currentdate);
             Double total_sell = 0.0;
             for (int i = 0; i < newtransactionEntities.size(); i++) {
@@ -397,7 +405,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<ExpenseEntity> expense = expenseDao.getExpense(currentdate);
             Double total_expense = 0.0, b, a, c = 0.0;
             for (int i = 0; i < expense.size(); i++) {
@@ -415,7 +423,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<CashboxEntity> cashboxEntities = cashboxDao.getCashboxinfo(currentdate);
             Double dayend = 0.0;
             for (int i = 0; i < cashboxEntities.size(); i++) {
@@ -430,7 +438,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<NewtransactionEntity> newtransactionEntities = newtransactionDao.getCerditSell("Sales", "Credit", currentdate);
             Double total_credit = 0.0;
             for (int i = 0; i < newtransactionEntities.size(); i++) {
@@ -444,10 +452,19 @@ public class Home_Fragment<Date> extends Fragment {
     public class GetOpeningCash extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... voids) {
-            Calendar cal = Calendar.getInstance();
-            SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
-            cal.add(Calendar.DAY_OF_YEAR, -1);
-            prev = s.format(cal.getTime());
+
+//            Calendar cal = Calendar.getInstance();
+//            SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
+//            cal.add(Calendar.DAY_OF_YEAR, -1);
+//            prev = s.format(cal.getTime());
+
+            Time today = new Time(Time.getCurrentTimezone());
+            today.setToNow();
+            int mon = today.month +1;
+            int day = today.monthDay -1;
+            prev = day + "-"+mon +"-"+today.year;
+
+
             List<CashboxEntity> cashboxEntities = cashboxDao.getCashboxinfo(prev);
             Double cashop = 0.0;
             for (int i = 0; i < cashboxEntities.size(); i++) {
@@ -463,7 +480,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<CashboxEntity> cashboxEntities = cashboxDao.getCashboxinfoWith(currentdate);
             Double withdraw = 0.0;
             for (int i = 0; i < cashboxEntities.size(); i++) {
@@ -478,7 +495,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<CashboxEntity> cashboxEntities = cashboxDao.getCashboxinfoDep(currentdate);
             Double deposit = 0.0;
             for (int i = 0; i < cashboxEntities.size(); i++) {
@@ -494,7 +511,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Sales_Return", "Cash", currentdate);
             Double salesreturncash = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {
@@ -509,7 +526,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Sales Return", "Credit", currentdate);
             Double salesreturncredit = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {
@@ -525,7 +542,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Purchase Return", "Cash", currentdate);
             Double pureturncash = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {
@@ -540,7 +557,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Purchase Return", "Credit", currentdate);
             Double pureturncredit = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {
@@ -555,7 +572,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Past Receivable", "PAID-OUT", currentdate);
             Double pastreceivable = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {
@@ -571,7 +588,7 @@ public class Home_Fragment<Date> extends Fragment {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
             List<AdjustEntity> adjustEntities = adjustDao.getAdjust("Past Payable", "PAID-OUT", currentdate);
             Double pastpayable = 0.0;
             for (int i = 0; i < adjustEntities.size(); i++) {

@@ -48,9 +48,6 @@ public class CashTransactions extends Fragment {
         cash6=ctv.findViewById(R.id.cashtrans6_id);
         cash7=ctv.findViewById(R.id.cashtrans7_id);
 
-
-
-
         //language setter
         if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));

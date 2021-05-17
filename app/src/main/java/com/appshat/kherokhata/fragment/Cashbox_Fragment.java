@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,8 +98,11 @@ public class Cashbox_Fragment extends Fragment {
         //database
         cashBoxViewModel = ViewModelProviders.of(getActivity()).get(CashBoxViewModel.class);
         //Date time
-        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-
+//        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+        Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int mon = today.month +1;
+        String currentdate = today.monthDay +"-0"+String.valueOf(mon)+"-"+today.year;
 
         cashbtn.setOnClickListener(new View.OnClickListener() {
             @Override

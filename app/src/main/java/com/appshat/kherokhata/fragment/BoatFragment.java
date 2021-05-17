@@ -16,7 +16,7 @@ import com.appshat.kherokhata.R;
 public class BoatFragment extends Fragment {
     WebView webView;
     ProgressBar progressBar;
-    private final String webUrl = "http://digitalistic.co:3000/lite/kherokhata---akkas/?m=channel-web&v=Fullscreen&options=%7B%22hideWidget%22%3Atrue%2C%22config%22%3A%7B%22enableReset%22%3Atrue%2C%22enableTranscriptDownload%22%3Atrue%7D%7D";
+    private final String webUrl = "https://digitalistic.co/app";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

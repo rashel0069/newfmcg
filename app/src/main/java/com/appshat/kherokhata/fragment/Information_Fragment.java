@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,11 +96,13 @@ public class Information_Fragment extends Fragment {
 
 
         //Date time
-        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
-        cal.add(Calendar.DAY_OF_YEAR, -1);
-        datetime = s.format(cal.getTime());
+
+        Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int mon = today.month +1;
+        String currentdate = today.monthDay + "-"+mon +"-"+today.year;
+        int day = today.monthDay -1;
+        datetime = day + "-"+mon +"-"+today.year;
 
         //upload photo
         photoUp.setOnClickListener(new View.OnClickListener() {

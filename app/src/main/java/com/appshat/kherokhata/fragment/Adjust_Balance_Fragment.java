@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -105,7 +106,12 @@ public class Adjust_Balance_Fragment extends Fragment {
 
         adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
         //Date time
-        currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+//
+        Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int mon = today.month +1;
+        currentdate = today.monthDay +"-0"+String.valueOf(mon)+"-"+today.year;
+
         duepaydateTV.setText(currentdate);
         phoneContact.setOnClickListener(new View.OnClickListener() {
             @Override

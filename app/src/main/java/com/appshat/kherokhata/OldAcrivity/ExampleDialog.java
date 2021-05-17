@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -51,10 +52,15 @@ public class ExampleDialog extends AppCompatDialogFragment {
                 }).setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Calendar cal = Calendar.getInstance();
-                SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
-                cal.add(Calendar.DAY_OF_YEAR, -1);
-                datetime = s.format(cal.getTime());
+//                Calendar cal = Calendar.getInstance();
+//                SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
+//                cal.add(Calendar.DAY_OF_YEAR, -1);
+//                datetime = s.format(cal.getTime());
+                Time today = new Time(Time.getCurrentTimezone());
+                today.setToNow();
+                int mon = today.month +1;
+                int day = today.monthDay -1;
+                datetime = day + "-"+mon +"-"+today.year;
                 //database
                 cashBoxViewModel = ViewModelProviders.of(getActivity()).get(CashBoxViewModel.class);
                 dayend = newOpenAmount.getText().toString().trim();
@@ -71,10 +77,15 @@ public class ExampleDialog extends AppCompatDialogFragment {
         });
 
         newOpenAmount = view.findViewById(R.id.openingamount_new);
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
-        cal.add(Calendar.DAY_OF_YEAR, -1);
-        datetime = s.format(cal.getTime());
+//        Calendar cal = Calendar.getInstance();
+//        SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
+//        cal.add(Calendar.DAY_OF_YEAR, -1);
+//        datetime = s.format(cal.getTime());
+        Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int mon = today.month +1;
+        int day = today.monthDay -1;
+        datetime = day + "-"+mon +"-"+today.year;
         //database
         cashBoxViewModel = ViewModelProviders.of(getActivity()).get(CashBoxViewModel.class);
         return builder.create();

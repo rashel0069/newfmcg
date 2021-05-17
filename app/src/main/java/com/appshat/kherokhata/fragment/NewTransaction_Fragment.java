@@ -3,6 +3,7 @@ package com.appshat.kherokhata.fragment;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -17,6 +18,7 @@ import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +34,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.NotificationCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
@@ -48,6 +51,7 @@ import com.appshat.kherokhata.Room.model.TransactionViewModel;
 import com.appshat.kherokhata.adapter.JsonPlaceHolderApi;
 import com.google.android.material.button.MaterialButton;
 
+import java.text.BreakIterator;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -66,18 +70,20 @@ import static java.lang.Integer.parseInt;
 public class NewTransaction_Fragment extends Fragment {
     public static final String NOTIFICATION_CHANNEL_ID = "10001";
     static final int PICK_CONTACT = 1;
+    public static final String DATE_DIALOG_1 = "datePicker1";
+    private static int mYear1, mMonth1, mDay1;
     private final static String default_notification_channel_id = "default";
     final Calendar myCalendar = Calendar.getInstance();
     Spinner accspinner, transspinner;
     EditText cnameET, cmblnumET, camountET;
-    TextView cnTV, cmTV, amTV, timedateTV, saveNewContact, accTv, transTv, adtv;
+    static TextView cnTV, cmTV, amTV, timedateTV, saveNewContact, accTv, transTv, adtv;
     MaterialButton newtransBTN;
     ConstraintLayout l1, l2, datepick;
     ImageView phonecontactSelect;
     NewtransactionDao newtransactionDBdao;
     JsonPlaceHolderApi jsonPlaceHolderApi;
     DatePickerDialog.OnDateSetListener mDateSetListener;
-    Calendar cal;
+    Calendar caldate;
     Context context;
     Resources resources;
     Databaseroom newtransactionDB;
@@ -142,6 +148,44 @@ public class NewTransaction_Fragment extends Fragment {
         adtv = view.findViewById(R.id.adtTV_tittelbar);
 
         transactionViewModel = ViewModelProviders.of(getActivity()).get(TransactionViewModel.class);
+        if (!Helper.getBangla()) {
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(), "en");
+            resources = context.getResources();
+            accTv.setText(resources.getString(R.string.sat));
+            transTv.setText(resources.getString(R.string.stt));
+            cnTV.setText(resources.getString(R.string.customerName));
+            cnameET.setHint(resources.getString(R.string.customernamehint));
+            cmTV.setText(resources.getString(R.string.hint1));
+            cmblnumET.setHint(resources.getString(R.string.customernumberhint));
+            amTV.setText(resources.getString(R.string.amounts));
+            camountET.setHint(resources.getString(R.string.amounthint));
+            newtransBTN.setText(resources.getString(R.string.save));
+
+        } else {
+            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
+            context = Localhelper.setLocale(getActivity(), "bn");
+            resources = context.getResources();
+
+            accTv.setText(resources.getString(R.string.sat));
+            transTv.setText(resources.getString(R.string.stt));
+            cnTV.setText(resources.getString(R.string.customerName));
+            cnameET.setHint(resources.getString(R.string.customernamehint));
+            amTV.setText(resources.getString(R.string.amounts));
+            camountET.setHint(resources.getString(R.string.amounthint));
+            cmTV.setText(resources.getString(R.string.hint1));
+            cmblnumET.setHint(resources.getString(R.string.customernumberhint));
+            newtransBTN.setText(resources.getString(R.string.save));
+
+
+        }
+
+        accounttype = getArguments().getString("AccountType");
+        transactiontype = getArguments().getString("TransType");
+        adtv.setText(getArguments().getString("Title"));
+        accTv.setText(accounttype);
+        transTv.setText(transactiontype);
+
 
         //spinner
 //        String[] cas = getResources().getStringArray(R.array.accountType);
@@ -193,81 +237,39 @@ public class NewTransaction_Fragment extends Fragment {
             }
         });
         //language setter
-        if (!Helper.getBangla()) {
-            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(), "en");
-            resources = context.getResources();
 
-
-            accTv.setText(resources.getString(R.string.sat));
-            transTv.setText(resources.getString(R.string.stt));
-            cnTV.setText(resources.getString(R.string.customerName));
-            cnameET.setHint(resources.getString(R.string.customernamehint));
-            cmTV.setText(resources.getString(R.string.hint1));
-            cmblnumET.setHint(resources.getString(R.string.customernumberhint));
-            amTV.setText(resources.getString(R.string.amounts));
-            camountET.setHint(resources.getString(R.string.amounthint));
-            newtransBTN.setText(resources.getString(R.string.save));
-
-        } else {
-            Log.e("Bangla1", String.valueOf(Helper.getBangla()));
-            context = Localhelper.setLocale(getActivity(), "bn");
-            resources = context.getResources();
-
-            accTv.setText(resources.getString(R.string.sat));
-            transTv.setText(resources.getString(R.string.stt));
-            cnTV.setText(resources.getString(R.string.customerName));
-            cnameET.setHint(resources.getString(R.string.customernamehint));
-            amTV.setText(resources.getString(R.string.amounts));
-            camountET.setHint(resources.getString(R.string.amounthint));
-            cmTV.setText(resources.getString(R.string.hint1));
-            cmblnumET.setHint(resources.getString(R.string.customernumberhint));
-            newtransBTN.setText(resources.getString(R.string.save));
-
-
-        }
         //Current date
-        currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        //currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int mon = today.month +1;
+        currentdate = today.monthDay +"-0"+String.valueOf(mon)+"-"+today.year;
 
         datepick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
 
-
-                DatePickerDialog dialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener,
-                        year, month, day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-
+                DialogFragment dialogFragment = new NewTransaction_Fragment.DatePickerFragment();
+                dialogFragment.show(getActivity().getSupportFragmentManager(), DATE_DIALOG_1);
 
             }
         });
 
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                Log.d(TAG, "onDateSet: dd/mm/yyyy:  " + "/" + day + "/" + month + "/" + year);
-                String date = day + "/" + month + "/" + year;
-                ///set time for alerm notification=============================
-                cal = Calendar.getInstance();
-                cal.setTimeInMillis(System.currentTimeMillis());
-                cal.clear();
-                cal.set(year, month, day);
-                timedateTV.setText(date);
-
-            }
-        };
+//        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//                month = month + 1;
+//                String date = day + "-" + month + "-" + year;
+//                ///set time for alerm notification=============================
+//                cal = Calendar.getInstance();
+//                cal.setTimeInMillis(System.currentTimeMillis());
+//                cal.clear();
+//                cal.set(year, month, day);
+//                timedateTV.setText(date);
+//
+//            }
+//        };
         //get data from bundel
-        accounttype = getArguments().getString("AccountType");
-        transactiontype = getArguments().getString("TransType");
-        adtv.setText(getArguments().getString("Title"));
-        accTv.setText(accounttype);
-        transTv.setText(transactiontype);
         if (accounttype.matches("Purchase") && transactiontype.matches("Cash")) {
             cmblnumET.setEnabled(false);
             cnameET.setEnabled(false);
@@ -282,6 +284,7 @@ public class NewTransaction_Fragment extends Fragment {
             timedateTV.setClickable(false);
             timedateTV.setText(currentdate);
         }
+
         newtransBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -352,6 +355,39 @@ public class NewTransaction_Fragment extends Fragment {
 
 
         return view;
+    }
+
+    public static class DatePickerFragment extends DialogFragment
+            implements DatePickerDialog.OnDateSetListener {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            //Date Time NOW
+            final Calendar c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
+
+            // Create a new instance of DatePickerDialog and return it
+
+            DatePickerDialog date1 = new DatePickerDialog(getActivity(), this, year, month, day);
+            date1.getDatePicker().setMinDate(System.currentTimeMillis());
+            return date1;
+        }
+
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            // get selected date
+//            Calendar ca = Calendar.getInstance();
+//            ca.set(Calendar.YEAR, year);
+//            ca.set(Calendar.MONTH, month);
+//            ca.set(Calendar.DAY_OF_MONTH, day);
+//            SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
+//            String date = s.format(ca.getTime());
+            Time ca = new Time(Time.getCurrentTimezone());
+            ca.set(day,month+1,year);
+            // show selected date to date button
+            timedateTV.setText(ca.monthDay + "-0" + ca.month +"-"+ca.year);
+        }
     }
 
     private void setAlerm(Calendar cal) {
