@@ -113,7 +113,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints,UnknownId" />
 
         <TextView
             android:id="@+id/languageTV_id"
