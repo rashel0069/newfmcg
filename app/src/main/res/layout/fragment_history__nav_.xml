@@ -68,7 +68,7 @@
                             android:text="@string/previous_day_history"
                             android:textAlignment="center"
                             android:textAllCaps="false"
-                            android:textColor="#333333" />
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/prev_day_dateId"
@@ -80,7 +80,7 @@
                             android:text="@string/historydate"
                             android:textAlignment="textEnd"
                             android:textAllCaps="false"
-                            android:textColor="#828282" />
+                            android:textColor="@color/black" />
                     </LinearLayout>
 
                     <View
@@ -141,7 +141,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="15.85dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -156,7 +156,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="18.29dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -213,7 +213,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="15.85dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -228,7 +228,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="18.29dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -286,7 +286,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="15.85dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -301,7 +301,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="18.29dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -336,7 +336,7 @@
                         android:layout_marginTop="15.5dp"
                         android:text="@string/previous_week_history"
                         android:textAllCaps="false"
-                        android:textColor=" #333333" />
+                        android:textColor="@color/black" />
 
                     <View
                         android:layout_width="match_parent"
@@ -382,6 +382,7 @@
                                 android:hint="@string/historydate"
                                 android:lineHeight="14.63dp"
                                 android:textAllCaps="false"
+                                android:textColor="@color/black"
                                 android:textFontWeight="400"
                                 android:textSize="12sp"
                                 android:textStyle="normal" />
@@ -426,6 +427,7 @@
                                 android:hint="@string/historydate"
                                 android:lineHeight="14.63dp"
                                 android:textAllCaps="false"
+                                android:textColor="@color/black"
                                 android:textFontWeight="400"
                                 android:textSize="12sp"
                                 android:textStyle="normal" />
@@ -490,7 +492,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="15.85dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -505,7 +507,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="18.29dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -562,7 +564,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="15.85dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -577,7 +579,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="18.29dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -634,7 +636,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="15.85dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -649,7 +651,7 @@
                             android:fontFamily="@font/montserrat"
                             android:hint="@string/amounthint"
                             android:lineHeight="18.29dp"
-                            android:textColor="#828282"
+                            android:textColor="@color/black"
                             android:textFontWeight="500"
                             android:textSize="13sp"
                             android:textStyle="normal" />
@@ -695,7 +697,7 @@
                             android:text="@string/last_month_history"
                             android:textAlignment="center"
                             android:textAllCaps="false"
-                            android:textColor=" #333333" />
+                            android:textColor="@color/black" />
 
                         <TextView
                             android:id="@+id/last_month_date"
@@ -707,7 +709,7 @@
                             android:text="@string/last_month"
                             android:textAlignment="textEnd"
                             android:textAllCaps="false"
-                            android:textColor="#828282" />
+                            android:textColor="@color/black" />
                     </LinearLayout>
 
                     <View
