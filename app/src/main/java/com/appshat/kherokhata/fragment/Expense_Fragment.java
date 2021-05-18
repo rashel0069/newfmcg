@@ -58,7 +58,7 @@ public class Expense_Fragment extends Fragment {
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
         int mon = today.month +1;
-        currentdate = today.monthDay +"-0"+String.valueOf(mon)+"-"+today.year;
+        currentdate = today.monthDay +"-0"+mon+"-"+today.year;
 
         expensetitle = view.findViewById(R.id.expenseTV_id);
         re = view.findViewById(R.id.rextTV_id);

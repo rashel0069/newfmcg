@@ -60,7 +60,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
                 today.setToNow();
                 int mon = today.month +1;
                 int day = today.monthDay -1;
-                datetime = day + "-"+mon +"-"+today.year;
+                datetime = day + "-0"+mon +"-"+today.year;
                 //database
                 cashBoxViewModel = ViewModelProviders.of(getActivity()).get(CashBoxViewModel.class);
                 dayend = newOpenAmount.getText().toString().trim();
@@ -77,15 +77,11 @@ public class ExampleDialog extends AppCompatDialogFragment {
         });
 
         newOpenAmount = view.findViewById(R.id.openingamount_new);
-//        Calendar cal = Calendar.getInstance();
-//        SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
-//        cal.add(Calendar.DAY_OF_YEAR, -1);
-//        datetime = s.format(cal.getTime());
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
         int mon = today.month +1;
         int day = today.monthDay -1;
-        datetime = day + "-"+mon +"-"+today.year;
+        datetime = day + "-0"+mon +"-"+today.year;
         //database
         cashBoxViewModel = ViewModelProviders.of(getActivity()).get(CashBoxViewModel.class);
         return builder.create();

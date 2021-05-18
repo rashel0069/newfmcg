@@ -100,9 +100,9 @@ public class Information_Fragment extends Fragment {
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
         int mon = today.month +1;
-        String currentdate = today.monthDay + "-"+mon +"-"+today.year;
+        String currentdate = today.monthDay + "-0"+mon +"-"+today.year;
         int day = today.monthDay -1;
-        datetime = day + "-"+mon +"-"+today.year;
+        datetime = day + "-0"+mon +"-"+today.year;
 
         //upload photo
         photoUp.setOnClickListener(new View.OnClickListener() {

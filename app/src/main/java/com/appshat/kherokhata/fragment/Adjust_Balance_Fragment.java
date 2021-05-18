@@ -110,7 +110,7 @@ public class Adjust_Balance_Fragment extends Fragment {
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
         int mon = today.month +1;
-        currentdate = today.monthDay +"-0"+String.valueOf(mon)+"-"+today.year;
+        currentdate = today.monthDay +"-0"+mon+"-"+today.year;
 
         duepaydateTV.setText(currentdate);
         phoneContact.setOnClickListener(new View.OnClickListener() {

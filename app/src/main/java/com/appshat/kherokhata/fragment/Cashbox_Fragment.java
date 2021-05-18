@@ -102,7 +102,7 @@ public class Cashbox_Fragment extends Fragment {
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
         int mon = today.month +1;
-        String currentdate = today.monthDay +"-0"+String.valueOf(mon)+"-"+today.year;
+        String currentdate = today.monthDay +"-0"+mon+"-"+today.year;
 
         cashbtn.setOnClickListener(new View.OnClickListener() {
             @Override

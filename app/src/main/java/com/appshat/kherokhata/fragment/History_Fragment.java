@@ -95,7 +95,7 @@ public class History_Fragment extends Fragment {
         today.setToNow();
         int mon = today.month +1;
         int day = today.monthDay -1;
-        previousday = day + "-"+mon +"-"+today.year;
+        previousday = day + "-0"+mon +"-"+today.year;
         prevDate.setText(previousday);
         //cal.clear();
         startDate = Calendar.getInstance();

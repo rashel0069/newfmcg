@@ -148,6 +148,7 @@ public class NewTransaction_Fragment extends Fragment {
         adtv = view.findViewById(R.id.adtTV_tittelbar);
 
         transactionViewModel = ViewModelProviders.of(getActivity()).get(TransactionViewModel.class);
+
         if (!Helper.getBangla()) {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
             context = Localhelper.setLocale(getActivity(), "en");
@@ -243,7 +244,7 @@ public class NewTransaction_Fragment extends Fragment {
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
         int mon = today.month +1;
-        currentdate = today.monthDay +"-0"+String.valueOf(mon)+"-"+today.year;
+        currentdate = today.monthDay +"-0"+mon+"-"+today.year;
 
         datepick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -377,12 +378,6 @@ public class NewTransaction_Fragment extends Fragment {
 
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // get selected date
-//            Calendar ca = Calendar.getInstance();
-//            ca.set(Calendar.YEAR, year);
-//            ca.set(Calendar.MONTH, month);
-//            ca.set(Calendar.DAY_OF_MONTH, day);
-//            SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
-//            String date = s.format(ca.getTime());
             Time ca = new Time(Time.getCurrentTimezone());
             ca.set(day,month+1,year);
             // show selected date to date button

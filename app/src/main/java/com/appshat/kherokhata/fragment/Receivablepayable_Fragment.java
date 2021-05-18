@@ -132,6 +132,11 @@ public class Receivablepayable_Fragment extends Fragment {
         adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
         transactionViewModel = ViewModelProviders.of(this).get(TransactionViewModel.class);
 
+        Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int mon = today.month +1;
+        currentdate = today.monthDay + "-0"+mon +"-"+today.year;
+
         spadjust.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -179,11 +184,6 @@ public class Receivablepayable_Fragment extends Fragment {
 
         //Date time
 //        currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
-        Time today = new Time(Time.getCurrentTimezone());
-        today.setToNow();
-        int mon = today.month +1;
-        currentdate = today.monthDay + "-"+mon +"-"+today.year;
-
 
         //edit new trans
         newCash = v.findViewById(R.id.newCash_id);

@@ -74,7 +74,7 @@ public class Home_Fragment<Date> extends Fragment {
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
         int mon = today.month +1;
-        currentdate = today.monthDay +"-0"+String.valueOf(mon)+"-"+today.year;
+        currentdate = today.monthDay +"-0"+mon+"-"+today.year;
 
         historyViewModel = ViewModelProviders.of(getActivity()).get(HistoryViewModel.class);
         cashTrn = view.findViewById(R.id.cashtrnBtn_id);
@@ -264,7 +264,8 @@ public class Home_Fragment<Date> extends Fragment {
 
             }
 
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+
             String st = new GetUid().execute().get();
             String opc, dac, exc, puc, pac, css, crs, toc;
             opc = openingCash.getText().toString().trim();
@@ -312,7 +313,8 @@ public class Home_Fragment<Date> extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
 
-            String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+            //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+
             List<HistoryEntity> historyEntities = historyDao.getallHistory(currentdate);
             String date = "";
             for (int i = 0; i < historyEntities.size(); i++) {
@@ -453,16 +455,11 @@ public class Home_Fragment<Date> extends Fragment {
         @Override
         protected String doInBackground(Void... voids) {
 
-//            Calendar cal = Calendar.getInstance();
-//            SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
-//            cal.add(Calendar.DAY_OF_YEAR, -1);
-//            prev = s.format(cal.getTime());
-
             Time today = new Time(Time.getCurrentTimezone());
             today.setToNow();
             int mon = today.month +1;
             int day = today.monthDay -1;
-            prev = day + "-"+mon +"-"+today.year;
+            prev = day + "-0"+mon +"-"+today.year;
 
 
             List<CashboxEntity> cashboxEntities = cashboxDao.getCashboxinfo(prev);
