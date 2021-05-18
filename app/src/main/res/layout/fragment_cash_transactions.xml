@@ -232,7 +232,7 @@
                                         android:layout_height="match_parent"
                                         android:layout_margin="10dp"
                                         android:gravity="center"
-                                        android:padding="10dp">
+                                       >
 
                                         <TextView
                                             android:id="@+id/btn_cashbox"
@@ -298,6 +298,7 @@
                                             android:drawableLeft="@drawable/budget"
                                             android:padding="5dp"
                                             android:textAlignment="center"
+                                            android:gravity="center"
                                             android:textColor="@color/black"
                                             android:textFontWeight="500"
                                             android:textSize="12sp" />
