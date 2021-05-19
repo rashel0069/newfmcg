@@ -5,30 +5,39 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.appshat.kherokhata.OldAcrivity.Helper;
+import com.appshat.kherokhata.OldAcrivity.HomeActivity;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
 import com.appshat.kherokhata.Room.ENTITY.HistoryEntity;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class History_Fragment extends Fragment {
     public static final String DATE_DIALOG_1 = "datePicker1";
     public static final String DATE_DIALOG_2 = "datePicker2";
+    ImageView searchDate;
     static TextView fromDate, toDate;
     private static int mYear1, mMonth1, mDay1;
     private static int mYear2, mMonth2, mDay2;
@@ -85,20 +94,20 @@ public class History_Fragment extends Fragment {
         lastmonth = view.findViewById(R.id.pre_month_historyTV_id);
         last = view.findViewById(R.id.last_month_date);
         nd = view.findViewById(R.id.ndt_hsTV_id);
+        searchDate = view.findViewById(R.id.serchData);
 
-
-//        Calendar cal = Calendar.getInstance();
-//        SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
-//        cal.add(Calendar.DAY_OF_YEAR, -1);
-//        previousday = s.format(cal.getTime());
+        
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
         int mon = today.month +1;
         int day = today.monthDay -1;
         previousday = day + "-0"+mon +"-"+today.year;
+        //fromDate.setText(previousday);
+        //toDate.setText(today.monthDay + "-0"+ mon +"-"+today.year);
         prevDate.setText(previousday);
         //cal.clear();
         startDate = Calendar.getInstance();
+
 
 
         if (!Helper.getBangla()) {
@@ -192,15 +201,26 @@ public class History_Fragment extends Fragment {
             public void onClick(View v) {
                 DialogFragment dialogFragment2 = new DatePickerFragment2();
                 dialogFragment2.show(getActivity().getSupportFragmentManager(), DATE_DIALOG_2);
+                
+
             }
         });
-
+        // Search Date
+        searchDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!TextUtils.isEmpty(fromDate.toString()) && !TextUtils.isEmpty(toDate.toString())){
+                    PreviousWeekHistory();
+                }
+            }
+        });
 
         //previous day history
         PreviousDayHistory();
 
         return view;
     }
+
 
     private void PreviousDayHistory() {
         new Thread(new Runnable() {
@@ -280,6 +300,64 @@ public class History_Fragment extends Fragment {
             // show selected date to date button
             toDate.setText(date);
             cb.clear();
+
+
         }
     }
+    private void PreviousWeekHistory(){
+
+        if (!TextUtils.isEmpty(fromDate.toString()) && !TextUtils.isEmpty(toDate.toString())){
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Double preSales = 0.0,preCreSales = 0.0, preRec = 0.0, prePay = 0.0, preClos = 0.0, preOpen = 0.0;
+                        String fdate = fromDate.getText().toString();
+                        String tdate = toDate.getText().toString();
+
+                        Date d_from = new SimpleDateFormat("dd-MM-yyyy").parse(fdate);
+                        Date d_to = new SimpleDateFormat("dd-MM-yyyy").parse(tdate);
+                        SimpleDateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                        long t1 = d_from.getTime();
+                        long t2 = d_to.getTime();
+
+                        if (t1<t2){
+                            for (long i=t1; i<=t2; i+=86400000){
+                                String date = f.format(i);
+                                try {
+                                    HistoryEntity mhistory = Databaseroom.getDatabaseroomref(getContext()).getHistory().findbyId(date);
+                                    preSales = preSales + Double.parseDouble(mhistory.getTotalsales());
+                                    preCreSales = preCreSales + Double.parseDouble(mhistory.getCreditsales());
+                                    preRec = preRec + Double.parseDouble(mhistory.getCreditsales());
+                                    prePay = prePay + Double.parseDouble(mhistory.getCreditpurchase());
+                                    preClos = preClos + Double.parseDouble(mhistory.getDayendbalance());
+                                    preOpen = preOpen + Double.parseDouble(mhistory.getOpeningammount());
+
+
+
+                                }catch (Exception e){
+
+                                }
+                            }
+                        }
+
+                        prevwSales.setText(String.valueOf(preSales));
+                        prevwCrSales.setText(String.valueOf(preCreSales));
+                        prevwRecive.setText(String.valueOf(preRec));
+                        prevwPay.setText(String.valueOf(prePay));
+                        prevwCloaseCash.setText(String.valueOf(preClos));
+                        openwCash.setText(String.valueOf(preOpen));
+
+                    }catch (Exception e){
+
+                    }
+                }
+            }).start();
+        }else {
+            Toast.makeText(getActivity(), "Select From and To Date", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
 }

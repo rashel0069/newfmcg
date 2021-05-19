@@ -313,7 +313,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="276dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
                 android:layout_marginTop="13dp"
                 android:layout_marginEnd="24dp"
@@ -327,16 +327,30 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="8dp">
-
-                    <TextView
-                        android:id="@+id/pre_week_historyTV_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="17dp"
+                    <LinearLayout
+                        android:weightSum="2"
                         android:layout_marginTop="15.5dp"
-                        android:text="@string/previous_week_history"
-                        android:textAllCaps="false"
-                        android:textColor="@color/black" />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_marginStart="17dp"
+                            android:layout_weight="1"
+                            android:id="@+id/pre_week_historyTV_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/previous_week_history"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/serchData"
+                            android:layout_weight="1"
+                            android:layout_width="15dp"
+                            android:layout_height="16dp"
+                            android:layout_marginEnd="18dp"
+                            android:gravity="end"
+                            android:src="@drawable/search"/>
+                    </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
@@ -440,7 +454,9 @@
                                 android:scaleType="fitCenter"
                                 android:src="@drawable/calendar" />
                         </LinearLayout>
+
                     </LinearLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -685,17 +701,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="15.5dp"
                         android:weightSum="2">
 
                         <TextView
                             android:id="@+id/pre_month_historyTV_id"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="18dp"
-                            android:layout_marginTop="15.5dp"
+                            android:layout_marginStart="17dp"
                             android:layout_weight="1"
                             android:text="@string/last_month_history"
-                            android:textAlignment="center"
                             android:textAllCaps="false"
                             android:textColor="@color/black" />
 
@@ -703,8 +718,7 @@
                             android:id="@+id/last_month_date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="15.5dp"
-                            android:layout_marginEnd="17dp"
+                            android:layout_marginEnd="19dp"
                             android:layout_weight="1"
                             android:text="@string/last_month"
                             android:textAlignment="textEnd"
