@@ -258,17 +258,17 @@
 
     <string name="full_name">Full Name</string>
 
-    <string name="saddhint">71,Shamoly,Dhaka</string>
+    <string name="saddhint">Your Address</string>
 
     <string name="shopaddress">Shop Address</string>
 
-    <string name="tradehint">9232734</string>
+    <string name="tradehint">License Number</string>
 
     <string name="trade">Trade License Number</string>
 
     <string name="nid_number">NID Number</string>
 
-    <string name="nid_numberhint">1929927268</string>
+    <string name="nid_numberhint">NID Number</string>
 
     <string name="rcvblnc">Receivable Balance</string>
 
