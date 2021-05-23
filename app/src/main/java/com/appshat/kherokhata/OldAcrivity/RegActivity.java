@@ -22,7 +22,7 @@ import com.appshat.kherokhata.Room.model.UserViewModel;
 
 public class RegActivity extends AppCompatActivity {
     EditText reg_Mobile, reg_password, reg_ConfirmPassword;
-    TextView reg_Tv1, reg_Tv2, reg_Tv3, reg_Tv4;
+    TextView reg_Tv1, reg_Tv2, reg_Tv3, reg_Tv4,bd2;
     TextView reg_now, registered_user;
     TextView confirmButton, loginPage;
     UserDao userDBdao;
@@ -48,6 +48,7 @@ public class RegActivity extends AppCompatActivity {
         registered_user = findViewById(R.id.terms);
         confirmButton = findViewById(R.id.reg_button);
         loginPage = findViewById(R.id.reg_login);
+        bd2 = findViewById(R.id.bd2);
 
 
         //Database
@@ -72,6 +73,8 @@ public class RegActivity extends AppCompatActivity {
             registered_user.setText(resources.getString(R.string.terms));
             confirmButton.setText(resources.getString(R.string.sign_up));
             loginPage.setText(resources.getString(R.string.signin));
+            bd2.setVisibility(View.GONE);
+
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
@@ -88,6 +91,7 @@ public class RegActivity extends AppCompatActivity {
             registered_user.setText(resources.getString(R.string.terms));
             confirmButton.setText(resources.getString(R.string.sign_up));
             loginPage.setText(resources.getString(R.string.signin));
+            bd2.setVisibility(View.VISIBLE);
 
         }
         loginPage.setOnClickListener(new View.OnClickListener() {

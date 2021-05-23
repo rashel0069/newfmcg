@@ -47,7 +47,7 @@
 
     <string name="otherhint"> eg. 500</string>
 
-    <string name="shopname">Shop Name</string>
+    <string name="shopname">Shop Name (দোকানের নাম)</string>
 
     <string name="sownername">Shopkeeper Name</string>
 
@@ -60,7 +60,7 @@
     <string name="pa">Payable</string>
 
 
-    <string name="category">Shop Category</string>
+    <string name="category">Shop Category (দোকানের ধরণ)</string>
 
 
     <string name="gs">Get Started</string>
@@ -93,7 +93,7 @@
 
     <string name="order">Order</string>
 
-    <string name="selector">Language</string>
+    <string name="selector">Language (ভাষা)</string>
 
     <string name="country">Country</string>
 
@@ -163,7 +163,7 @@
 
     <string name="cp">Change Password</string>
 
-    <string name="cl">Change Language</string>
+    <string name="cl">Language (ভাষা)</string>
 
     <string name="help">Help</string>
 
@@ -235,7 +235,7 @@
 
     <string name="cash_transaction">Cash Transaction</string>
 
-    <string name="signup">Dont have an account? <b>Signup</b></string>
+    <string name="signup">Don\'t have an account? <b>Signup</b></string>
 
     <string name="enter_your_cr">Enter your credentials to continue</string>
 
@@ -256,17 +256,17 @@
 
     <string name="enter_full_name">Enter Full Name</string>
 
-    <string name="full_name">Full Name</string>
+    <string name="full_name">Full Name (নাম)</string>
 
     <string name="saddhint">Your Address</string>
 
-    <string name="shopaddress">Shop Address</string>
+    <string name="shopaddress">Shop Address (ঠিকানা) </string>
 
     <string name="tradehint">License Number</string>
 
-    <string name="trade">Trade License Number</string>
+    <string name="trade">Trade License (ট্রেড লাইসেন্স)</string>
 
-    <string name="nid_number">NID Number</string>
+    <string name="nid_number">NID Number (এনআইডি নম্বর)</string>
 
     <string name="nid_numberhint">NID Number</string>
 

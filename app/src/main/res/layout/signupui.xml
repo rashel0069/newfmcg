@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="23dp"
         android:layout_marginEnd="23.88dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center">
 
         <ImageView
@@ -47,12 +48,13 @@
 
         <TextView
             android:id="@+id/phone_tv"
-            android:layout_width="126dp"
+            android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:layout_below="@+id/cre_text2"
             android:layout_marginTop="45dp"
             android:fontFamily="@font/montserrat"
             android:gravity="top"
+            android:maxLines="1"
             android:lineHeight="29dp"
             android:text="@string/phone_number"
             android:textColor="@color/white"
@@ -105,12 +107,13 @@
 
         <TextView
             android:id="@+id/password_tv"
-            android:layout_width="126dp"
+            android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:layout_below="@id/view1"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/montserrat"
             android:gravity="top"
+            android:maxLines="1"
             android:lineHeight="29dp"
             android:text="@string/password"
             android:textColor="@color/white"
@@ -172,6 +175,7 @@
             android:fontFamily="@font/montserrat"
             android:gravity="top"
             android:lineHeight="29dp"
+            android:maxLines="1"
             android:text="@string/confirm_password"
             android:textColor="@color/white"
             android:textFontWeight="500"
@@ -240,7 +244,7 @@
             android:layout_width="364dp"
             android:layout_height="55dp"
             android:layout_below="@id/terms"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/button_backgroung"
             android:clickable="true"
             android:focusable="true"
@@ -259,7 +263,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/reg_button"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat"
             android:lineHeight="17.07dp"
             android:text="@string/signin"
@@ -267,6 +270,20 @@
             android:textColor="@color/white"
             android:textFontWeight="500"
             android:textSize="14dp" />
+        <TextView
+            android:id="@+id/bd2"
+            android:layout_width="364dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reg_login"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="12.07dp"
+            android:visibility="gone"
+            android:text="( Already have an account? SignIn )"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textFontWeight="300"
+            android:textSize="12dp" />
     </RelativeLayout>
 
 

@@ -16,9 +16,11 @@
         <ImageView
             android:layout_width="151dp"
             android:layout_height="195dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="27dp"
-            android:layout_centerInParent="true"
+            android:layout_alignStart="@+id/loginTV_id"
+            android:layout_alignEnd="@+id/enter_text"
+            android:layout_marginStart="98dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="80dp"
             android:background="@drawable/loginimage" />
 
         <TextView
@@ -53,7 +55,7 @@
 
         <TextView
             android:id="@+id/phone_tv"
-            android:layout_width="126dp"
+            android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:layout_below="@+id/enter_text"
             android:layout_marginTop="40dp"
@@ -111,7 +113,7 @@
 
         <TextView
             android:id="@+id/password_tv"
-            android:layout_width="126dp"
+            android:layout_width="wrap_content"
             android:layout_height="29dp"
             android:layout_below="@id/view1"
             android:layout_marginTop="10dp"
@@ -157,7 +159,6 @@
                     android:imeOptions="actionNext"
                     android:inputType="textPassword"
                     android:padding="8dp"
-
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -189,7 +190,8 @@
             style="?android:attr/selectableItemBackground"
             android:layout_width="364dp"
             android:layout_height="55dp"
-            android:layout_marginTop="579dp"
+            android:layout_below="@id/forgotepassword_id"
+            android:layout_marginTop="79dp"
             android:background="@drawable/button_backgroung"
             android:clickable="true"
             android:focusable="true"
@@ -197,7 +199,6 @@
             android:foreground="?attr/selectableItemBackground"
             android:gravity="center"
             android:lineHeight="30dp"
-            android:maxLength="11"
             android:text="@string/login"
             android:textColor="@color/white"
             android:textFontWeight="600"
@@ -209,7 +210,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/login_btn"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp"
             android:fontFamily="@font/montserrat"
             android:lineHeight="17.07dp"
             android:text="@string/signup"
@@ -217,6 +217,20 @@
             android:textColor="@color/white"
             android:textFontWeight="500"
             android:textSize="14dp" />
+        <TextView
+            android:id="@+id/bd1"
+            android:layout_width="364dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/registrationTV_id"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="12.07dp"
+            android:visibility="gone"
+            android:text="( Don't have an account? Signup )"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textFontWeight="500"
+            android:textSize="12dp" />
 
     </RelativeLayout>
 
