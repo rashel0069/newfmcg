@@ -148,9 +148,9 @@
                 <EditText
                     android:id="@+id/reg_password_Id"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:backgroundTint="@android:color/transparent"
-                    android:hint="@string/password"
+                    android:hint="@string/pass"
                     android:imeOptions="actionNext"
                     android:inputType="textPassword"
                     android:maxLength="16"

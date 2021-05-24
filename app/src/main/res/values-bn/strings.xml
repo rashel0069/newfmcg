@@ -4,17 +4,17 @@
 
     <string name="app_name">খেরো খাতা</string>
 
-    <string name="first_splash">আপনার হিসাব নিকাশ রাখুন খেরো খাতাতে সহজেই</string>
+    <string name="first_splash">আপনার ডিজিটাল হিসাবের খাতা।</string>
 
     <string name="digital_product">আর নয় এনালগ অ্যাকাউন্ট </string>
 
     <string name="digitalistic">ডিজিটালিস্টিক</string>
 
-    <string name="text1">আপনার লেনদেনগুলি \n সহজেই  পরিচালনা করুন <font color ="#000000">খেরো খাতা এর সাথে</font></string>
+    <string name="text1">আপনার লেনদেন গুলা সহজেই টুকে নিন <font color ="#000000">খেরোখাতা তে</font></string>
 
-    <string name="text2">এনালগ ভাবে আর কতদিন? \n <font color ="#000000">হিসাব রাখুন খেরোখাতায়, সহজে প্রতিদিন।</font> </string>
+    <string name="text2">এনালগ হিসাবনিকাশের <font color ="#000000"> দিন শেষ</font> </string>
 
-    <string name="skip">বাতিল (Skip)</string>
+    <string name="skip">বাতিল (Cancel)</string>
 
 
     <string name="hint1">মোবাইল নম্বর</string>
@@ -142,7 +142,7 @@
 
     <string name="amounts">পরিমাণ</string>
 
-    <string name="gs" >প্রবেশ করুন (Get Started)</string>
+    <string name="gs" >প্রবেশ করুন (Enter)</string>
 
     <string name="cashtransaction">নগদ লেনদেন</string>
 
@@ -275,6 +275,8 @@
     <string name="signin">ইতিমধ্যে একটি অ্যাকাউন্ট আছে? <b>লগইন করুন</b> (Login) </string>
 
     <string name="password">পাসওয়ার্ড (Password)</string>
+
+    <string name="pass">পাসওয়ার্ড </string>
 
     <string name="enterpassword">পাসওয়ার্ড লিখুন</string>
 

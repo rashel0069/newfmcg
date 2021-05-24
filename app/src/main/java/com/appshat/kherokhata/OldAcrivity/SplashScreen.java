@@ -38,7 +38,6 @@ public class SplashScreen extends AppCompatActivity {
         spImage = findViewById(R.id.splashImage);
         spText = findViewById(R.id.splashText);
         tv5 = findViewById(R.id.textView5);
-        tv6 = findViewById(R.id.textView6);
         tv7 = findViewById(R.id.dgtv_id);
 
         spImage.setAnimation(topAnim);
@@ -65,7 +64,6 @@ public class SplashScreen extends AppCompatActivity {
             resources = context.getResources();
             spText.setText(resources.getString(R.string.app_name));
             tv5.setText(resources.getString(R.string.first_splash));
-            tv6.setText(resources.getString(R.string.digital_product));
             tv7.setText(resources.getString(R.string.digitalistic));
 
 
@@ -75,7 +73,6 @@ public class SplashScreen extends AppCompatActivity {
             resources = context.getResources();
             spText.setText(resources.getString(R.string.app_name));
             tv5.setText(resources.getString(R.string.first_splash));
-            tv6.setText(resources.getString(R.string.digital_product));
             tv7.setText(resources.getString(R.string.digitalistic));
 
         }

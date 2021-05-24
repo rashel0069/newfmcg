@@ -65,7 +65,7 @@ public class RegActivity extends AppCompatActivity {
             reg_Tv1.setText(resources.getString(R.string.enter_your_cr));
             reg_Tv2.setText(resources.getString(R.string.phone_number));
             reg_Mobile.setHint(resources.getString(R.string.mobile));
-            reg_password.setHint(resources.getString(R.string.password));
+            reg_password.setHint(resources.getString(R.string.pass));
             reg_Tv3.setText(resources.getString(R.string.password));
             reg_Tv4.setText(resources.getString(R.string.confirm_password));
             reg_ConfirmPassword.setHint(resources.getString(R.string.confirm_password_again));
@@ -82,7 +82,7 @@ public class RegActivity extends AppCompatActivity {
             reg_Tv1.setText(resources.getString(R.string.enter_your_cr));
             reg_Tv2.setText(resources.getString(R.string.phone_number));
             reg_Mobile.setHint(resources.getString(R.string.mobile));
-            reg_password.setHint(resources.getString(R.string.password));
+            reg_password.setHint(resources.getString(R.string.pass));
             reg_Tv3.setText(resources.getString(R.string.password));
             reg_Tv4.setText(resources.getString(R.string.confirm_password));
             reg_ConfirmPassword.setHint(resources.getString(R.string.confirm_password_again));
