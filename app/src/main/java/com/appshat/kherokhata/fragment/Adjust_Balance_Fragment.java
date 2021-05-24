@@ -129,9 +129,9 @@ public class Adjust_Balance_Fragment extends Fragment {
             context = Localhelper.setLocale(getActivity(), "en");
             resources = context.getResources();
             clientnameTV.setText(resources.getString(R.string.customerName));
-            clientnameET.setHint(resources.getString(R.string.customernamehint));
+
             cmblTV.setText(resources.getString(R.string.hint1));
-            clientmobileET.setHint(resources.getString(R.string.customernumberhint));
+
             adjustsaveBtn.setText(resources.getString(R.string.save));
             amttv.setText(resources.getString(R.string.amt));
             amthint.setHint(resources.getString(R.string.amounthint));
@@ -141,9 +141,9 @@ public class Adjust_Balance_Fragment extends Fragment {
             context = Localhelper.setLocale(getActivity(), "bn");
             resources = context.getResources();
             clientnameTV.setText(resources.getString(R.string.customerName));
-            clientnameET.setHint(resources.getString(R.string.customernamehint));
+
             cmblTV.setText(resources.getString(R.string.hint1));
-            clientmobileET.setHint(resources.getString(R.string.customernumberhint));
+
             adjustsaveBtn.setText(resources.getString(R.string.save));
             amttv.setText(resources.getString(R.string.amt));
             amthint.setHint(resources.getString(R.string.amounthint));

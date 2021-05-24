@@ -43,7 +43,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static final String MY_PREFS_NAME = "MyPrefsFile";
-    TextView registration, regTV, passforgot, loginTV, infoTV, phnTV, passTV, logTV,bd1;
+    TextView registration, regTV, passforgot, loginTV, infoTV, phnTV, passTV, logTV;
     EditText userMobile, userPassword;
     TextView logintv, f1TV, f2TV;
     ImageButton languageImg;
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         loginTV = findViewById(R.id.login_btn);
         logTV = findViewById(R.id.loginTV_id);
         infoTV = findViewById(R.id.enter_text);
-        bd1 = findViewById(R.id.bd1);
+
 
         userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
         userDB = Databaseroom.getDatabaseroomref(getApplication());
@@ -155,8 +155,7 @@ public class MainActivity extends AppCompatActivity {
             phnTV.setText(resources.getString(R.string.phone_number));
             userPassword.setHint(resources.getString(R.string.enterpassword));
             passforgot.setText(resources.getText(R.string.forgot_password));
-            registration.setText(resources.getText(R.string.signin));
-            bd1.setVisibility(View.GONE);
+            registration.setText(resources.getText(R.string.signup));
 
 
         } else {
@@ -171,8 +170,8 @@ public class MainActivity extends AppCompatActivity {
             userPassword.setHint(resources.getString(R.string.enterpassword));
             phnTV.setText(resources.getString(R.string.phone_number));
             passforgot.setText(resources.getText(R.string.forgot_password));
-            registration.setText(resources.getText(R.string.signin));
-            bd1.setVisibility(View.VISIBLE);
+            registration.setText(resources.getText(R.string.signup));
+
         }
 
         SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();

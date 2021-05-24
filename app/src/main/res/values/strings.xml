@@ -2,17 +2,18 @@
 
     <string name="app_name">Khero Khata</string>
 
-    <string name="first_splash">Start Managing  Your Business Transactions</string>
+    <string name="first_splash">Keep track of your accounts Easily on kherokhata</string>
 
-    <string name="digital_product">Business transactions on your palate by </string>
+    <string name="digital_product">No more analog accounts </string>
 
     <string name="digitalistic">DIGITALISTIC</string>
 
     <string name="companyname">Digitalistic</string>
 
+
     <string name="text1"> Handle your accounts \n smartly <font color="#000000">With Khero Khata </font></string>
 
-    <string name="text2">No more analog accounts, Now you can \n easily handle your accounts book </string>
+    <string name="text2">How long is the analog way?\n <font color ="#000000"> Keep track of accounts, easily every day.</font></string>
 
     <string name="skip">Skip</string>
 
@@ -21,7 +22,7 @@
 
     <string name="mobile">Enter Mobile Number</string>
 
-    <string name="login">Log in</string>
+    <string name="login">Login</string>
 
     <string name="creditsales">Credit Sales</string>
 
@@ -296,6 +297,8 @@
 
 
     <string name="create_account">Create Account</string>
+    <string name="enter_shop_name">Enter Shop Name</string>
+    <string name="enter_shop_category">Enter Shop Category</string>
 
 
 </resources>

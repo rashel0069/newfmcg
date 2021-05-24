@@ -217,20 +217,7 @@
             android:textColor="@color/white"
             android:textFontWeight="500"
             android:textSize="14dp" />
-        <TextView
-            android:id="@+id/bd1"
-            android:layout_width="364dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/registrationTV_id"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/montserrat"
-            android:lineHeight="12.07dp"
-            android:visibility="gone"
-            android:text="( Don't have an account? Signup )"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textFontWeight="500"
-            android:textSize="12dp" />
+
 
     </RelativeLayout>
 

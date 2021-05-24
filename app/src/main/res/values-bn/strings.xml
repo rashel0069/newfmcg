@@ -4,27 +4,28 @@
 
     <string name="app_name">খেরো খাতা</string>
 
-    <string name="first_splash">আপনার লেনদেন পরিচালনা করুন</string>
+    <string name="first_splash">আপনার হিসাব নিকাশ রাখুন খেরো খাতাতে সহজেই</string>
 
-    <string name="digital_product">আপনার হাতে ব্যবসায়ের লেনদেন </string>
+    <string name="digital_product">আর নয় এনালগ অ্যাকাউন্ট </string>
 
     <string name="digitalistic">ডিজিটালিস্টিক</string>
 
     <string name="text1">আপনার লেনদেনগুলি \n সহজেই  পরিচালনা করুন <font color ="#000000">খেরো খাতা এর সাথে</font></string>
 
-    <string name="text2">আর কোনও অ্যানালগ অ্যাকাউন্ট না, এখন আপনি \n <font color ="#000000">সহজেই আপনার অ্যাকাউন্ট বইটি পরিচালনা করতে পারেন</font> </string>
+    <string name="text2">এনালগ ভাবে আর কতদিন? \n <font color ="#000000">হিসাব রাখুন খেরোখাতায়, সহজে প্রতিদিন।</font> </string>
 
-    <string name="skip">বাতিল</string>
+    <string name="skip">বাতিল (Skip)</string>
 
 
     <string name="hint1">মোবাইল নম্বর</string>
 
 
-    <string name="login">লগইন (Log in)</string>
+    <string name="login">লগইন (Login)</string>
 
     <string name="creditsales">বাকিতে বিক্রয়</string>
 
     <string name="companyname">ডিজিটালিস্টিক</string>
+
     <string name="save">সংরক্ষণ করুন</string>
 
     <string name="amounthint">যেমন:৫০০০</string>
@@ -49,6 +50,8 @@
     <string name="otherhint">যেমন:৫০০</string>
 
     <string name="shopname">দোকানের নাম (Shop Name) </string>
+
+
 
     <string name="saddhint">দোকানের ঠিকানা লিখুন</string>
 
@@ -139,7 +142,7 @@
 
     <string name="amounts">পরিমাণ</string>
 
-    <string name="gs" >প্রবেশ করুন</string>
+    <string name="gs" >প্রবেশ করুন (Get Started)</string>
 
     <string name="cashtransaction">নগদ লেনদেন</string>
 
@@ -251,9 +254,9 @@
 
     <string name="cash_transaction">নগদ লেনদেন</string>
 
-    <string name="signup">অ্যাকাউন্ট নেই? <b> সাইনআপ করুন</b></string>
+    <string name="signup">অ্যাকাউন্ট নেই? <b> সাইনআপ করুন</b> (Signup)</string>
 
-    <string name="enter_your_" >আপনার ফোন নম্বর এবং পাসওয়ার্ড লিখুন</string>
+    <string name="enter_your_" >আপনার ফোন নম্বর এবং পাসওয়ার্ড লিখুন </string>
 
     <string name="enter_your_cr">আপনার তথ্য লিখুন</string>
 
@@ -267,9 +270,9 @@
     <string name="terms">আপনি আমাদের  এবং
          <font color='#000000'>পরিষেবার শর্তাদি</font> এবং <font color = '#000000'>গোপনীয়তা নীতিতে সম্মত হয়েছেন</font> </string>
 
-    <string name="sign_up">নিবন্ধন করুন (Sign Up)</string>
+    <string name="sign_up">নিবন্ধন করুন (SignUp)</string>
 
-    <string name="signin">ইতিমধ্যে একটি অ্যাকাউন্ট আছে? <b>প্রবেশ করুন</b></string>
+    <string name="signin">ইতিমধ্যে একটি অ্যাকাউন্ট আছে? <b>লগইন করুন</b> (Login) </string>
 
     <string name="password">পাসওয়ার্ড (Password)</string>
 
@@ -296,5 +299,9 @@
     <string name="cnumhint">০১৭৮০৪৪৫৪৬৬</string>
 
     <string name="create_account">অ্যাকাউন্ট তৈরি করুন </string>
+
+    <string name="enter_shop_name">দোকানের নাম লিখুন </string>
+
+    <string name="enter_shop_category">দোকানের ধরণ লিখুন</string>
 
 </resources>

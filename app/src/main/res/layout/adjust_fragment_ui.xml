@@ -95,6 +95,7 @@
                     android:id="@+id/layout_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="14dp"
                     android:layout_marginEnd="61dp"
@@ -110,7 +111,7 @@
                         android:layout_height="58dp"
                         android:background="@drawable/inputbackground"
                         android:fontFamily="@font/montserrat"
-                        android:hint="@string/enter_full_name"
+                        android:text="No User Name"
                         android:lineHeight="17.07dp"
                         android:paddingLeft="25dp"
                         android:textColor="@color/white"
@@ -125,6 +126,7 @@
                     android:id="@+id/linearLayout_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="14dp"
                     android:layout_marginEnd="61dp"
@@ -140,7 +142,7 @@
                         android:layout_height="58dp"
                         android:background="@drawable/inputbackground"
                         android:fontFamily="@font/montserrat"
-                        android:hint="@string/cnumhint"
+                        android:text="No Number"
                         android:inputType="number"
                         android:lineHeight="17.07dp"
                         android:maxLength="11"
@@ -197,12 +199,14 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/spickdate_id"
                     android:layout_width="155dp"
                     android:layout_height="45dp"
-                    android:layout_marginStart="55dp"
-                    android:layout_marginTop="14dp"
+                    android:visibility="gone"
+                    android:layout_marginStart="52dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/whiteround"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
@@ -237,7 +241,6 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
                 <ImageView
                     android:layout_width="wrap_content"

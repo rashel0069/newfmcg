@@ -125,9 +125,9 @@ public class Information_Fragment extends Fragment {
             ownernameTV.setText(resources.getString(R.string.full_name));
             ownernameET.setHint(resources.getString(R.string.enter_full_name));
             shoppnameTV.setText(resources.getString(R.string.shopname));
-            shoppnameEt.setHint(resources.getString(R.string.shopname));
+            shoppnameEt.setHint(resources.getString(R.string.enter_shop_name));
             categoryTV.setText(resources.getString(R.string.category));
-            categoryET.setHint(resources.getString(R.string.category));
+            categoryET.setHint(resources.getString(R.string.enter_shop_category));
             addressTV.setText(resources.getString(R.string.shopaddress));
             addressET.setHint(resources.getString(R.string.saddhint));
             treadlnTV.setText(resources.getString(R.string.trade));
@@ -150,9 +150,9 @@ public class Information_Fragment extends Fragment {
             ownernameTV.setText(resources.getString(R.string.full_name));
             ownernameET.setHint(resources.getString(R.string.enter_full_name));
             shoppnameTV.setText(resources.getString(R.string.shopname));
-            shoppnameEt.setHint(resources.getString(R.string.shopname));
+            shoppnameEt.setHint(resources.getString(R.string.enter_shop_name));
             categoryTV.setText(resources.getString(R.string.category));
-            categoryET.setHint(resources.getString(R.string.category));
+            categoryET.setHint(resources.getString(R.string.enter_shop_category));
             addressTV.setText(resources.getString(R.string.shopaddress));
             addressET.setHint(resources.getString(R.string.saddhint));
             treadlnTV.setText(resources.getString(R.string.trade));
@@ -226,12 +226,16 @@ public class Information_Fragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         try {
-            uri = data.getData();
-            final InputStream imageStream;
-            imageStream = getActivity().getContentResolver().openInputStream(uri);
-            final Bitmap image = BitmapFactory.decodeStream(imageStream);
-            //imageuri = uri.toString();
-            profileImage.setImageBitmap(image);
+
+            if (data != null) {
+                uri = data.getData();
+                final InputStream imageStream;
+                imageStream = getActivity().getContentResolver().openInputStream(uri);
+                final Bitmap image = BitmapFactory.decodeStream(imageStream);
+                //imageuri = uri.toString();
+                profileImage.setImageBitmap(image);
+            }
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
