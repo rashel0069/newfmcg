@@ -1,17 +1,19 @@
 package com.appshat.kherokhata.OldAcrivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.appshat.kherokhata.NewUIFragment.Menu_Nav_Fragment;
+import com.appshat.kherokhata.Notifications.AlarmBroadcast;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.fragment.History_Fragment;
 import com.appshat.kherokhata.fragment.Home_Fragment;
@@ -20,6 +22,20 @@ import com.appshat.kherokhata.fragment.Profile_Fragment;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.Log;
+import java.util.Calendar;
+import java.util.Date;
 
 public class HomeActivity extends AppCompatActivity {
     public static final String MY_PREF_NAME = "myPrefFile";
@@ -103,7 +119,30 @@ public class HomeActivity extends AppCompatActivity {
             editor.apply();
         }
 
-
     }
 
+    public void setNotifications(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 11);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+
+        if (calendar.getTime().compareTo(new Date()) < 0)
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+
+        Intent intent = new Intent(getApplicationContext(), AlarmBroadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        if (alarmManager != null) {
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setNotifications();
+    }
 }

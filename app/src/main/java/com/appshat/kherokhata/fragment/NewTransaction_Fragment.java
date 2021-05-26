@@ -1,17 +1,12 @@
 package com.appshat.kherokhata.fragment;
 
 import android.app.Activity;
-import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.Notification;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -23,7 +18,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -33,13 +27,11 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.appshat.kherokhata.OldAcrivity.AlarmReceiver;
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
@@ -51,11 +43,7 @@ import com.appshat.kherokhata.Room.model.TransactionViewModel;
 import com.appshat.kherokhata.adapter.JsonPlaceHolderApi;
 import com.google.android.material.button.MaterialButton;
 
-import java.text.BreakIterator;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -63,7 +51,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static android.content.ContentValues.TAG;
 import static java.lang.Integer.parseInt;
 
 
@@ -187,15 +174,9 @@ public class NewTransaction_Fragment extends Fragment {
         accTv.setText(accounttype);
         transTv.setText(transactiontype);
 
-
-        //spinner
-//        String[] cas = getResources().getStringArray(R.array.accountType);
-//        ArrayAdapter adapter = new ArrayAdapter(getContext(), R.layout.myarrylistsample, cas);
-//        accspinner.setAdapter(adapter);
-
         //api call
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://103.239.253.160:3666/digi/fmcg/v1/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://digitalistic.co/transaction")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
@@ -238,9 +219,6 @@ public class NewTransaction_Fragment extends Fragment {
             }
         });
         //language setter
-
-        //Current date
-        //currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         Time today = new Time(Time.getCurrentTimezone());
         today.setToNow();
         int mon = today.month +1;
@@ -256,21 +234,6 @@ public class NewTransaction_Fragment extends Fragment {
             }
         });
 
-//        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-//                month = month + 1;
-//                String date = day + "-" + month + "-" + year;
-//                ///set time for alerm notification=============================
-//                cal = Calendar.getInstance();
-//                cal.setTimeInMillis(System.currentTimeMillis());
-//                cal.clear();
-//                cal.set(year, month, day);
-//                timedateTV.setText(date);
-//
-//            }
-//        };
-        //get data from bundel
         if (accounttype.matches("Purchase") && transactiontype.matches("Cash")) {
             cmblnumET.setEnabled(false);
             cnameET.setEnabled(false);
@@ -315,12 +278,12 @@ public class NewTransaction_Fragment extends Fragment {
                             if (!response.isSuccessful()) {
                                 return;
                             }
-                            //Toast.makeText( getContext(), "HTTP OK", Toast.LENGTH_LONG ).show();
+
                         }
 
                         @Override
                         public void onFailure(Call<TransactionEntity> call, Throwable t) {
-                            //Toast.makeText( getContext(), "HTTP Error", Toast.LENGTH_SHORT ).show();
+
                         }
                     });
 
@@ -385,22 +348,6 @@ public class NewTransaction_Fragment extends Fragment {
         }
     }
 
-    private void setAlerm(Calendar cal) {
-        AlarmManager alarmMgr = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(getActivity(), AlarmReceiver.class);
-        intent.putExtra("clientname", clientname);
-        intent.putExtra("clientmobilenumber", clientmobile);
-        intent.putExtra("clientamount", clientamount);
-        intent.putExtra("accounttype", accounttype);
-        intent.putExtra("date", duedate);
-
-        getActivity().sendBroadcast(intent);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
-        // cal.add(Calendar.SECOND, 5);
-        alarmMgr.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), pendingIntent);
-        //Toast.makeText(getActivity().getApplicationContext(), "successfully set alerm", Toast.LENGTH_LONG).show();
-
-    }
 }
 
 

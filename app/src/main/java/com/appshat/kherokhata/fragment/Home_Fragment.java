@@ -157,14 +157,8 @@ public class Home_Fragment<Date> extends Fragment {
         orderbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent myIntent = new Intent(view.getContext(), ChatBot.class);
-//                startActivityForResult(myIntent, 0);
-
                 NetworkConnect();
                 if (connect == true) {
-//                    Intent browserInt = new Intent(Intent.ACTION_VIEW, Uri.parse("http://103.108.140.234:3000/s/fmcg"));
-//                    startActivity(browserInt);
-
                     BoatFragment boatFragment = new BoatFragment();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.framelayout_container_id, boatFragment);

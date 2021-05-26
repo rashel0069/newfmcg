@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.appshat.kherokhata">
-    <uses-permission android:name = "android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,6 +13,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
         android:name=".OldAcrivity.Fmcg"
@@ -23,12 +25,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".NewUIActivity.TestUI">
-
-        </activity>
-
+        <activity android:name=".Notifications.NotificationsActivity"></activity>
+        <activity android:name=".NewUIActivity.TestUI"></activity>
         <activity android:name=".NewUIActivity.Onboarding_Activity" />
-
         <activity
             android:name=".OldAcrivity.SplashScreen"
             android:theme="@style/noactionbar">
@@ -37,21 +36,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity android:name=".OldAcrivity.RegActivity" />
-
-        <activity android:name=".OldAcrivity.Broadcast_Activity" />
-
         <activity android:name=".Kotlin.ui.ChatBot" />
-
         <activity
             android:name=".OldAcrivity.HomeActivity"
             android:screenOrientation="portrait" />
 
+        <receiver android:name=".Notifications.AlarmBroadcast"/>
         <activity android:name=".OldAcrivity.MapActivity" />
-
         <activity
             android:name=".OldAcrivity.MainActivity"
             android:theme="@style/noactionbar" />
@@ -63,18 +56,6 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <service android:name=".Notifications.MyFirebaseMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-
-<!--        <receiver-->
-<!--            android:name=".OldAcrivity.AlarmReceiver"-->
-<!--            android:enabled="true"-->
-<!--            android:process=":remote" />-->
-
-        <receiver android:name=".fragment.MyNotificationPublisher" />
     </application>
 
 </manifest>
