@@ -1,8 +1,10 @@
 package com.appshat.kherokhata.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.net.ConnectivityManager;
+import android.net.InetAddresses;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.appshat.kherokhata.Notifications.NotificationsActivity;
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.R;
@@ -38,6 +42,7 @@ import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
 import com.appshat.kherokhata.Room.model.HistoryViewModel;
 import com.appshat.kherokhata.Room.model.InformationViewModel;
 
+import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -51,6 +56,7 @@ public class Home_Fragment<Date> extends Fragment {
     TextView openingCash, dayendCash, receivablecash, payableCash, cashSell, creditSell, purchaseCash, expenseCash, totalCash,
             openingcashTV, dayendcashTV, shopName, receivablecashTV, cashbook, creditbook, orderbook, transbook, payablecashTV, cashsellTV, creditsellTV, purchasecashTV, expensecashTV, totalcashTV;
     String prev, openAmount, opening, shname;
+    ImageView notifications;
     InformationDao informationDbDao;
     NewtransactionDao newtransactionDao;
     HistoryDao historyDao;
@@ -102,6 +108,7 @@ public class Home_Fragment<Date> extends Fragment {
         orderbook = view.findViewById(R.id.orderbook_tv);
         transbook = view.findViewById(R.id.transbook_tv);
         shopName = view.findViewById(R.id.shop_name_id);
+        notifications = view.findViewById(R.id.notification_id);
 
 //language setter
         if (!Helper.getBangla()) {
@@ -153,18 +160,25 @@ public class Home_Fragment<Date> extends Fragment {
 
         LoadDatafromRoom();
 
+        notifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), NotificationsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         //Data Receive
         orderbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 NetworkConnect();
-                if (connect == true) {
+                if (connect == true ) {
                     BoatFragment boatFragment = new BoatFragment();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.framelayout_container_id, boatFragment);
                     transaction.addToBackStack("null");
                     transaction.commit();
-
                 } else {
                     Toast.makeText(context, "No Internet Connection", Toast.LENGTH_SHORT).show();
                 }

@@ -2,6 +2,7 @@ package com.appshat.kherokhata.Room.model;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import android.text.format.Time;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -22,16 +23,23 @@ public class TransactionViewModel extends AndroidViewModel {
     private final LiveData<List<NewtransactionEntity>> mtodayTrans;
     private final LiveData<List<NewtransactionEntity>> mRecivetrans;
     private final LiveData<List<NewtransactionEntity>> mPaytrans;
+    private final LiveData<List<NewtransactionEntity>> mNotifyTrans;
 
     public TransactionViewModel(@NonNull Application application) {
         super(application);
-        String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+        //String currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
+        Time today = new Time(Time.getCurrentTimezone());
+        today.setToNow();
+        int mon = today.month +1;
+        String currentdate = today.monthDay + "-0"+mon +"-"+today.year;
+
         databaseroom = Databaseroom.getDatabaseroomref(application);
         newtransactionDao = databaseroom.getnewtransaction();
         mAllTrans = newtransactionDao.getTodayTrans();
         mtodayTrans = newtransactionDao.getTransDate(currentdate);
         mRecivetrans = newtransactionDao.getreceivepayData("Sales", "Credit");
         mPaytrans = newtransactionDao.getreceivepayData("Purchase", "Credit");
+        mNotifyTrans = newtransactionDao.getNotifyData("Credit",currentdate);
 
     }
 
@@ -42,6 +50,10 @@ public class TransactionViewModel extends AndroidViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
+    }
+
+    public LiveData<List<NewtransactionEntity>> getmNotifyTrans(){
+        return mNotifyTrans;
     }
 
     public LiveData<List<NewtransactionEntity>> getmAllTrans() {

@@ -77,15 +77,6 @@ public class NewTransaction_Fragment extends Fragment {
     TransactionViewModel transactionViewModel;
     String accounttype, transactiontype, clientname, clientmobile, clientamount, duedate, currentdate;
     boolean purchase = false;
-//    DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-//        @Override
-//        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//            myCalendar.set(Calendar.YEAR, year);
-//            myCalendar.set(Calendar.MONTH, monthOfYear);
-//            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-//            Toast.makeText(context, ""+ myCalendar, Toast.LENGTH_SHORT).show();
-//        }
-//    };
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -174,13 +165,15 @@ public class NewTransaction_Fragment extends Fragment {
         accTv.setText(accounttype);
         transTv.setText(transactiontype);
 
-        //api call
+        try {
+            //api call
+            Retrofit retrofit = new Retrofit.Builder().baseUrl("https://digitalistic.co/transaction")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+        }catch (Exception e){
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://digitalistic.co/transaction")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        //
+        }
         cmblnumET.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -271,21 +264,25 @@ public class NewTransaction_Fragment extends Fragment {
 
                     transactionViewModel.intertTrans(newtransactionEntity);
 
-                    Call<TransactionEntity> call = jsonPlaceHolderApi.createPost(transactionEntity);
-                    call.enqueue(new Callback<TransactionEntity>() {
-                        @Override
-                        public void onResponse(Call<TransactionEntity> call, Response<TransactionEntity> response) {
-                            if (!response.isSuccessful()) {
-                                return;
+                    try {
+                        Call<TransactionEntity> call = jsonPlaceHolderApi.createPost(transactionEntity);
+                        call.enqueue(new Callback<TransactionEntity>() {
+                            @Override
+                            public void onResponse(Call<TransactionEntity> call, Response<TransactionEntity> response) {
+                                if (!response.isSuccessful()) {
+                                    return;
+                                }
+
                             }
 
-                        }
+                            @Override
+                            public void onFailure(Call<TransactionEntity> call, Throwable t) {
 
-                        @Override
-                        public void onFailure(Call<TransactionEntity> call, Throwable t) {
+                            }
+                        });
+                    }catch (Exception e){
 
-                        }
-                    });
+                    }
 
                     FragmentTransaction ft1 = getActivity().getSupportFragmentManager().beginTransaction();
                     ft1.remove(NewTransaction_Fragment.this);
@@ -298,9 +295,6 @@ public class NewTransaction_Fragment extends Fragment {
                     Toast.makeText(getContext(), "Please fill up the required fields", Toast.LENGTH_SHORT).show();
                 }
 
-                if (transactiontype.equals("Credit") && !timedateTV.getText().toString().isEmpty()) {
-                    //setAlerm(cal);
-                }
 
 
             }

@@ -110,26 +110,7 @@ public class ShowTransaction_Fragment extends Fragment {
                 return false;
             }
         });
-//        searchmbl.addTextChangedListener( new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                transactionListAdapter.getFilter().filter( s.toString() );
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                if (s.toString().isEmpty()){
-//                    showAll();
-//                }
-//            }
-//        } );
 
-        //show all
         showAll();
         // today transactions
         transallBtn.setOnClickListener(new View.OnClickListener() {
@@ -172,7 +153,6 @@ public class ShowTransaction_Fragment extends Fragment {
     private void showAll() {
         mTransactionList = new ArrayList<>();
         transactionListAdapter = new TransactionListAdapter(mTransactionList);
-        //recyclerView.setAdapter(transactionListAdapter);
         transactionViewModel.getmAllTrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
             @Override
             public void onChanged(List<NewtransactionEntity> newtransactionEntities) {

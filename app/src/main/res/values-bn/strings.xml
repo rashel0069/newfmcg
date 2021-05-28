@@ -305,5 +305,6 @@
     <string name="enter_shop_name">দোকানের নাম লিখুন </string>
 
     <string name="enter_shop_category">দোকানের ধরণ লিখুন</string>
+    <string name="pr_list">Payable and Receivable List</string>
 
 </resources>

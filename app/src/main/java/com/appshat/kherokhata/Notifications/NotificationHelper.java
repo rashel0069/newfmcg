@@ -30,7 +30,7 @@ public class NotificationHelper {
 
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext, NOTIFICATION_CHANNEL_ID);
-        mBuilder.setSmallIcon(R.mipmap.fmcg3);
+        mBuilder.setSmallIcon(R.drawable.notification);
         mBuilder.setContentTitle("Khero Khata")
                 .setContentText("Click to see your today pay and receivable balance...")
                 .setAutoCancel(false)

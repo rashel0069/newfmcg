@@ -29,7 +29,6 @@ public class BoatFragment extends Fragment {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setSupportMultipleWindows(true);
         webView.suppressLayout(false);
-
         webView.getSettings().setAllowContentAccess(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);

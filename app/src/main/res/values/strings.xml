@@ -300,6 +300,7 @@
     <string name="create_account">Create Account</string>
     <string name="enter_shop_name">Enter Shop Name</string>
     <string name="enter_shop_category">Enter Shop Category</string>
+    <string name="pr_list">Payable and Receivable List</string>
 
 
 </resources>
