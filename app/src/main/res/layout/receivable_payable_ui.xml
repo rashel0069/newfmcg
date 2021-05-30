@@ -34,470 +34,474 @@
             android:src="@drawable/arrowleft" />
     </RelativeLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/adt_tittelbar">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adt_tittelbar"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="120dp"
-            android:orientation="vertical">
+            android:layout_marginStart="23dp"
+            android:layout_marginEnd="24dp">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinner_id_payrecive"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="8dp"
+                android:entries="@array/adjustbalance"
+                android:fontFamily="@font/montserrat"
+                android:foreground="@drawable/inputbackground"
+                android:gravity="center"
+                android:lineHeight="17.07dp"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textFontWeight="500"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearLayout_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginEnd="24dp">
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_id_payrecive"
+                tools:ignore="MissingConstraints">
 
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/spinner_id_payrecive"
+                <EditText
+                    android:id="@+id/searchmobile_id"
                     android:layout_width="match_parent"
                     android:layout_height="58dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="8dp"
-                    android:entries="@array/adjustbalance"
+                    android:background="@drawable/inputbackground"
                     android:fontFamily="@font/montserrat"
-                    android:foreground="@drawable/inputbackground"
-                    android:gravity="center"
+                    android:hint="@string/mobile"
+                    android:inputType="number"
                     android:lineHeight="17.07dp"
-                    android:spinnerMode="dropdown"
-                    android:textAlignment="center"
-                    android:textFontWeight="500"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/linearLayout_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="8dp"
-                    android:gravity="center"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner_id_payrecive"
-                    tools:ignore="MissingConstraints">
-
-                    <EditText
-                        android:id="@+id/searchmobile_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="58dp"
-                        android:background="@drawable/inputbackground"
-                        android:fontFamily="@font/montserrat"
-                        android:hint="@string/mobile"
-                        android:inputType="number"
-                        android:lineHeight="17.07dp"
-                        android:paddingLeft="25dp"
-                        android:textColor="@color/white"
-                        android:textFontWeight="600"
-                        android:textSize="14sp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="MissingConstraints"
-                        tools:layout_editor_absoluteX="35dp" />
-
-                    <ImageView
-                        android:id="@+id/contact_view_id"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@drawable/phnbook"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/searchmobile_id"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <TextView
-                    android:id="@+id/clientmobilenumberTV_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/primary"
-                    android:fontFamily="@font/montserrat"
-                    android:lineHeight="14.63dp"
-                    android:padding="3dp"
-                    android:text="@string/cnum"
+                    android:maxLength="11"
+                    android:paddingLeft="25dp"
                     android:textColor="@color/white"
-                    android:textFontWeight="400"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="@+id/linearLayout_2"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/linearLayout_2"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner_id_payrecive"
-                    tools:ignore="MissingConstraints" />
+                    android:textFontWeight="600"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="35dp" />
+
+                <ImageView
+                    android:id="@+id/contact_view_id"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:src="@drawable/phnbook"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/searchmobile_id"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/searchUser_id"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_marginStart="31dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="32dp"
-                android:backgroundTint="@color/black"
-                android:fontFamily="@font/montserrat"
-                android:lineHeight="30dp"
-                android:text="@string/search"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textFontWeight="600"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                app:cornerRadius="15dp" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/l1_id"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/clientmobilenumberTV_id"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="23dp"
-                android:visibility="gone"
-                app:cardCornerRadius="15dp">
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/primary"
+                android:fontFamily="@font/montserrat"
+                android:lineHeight="14.63dp"
+                android:padding="3dp"
+                android:text="@string/cnum"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout_2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout_2"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_id_payrecive"
+                tools:ignore="MissingConstraints" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/searchUser_id"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="32dp"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/montserrat"
+            android:lineHeight="30dp"
+            android:text="@string/search"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:cornerRadius="15dp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/l1_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="23dp"
+                    android:visibility="gone"
+                    app:cardCornerRadius="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="25dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:lineHeight="30dp"
+                                android:text="@string/customerName"
+                                android:textColor="@color/black"
+                                android:textFontWeight="600"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/viewCustomer_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:lineHeight="30dp"
+                                android:paddingLeft="15dp"
+                                android:text="@string/customerName"
+                                android:textFontWeight="500"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:lineHeight="30dp"
+                                android:text="@string/previous"
+                                android:textColor="@color/black"
+                                android:textFontWeight="600"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/viewpreviousblnc_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat"
+                                android:lineHeight="30dp"
+                                android:paddingLeft="15dp"
+                                android:text="@string/amounthint"
+                                android:textFontWeight="500"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="27dp"
+                            android:weightSum="3">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat"
+                                android:gravity="center"
+                                android:lineHeight="14.63dp"
+                                android:padding="5dp"
+                                android:text="@string/cash"
+                                android:textFontWeight="500"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat"
+                                android:gravity="center"
+                                android:lineHeight="14.63dp"
+                                android:padding="5dp"
+                                android:text="@string/product"
+                                android:textFontWeight="500"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/montserrat"
+                                android:gravity="center"
+                                android:lineHeight="14.63dp"
+                                android:padding="5dp"
+                                android:text="@string/adj"
+                                android:textFontWeight="500"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp">
+
+                            <EditText
+                                android:id="@+id/newCash_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_weight="1"
+                                android:background="@color/white"
+                                android:fontFamily="@font/montserrat"
+                                android:gravity="center"
+                                android:hint="@string/cashhint"
+                                android:inputType="number"
+                                android:lineHeight="17.07dp"
+                                android:textColor="@color/black"
+                                android:textFontWeight="700"
+                                android:textSize="16sp" />
+
+                            <EditText
+                                android:id="@+id/newProduct_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_weight="1"
+                                android:background="@color/white"
+                                android:fontFamily="@font/montserrat"
+                                android:gravity="center"
+                                android:hint="@string/cashhint"
+                                android:inputType="number"
+                                android:lineHeight="17.07dp"
+                                android:textColor="@color/black"
+
+                                android:textFontWeight="700"
+                                android:textSize="16sp" />
+
+                            <EditText
+                                android:id="@+id/newAdjust_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_weight="1"
+                                android:background="@color/white"
+                                android:fontFamily="@font/montserrat"
+                                android:gravity="center"
+                                android:hint="@string/cashhint"
+                                android:inputType="number"
+                                android:lineHeight="17.07dp"
+                                android:textColor="@color/black"
+                                android:textFontWeight="700"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/calclate_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:background="@drawable/gradient"
+                            android:text="@string/calculate"
+                            android:textAllCaps="false"
+                            app:cornerRadius="15sp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
                 <LinearLayout
+                    android:id="@+id/l2_id"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="25dp"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginEnd="23dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="142dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/inputbackground"
+                        android:fontFamily="@font/montserrat"
+                        android:gravity="center"
+                        android:lineHeight="30dp"
+                        android:text="@string/summary"
+                        android:textColor="@color/white"
+                        android:textFontWeight="600"
+                        android:textSize="18sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="2">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:lineHeight="30dp"
-                            android:text="@string/customerName"
-                            android:textColor="@color/black"
-                            android:textFontWeight="600"
-                            android:textSize="15sp" />
-
-                        <TextView
-                            android:id="@+id/viewCustomer_id"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
                             android:fontFamily="@font/montserrat"
+                            android:gravity="center_vertical"
                             android:lineHeight="30dp"
-                            android:paddingLeft="15dp"
-                            android:text="@string/customerName"
-                            android:textFontWeight="500"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/montserrat"
-                            android:lineHeight="30dp"
+                            android:paddingStart="8dp"
                             android:text="@string/previous"
-                            android:textColor="@color/black"
-                            android:textFontWeight="600"
+                            android:textColor="@color/white"
+                            android:textFontWeight="400"
                             android:textSize="15sp" />
 
                         <TextView
-                            android:id="@+id/viewpreviousblnc_id"
+                            android:id="@+id/previousbal_id"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
                             android:fontFamily="@font/montserrat"
+                            android:gravity="center_vertical|end"
+                            android:hint="@string/amounthint"
                             android:lineHeight="30dp"
-                            android:paddingLeft="15dp"
-                            android:text="@string/amounthint"
-                            android:textFontWeight="500"
-                            android:textSize="14sp" />
-
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/white"
+                            android:textFontWeight="400"
+                            android:textSize="15sp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="27dp"
-                        android:weightSum="3">
+                        android:layout_height="wrap_content">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_width="64dp"
+                            android:layout_height="30dp"
                             android:fontFamily="@font/montserrat"
-                            android:gravity="center"
-                            android:lineHeight="14.63dp"
-                            android:padding="5dp"
-                            android:text="@string/cash"
-                            android:textFontWeight="500"
-                            android:textSize="12sp" />
+                            android:gravity="center_vertical"
+                            android:lineHeight="30dp"
+                            android:paddingStart="8dp"
+                            android:text="Paid"
+                            android:textColor="@color/white"
+                            android:textFontWeight="400"
+                            android:textSize="15sp" />
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:id="@+id/summarybalance_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
                             android:fontFamily="@font/montserrat"
-                            android:gravity="center"
-                            android:lineHeight="14.63dp"
-                            android:padding="5dp"
-                            android:text="@string/product"
-                            android:textFontWeight="500"
-                            android:textSize="12sp" />
+                            android:gravity="center_vertical"
+                            android:lineHeight="30dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="10dp"
+                            android:text="Paid"
+                            android:textColor="@color/white"
+                            android:textFontWeight="400"
+                            android:textSize="15sp" />
 
                         <TextView
+                            android:id="@+id/paidamount_id"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_height="30dp"
                             android:fontFamily="@font/montserrat"
-                            android:gravity="center"
-                            android:lineHeight="14.63dp"
-                            android:padding="5dp"
-                            android:text="@string/adj"
-                            android:textFontWeight="500"
-                            android:textSize="12sp" />
+                            android:gravity="center_vertical|end"
 
+                            android:hint="@string/amounthint"
+                            android:lineHeight="30dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/white"
+                            android:textFontWeight="400"
+                            android:textSize="15sp" />
                     </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/white" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp">
+                        android:weightSum="2">
 
-                        <EditText
-                            android:id="@+id/newCash_id"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_weight="1"
-                            android:background="@color/white"
                             android:fontFamily="@font/montserrat"
-                            android:gravity="center"
-                            android:hint="@string/cashhint"
-                            android:inputType="number"
-                            android:lineHeight="17.07dp"
-                            android:textColor="@color/black"
-                            android:textFontWeight="700"
-                            android:textSize="16sp" />
+                            android:gravity="center_vertical"
+                            android:lineHeight="30dp"
+                            android:paddingStart="8dp"
+                            android:text="@string/newbalance"
+                            android:textColor="@color/white"
+                            android:textFontWeight="400"
+                            android:textSize="15sp" />
 
-                        <EditText
-                            android:id="@+id/newProduct_id"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/newBalance_id"
+                            android:layout_width="0dp"
                             android:layout_height="30dp"
                             android:layout_weight="1"
-                            android:background="@color/white"
                             android:fontFamily="@font/montserrat"
-                            android:gravity="center"
-                            android:hint="@string/cashhint"
-                            android:inputType="number"
-                            android:lineHeight="17.07dp"
-                            android:textColor="@color/black"
-
-                            android:textFontWeight="700"
-                            android:textSize="16sp" />
-
-                        <EditText
-                            android:id="@+id/newAdjust_id"
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_weight="1"
-                            android:background="@color/white"
-                            android:fontFamily="@font/montserrat"
-                            android:gravity="center"
-                            android:hint="@string/cashhint"
-                            android:inputType="number"
-                            android:lineHeight="17.07dp"
-                            android:textColor="@color/black"
-                            android:textFontWeight="700"
-                            android:textSize="16sp" />
+                            android:gravity="center_vertical|end"
+                            android:hint="@string/amounthint"
+                            android:lineHeight="30dp"
+                            android:paddingEnd="8dp"
+                            android:textColor="@color/white"
+                            android:textFontWeight="400"
+                            android:textSize="15sp" />
                     </LinearLayout>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/calclate_id"
+                        android:id="@+id/recivepaybtn_id"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
-                        android:background="@drawable/gradient"
-                        android:text="@string/calculate"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="120dp"
+                        android:backgroundTint="@color/black"
+                        android:text="@string/save"
                         android:textAllCaps="false"
-                        app:cornerRadius="15sp" />
-
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <LinearLayout
-                android:id="@+id/l2_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="23dp"
-                android:layout_marginEnd="23dp"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:layout_width="142dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/inputbackground"
-                    android:fontFamily="@font/montserrat"
-                    android:gravity="center"
-                    android:lineHeight="30dp"
-                    android:text="@string/summary"
-                    android:textColor="@color/white"
-                    android:textFontWeight="600"
-                    android:textSize="18sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:weightSum="2">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/montserrat"
-                        android:gravity="center_vertical"
-                        android:lineHeight="30dp"
-                        android:paddingStart="8dp"
-                        android:text="@string/previous"
-                        android:textColor="@color/white"
-                        android:textFontWeight="400"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/previousbal_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/montserrat"
-                        android:gravity="center_vertical|end"
-                        android:hint="@string/amounthint"
-                        android:lineHeight="30dp"
-                        android:paddingEnd="8dp"
-                        android:textColor="@color/white"
-                        android:textFontWeight="400"
-                        android:textSize="15sp" />
+                        app:cornerRadius="15dp" />
                 </LinearLayout>
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/payrecive_cycle"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="64dp"
-                        android:layout_height="30dp"
-                        android:fontFamily="@font/montserrat"
-                        android:gravity="center_vertical"
-                        android:lineHeight="30dp"
-                        android:paddingStart="8dp"
-                        android:text="Paid"
-                        android:textColor="@color/white"
-                        android:textFontWeight="400"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/summarybalance_id"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:fontFamily="@font/montserrat"
-                        android:gravity="center_vertical"
-                        android:lineHeight="30dp"
-                        android:paddingStart="8dp"
-                        android:text="Paid"
-                        android:paddingEnd="10dp"
-                        android:textColor="@color/white"
-                        android:textFontWeight="400"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/paidamount_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:fontFamily="@font/montserrat"
-                        android:gravity="center_vertical|end"
-
-                        android:hint="@string/amounthint"
-                        android:lineHeight="30dp"
-                        android:paddingEnd="8dp"
-                        android:textColor="@color/white"
-                        android:textFontWeight="400"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/white" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="2">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/montserrat"
-                        android:gravity="center_vertical"
-                        android:lineHeight="30dp"
-                        android:paddingStart="8dp"
-                        android:text="@string/newbalance"
-                        android:textColor="@color/white"
-                        android:textFontWeight="400"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/newBalance_id"
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/montserrat"
-                        android:gravity="center_vertical|end"
-                        android:hint="@string/amounthint"
-                        android:lineHeight="30dp"
-                        android:paddingEnd="8dp"
-                        android:textColor="@color/white"
-                        android:textFontWeight="400"
-                        android:textSize="15sp" />
-                </LinearLayout>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/recivepaybtn_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="120dp"
-                    android:backgroundTint="@color/black"
-                    android:text="@string/save"
-                    android:textAllCaps="false"
-                    app:cornerRadius="15dp" />
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="100dp"
+                    android:padding="8dp"
+                    tools:listitem="@layout/showdata_list2" />
             </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/payrecive_cycle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="23dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginBottom="100dp"
-                android:padding="8dp"
-                tools:listitem="@layout/showdata_list" />
-
-        </LinearLayout>
-
-
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
 </RelativeLayout>

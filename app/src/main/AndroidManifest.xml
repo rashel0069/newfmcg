@@ -25,8 +25,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".Notifications.NotificationsActivity"></activity>
-        <activity android:name=".NewUIActivity.TestUI"></activity>
+        <activity android:name=".NewUIActivity.UpdateTransaction"></activity>
+        <activity android:name=".Notifications.NotificationsActivity" />
+        <activity android:name=".NewUIActivity.TestUI" />
         <activity android:name=".NewUIActivity.Onboarding_Activity" />
         <activity
             android:name=".OldAcrivity.SplashScreen"
@@ -43,7 +44,8 @@
             android:name=".OldAcrivity.HomeActivity"
             android:screenOrientation="portrait" />
 
-        <receiver android:name=".Notifications.AlarmBroadcast"/>
+        <receiver android:name=".Notifications.AlarmBroadcast" />
+
         <activity android:name=".OldAcrivity.MapActivity" />
         <activity
             android:name=".OldAcrivity.MainActivity"
@@ -55,7 +57,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>

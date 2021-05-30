@@ -46,6 +46,10 @@ public class TransactionViewModel extends AndroidViewModel {
     public void intertTrans(NewtransactionEntity newtransactionEntity) {
         new TransactionViewModel.InsertAsyncTask(newtransactionDao).execute(newtransactionEntity);
     }
+    public void updateTrans(NewtransactionEntity newtransactionEntity){
+        new TransactionViewModel.UpdateAsynTask(newtransactionDao).execute(newtransactionEntity);
+    }
+
 
     @Override
     protected void onCleared() {
@@ -72,7 +76,18 @@ public class TransactionViewModel extends AndroidViewModel {
         return mPaytrans;
     }
 
+    private class UpdateAsynTask extends AsyncTask<NewtransactionEntity,Void,Void>{
+        NewtransactionDao mNewtransactionDao;
+        public UpdateAsynTask(NewtransactionDao mNewtransactionDao){
+            this.mNewtransactionDao = mNewtransactionDao;
+        }
 
+        @Override
+        protected Void doInBackground(NewtransactionEntity... newtransactionEntities) {
+            mNewtransactionDao.update(newtransactionEntities[0]);
+            return null;
+        }
+    }
 
     private class InsertAsyncTask extends AsyncTask<NewtransactionEntity, Void, Void> {
         NewtransactionDao mNewtransactionDao;
@@ -87,4 +102,5 @@ public class TransactionViewModel extends AndroidViewModel {
             return null;
         }
     }
+
 }

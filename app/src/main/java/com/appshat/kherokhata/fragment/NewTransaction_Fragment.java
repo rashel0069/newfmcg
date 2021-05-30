@@ -55,13 +55,8 @@ import static java.lang.Integer.parseInt;
 
 
 public class NewTransaction_Fragment extends Fragment {
-    public static final String NOTIFICATION_CHANNEL_ID = "10001";
     static final int PICK_CONTACT = 1;
     public static final String DATE_DIALOG_1 = "datePicker1";
-    private static int mYear1, mMonth1, mDay1;
-    private final static String default_notification_channel_id = "default";
-    final Calendar myCalendar = Calendar.getInstance();
-    Spinner accspinner, transspinner;
     EditText cnameET, cmblnumET, camountET;
     static TextView cnTV, cmTV, amTV, timedateTV, saveNewContact, accTv, transTv, adtv;
     MaterialButton newtransBTN;
@@ -69,8 +64,6 @@ public class NewTransaction_Fragment extends Fragment {
     ImageView phonecontactSelect;
     NewtransactionDao newtransactionDBdao;
     JsonPlaceHolderApi jsonPlaceHolderApi;
-    DatePickerDialog.OnDateSetListener mDateSetListener;
-    Calendar caldate;
     Context context;
     Resources resources;
     Databaseroom newtransactionDB;

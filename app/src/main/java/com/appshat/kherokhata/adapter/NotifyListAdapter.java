@@ -1,15 +1,18 @@
 package com.appshat.kherokhata.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.appshat.kherokhata.NewUIActivity.UpdateTransaction;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
 
@@ -28,6 +31,7 @@ public class NotifyListAdapter extends RecyclerView.Adapter<NotifyListAdapter.Tr
     public TransViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.notificationlist, parent, false);
         TransViewHolder viewHolder = new TransViewHolder(itemView);
+
         return viewHolder;
     }
 
@@ -40,6 +44,22 @@ public class NotifyListAdapter extends RecyclerView.Adapter<NotifyListAdapter.Tr
             holder.dataMobile.setText(newtransactionEntity.getClientmobile());
             holder.dataAcetype.setText(newtransactionEntity.getAccounttype());
             holder.dataAmoyunt.setText(newtransactionEntity.getClientamount());
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+               @Override
+               public boolean onLongClick(View v) {
+                   Intent intent = new Intent(v.getContext(), new UpdateTransaction().getClass());
+                   intent.putExtra("Name",newtransactionEntity.getClientname());
+                   intent.putExtra("Phone",newtransactionEntity.getClientmobile());
+                   intent.putExtra("Accounttype",newtransactionEntity.getAccounttype());
+                   intent.putExtra("Transtype",newtransactionEntity.getTransactiontype());
+                   intent.putExtra("Ammount",newtransactionEntity.getClientamount());
+                   intent.putExtra("Id",newtransactionEntity.getId());
+                   intent.putExtra("DuDate",newtransactionEntity.getDuedate());
+                   Toast.makeText(v.getContext(), ""+mTransactions.get(position), Toast.LENGTH_SHORT).show();
+                   v.getContext().startActivity(intent);
+                   return false;
+               }
+           });
 
         }
     }
@@ -59,10 +79,11 @@ public class NotifyListAdapter extends RecyclerView.Adapter<NotifyListAdapter.Tr
         notifyDataSetChanged();
     }
     public class TransViewHolder extends RecyclerView.ViewHolder {
-        private final TextView dataName;
-        private final TextView dataMobile;
-        private final TextView dataAcetype;
-        private final TextView dataAmoyunt;
+        private TextView dataName;
+        private TextView dataMobile;
+        private TextView dataAcetype;
+        private TextView dataAmoyunt;
+        private TextView dataEdit;
 
         public TransViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -70,6 +91,7 @@ public class NotifyListAdapter extends RecyclerView.Adapter<NotifyListAdapter.Tr
             dataMobile = itemView.findViewById(R.id.nmbldata_id);
             dataAcetype = itemView.findViewById(R.id.nsalesdata_id);
             dataAmoyunt = itemView.findViewById(R.id.namountdata_id);
+            dataEdit = itemView.findViewById(R.id.nedit_id);
         }
     }
 }

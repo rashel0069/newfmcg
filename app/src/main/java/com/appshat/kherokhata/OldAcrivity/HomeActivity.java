@@ -2,6 +2,7 @@ package com.appshat.kherokhata.OldAcrivity;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -43,6 +45,7 @@ public class HomeActivity extends AppCompatActivity {
     FloatingActionButton fab;
     BottomAppBar bottomApp;
     Boolean val = false;
+
     private final BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -140,9 +143,27 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    public void exitDialog(Context mContext){
+        new AlertDialog.Builder(mContext)
+                .setIcon(R.drawable.fmcg3)
+                .setTitle("Exit?")
+                .setMessage("Do you want to close Khero Khata?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        System.exit(0);
+                    }
+                }).setNegativeButton("No", null ).show();
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
         setNotifications();
+    }
+
+    @Override
+    public void onBackPressed() {
+        exitDialog(HomeActivity.this);
     }
 }

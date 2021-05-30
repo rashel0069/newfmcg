@@ -6,6 +6,9 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "newtransaction")
 public class NewtransactionEntity {
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "userId")
+    Integer id;
 
     @ColumnInfo(name = "accoounttype")
     public
@@ -13,9 +16,7 @@ public class NewtransactionEntity {
     @ColumnInfo(name = "transactiontype")
     public
     String transactiontype;
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "userId")
-    int id;
+
     @ColumnInfo(name = "clientname")
     String clientname;
 
@@ -41,11 +42,12 @@ public class NewtransactionEntity {
         this.currentdate = currentdate;
     }
 
-    public int getId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

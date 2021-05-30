@@ -53,7 +53,7 @@ public class Receivablepayable_Fragment extends Fragment {
     TextView customerName, previousBalns, summPrev, newBalance, previbal2, paidammount, rpTv;
     ImageView contactnumber;
     MaterialButton calculate, saveTrans, searchUser;
-    String customerContName, currentdate, accounttype, transtype, cmmobile, cmamount, date;
+    String customerContName, currentdate, accounttype, transtype, cmmobile, cmamount, date,userid;
     NewtransactionDao newtransactionDao;
     LinearLayout l2;
     CardView l1;
@@ -181,9 +181,6 @@ public class Receivablepayable_Fragment extends Fragment {
 
             }
         });
-
-        //Date time
-//        currentdate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new java.util.Date());
 
         //edit new trans
         newCash = v.findViewById(R.id.newCash_id);
@@ -393,6 +390,7 @@ public class Receivablepayable_Fragment extends Fragment {
                 for (int i = 0; i < newtransactionEntities.size(); i++) {
                     total_credit = Double.parseDouble(newtransactionEntities.get(i).getClientamount()) + total_credit;
                     customerContName = newtransactionEntities.get(i).getClientname();
+
                 }
                 return total_credit.toString().trim();
             } else {
