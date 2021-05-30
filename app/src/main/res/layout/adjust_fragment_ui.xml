@@ -188,7 +188,7 @@
                         android:background="@drawable/inputbackground"
                         android:fontFamily="@font/montserrat"
                         android:hint="@string/amounthint"
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
                         android:lineHeight="17.07dp"
                         android:paddingLeft="25dp"
                         android:textColor="@color/white"

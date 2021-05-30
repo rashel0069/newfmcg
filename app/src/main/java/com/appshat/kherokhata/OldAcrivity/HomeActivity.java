@@ -162,8 +162,8 @@ public class HomeActivity extends AppCompatActivity {
         setNotifications();
     }
 
-    @Override
-    public void onBackPressed() {
-        exitDialog(HomeActivity.this);
-    }
+//    @Override
+//    public void onBackPressed() {
+//        exitDialog(HomeActivity.this);
+//    }
 }

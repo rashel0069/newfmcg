@@ -27,7 +27,7 @@
             android:background="@color/white"
             android:gravity="center"
             android:hint="@string/dayend"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:textColor="@color/black" />
     </LinearLayout>
 

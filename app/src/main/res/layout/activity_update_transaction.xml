@@ -125,6 +125,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:padding="5dp"
+            android:inputType="numberDecimal"
             android:fontFamily="@font/montserrat"
             android:textSize="14sp"
             android:textAlignment="textEnd"
