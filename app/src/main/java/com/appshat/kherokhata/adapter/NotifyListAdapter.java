@@ -55,7 +55,6 @@ public class NotifyListAdapter extends RecyclerView.Adapter<NotifyListAdapter.Tr
                    intent.putExtra("Ammount",newtransactionEntity.getClientamount());
                    intent.putExtra("Id",newtransactionEntity.getId());
                    intent.putExtra("DuDate",newtransactionEntity.getDuedate());
-                   Toast.makeText(v.getContext(), ""+mTransactions.get(position), Toast.LENGTH_SHORT).show();
                    v.getContext().startActivity(intent);
                    return false;
                }
@@ -66,12 +65,8 @@ public class NotifyListAdapter extends RecyclerView.Adapter<NotifyListAdapter.Tr
 
     @Override
     public int getItemCount() {
-        if (mTransactions != null) {
+        return mTransactions.size();
 
-            return mTransactions.size();
-        } else {
-            return 0;
-        }
     }
 
     public void setTrans(List<NewtransactionEntity> transactions) {

@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
@@ -61,8 +62,6 @@ public class UpdateTransaction extends AppCompatActivity {
         pickdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                DialogFragment dialogFragment = new NewTransaction_Fragment.DatePickerFragment();
-//                dialogFragment.show(getActivity().getSupportFragmentManager(), DATE_DIALOG_1);
                 DialogFragment dialogFragment = new UpdateTransaction.DatePickerFragment();
                 dialogFragment.show(getSupportFragmentManager(),DATE_DIALOG_1);
 
@@ -97,6 +96,8 @@ public class UpdateTransaction extends AppCompatActivity {
             finish();
 
 
+        }else {
+            Toast.makeText(getApplicationContext(), "Pick Extend Date", Toast.LENGTH_SHORT).show();
         }
     }
 
