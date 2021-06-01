@@ -55,6 +55,12 @@
                 android:textColor="#828282"
                 android:textSize="15sp" />
 
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"/>
+
         </LinearLayout>
 
         <TextView

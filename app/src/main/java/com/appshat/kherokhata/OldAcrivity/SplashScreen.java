@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class SplashScreen extends AppCompatActivity {
     ImageView spImage;
     TextView spText, tv5, tv6, tv7;
     Context context;
+    ProgressBar progressBar;
     Resources resources;
 
     @Override
@@ -39,9 +41,10 @@ public class SplashScreen extends AppCompatActivity {
         spText = findViewById(R.id.splashText);
         tv5 = findViewById(R.id.textView5);
         tv7 = findViewById(R.id.dgtv_id);
+        progressBar = findViewById(R.id.progressbar);
 
-        spImage.setAnimation(topAnim);
-        spText.setAnimation(bottomAnim);
+        //spImage.setAnimation(topAnim);
+        //spText.setAnimation(bottomAnim);
         if (!Helper.getcomefirsttime()) {
             Helper.setcomefirsttime(true);
             Helper.setBangla(true);
@@ -84,6 +87,6 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 4000);
+        }, 2000);
     }
 }
