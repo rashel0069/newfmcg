@@ -38,6 +38,7 @@ import com.appshat.kherokhata.Room.ENTITY.AdjustEntity;
 import com.appshat.kherokhata.Room.ENTITY.NewtransactionEntity;
 import com.appshat.kherokhata.Room.model.AdjustViewModel;
 import com.appshat.kherokhata.Room.model.TransactionViewModel;
+import com.appshat.kherokhata.adapter.GetNumberOnclick;
 import com.appshat.kherokhata.adapter.TransactionListAdapter2;
 import com.google.android.material.button.MaterialButton;
 
@@ -46,7 +47,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Receivablepayable_Fragment extends Fragment {
+public class Receivablepayable_Fragment extends Fragment implements GetNumberOnclick {
     static final int PICK_CONTACT = 1;
     Spinner spadjust;
     EditText edtmobile, newCash, newProduct, newAdjust;
@@ -128,7 +129,8 @@ public class Receivablepayable_Fragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
-
+        transactionListAdapter = new TransactionListAdapter2(mRecivePay,this);
+        mRecivePay = new ArrayList<>();
         adjustViewModel = ViewModelProviders.of(getActivity()).get(AdjustViewModel.class);
         transactionViewModel = ViewModelProviders.of(this).get(TransactionViewModel.class);
 
@@ -142,6 +144,7 @@ public class Receivablepayable_Fragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 rpvalue = position;
                 accounttype = parent.getSelectedItem().toString();
+                edtmobile.setText("");
 
                 if (rpvalue == 1) {
                     recyclerView.setVisibility(View.VISIBLE);
@@ -243,8 +246,6 @@ public class Receivablepayable_Fragment extends Fragment {
                 findUserbymobile();
             }
         });
-
-
         return v;
     }
 
@@ -315,8 +316,7 @@ public class Receivablepayable_Fragment extends Fragment {
 
     //get past recivable data
     private void reciveableTrans() {
-        mRecivePay = new ArrayList<>();
-        transactionListAdapter = new TransactionListAdapter2(mRecivePay);
+        mRecivePay.clear();
         transactionViewModel.getmRecivable().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
             @Override
             public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
@@ -328,9 +328,8 @@ public class Receivablepayable_Fragment extends Fragment {
 
     //get past payable data
     private void payableTrans() {
-        mRecivePay = new ArrayList<>();
         mRecivePay.clear();
-        transactionListAdapter = new TransactionListAdapter2(mRecivePay);
+        //transactionListAdapter = new TransactionListAdapter2(mRecivePay);
         transactionViewModel.getmPaytrans().observe(getViewLifecycleOwner(), new Observer<List<NewtransactionEntity>>() {
             @Override
             public void onChanged(List<NewtransactionEntity> newtransactionEntities) {
@@ -339,6 +338,15 @@ public class Receivablepayable_Fragment extends Fragment {
         });
         recyclerView.setAdapter(transactionListAdapter);
     }
+
+    @Override
+    public void onItemClick(NewtransactionEntity data) {
+        l1.setVisibility(View.GONE);
+        l2.setVisibility(View.GONE);
+        String number = data.getClientmobile().toString();
+        edtmobile.setText(number);
+    }
+
 
     public class GetCreaditsellPaid extends AsyncTask<Void, Void, String> {
 
