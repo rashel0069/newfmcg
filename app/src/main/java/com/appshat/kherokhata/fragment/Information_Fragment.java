@@ -140,7 +140,7 @@ public class Information_Fragment extends Fragment {
 //            receivableET.setHint(resources.getString(R.string.amounthint));
 //            payableTV.setText(resources.getString(R.string.pay));
 //            payableET.setHint(resources.getString(R.string.amounthint));
-            saveBtn.setText(resources.getString(R.string.submit));
+            saveBtn.setText(resources.getString(R.string.saves));
 
         } else {
             Log.e("Bangla1", String.valueOf(Helper.getBangla()));
@@ -165,7 +165,7 @@ public class Information_Fragment extends Fragment {
 //            receivableET.setHint(resources.getString(R.string.amounthint));
 //            payableTV.setText(resources.getString(R.string.pay));
 //            payableET.setHint(resources.getString(R.string.amounthint));
-            saveBtn.setText(resources.getString(R.string.submit));
+            saveBtn.setText(resources.getString(R.string.saves));
 
         }
 
