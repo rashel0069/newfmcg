@@ -542,7 +542,7 @@
                             android:orientation="vertical">
 
                             <ImageView
-                                android:layout_width="45dp"
+                                android:layout_width="41dp"
                                 android:layout_height="45dp"
                                 android:src="@drawable/shoppingcart" />
 
