@@ -515,7 +515,7 @@
                 android:lineHeight="30dp"
                 android:paddingStart="9.62dp"
                 android:paddingEnd="9.62dp"
-                android:text="@string/submit"
+                android:text="@string/saves"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textFontWeight="600"
