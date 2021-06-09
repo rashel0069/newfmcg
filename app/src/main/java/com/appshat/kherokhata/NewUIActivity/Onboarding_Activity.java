@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.appshat.kherokhata.OldAcrivity.Helper;
 import com.appshat.kherokhata.OldAcrivity.Localhelper;
 import com.appshat.kherokhata.OldAcrivity.MainActivity;
+import com.appshat.kherokhata.OldAcrivity.RegActivity;
 import com.appshat.kherokhata.R;
 import com.google.android.material.button.MaterialButton;
 
@@ -150,7 +151,7 @@ public class Onboarding_Activity extends AppCompatActivity {
         stv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Onboarding_Activity.this, MainActivity.class);
+                Intent intent = new Intent(Onboarding_Activity.this, RegActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -158,10 +159,11 @@ public class Onboarding_Activity extends AppCompatActivity {
         buttonOnboardingAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Onboarding_Activity.this, MainActivity.class);
+                Intent intent = new Intent(Onboarding_Activity.this, RegActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
+
     }
 }

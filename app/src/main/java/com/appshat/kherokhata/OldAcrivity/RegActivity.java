@@ -2,6 +2,7 @@ package com.appshat.kherokhata.OldAcrivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.appshat.kherokhata.NewUIActivity.Onboarding_Activity;
 import com.appshat.kherokhata.R;
 import com.appshat.kherokhata.Room.DAO.UserDao;
 import com.appshat.kherokhata.Room.DB.Databaseroom;
@@ -140,6 +142,20 @@ public class RegActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(RegActivity.this, "Mobile Number and Password required", Toast.LENGTH_SHORT).show();
                 }
+
+                SharedPreferences preferences = getSharedPreferences("PREFERENCE", MODE_PRIVATE);
+                String FirstTime = preferences.getString("FirstTimeInstall", "");
+
+                if (FirstTime.equals("Yes")) {
+                    Intent intent = new Intent(RegActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("FirstTimeInstall", "Yes");
+                    editor.apply();
+                }
+
             }
         });
 
