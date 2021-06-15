@@ -31,6 +31,8 @@
 
     <string name="amounthint">eg. 5000</string>
 
+    <string name="amounthinthist">eg. 0.0</string>
+
     <string name="customerName">Customer Name</string>
 
     <string name="titletv">Your today\'s receivable/payable Reminder : </string>

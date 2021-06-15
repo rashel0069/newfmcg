@@ -30,6 +30,8 @@
 
     <string name="amounthint">যেমন:৫০০০</string>
 
+    <string name="amounthinthist">যেমন ০.০</string>
+
     <string name="customerName">ক্রেতার নাম</string>
 
     <string name="titletv">আপনার আজকের গ্রহণযোগ্য / প্রদানযোগ্য অনুস্মারক: </string>

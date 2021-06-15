@@ -526,11 +526,13 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="100dp"
                         android:layout_height="90dp"
+
                         android:backgroundTint="#E5E5E5"
                         app:cardCornerRadius="15dp">
 
