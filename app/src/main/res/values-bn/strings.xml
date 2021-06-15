@@ -10,9 +10,9 @@
 
     <string name="digitalistic">ডিজিটালিস্টিক</string>
 
-    <string name="text1">আপনার লেনদেন গুলা সহজেই টুকে নিন <font color ="#000000">খেরোখাতা তে</font></string>
+    <string name="text1">আপনার লেনদেন গুলা সহজেই টুকে নিন <font color="#000000">খেরোখাতা তে</font></string>
 
-    <string name="text2">এনালগ হিসাবনিকাশের <font color ="#000000"> দিন শেষ</font> </string>
+    <string name="text2">এনালগ হিসাবনিকাশের <font color="#000000"> দিন শেষ</font> </string>
 
     <string name="skip">বাতিল (Cancel)</string>
 
@@ -52,7 +52,6 @@
     <string name="shopname">দোকানের নাম (Shop Name) </string>
 
 
-
     <string name="saddhint">দোকানের ঠিকানা লিখুন</string>
 
     <string name="shopaddress">দোকানের ঠিকানা (Address)</string>
@@ -77,15 +76,10 @@
     <string name="sownername">দোকানদারের নাম</string>
 
 
-
     <string name="scontacthint">মোবাইল নাম্বার লিখুন</string>
 
 
-
     <string name="ra">প্রাপ্তির পরিমাণ</string>
-
-
-
 
 
     <string name="dayendcash">দিনশেষের হিসাব</string>
@@ -101,10 +95,7 @@
     <string name="search">অনুসন্ধান করুন</string>
 
 
-
-
     <string name="rp">দেনা / পাওনা</string>
-
 
 
     <string name="currentlocation">বর্তমান অবস্থান</string>
@@ -142,7 +133,7 @@
 
     <string name="amounts">পরিমাণ</string>
 
-    <string name="gs" >প্রবেশ করুন (Enter)</string>
+    <string name="gs">প্রবেশ করুন (Enter)</string>
 
     <string name="cashtransaction">নগদ লেনদেন</string>
 
@@ -212,14 +203,19 @@
 
     <string name="facebook">ফেসবুক</string>
 
-    <string name="about">ডিজিটালিস্টিক মুদি দোকানের আর্থিক তথ্য মুঠোফোনে সংরক্ষন , অর্ডার স্বয়ংক্রিয় ভাবে দেয়ার জন্য একটি মোবাইল এপ্লিকেশন। ডিজিটালিস্টিক এর উদ্দেশ্য মুদি দোকানকে আধুনিকরণ এবং এর মাধ্যমে দোকানদারকে ভবিষ্যতে আর্থিক প্রতিষ্ঠান থেকে ঋণ পাবার ব্যবস্থা করা
+    <string name="about">লেনদেন প্রক্রিয়াজাতকরণের জন্য খেরো খাতা একটি ক্রস ফাংশনাল খুচরা স্টোর অ্যাপ।
  </string>
 
-    <string name="about2">ডিজিটালিস্টিক এর উদ্দেশ্য মুদি দোকানকে আধুনিকরণ এবং এর মাধ্যমে দোকানদারকে ভবিষ্যতে আর্থিক প্রতিষ্ঠান থেকে ঋণ পাবার ব্যবস্থা করা</string>
+    <string name="about2">খেরোখাতার লক্ষ্য আর্থিক তথ্য রেকর্ডিং ডিজিটাইজড পদ্ধতিতে, অর্ডার এবং ডেটা বিশ্লেষণ সরবরাহ করে গতানুগতিক খুচরা স্থান ব্যাহত করা।</string>
+
     <string name="sales">বিক্রয়</string>
+
     <string name="closingcash">সর্বমোট নগদ </string>
+
     <string name="from">থেকে</string>
+
     <string name="to">পর্যন্ত</string>
+
     <string name="last_month">গত মাস</string>
 
     <string name="datehint">যেমন: ২৭-৯-২০২০</string>
@@ -256,7 +252,7 @@
 
     <string name="signup">অ্যাকাউন্ট নেই? <b> সাইনআপ করুন</b> (Signup)</string>
 
-    <string name="enter_your_" >আপনার ফোন নম্বর এবং পাসওয়ার্ড লিখুন </string>
+    <string name="enter_your_">আপনার ফোন নম্বর এবং পাসওয়ার্ড লিখুন </string>
 
     <string name="enter_your_cr">আপনার তথ্য লিখুন</string>
 
@@ -268,7 +264,7 @@
     <string name="mobile">মোবাইল নম্বর লিখুন</string>
 
     <string name="terms">আপনি আমাদের  এবং
-         <font color='#000000'>পরিষেবার শর্তাদি</font> এবং <font color = '#000000'>গোপনীয়তা নীতিতে সম্মত হয়েছেন</font> </string>
+         <font color='#000000'>পরিষেবার শর্তাদি</font> এবং <font color='#000000'>গোপনীয়তা নীতিতে সম্মত হয়েছেন</font> </string>
 
     <string name="sign_up">নিবন্ধন করুন (SignUp)</string>
 
