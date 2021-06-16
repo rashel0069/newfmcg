@@ -16,7 +16,7 @@ import com.appshat.kherokhata.R;
 public class BoatFragment extends Fragment {
     WebView webView;
     ProgressBar progressBar;
-    private final String webUrl = "https://digitalistic.co/app";
+    private final String webUrl = "http://45.86.68.29:8000/app";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
