@@ -50,6 +50,7 @@ public class BoatFragment extends Fragment {
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             super.shouldOverrideUrlLoading(view, url);
             view.loadUrl(url);
+            progressBar.setVisibility(View.GONE);
             return true;
         }
 
